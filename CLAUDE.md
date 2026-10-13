@@ -22,6 +22,10 @@ Carte : carte.html + css/style.css + js/{config,geo,weather,model,render,tuiles,
 - main.js : UI, choix du jour (aujourd'hui/demain/week-end) et zones fermées pour la chasse (pane 'fermetures', motif SVG #hachures, alerte selon la vue), popup au clic, fiche « Puis-je cueillir ici ? » + « Pourquoi ici ? » (bouton, onglet « Ici ? », carte.html?ici=1 avec GPS), carte.html?ajout=1, WMS manager, « Mes coins », overlay CartoWeb, position dans l'URL (#z/lat/lon).
 - Tests sans Node : Chrome headless piloté par le protocole DevTools (profil hors du dossier scratchpad, sinon CacheStorage échoue).
 
+## En ligne
+Dépôt public https://github.com/julienpiette/sous-bois-wallonie, publié par GitHub Pages : https://julienpiette.github.io/sous-bois-wallonie/ (l'icône du téléphone de Julien y est liée).
+Publier : `powershell -ExecutionPolicy Bypass -File scripts\publier.ps1 "message"` (en-têtes, VERSION de sw.js, commit, push ; en ligne en 1-10 min). Git et gh portables dans %USERPROFILE%\outils (PATH utilisateur). Commits signés julienpiette / adresse noreply GitHub (jamais l'e-mail perso). sources/ jamais versionné. Régénérer les tuiles alourdit l'historique (~140 Mo à chaque fois) : le faire rarement.
+
 ## Règles
 - Ne jamais présenter un potentiel comme une identification ; garder l'avertissement de sécurité.
 - Seuils météo = hypothèses : les calibrer avec le journal (modelIndex vs résultat).

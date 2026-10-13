@@ -8,7 +8,8 @@ Windows, sans Python ni Node :
 powershell -ExecutionPolicy Bypass -File scripts\serve.ps1
 ```
 Puis ouvrir http://localhost:8080. Ne pas ouvrir les pages en double-clic (tuiles, données et service worker en ont besoin). Le serveur ne sert que les fichiers du site (jamais `sources/`, `scripts/`, `partials/`).
-Démo sur téléphone sans hébergement : `scripts\demo.bat` (serveur + tunnel Cloudflare, adresse https://….trycloudflare.com qui change à chaque lancement).
+**En ligne** : https://julienpiette.github.io/sous-bois-wallonie/ (GitHub Pages, dépôt public). Publier une modification : `powershell -ExecutionPolicy Bypass -File scripts\publier.ps1 "ce qui a changé"` ; revenir en arrière : `git log --oneline`, `git revert <commit>`, puis publier.
+Ancienne démo par tunnel, sans hébergement : `scripts\demo.bat` (serveur + tunnel Cloudflare, adresse https://….trycloudflare.com qui change à chaque lancement).
 
 ## Pages
 - Cueillir : `index.html` (accueil, alerte battues du jour, mini-bulletin), `bulletin.html` (feu par massif et par espèce), `carte.html` (carte des milieux + zones fermées + « Ici ? »), `droit.html` (outil « Puis-je cueillir ici ? » + règles), `battues.html` (21 jours par massif ou autour de soi, export .ics), `carnet.html` (coins, sauvegarde chiffrée, transmission, bilan).
