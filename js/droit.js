@@ -153,24 +153,24 @@
       const commune = c ? c.nom : titre(nom);
       r.statut = 'avec';
       if (c) {
-        r.mot = c.type === 'reserve' ? 'Restreint' : 'À vérifier';
+        r.mot = c.type === 'reserve' ? 'Sous conditions' : 'À vérifier';
         r.titre = 'Bois communal de ' + commune + ' : règlement local';
         r.texte = c.regle;
         r.sources = c.sources;
       } else {
-        r.mot = 'Avec accord';
+        r.mot = 'Sous conditions';
         r.titre = 'Bois communal de ' + commune;
         r.texte = 'Hors chemin, l’accord de la commune est requis. Certaines communes publient une autorisation générale : renseigne-toi auprès de l’administration communale.';
       }
       r.demande = { proprietaire: 'Administration communale de ' + commune, foret: 'Bois communal de ' + commune };
     } else if (cat) {
-      r.statut = 'avec'; r.mot = 'Avec accord';
+      r.statut = 'avec'; r.mot = 'Sous conditions';
       r.titre = (CAT[cat] || 'Propriété publique') + (p.PROPRIETE ? ' (' + titre(p.PROPRIETE) + ')' : '');
       r.texte = cat === 9 ? 'Forêt privée gérée par le DNF. Le nom du propriétaire n’est pas public : le cantonnement peut t’orienter. Sans accord, on reste sur les chemins.'
         : 'Hors chemin, l’accord du propriétaire est requis.';
       if (cat !== 9) r.demande = { proprietaire: titre(p.PROPRIETE || ''), foret: CAT[cat] };
     } else if (prop.status === 'fulfilled' && r.contact) {
-      r.statut = 'avec'; r.mot = 'Avec accord';
+      r.statut = 'avec'; r.mot = 'Sous conditions';
       r.titre = 'Forêt privée (ou non répertoriée comme publique)';
       r.texte = 'Ici, c’est chez quelqu’un. Sans son accord, on admire et on passe, en restant sur les chemins. Son nom n’est pas public : regarde s’il existe une forêt domaniale proche.';
     } else if (prop.status === 'fulfilled') {
