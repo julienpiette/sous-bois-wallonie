@@ -1,5 +1,7 @@
 # Données brutes (≈ 6 Go) : jamais publiées. L'ancienneté des forêts (SPW) ne peut pas être republiée.
 sources/
+# Étude et brief privés : jamais publiés (dépôt public)
+docs-prive/
 # Ancienne copie du 12/10/2026
 sous-bois-wallonie/
 __pycache__/
