@@ -1,8 +1,8 @@
-# Données brutes (≈ 6 Go) : jamais publiées. L'ancienneté des forêts (SPW) ne peut pas être republiée.
-sources/
-# Étude et brief privés : jamais publiés (dépôt public)
+# Dossier privé : étude, brief, notes, scripts du modèle (docs-prive/modele), données locales
+# (docs-prive/donnees-locales, ≈ 6 Go, dont la couche « ancienneté des forêts » non republiable). Jamais publié.
 docs-prive/
-# Ancienne copie du 12/10/2026
+# Anciens emplacements, au cas où ils réapparaîtraient
+sources/
 sous-bois-wallonie/
 __pycache__/
 *.pyc
