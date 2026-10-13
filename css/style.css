@@ -129,7 +129,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 /* ---------- bouton « Puis-je cueillir ici ? » (ordinateur ; sur mobile : onglet « Ici ? ») ---------- */
 .fab-ici { position: absolute; z-index: 1040; bottom: 28px; left: calc(50% + 176px); transform: translateX(-50%);
   display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 12px 22px; border: 0; border-radius: 99px;
-  background: var(--girolle); color: #2b241c; font: 700 16px var(--texte); box-shadow: 0 8px 24px rgba(43, 36, 28, .3); cursor: pointer; }
+  background: var(--accent); color: #2b241c; font: 700 16px var(--texte); box-shadow: 0 8px 24px rgba(43, 36, 28, .3); cursor: pointer; }
 .fab-ici:hover { background: #f09a43; }
 .fab-ici svg { width: 22px; height: 22px; }
 @media (max-width: 860px) { .fab-ici { display: none; } }
@@ -158,7 +158,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 .pop-alerte { display: flex; gap: 8px; align-items: flex-start; background: var(--non); color: #fff; border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; }
 .pop-alerte svg { width: 18px; height: 18px; flex: none; }
 .pop-btn { display: flex; width: 100%; align-items: center; justify-content: center; gap: 6px; min-height: 44px; margin-top: 8px; border: 0; border-radius: 99px;
-  background: var(--girolle); color: #2b241c; font: 700 14px var(--texte); cursor: pointer; }
+  background: var(--accent); color: #2b241c; font: 700 14px var(--texte); cursor: pointer; }
 .pop-btn:hover { background: #f09a43; }
 .pop-ici small { color: var(--humus-2); }
 

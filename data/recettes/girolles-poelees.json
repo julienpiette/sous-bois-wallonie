@@ -1,0 +1,29 @@
+{
+  "id": "girolles-poelees",
+  "titre": "Girolles poêlées à l’ail et au persil",
+  "statut": "brouillon",
+  "espece": "girolle",
+  "famille": "champignon",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 10,
+  "portions": 2,
+  "base_g": 300.0,
+  "chapeau": "Saisies d’abord à sec, puis au beurre : les girolles gardent leur tenue et leur parfum d’abricot.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 300.0, "base": true },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie les girolles au pinceau ; coupe les plus grosses en deux.",
+    "Mets-les dans une poêle chaude sans matière grasse 4 à 5 minutes, jusqu’à ce que leur eau s’évapore. Jette l’eau rendue si elle est abondante.",
+    "Ajoute l’huile et le beurre, fais dorer 4 minutes à feu vif en remuant.",
+    "Hors du feu, ajoute l’ail, le persil, le sel et le poivre ; mélange une minute.",
+    "Sers aussitôt, par exemple avec une viande blanche ou sur une tartine grillée."
+  ]
+}

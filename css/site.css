@@ -1,10 +1,10 @@
 /* Sous-bois Wallonie : identité « relevé de terrain ».
-   Base humus / mousse / brouillard, une seule couleur signal (orange girolle), statuts jamais portés par la
+   Base humus / mousse / brouillard, une seule couleur signal (orange accent), statuts jamais portés par la
    couleur seule (icône + mot). Cibles ≥ 48 px, texte de base 16 px. Règles de contenu préfixées .page ;
    en-tête, onglets et composants partagés aussi utilisés sur carte.html (html.clair = toujours clair). */
 :root {
   --brume: #eef0eb; --papier: #ffffff; --humus: #2b241c; --humus-2: #5b5348; --trait: #d6d9cf;
-  --mousse: #3f5b3c; --mousse-2: #e1e9dc; --mousse-3: #2e452c; --girolle: #e3801b; --girolle-2: #fbeedd;
+  --mousse: #3f5b3c; --mousse-2: #e1e9dc; --mousse-3: #2e452c; --accent: #e3801b; --accent-2: #fbeedd;
   --oui: #2c6a37; --oui-2: #dff0e2; --avec: #855800; --avec-2: #fbefd4; --non: #a5301d; --non-2: #fbe4df;
   --ombre: 0 1px 2px rgba(43, 36, 28, .06), 0 8px 24px rgba(43, 36, 28, .06);
   --titre: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not(.clair) {
     --brume: #151914; --papier: #1d221b; --humus: #e8eae3; --humus-2: #a7ad9f; --trait: #313a2f;
-    --mousse: #93bf8f; --mousse-2: #23301f; --mousse-3: #b9d8b5; --girolle: #f09a43; --girolle-2: #352612;
+    --mousse: #93bf8f; --mousse-2: #23301f; --mousse-3: #b9d8b5; --accent: #f09a43; --accent-2: #352612;
     --oui: #8fd39b; --oui-2: #1b3020; --avec: #f0c564; --avec-2: #362b12; --non: #ff917b; --non-2: #3a1d17;
     --ombre: 0 1px 2px rgba(0, 0, 0, .4);
     color-scheme: dark;
@@ -24,7 +24,7 @@
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-:focus-visible { outline: 3px solid var(--girolle); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
 /* ---------- logo-tampon ---------- */
@@ -40,7 +40,7 @@
 .nav a { color: var(--humus-2); text-decoration: none; font-weight: 500; font-size: 15px; padding: 10px 12px; border-radius: 99px; }
 .nav a:hover { color: var(--humus); background: var(--mousse-2); }
 .nav a[aria-current=page] { color: var(--humus); font-weight: 600; }
-.nav a.cta, .cta-mobile { background: var(--girolle); color: #2b241c; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+.nav a.cta, .cta-mobile { background: var(--accent); color: #2b241c; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
 .nav a.cta { padding: 10px 16px; margin-left: 8px; }
 .nav a.cta:hover { background: #f09a43; color: #2b241c; }
 .nav a.cta svg, .cta-mobile svg { width: 18px; height: 18px; }
@@ -65,7 +65,7 @@
   .onglets a svg { width: 24px; height: 24px; }
   .onglets a[aria-current=page] { color: var(--mousse); }
   .onglets a.ici { color: var(--humus); }
-  .onglets a.ici span.rond { width: 44px; height: 44px; margin-top: -18px; border-radius: 50%; background: var(--girolle); display: grid; place-items: center; box-shadow: var(--ombre); }
+  .onglets a.ici span.rond { width: 44px; height: 44px; margin-top: -18px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: var(--ombre); }
   body.page { padding-bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); }
 }
 
@@ -79,7 +79,7 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .page main { display: block; }
 .page section.bloc { padding-block: 48px; }
 .page section.bloc + section.bloc { padding-top: 8px; }
-.page .surtitre { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--girolle); margin: 0 0 10px; }
+.page .surtitre { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
 .page h1, .page h2, .page h3 { font-family: var(--titre); line-height: 1.15; margin: 0 0 14px; letter-spacing: -.01em; text-wrap: balance; }
 .page h1 { font-size: clamp(32px, 5.4vw, 54px); }
 .page h2 { font-size: clamp(24px, 3.2vw, 32px); }
@@ -92,7 +92,7 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .page .num { font-variant-numeric: tabular-nums; }
 
 .page .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 20px; border-radius: 99px; font: 600 15px var(--texte); text-decoration: none; border: 1px solid transparent; cursor: pointer; }
-.page .btn.signal { background: var(--girolle); color: #2b241c; }
+.page .btn.signal { background: var(--accent); color: #2b241c; }
 .page .btn.signal:hover { background: #f09a43; }
 .page .btn.plein { background: var(--mousse); color: var(--brume); }
 .page .btn.plein:hover { background: var(--mousse-3); }
@@ -115,7 +115,7 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .page .etapes .carte::before { counter-increment: e; content: counter(e); display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--mousse-2); color: var(--mousse); font: 600 14px var(--mono); margin-bottom: 10px; }
 .page .point { width: 11px; height: 11px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 8px; flex: none; }
 .page .etiquette { text-decoration: none; display: inline-block; font: 500 12px var(--mono); padding: 3px 10px; border-radius: 99px; background: var(--mousse-2); color: var(--mousse); margin: 0 4px 4px 0; }
-.page .etiquette.signal { background: var(--girolle-2); color: var(--humus); }
+.page .etiquette.signal { background: var(--accent-2); color: var(--humus); }
 
 /* piliers */
 .page .pilier { display: flex; flex-direction: column; gap: 6px; }
@@ -128,7 +128,7 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .page .encadre.info { background: var(--mousse-2); }
 .page .encadre.attention { background: var(--non-2); }
 .page .encadre.attention strong { color: var(--non); }
-.page .encadre.note { background: var(--girolle-2); }
+.page .encadre.note { background: var(--accent-2); }
 
 /* statuts (droit de cueillir) : icône + mot, jamais la couleur seule */
 .statut { display: inline-flex; align-items: center; gap: 6px; font: 700 13px var(--texte); padding: 4px 10px 4px 8px; border-radius: 99px; white-space: nowrap; }
@@ -222,7 +222,7 @@ dl.pourquoi dd { margin: 0; }
 
 /* glossaire */
 .page .gloss-search { width: 100%; max-width: 440px; }
-.page .gloss .lettre { font: 700 22px var(--titre); color: var(--girolle); margin: 26px 0 8px; }
+.page .gloss .lettre { font: 700 22px var(--titre); color: var(--accent); margin: 26px 0 8px; }
 .page .gloss dl { margin: 0; }
 .page .gloss .terme { padding: 12px 0; border-bottom: 1px solid var(--trait); }
 .page .gloss dt { font-weight: 700; }
@@ -230,7 +230,7 @@ dl.pourquoi dd { margin: 0; }
 
 /* matériel */
 .page .produit { display: flex; flex-direction: column; }
-.page .produit .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--girolle-2); color: #a6520c; display: grid; place-items: center; margin-bottom: 12px; }
+.page .produit .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-2); color: #a6520c; display: grid; place-items: center; margin-bottom: 12px; }
 .page .produit .ico svg { width: 24px; height: 24px; }
 .page .produit p { color: var(--humus-2); font-size: 15px; }
 .page .produit .conseil { font-size: 14px; border-top: 1px dashed var(--trait); padding-top: 10px; margin-top: auto; color: var(--humus); }
@@ -241,13 +241,13 @@ dl.pourquoi dd { margin: 0; }
 .page .offre { display: flex; flex-direction: column; gap: 10px; }
 .page .offre .prix { font: 700 34px var(--titre); }
 .page .offre .prix small { font: 500 14px var(--texte); color: var(--humus-2); }
-.page .offre.mise { border: 2px solid var(--girolle); }
+.page .offre.mise { border: 2px solid var(--accent); }
 .page .offre ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
 
 /* feuille de route */
 .page .etat-dev { display: inline-block; font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; padding: 3px 9px; border-radius: 99px; }
 .page .etat-dev.en-ligne { background: var(--oui-2); color: var(--oui); }
-.page .etat-dev.bientot { background: var(--girolle-2); color: var(--humus); }
+.page .etat-dev.bientot { background: var(--accent-2); color: var(--humus); }
 .page .etat-dev.plus-tard { background: var(--mousse-2); color: var(--humus-2); }
 
 /* carnet */
@@ -264,7 +264,7 @@ dl.pourquoi dd { margin: 0; }
   background: var(--humus); color: var(--brume); border-radius: 16px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: var(--ombre); font: 15px/1.4 var(--texte); }
 .installer p { margin: 0; flex: 1; }
 .installer button { min-height: 44px; border-radius: 99px; border: 0; padding: 8px 14px; font: 600 14px var(--texte); cursor: pointer; }
-.installer .oui-installer { background: var(--girolle); color: #2b241c; }
+.installer .oui-installer { background: var(--accent); color: #2b241c; }
 .installer .plus-tard { background: transparent; color: var(--brume); }
 @media (max-width: 860px) { .installer { bottom: calc(var(--onglets) + 10px + env(safe-area-inset-bottom, 0px)); } }
 .hors-reseau { position: fixed; top: calc(var(--head) + 8px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 2150; background: var(--humus); color: var(--brume); border-radius: 99px; padding: 6px 14px; font: 600 13px var(--texte); }
@@ -277,3 +277,36 @@ dl.pourquoi dd { margin: 0; }
 .page .site-foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .page .site-foot p { margin: 0 0 6px; }
 .page .site-foot button { background: none; border: 1px solid var(--trait); border-radius: 99px; color: var(--humus); padding: 8px 14px; min-height: 40px; font: 600 13px var(--texte); cursor: pointer; }
+
+/* ---------- fiches espèces en cinq étapes, recettes, conservation, garde-manger ---------- */
+.page .reperes { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; padding: 0; list-style: none; counter-reset: rep; }
+.page .reperes a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--trait); background: var(--brume); color: var(--humus); text-decoration: none; font: 600 14px var(--texte); }
+.page .reperes a::before { counter-increment: rep; content: counter(rep); font: 500 12px var(--mono); color: var(--mousse); }
+.page .reperes a:hover { border-color: var(--mousse); }
+.page .etape { border-top: 1px solid var(--trait); padding-top: 14px; margin-top: 14px; }
+.page .etape h3 { font-size: 17px; margin-bottom: 6px; }
+.famille { display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--humus-2); border: 1px solid var(--trait); border-radius: 99px; padding: 3px 10px 3px 7px; }
+.famille svg { width: 16px; height: 16px; }
+.a-relire { display: inline-block; font: 500 12px var(--mono); color: var(--avec); background: var(--avec-2); border-radius: 99px; padding: 3px 10px; }
+.brouillon { display: inline-block; font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--avec); border: 1px dashed var(--avec); border-radius: 6px; padding: 2px 8px; }
+/* bandeau de sécurité : informe sans affoler (ambre), jamais bloquant */
+details.securite { background: var(--avec-2); color: var(--humus); border-radius: 12px; padding: 0 14px; margin: 12px 0 18px; border-left: 4px solid var(--avec); }
+details.securite summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; gap: 8px; font: 600 15px var(--texte); list-style: none; }
+details.securite summary::-webkit-details-marker { display: none; }
+details.securite summary::after { content: '+'; margin-left: auto; font-weight: 700; color: var(--avec); }
+details.securite[open] summary::after { content: '–'; }
+details.securite > div { padding-bottom: 12px; font-size: 15px; }
+details.securite a { color: inherit; font-weight: 700; }
+.page .recette { font-size: 18px; line-height: 1.6; }
+.page .recette .ingr { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 2px; }
+.page .recette .ingr li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--trait); }
+.page .recette .ingr .q { font: 600 17px var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.page .recette ol.etapes-r { padding-left: 26px; display: grid; gap: 10px; }
+.page .poids { display: grid; gap: 6px; background: var(--brume); border: 1px solid var(--trait); border-radius: 14px; padding: 14px 16px; margin: 14px 0 18px; }
+.page .poids input[type=range] { width: 100%; min-height: 32px; accent-color: var(--mousse); }
+.page .poids output { font: 700 22px var(--mono); }
+.page .regle { font: 700 20px/1.35 var(--titre); color: var(--non); background: var(--non-2); border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+.page .meta-r { display: flex; flex-wrap: wrap; gap: 8px 16px; font: 500 14px var(--mono); color: var(--humus-2); margin: 6px 0 12px; }
+.page .gm { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 12px 0; border-top: 1px solid var(--trait); }
+.page .gm .avant { font: 500 13px var(--mono); }
+.page .gm .avant.depasse { color: var(--non); font-weight: 700; }

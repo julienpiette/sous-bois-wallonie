@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recettes de cueillette · Musette</title>
+<meta name="description" content="Des recettes pensées pour ce que tu as cueilli : les quantités, en grammes, se recalculent selon le poids de ta récolte.">
+<meta name="theme-color" content="#3f5b3c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Musette">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="page">
+<!-- debut:entete -->
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="index.html" aria-label="Musette, accueil">
+      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M32 51V19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M32 40c-7.5-.5-11.5-5.5-11-11 6 .6 10.4 4.8 11 11zM32 31c7.5-.5 11.5-5.5 11-11-6 .6-10.4 4.8-11 11zM32 22c-3.2-3-3.4-7.6 0-11 3.4 3.4 3.2 8 0 11z" fill="currentColor"/><circle cx="44.5" cy="44" r="4.5" fill="#e3801b"/></svg>
+      <span><b>Musette</b><small>Cueillette</small></span>
+    </a>
+    <a class="cta-mobile" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="bulletin.html">Bulletin</a>
+      <a href="carnet.html">Carnet</a>
+      <a href="guide.html">Guide</a>
+      <a class="cta" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
+    </nav>
+  </div>
+</header>
+<!-- fin:entete -->
+
+<main class="wrap etroit">
+  <section class="hero" id="r-hero" style="padding-bottom:12px">
+    <p class="surtitre">Recettes</p>
+    <h1>Ce que tu fais de ta récolte.</h1>
+    <p class="chapeau">Pas un livre de cuisine de plus : des recettes qui partent du panier. Indique le poids de ta récolte, les quantités suivent.</p>
+  </section>
+  <section class="bloc" style="padding-top:8px">
+    <div id="recettes" aria-live="polite"><p class="discret">Chargement…</p></div>
+  </section>
+  <section class="bloc">
+    <div class="encadre attention"><p><strong>Toujours cuire les champignons sauvages</strong>, et ne cuisiner que ce qui a été identifié avec certitude. Intoxication : Centre Antipoisons <a href="tel:070245245">070 245 245</a>.</p></div>
+  </section>
+</main>
+
+<!-- debut:pied -->
+<footer class="site-foot">
+  <div class="wrap cols">
+    <div>
+      <h4>Musette</h4>
+      <p>Cueillette sauvage en Wallonie : quand ça pousse, où tu as le droit, et tes coins pour toi.</p>
+      <p><button type="button" class="installer-btn" hidden>Installer l’appli sur ce téléphone</button></p>
+      <p>Intoxication : Centre Antipoisons <b>070 245 245</b> (24 h/24).</p>
+    </div>
+    <div>
+      <h4>Cueillir</h4>
+      <ul>
+        <li><a href="bulletin.html">Bulletin des pousses</a></li>
+        <li><a href="carte.html">Carte</a></li>
+        <li><a href="carte.html?ici=1">Puis-je cueillir ici ?</a></li>
+        <li><a href="battues.html">Battues et fermetures</a></li>
+        <li><a href="droit.html">Le droit de cueillir</a></li>
+        <li><a href="carnet.html">Carnet et garde-manger</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Guide</h4>
+      <ul>
+        <li><a href="guide.html">Guide de cueillette</a></li>
+        <li><a href="especes.html">Fiches espèces</a></li>
+        <li><a href="recettes.html" aria-current="page">Recettes</a></li>
+        <li><a href="conservation.html">Conserver sa récolte</a></li>
+        <li><a href="avant-de-manger.html">Avant de manger</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+        <li><a href="materiel.html">Matériel</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Le projet</h4>
+      <ul>
+        <li><a href="approche.html">Notre approche</a></li>
+        <li><a href="pros.html">Partenaires</a></li>
+        <li><a href="mentions.html">Mentions, vie privée et sources</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:20px">
+    <p class="petit">Données : SPW (CC-BY 4.0), Copernicus, IGN CartoWeb, OpenStreetMap, Open-Meteo (<a href="mentions.html#licences">détail des sources</a>). Certains liens de la page Matériel sont des liens partenaires. Musette n’identifie aucune espèce : doute = on ne mange pas.</p>
+  </div>
+</footer>
+<!-- fin:pied -->
+<!-- debut:onglets -->
+<nav class="onglets" aria-label="Raccourcis">
+  <a href="bulletin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 9a3 3 0 0 1 0 6z"/><path d="M8 19l1-2M12 20l1-2M16 19l1-2"/></svg>Bulletin</a>
+  <a href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
+  <a class="ici" href="carte.html?ici=1"><span class="rond"><svg viewBox="0 0 24 24" fill="none" stroke="#2b241c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="m9 10 2 2 4-4"/></svg></span>Ici ?</a>
+  <a href="carnet.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M9 8h6M9 12h6"/></svg>Carnet</a>
+  <a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5v13"/></svg>Guide</a>
+</nav>
+<!-- fin:onglets -->
+<script src="js/site-config.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+<script src="js/recettes.js"></script>
+</body>
+</html>

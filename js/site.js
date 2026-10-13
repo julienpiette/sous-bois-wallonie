@@ -42,12 +42,12 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault(); invite = e;
     installBtns.forEach((b) => { b.hidden = false; b.onclick = installer; });
-    setTimeout(() => bandeau('Ajoute Sous-bois à ton écran d’accueil : bulletin, carte et carnet à un geste, même sous les épicéas.', installer), 4000);
+    setTimeout(() => bandeau('Ajoute Musette à ton écran d’accueil : bulletin, carte et carnet à un geste, même sous les épicéas.', installer), 4000);
   });
   const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
   if (ios && !standalone) {
     installBtns.forEach((b) => { b.hidden = false; b.onclick = () => bandeau('Sur iPhone : touche le bouton Partager, puis « Sur l’écran d’accueil ».', null); });
-    setTimeout(() => bandeau('Sur iPhone : touche Partager puis « Sur l’écran d’accueil » pour garder Sous-bois sous la main.', null), 6000);
+    setTimeout(() => bandeau('Sur iPhone : touche Partager puis « Sur l’écran d’accueil » pour garder Musette sous la main.', null), 6000);
   }
 
   // ---------- état du réseau ----------

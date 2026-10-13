@@ -165,15 +165,15 @@
       $('#legend').innerHTML = sel.map((sp) => '<span><i style="background:' + sp.color + '"></i>' + esc(sp.name) + '</span>').join('');
       return;
     }
-    const C = MW.CLASSES, top = C.breaks.map((b) => 'top ' + Math.round((1 - b) * 100) + ' %');
+    const C = MW.CLASSES;
     const cols = 'style="grid-template-columns:minmax(0,1.6fr) repeat(' + C.labels.length + ',1fr)"';
-    const head = '<div class="lg-row lg-head" ' + cols + '><span></span>' + C.labels.map((l, i) => '<span>' + esc(l) + '<br>' + top[i] + '</span>').join('') + '</div>';
+    const head = '<div class="lg-row lg-head" ' + cols + '><span></span>' + C.labels.map((l, i) => '<span>' + esc(l) + '</span>').join('') + '</div>';
     const rows = sel.map((sp) => {
       if (S.potentialsReady && !hasData(sp)) return '<div class="lg-row" ' + cols + '><span class="lg-nm">' + esc(sp.name) + '</span><span class="lg-miss">pas de données</span></div>';
       return '<div class="lg-row" ' + cols + '><span class="lg-nm">' + esc(sp.name) + '</span>' +
-        MW.render.ramp(sp.color).map((c, i) => '<i title="' + esc(C.labels[i]) + ' : ' + top[i] + ' des forêts" style="background:rgb(' + c.join(',') + ')"></i>').join('') + '</div>';
+        MW.render.ramp(sp.color).map((c, i) => '<i title="' + esc(C.labels[i]) + '" style="background:rgb(' + c.join(',') + ')"></i>').join('') + '</div>';
     }).join('');
-    $('#legend').innerHTML = '<div class="lg">' + head + rows + '</div><p class="muted small lg-note">Classement des forêts wallonnes entre elles (sol, eau, relief, feuillus ou résineux, ancienneté) : « top 20 % » = les 20 % de forêts les plus favorables à l’espèce. Abords des grands axes et zones bâties écartés. Dézoomé, chaque zone est une moyenne : zoome pour voir les meilleurs secteurs.</p>';
+    $('#legend').innerHTML = '<div class="lg">' + head + rows + '</div><p class="muted small lg-note">Milieux favorables à chaque espèce, comparés aux autres forêts wallonnes. Ce n’est pas une probabilité de trouvaille. Dézoomé, chaque zone est une moyenne : zoome pour voir les meilleurs secteurs.</p>';
   }
 
   /* ---------- battues : jour choisi, zones fermées, alerte ---------- */
@@ -276,7 +276,7 @@
         : (k < 0 ? 'en dessous de « ' + MW.CLASSES.labels[0] + ' »' : '<b>' + MW.CLASSES.labels[k] + '</b>') + ' · mieux que ' + Math.round(v * 100) + ' % des forêts';
       return '<tr><td><i class="dot" style="background:' + sp.color + '"></i>' + esc(sp.name) + '</td><td>' + txt + '</td></tr>';
     }));
-    return '<table class="pop">' + rows.join('') + '</table><small>Milieu seulement (sol, eau, relief, forêt, ancienneté), sans la météo. Ceci n’identifie aucun champignon.</small>';
+    return '<table class="pop">' + rows.join('') + '</table><small>Milieu seulement, sans la météo. Ceci n’identifie aucun champignon.</small>';
   }
 
   /* ---------- fiche « Puis-je cueillir ici ? » + « Pourquoi ici ? » ---------- */

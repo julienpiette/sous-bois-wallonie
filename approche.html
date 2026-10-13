@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Notre approche : méthode, données, vie privée · Sous-bois Wallonie</title>
-<meta name="description" content="Pourquoi Sous-bois ne montre aucun coin, comment la carte des milieux est calculée et validée, d’où viennent les données, et pourquoi tes coins ne quittent jamais ton téléphone.">
+<title>Notre approche · Musette</title>
+<meta name="description" content="Pourquoi Musette ne montre aucun coin, ce que la carte des milieux veut dire, d’où viennent les données, et pourquoi tes coins ne quittent jamais ton téléphone.">
 <meta name="theme-color" content="#3f5b3c">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Sous-bois">
+<meta name="apple-mobile-web-app-title" content="Musette">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,19 +20,17 @@
 <!-- debut:entete -->
 <header class="site-head">
   <div class="in">
-    <a class="logo" href="index.html" aria-label="Sous-bois Wallonie, accueil">
-      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M32 13 21 27h6l-8 10h7l-7 9h26l-7-9h7l-8-10h6z" fill="currentColor"/><rect x="29.5" y="46" width="5" height="6" fill="currentColor"/><circle cx="45" cy="47" r="4.5" fill="#e3801b"/></svg>
-      <span><b>Sous-bois</b><small>Wallonie</small></span>
+    <a class="logo" href="index.html" aria-label="Musette, accueil">
+      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M32 51V19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M32 40c-7.5-.5-11.5-5.5-11-11 6 .6 10.4 4.8 11 11zM32 31c7.5-.5 11.5-5.5 11-11-6 .6-10.4 4.8-11 11zM32 22c-3.2-3-3.4-7.6 0-11 3.4 3.4 3.2 8 0 11z" fill="currentColor"/><circle cx="44.5" cy="44" r="4.5" fill="#e3801b"/></svg>
+      <span><b>Musette</b><small>Cueillette</small></span>
     </a>
     <a class="cta-mobile" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="bulletin.html">Bulletin</a>
-      <a href="droit.html">Le droit</a>
-      <a href="battues.html">Battues</a>
-      <a href="guide.html">Guide</a>
       <a href="carnet.html">Carnet</a>
-      <a class="cta" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte interactive</a>
+      <a href="guide.html">Guide</a>
+      <a class="cta" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
     </nav>
   </div>
 </header>
@@ -42,12 +40,11 @@
   <section class="hero" style="padding-bottom:12px">
     <p class="surtitre">Notre approche</p>
     <h1>La forêt décide. On t’aide à l’écouter.</h1>
-    <p class="chapeau">Sous-bois n’est pas une carte de coins à champignons. C’est un compagnon de cueillette qui répond à trois questions que personne ne traite ensemble : quand ça pousse, où tu as le droit, et comment garder tes coins pour toi.</p>
+    <p class="chapeau">Musette n’est pas une carte de coins. C’est un compagnon de cueillette qui répond à trois questions que personne ne traite ensemble : quand ça pousse, où tu as le droit, et comment garder tes coins pour toi. Les champignons d’abord ; les plantes et les fruits viendront quand leurs fiches auront été relues par un spécialiste.</p>
     <ul class="sommaire">
       <li><a href="#piliers">Les quatre piliers</a></li>
       <li><a href="#refus">Ce que nous refusons</a></li>
-      <li><a href="#methode">Comment la carte est calculée</a></li>
-      <li><a href="#donnees">Données et licences</a></li>
+      <li><a href="#carte">Ce que dit la carte</a></li>
       <li><a href="#vie-privee">Vie privée</a></li>
     </ul>
   </section>
@@ -55,75 +52,37 @@
   <section class="bloc" id="piliers">
     <h2>Les quatre piliers</h2>
     <div class="grille deux">
-      <a class="carte" href="bulletin.html"><span class="ess">Quand</span><h3>Le bulletin des pousses</h3><p class="discret">Pluie cumulée, température, saison : chaque massif reçoit un feu (ça pousse, ça se prépare, trop sec, trop froid).</p></a>
-      <a class="carte" href="carte.html"><span class="ess">Où</span><h3>La carte des milieux</h3><p class="discret">Les forêts dont le sol, l’eau, le relief, les arbres et l’âge conviennent à chaque espèce. Des milieux, jamais des coins.</p></a>
+      <a class="carte" href="bulletin.html"><span class="ess">Quand</span><h3>Le bulletin des pousses</h3><p class="discret">Chaque massif reçoit un feu par espèce : ça pousse, ça se prépare, trop sec, trop froid.</p></a>
+      <a class="carte" href="carte.html"><span class="ess">Où</span><h3>La carte des milieux</h3><p class="discret">Les forêts dont le milieu convient à chaque espèce. Des milieux, jamais des coins.</p></a>
       <a class="carte" href="droit.html"><span class="ess">Le droit</span><h3>Puis-je cueillir ici ?</h3><p class="discret">Forêt domaniale, communale ou privée, réserve, battue du jour : la réponse et le bon contact, d’un geste.</p></a>
-      <a class="carte" href="carnet.html"><span class="ess">Le secret</span><h3>Ton carnet, chez toi</h3><p class="discret">Pas de compte, pas de serveur. Tes coins restent dans ton téléphone, avec une sauvegarde chiffrée si tu veux.</p></a>
+      <a class="carte" href="carnet.html"><span class="ess">Le secret</span><h3>Ton carnet, chez toi</h3><p class="discret">Pas de compte, pas de serveur. Tes coins et ton garde-manger restent dans ton téléphone.</p></a>
     </div>
   </section>
 
   <section class="bloc" id="refus">
     <h2>Ce que nous refusons</h2>
     <ul class="liste">
-      <li><b>L’identification par photo.</b> Lors d’un test de la télévision suisse, six applis sur sept ont échoué. Nous ne te dirons jamais qu’un champignon se mange : un humain qui sait, si. <a href="avant-de-manger.html">Avant de manger</a></li>
-      <li><b>Le partage public de coins.</b> Pas de carte des trouvailles, pas de « top spots ». Un coin partagé est un coin piétiné.</li>
+      <li><b>L’identification par photo.</b> Lors d’un test de la télévision suisse, six applis sur sept ont échoué. Nous ne te dirons jamais qu’une espèce se mange : un humain qui sait, si. <a href="avant-de-manger.html">Avant de manger</a></li>
+      <li><b>Le partage public de coins.</b> Pas de carte des trouvailles, pas de « meilleurs coins ». Un coin partagé est un coin piétiné.</li>
       <li><b>Les classements au poids.</b> Récompenser les kilos, c’est encourager le pillage que les communes combattent.</li>
       <li><b>La publicité et la revente de données.</b> Elles détruiraient la promesse : tes coins restent à toi.</li>
       <li><b>Cacher les forêts privées.</b> Une grande partie des bois wallons sont privés ou réservés. Les retirer de la carte, ce serait ne plus rien montrer. Nous les montrons, et nous disons clairement à qui demander. Seules les <b>battues</b> déclenchent une vraie alerte : ce jour-là, le secteur est fermé, point.</li>
     </ul>
   </section>
 
-  <section class="bloc" id="methode">
-    <h2>Comment la carte est calculée</h2>
-    <p>Pour chaque carré de 25 m de forêt wallonne, nous combinons :</p>
-    <div class="tableau"><table>
-      <thead><tr><th>Facteur</th><th>D’où il vient</th><th>Ce qu’il dit</th></tr></thead>
-      <tbody>
-        <tr><td>Sol</td><td>Carte numérique des sols de Wallonie</td><td>texture, acidité ou calcaire, profondeur</td></tr>
-        <tr><td>Eau</td><td>drainage du sol, réseau hydrographique</td><td>sec, frais ou engorgé</td></tr>
-        <tr><td>Relief</td><td>modèle numérique de terrain</td><td>pente et exposition du versant</td></tr>
-        <tr><td>Arbres</td><td>occupation du sol 2023 (WALOUS)</td><td>feuillus ou résineux, forêt ou non</td></tr>
-        <tr><td>Ancienneté</td><td>ancienneté des forêts (SPW)</td><td>boisée depuis la fin du XVIIIe siècle ou plus récente</td></tr>
-        <tr><td>Accès</td><td>routes, rail, bâti</td><td>pénalité près des grands axes et en ville</td></tr>
-      </tbody>
-    </table></div>
-    <p>Chaque espèce a ses propres poids (le sol compte plus pour la morille, l’eau plus pour la trompette). Le résultat n’est pas une probabilité : c’est un <b>classement</b> des forêts entre elles. « Bon » regroupe les 40 % de forêts les plus favorables, « Très bon » les 20 %, « Exceptionnel » les 5 %.</p>
-
-    <h3 style="margin-top:24px">Est-ce que ça marche ?</h3>
-    <p>Nous avons comparé la carte aux observations publiques déposées sur GBIF, en mettant chaque espèce face aux autres champignons forestiers observés (russules, lactaires, amanites…). Le score (AUC) vaut 0,5 pour le hasard et 1 pour une carte parfaite :</p>
-    <div class="chiffres">
-      <div><b class="num">0,76</b><span>morilles</span></div>
-      <div><b class="num">0,69</b><span>chanterelles en tube</span></div>
-      <div><b class="num">0,64</b><span>girolles</span></div>
-      <div><b class="num">0,58</b><span>trompettes</span></div>
-      <div><b class="num">0,58</b><span>pieds de mouton</span></div>
-      <div><b class="num">0,57</b><span>cèpes</span></div>
-    </div>
-    <p style="margin-top:16px">Lecture honnête : le signal est net pour les morilles, modeste pour les autres. Le cèpe pousse presque partout en forêt acide ; pour lui, le moment compte plus que le lieu. Les observations GBIF sont souvent imprécises (1 à 5 km) : ton carnet, lui, est précis, et c’est avec lui que la météo sera calibrée.</p>
-    <div class="encadre attention"><p><strong>Un milieu favorable n’est jamais une garantie</strong>, et une carte n’identifie aucun champignon. Doute = on ne mange pas.</p></div>
-
-    <h3 style="margin-top:24px">Et la météo ?</h3>
-    <p>Le bulletin calcule, pour chaque massif, la pluie des 26 derniers jours (avec un délai de trois jours), la température moyenne des 20 derniers jours, les gelées et la saison de chaque espèce. Les seuils viennent de la littérature scientifique (suivi de dix ans de cèpes en hêtraie) et du savoir de terrain ; ce sont des hypothèses que nous publions comme telles.</p>
-  </section>
-
-  <section class="bloc" id="donnees">
-    <h2>Données et licences</h2>
-    <ul class="liste">
-      <li><b>Service public de Wallonie</b> (Géoportail) : carte des sols, occupation du sol WALOUS, relief, réseau hydrographique, limites des forêts gérées par le DNF, territoires de chasse et dates de fermeture (données anonymisées, CC-BY 4.0), réserves naturelles, ancienneté des forêts. L’ancienneté est interrogée à la demande et n’est pas republiée : seule la carte de potentiel qui en dérive est diffusée.</li>
-      <li><b>Open-Meteo</b> : pluie et température, observées et prévues.</li>
-      <li><b>IGN Belgique (CartoWeb)</b>, <b>OpenStreetMap</b>, <b>OpenTopoMap</b> : fonds de carte, routes et cours d’eau.</li>
-      <li><b>Nominatim (OpenStreetMap)</b> : recherche de lieux.</li>
-      <li><b>GBIF</b> : observations publiques, utilisées uniquement pour valider la carte.</li>
-      <li>Règlements communaux : presse régionale et sites des communes, avec la source et la date à chaque fois.</li>
-    </ul>
-    <p class="petit discret">Les données du SPW décrivent l’état au moment de leur publication. Sur le terrain, l’affiche sur place fait toujours foi.</p>
+  <section class="bloc" id="carte">
+    <h2>Ce que dit la carte</h2>
+    <p>La carte croise des cartes publiques de la Wallonie (sol, eau, relief, type de forêt) pour classer les forêts entre elles, espèce par espèce. Trois teintes : <b>Bon</b>, <b>Très bon</b>, <b>Exceptionnel</b>. Ce n’est pas une probabilité de trouvaille : c’est un milieu favorable, et c’est la météo, puis tes pieds, qui font le reste.</p>
+    <p>Nous comparons régulièrement la carte à des observations publiques, et nous ajustons. Ton carnet, qui reste chez toi, est le meilleur juge pour tes propres coins.</p>
+    <div class="encadre attention"><p><strong>Un milieu favorable n’est jamais une garantie</strong>, et une carte n’identifie aucune espèce. Doute = on ne mange pas.</p></div>
+    <p>Les données utilisées et leurs licences sont détaillées dans les <a href="mentions.html#licences">mentions</a>.</p>
   </section>
 
   <section class="bloc" id="vie-privee">
     <h2>Vie privée</h2>
-    <p><b>Tes coins ne quittent jamais ton téléphone, parce qu’il n’y a nulle part où les envoyer.</b> Sous-bois n’a ni compte, ni base de données, ni traceur publicitaire.</p>
+    <p><b>Tes coins ne quittent jamais ton téléphone, parce qu’il n’y a nulle part où les envoyer.</b> Musette n’a ni compte, ni base de données, ni traceur publicitaire.</p>
     <ul class="liste">
-      <li>Ton carnet est enregistré dans la mémoire de ton navigateur. Nous n’y avons pas accès.</li>
+      <li>Ton carnet et ton garde-manger sont enregistrés dans la mémoire de ton navigateur. Nous n’y avons pas accès.</li>
       <li>Ta position GPS sert à calculer la réponse sur ton téléphone ; elle n’est envoyée qu’aux services publics interrogés (par exemple le SPW pour savoir à qui appartient la forêt), comme le ferait n’importe quelle carte en ligne.</li>
       <li>La sauvegarde chiffrée est illisible sans ta phrase secrète, y compris pour nous.</li>
       <li>Le bilan de saison ne contient aucun lieu.</li>
@@ -132,7 +91,7 @@
   </section>
 
   <section class="bloc">
-    <div class="btns"><a class="btn signal" href="feuille-de-route.html">Ce qui arrive ensuite</a><a class="btn ligne" href="offre.html">L’offre</a></div>
+    <div class="btns"><a class="btn signal" href="carte.html">Ouvrir la carte</a><a class="btn ligne" href="pros.html">Partenaires</a></div>
   </section>
 </main>
 
@@ -140,8 +99,8 @@
 <footer class="site-foot">
   <div class="wrap cols">
     <div>
-      <h4>Sous-bois Wallonie</h4>
-      <p>Le compagnon du cueilleur wallon : quand ça pousse, où tu as le droit, et tes coins pour toi.</p>
+      <h4>Musette</h4>
+      <p>Cueillette sauvage en Wallonie : quand ça pousse, où tu as le droit, et tes coins pour toi.</p>
       <p><button type="button" class="installer-btn" hidden>Installer l’appli sur ce téléphone</button></p>
       <p>Intoxication : Centre Antipoisons <b>070 245 245</b> (24 h/24).</p>
     </div>
@@ -149,18 +108,20 @@
       <h4>Cueillir</h4>
       <ul>
         <li><a href="bulletin.html">Bulletin des pousses</a></li>
-        <li><a href="carte.html">Carte interactive</a></li>
+        <li><a href="carte.html">Carte</a></li>
         <li><a href="carte.html?ici=1">Puis-je cueillir ici ?</a></li>
         <li><a href="battues.html">Battues et fermetures</a></li>
         <li><a href="droit.html">Le droit de cueillir</a></li>
-        <li><a href="carnet.html">Mon carnet</a></li>
+        <li><a href="carnet.html">Carnet et garde-manger</a></li>
       </ul>
     </div>
     <div>
-      <h4>Apprendre</h4>
+      <h4>Guide</h4>
       <ul>
         <li><a href="guide.html">Guide de cueillette</a></li>
         <li><a href="especes.html">Fiches espèces</a></li>
+        <li><a href="recettes.html">Recettes</a></li>
+        <li><a href="conservation.html">Conserver sa récolte</a></li>
         <li><a href="avant-de-manger.html">Avant de manger</a></li>
         <li><a href="glossaire.html">Glossaire</a></li>
         <li><a href="materiel.html">Matériel</a></li>
@@ -170,15 +131,13 @@
       <h4>Le projet</h4>
       <ul>
         <li><a href="approche.html" aria-current="page">Notre approche</a></li>
-        <li><a href="feuille-de-route.html">Ce qui arrive</a></li>
-        <li><a href="offre.html">L’offre</a></li>
-        <li><a href="pros.html">Gîtes, offices, communes</a></li>
-        <li><a href="mentions.html">Mentions et vie privée</a></li>
+        <li><a href="pros.html">Partenaires</a></li>
+        <li><a href="mentions.html">Mentions, vie privée et sources</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap" style="margin-top:20px">
-    <p class="petit">Données : SPW (CC-BY 4.0), Copernicus, IGN CartoWeb, OpenStreetMap, Open-Meteo, GBIF. Certains liens de la page Matériel sont des liens partenaires. Une carte n’identifie aucun champignon.</p>
+    <p class="petit">Données : SPW (CC-BY 4.0), Copernicus, IGN CartoWeb, OpenStreetMap, Open-Meteo (<a href="mentions.html#licences">détail des sources</a>). Certains liens de la page Matériel sont des liens partenaires. Musette n’identifie aucune espèce : doute = on ne mange pas.</p>
   </div>
 </footer>
 <!-- fin:pied -->
@@ -187,8 +146,8 @@
   <a href="bulletin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 9a3 3 0 0 1 0 6z"/><path d="M8 19l1-2M12 20l1-2M16 19l1-2"/></svg>Bulletin</a>
   <a href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
   <a class="ici" href="carte.html?ici=1"><span class="rond"><svg viewBox="0 0 24 24" fill="none" stroke="#2b241c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="m9 10 2 2 4-4"/></svg></span>Ici ?</a>
-  <a href="battues.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9v5M12 17h.01"/></svg>Battues</a>
   <a href="carnet.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M9 8h6M9 12h6"/></svg>Carnet</a>
+  <a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5v13"/></svg>Guide</a>
 </nav>
 <!-- fin:onglets -->
 <script src="js/site-config.js"></script>

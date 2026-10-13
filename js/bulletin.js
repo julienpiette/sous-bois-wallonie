@@ -66,7 +66,7 @@
         '<p><b>' + esc(r.phrase) + '</b></p>' +
         '<div class="especes-etat">' + r.etats.map((e) => '<div><span><span class="point" style="background:' + e.sp.color + '"></span>' + esc(e.sp.name) +
           (e.st.detail ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>' +
-        '<p class="releve">Pluie 26 j <b>' + Math.round(r.pluie26) + ' mm</b> · T° moy. 20 j <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu 7 j <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
+        '<p class="releve">Pluie récente <b>' + Math.round(r.pluie26) + ' mm</b> · température moyenne <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
         '<p class="battues-massif releve" data-massif="' + esc(r.m.id) + '">Battues ce week-end : …</p>' +
         '<div class="btns" style="margin-top:4px"><a class="btn ligne" href="carte.html#12/' + r.m.lat + '/' + r.m.lon + '">Voir sur la carte</a><a class="btn ligne" href="battues.html?massif=' + esc(r.m.id) + '">Calendrier des battues</a></div>' +
       '</article>').join('') + '</div>' +

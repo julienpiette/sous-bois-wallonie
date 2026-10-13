@@ -17,12 +17,26 @@
   MW.SPECIES.forEach((sp) => { const o = document.createElement('option'); o.value = sp.id; o.textContent = sp.name; sel.appendChild(o); });
   function ajouter(lat, lon) {
     coins.push({ id: Date.now(), lat: +lat.toFixed(5), lon: +lon.toFixed(5), date: MW.droit.todayISO(), species: sel.value,
-      result: $('#c-resultat').value, litres: +$('#c-litres').value || null, note: $('#c-note').value.trim() });
-    $('#c-note').value = ''; $('#c-litres').value = '';
+      result: $('#c-resultat').value, litres: +$('#c-litres').value.replace(',', '.') || null, poids: +$('#c-poids').value.replace(',', '.') || null, note: $('#c-note').value.trim() });
+    const poids = coins[coins.length - 1].poids, esp = coins[coins.length - 1].species;
+    $('#c-note').value = ''; $('#c-litres').value = ''; $('#c-poids').value = '';
     enregistrer();
     msg('Coin enregistré sur ce téléphone.');
+    if (poids) suite(esp, poids);
   }
   const msg = (t) => { $('#c-msg').textContent = t; };
+  // récolte pesée : proposer recettes, conservation et garde-manger (rien ne quitte le téléphone)
+  function suite(esp, poids) {
+    const s = $('#c-suite'); if (!s) return;
+    const g = String(poids).replace('.', ',');
+    s.innerHTML = '<p><b>' + esc(g) + ' g de ' + esc(espece(esp).name.toLowerCase()) + ' : et maintenant ?</b></p><div class="btns">' +
+      '<a class="btn ligne" href="recettes.html?espece=' + encodeURIComponent(esp) + '&poids=' + encodeURIComponent(poids) + '">Recettes à la bonne quantité</a>' +
+      '<a class="btn ligne" href="conservation.html">Conserver</a>' +
+      '<a class="btn ligne" href="#garde-manger" data-gm-espece="' + esc(esp) + '" data-gm-poids="' + esc(poids) + '">Ajouter au garde-manger</a></div>';
+    s.hidden = false;
+    const a = s.querySelector('[data-gm-espece]');
+    a.onclick = () => { if (window.SB_GM) window.SB_GM.preremplir(a.dataset.gmEspece, +a.dataset.gmPoids); };
+  }
   $('#c-ici').onclick = () => {
     if (!navigator.geolocation) return msg('Ce navigateur ne donne pas ta position : ajoute le coin depuis la carte.');
     msg('Recherche de ta position…');
@@ -37,7 +51,7 @@
     ul.innerHTML = coins.slice().sort((a, b) => (b.date || '').localeCompare(a.date || '')).map((c) => {
       const sp = espece(c.species);
       return '<div class="coin" data-id="' + c.id + '"><span class="point" style="background:' + sp.color + '"></span>' +
-        '<div><b>' + esc(sp.name) + '</b> · ' + esc(RES[c.result] || c.result) + (c.litres ? ' · ' + c.litres + ' L' : '') +
+        '<div><b>' + esc(sp.name) + '</b> · ' + esc(RES[c.result] || c.result) + (c.litres ? ' · ' + c.litres + ' L' : '') + (c.poids ? ' · ' + c.poids + ' g' : '') +
         '<div class="petit discret">' + esc(MW.droit.formatDate(c.date || MW.droit.todayISO())) + (c.note ? ' · ' + esc(c.note) : '') + '</div>' +
         '<div class="petit battue-coin"></div></div>' +
         '<div class="actions"><a class="btn ligne" href="carte.html#16/' + c.lat + '/' + c.lon + '" aria-label="Voir sur la carte">Carte</a>' +
@@ -127,7 +141,7 @@
     g.fillStyle = '#2b241c'; g.fillRect(0, 0, W, H);
     g.fillStyle = '#e3801b'; g.fillRect(80, 120, 120, 12);
     g.fillStyle = '#eef0eb'; g.font = '700 84px "Bricolage Grotesque", sans-serif'; g.fillText('Ma saison ' + an, 80, 250);
-    g.font = '500 34px "IBM Plex Mono", monospace'; g.fillStyle = '#c9cfc2'; g.fillText('SOUS-BOIS WALLONIE · CARNET', 80, 320);
+    g.font = '500 34px "IBM Plex Mono", monospace'; g.fillStyle = '#c9cfc2'; g.fillText((document.querySelector('meta[name=apple-mobile-web-app-title]') || { content: '' }).content.toUpperCase() + ' · CARNET', 80, 320);
     const dates = new Set(cs.map((c) => c.date)), parEsp = {};
     cs.forEach((c) => { parEsp[c.species] = (parEsp[c.species] || 0) + 1; });
     const lignes = [['Sorties', dates.size], ['Coins notés', cs.length], ['Litres', Math.round(cs.reduce((s, c) => s + (c.litres || 0), 0)) || '–']];

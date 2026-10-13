@@ -1,7 +1,7 @@
 {
-  "name": "Sous-bois Wallonie",
-  "short_name": "Sous-bois",
-  "description": "Le compagnon du cueilleur wallon : quand ça pousse, où tu as le droit de cueillir, les battues du jour et ton carnet de coins, privé.",
+  "name": "Musette",
+  "short_name": "Musette",
+  "description": "Cueillette sauvage : quand ça pousse, où tu as le droit de cueillir, les battues du jour, ton carnet privé, et quoi faire de ta récolte en cuisine et au garde-manger.",
   "lang": "fr-BE",
   "dir": "ltr",
   "start_url": "bulletin.html?source=appli",
@@ -11,7 +11,7 @@
   "orientation": "portrait",
   "background_color": "#eef0eb",
   "theme_color": "#3f5b3c",
-  "categories": ["navigation", "lifestyle", "weather"],
+  "categories": ["navigation", "lifestyle", "food"],
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
@@ -19,7 +19,7 @@
   ],
   "shortcuts": [
     { "name": "Puis-je cueillir ici ?", "short_name": "Ici ?", "url": "carte.html?ici=1", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Carte interactive", "short_name": "Carte", "url": "carte.html", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Carte", "short_name": "Carte", "url": "carte.html", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Battues", "url": "battues.html", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Mon carnet", "short_name": "Carnet", "url": "carnet.html", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
   ]
