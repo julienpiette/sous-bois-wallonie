@@ -1,0 +1,22 @@
+{
+  "maj": "2026-10-13",
+  "avertissement": "Règlements communaux connus pour les bois communaux, d'après la presse et les règlements publiés. Liste incomplète et susceptible de changer : vérifie auprès de la commune. L'affiche sur place fait foi.",
+  "communes": {
+    "LIBIN": { "nom": "Libin", "type": "reserve", "regle": "Bois communaux réservés aux habitants et aux communes voisines (carte d’identité à l’appui), du 15 août au 15 novembre, à 50 m maximum du chemin.", "depuis": "2022",
+      "sources": [{ "t": "DH, octobre 2022", "u": "https://www.dhnet.be/regions/luxembourg/2022/10/13/libin-la-cueillette-des-champignons-interdite-sauf-aux-habitants-du-coin-REVZSYKK4ZEHJJEXSMPUDBYMEI/" }, { "t": "RTBF, 2022", "u": "https://www.rtbf.be/article/cueillette-des-champignons-attention-aux-zones-reglementees-11085429" }] },
+    "DAVERDISSE": { "nom": "Daverdisse", "type": "reserve", "regle": "Même règle qu’à Libin : bois communaux réservés aux habitants et voisins, du 15 août au 15 novembre, à 50 m maximum du chemin.", "depuis": "2022",
+      "sources": [{ "t": "RTBF, 2022", "u": "https://www.rtbf.be/article/cueillette-des-champignons-attention-aux-zones-reglementees-11085429" }] },
+    "WELLIN": { "nom": "Wellin", "type": "reserve", "regle": "Même règle qu’à Libin : bois communaux réservés aux habitants et voisins, du 15 août au 15 novembre, à 50 m maximum du chemin.", "depuis": "2022",
+      "sources": [{ "t": "RTBF, 2022", "u": "https://www.rtbf.be/article/cueillette-des-champignons-attention-aux-zones-reglementees-11085429" }] },
+    "FERRIERES": { "nom": "Ferrières", "type": "reserve", "regle": "Règlement adopté le 24 septembre 2026 sur le même modèle que Libin, pour lutter contre la cueillette commerciale. Détails à vérifier auprès de la commune.", "depuis": "2026",
+      "sources": [{ "t": "DH, septembre 2026", "u": "https://www.dhnet.be/regions/liege/2026/09/28/la-cueillette-des-champignons-desormais-plus-reglementee-a-ferrieres-on-vise-les-cueilleurs-abusifs-qui-en-font-du-commerce-et-pillent-nos-bois-5X4QNHCK7VCRDFDAQEJUDFCA7M/" }] },
+    "AYWAILLE": { "nom": "Aywaille", "type": "a-verifier", "regle": "Règlement de cueillette signalé par la presse en 2026. Conditions à vérifier auprès de la commune.", "depuis": "2026",
+      "sources": [{ "t": "DH, septembre 2026", "u": "https://www.dhnet.be/regions/liege/2026/09/28/la-cueillette-des-champignons-desormais-plus-reglementee-a-ferrieres-on-vise-les-cueilleurs-abusifs-qui-en-font-du-commerce-et-pillent-nos-bois-5X4QNHCK7VCRDFDAQEJUDFCA7M/" }] },
+    "EREZEE": { "nom": "Erezée", "type": "a-verifier", "regle": "Règlement de cueillette signalé par la presse en 2026. Conditions à vérifier auprès de la commune.", "depuis": "2026",
+      "sources": [{ "t": "DH, septembre 2026", "u": "https://www.dhnet.be/regions/liege/2026/09/28/la-cueillette-des-champignons-desormais-plus-reglementee-a-ferrieres-on-vise-les-cueilleurs-abusifs-qui-en-font-du-commerce-et-pillent-nos-bois-5X4QNHCK7VCRDFDAQEJUDFCA7M/" }] },
+    "STOUMONT": { "nom": "Stoumont", "type": "conditions", "regle": "Règlement de police : 10 litres maximum par personne ; cueillette suspendue la veille et les jours de battue.", "depuis": "2024",
+      "sources": [{ "t": "Règlement communal de Stoumont", "u": "https://www.stoumont.be/wp-content/uploads/2024/01/Deliberation-Foret-Reglement-de-police-relatif-a-la-cueillette-de-menus-produits-dans-les-bois-de-la-Commune-Arret.pdf" }] },
+    "BEAURAING": { "nom": "Beauraing", "type": "a-verifier", "regle": "Un permis de cueillette serait demandé (information de presse non confirmée). Renseigne-toi auprès de la commune.", "depuis": "",
+      "sources": [] }
+  }
+}

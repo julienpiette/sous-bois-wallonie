@@ -1,0 +1,16 @@
+{
+  "note": "Point de calcul météo = centre approximatif du massif. Descriptions générales des régions naturelles.",
+  "massifs": [
+    { "id": "anlier", "nom": "Forêt d’Anlier", "region": "Ardenne méridionale", "lat": 49.77, "lon": 5.62, "milieu": "Grand massif de hêtraies, chênaies et pessières sur sols acides." },
+    { "id": "saint-hubert", "nom": "Grande forêt de Saint-Hubert", "region": "Haute Ardenne", "lat": 50.04, "lon": 5.37, "milieu": "Haut plateau froid et humide : hêtraies, pessières, fonds de vallée tourbeux." },
+    { "id": "famenne", "nom": "Famenne (Nassogne, Marche, Rochefort)", "region": "Famenne et Calestienne", "lat": 50.15, "lon": 5.30, "milieu": "Schistes de la Famenne et calcaires de la Calestienne : chênaies, charmaies, lisières." },
+    { "id": "semois", "nom": "Ardenne de la Semois (Bouillon)", "region": "Ardenne", "lat": 49.83, "lon": 5.05, "milieu": "Vallée encaissée, versants raides, chênaies et hêtraies sur schistes." },
+    { "id": "gaume", "nom": "Gaume (Virton, Florenville)", "region": "Lorraine belge", "lat": 49.62, "lon": 5.45, "milieu": "Climat plus doux, sols sableux et calcaires en cuestas, belles hêtraies." },
+    { "id": "haute-ardenne", "nom": "Haute-Ardenne (Vielsalm, Saint-Vith)", "region": "Haute Ardenne", "lat": 50.28, "lon": 5.98, "milieu": "Altitude, pessières étendues, hêtraies et fagnes." },
+    { "id": "fagnes", "nom": "Hautes Fagnes et Hertogenwald", "region": "Haute Ardenne", "lat": 50.54, "lon": 6.08, "milieu": "Plateau tourbeux et pessières ; grandes réserves naturelles où la cueillette est en principe interdite." },
+    { "id": "ourthe", "nom": "Vallée de l’Ourthe (La Roche, Erezée)", "region": "Ardenne et Famenne", "lat": 50.24, "lon": 5.60, "milieu": "Versants boisés contrastés : chaud au sud, frais au nord, feuillus et résineux." },
+    { "id": "condroz", "nom": "Condroz", "region": "Condroz", "lat": 50.40, "lon": 5.20, "milieu": "Alternance de crêtes gréseuses et de vallons calcaires, bois de chênes et de frênes." },
+    { "id": "chimay", "nom": "Fagne et Thiérache (Chimay, Couvin)", "region": "Fagne et Thiérache", "lat": 50.02, "lon": 4.42, "milieu": "Grands massifs feuillus sur limons et schistes, frênaies de fonds humides." },
+    { "id": "entre-sambre", "nom": "Entre-Sambre-et-Meuse", "region": "Condroz et Fagne", "lat": 50.23, "lon": 4.60, "milieu": "Plateaux boisés, chênaies et hêtraies, sols limoneux à caillouteux." }
+  ]
+}

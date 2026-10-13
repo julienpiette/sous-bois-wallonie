@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr" class="clair">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carte des milieux et des battues · Sous-bois Wallonie</title>
+<meta name="description" content="Carte des forêts wallonnes favorables aux cèpes, girolles, chanterelles, morilles, trompettes et pieds de mouton, avec les zones fermées pour la chasse et « Puis-je cueillir ici ? ».">
+<meta name="theme-color" content="#3f5b3c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sous-bois">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="carte-page">
+<!-- debut:entete -->
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="index.html" aria-label="Sous-bois Wallonie, accueil">
+      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M32 13 21 27h6l-8 10h7l-7 9h26l-7-9h7l-8-10h6z" fill="currentColor"/><rect x="29.5" y="46" width="5" height="6" fill="currentColor"/><circle cx="45" cy="47" r="4.5" fill="#e3801b"/></svg>
+      <span><b>Sous-bois</b><small>Wallonie</small></span>
+    </a>
+    <a class="cta-mobile" href="carte.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="bulletin.html">Bulletin</a>
+      <a href="droit.html">Le droit</a>
+      <a href="battues.html">Battues</a>
+      <a href="guide.html">Guide</a>
+      <a href="carnet.html">Carnet</a>
+      <a class="cta" href="carte.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte interactive</a>
+    </nav>
+  </div>
+</header>
+<!-- fin:entete -->
+
+<div id="map" role="application" aria-label="Carte des milieux favorables et des zones fermées pour la chasse"></div>
+<div id="mapMsg" class="map-msg" hidden>Aucune donnée de potentiel dans data/tuiles/ : carte vide pour l’instant</div>
+<div id="alerteChasse" class="alerte-battue alerte-carte" role="status" hidden></div>
+
+<button id="ici" class="fab-ici" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="m9 10 2 2 4-4"/></svg>Puis-je cueillir ici ?</button>
+
+<aside id="fiche" class="fiche-ici page" hidden aria-label="Puis-je cueillir ici ?" tabindex="-1">
+  <button class="fermer" type="button" aria-label="Fermer">×</button>
+  <div id="ficheCorps"></div>
+</aside>
+
+<aside id="panel" aria-label="Réglages de la carte">
+  <header>
+    <h1>Carte <span>des milieux</span></h1>
+    <button id="toggle" type="button" aria-expanded="true" aria-controls="panelBody"><span id="toggleTxt">Replier</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+  </header>
+  <div class="body" id="panelBody">
+    <form id="search" class="search" role="search">
+      <input id="q" type="search" placeholder="Un lieu en Belgique (ex. Champlon)" aria-label="Rechercher un lieu en Belgique" autocomplete="off">
+      <button type="submit">Aller</button>
+    </form>
+    <ul id="results" class="results" hidden></ul>
+
+    <section class="chasse" aria-labelledby="t-chasse">
+      <div class="row"><span class="k" id="t-chasse">Battues et fermetures</span><a class="small" href="battues.html">Calendrier</a></div>
+      <div id="jours" class="jours" role="group" aria-label="Jour affiché"></div>
+      <p id="chasseEtat" class="muted">Chargement des fermetures…</p>
+    </section>
+
+    <p id="notice" class="notice" hidden></p>
+
+    <section id="weatherSection" hidden>
+      <div class="row"><label for="day" class="k">Jour</label><span id="dayLabel" class="mono"></span></div>
+      <input id="day" type="range" min="-14" max="15" step="1" value="0">
+      <div class="ticks mono"><span>−14 j</span><span>aujourd’hui</span><span>+15 j</span></div>
+    </section>
+
+    <section>
+      <div class="row"><span class="k" id="speciesTitle">Milieux favorables</span>
+        <span class="btns"><button id="all" type="button">Tout</button><button id="none" type="button">Aucune</button></span></div>
+      <ul id="species"></ul>
+      <div class="row modes">
+        <label><input type="radio" name="mode" value="dominant" checked> Dominante</label>
+        <label><input type="radio" name="mode" value="overlay"> Superposé</label>
+      </div>
+      <label class="check"><input type="checkbox" id="dessus"> Routes, cours d’eau et noms par-dessus (IGN)</label>
+      <div id="legend" class="legend"></div>
+      <div class="lg-hachure"><i aria-hidden="true"></i><span>Fermé pour la chasse le jour choisi : on n’y entre pas.</span></div>
+    </section>
+
+    <p id="status" class="mono muted">Initialisation…</p>
+
+    <details id="coinsBox">
+      <summary>Mes coins</summary>
+      <div class="stack">
+        <select id="coinSp" aria-label="Espèce"></select>
+        <select id="coinRes" aria-label="Résultat"><option value="beaucoup">Beaucoup</option><option value="peu">Peu</option><option value="rien">Rien</option></select>
+        <input id="coinNote" type="text" placeholder="Note (essence, versant…)" aria-label="Note">
+        <button id="coinAdd" type="button">Placer un coin sur la carte</button>
+        <ul id="coinList" class="mini"></ul>
+        <div class="btns"><button id="coinExport" type="button">Exporter</button><label class="filebtn">Importer<input id="coinImport" type="file" accept="application/json" hidden></label></div>
+        <p class="muted small">Tes coins restent dans ce téléphone. Sauvegarde chiffrée, battues sur tes coins et bilan : <a href="carnet.html">ton carnet</a>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Couches wallonnes (avancé)</summary>
+      <div class="stack">
+        <select id="svc" aria-label="Service"></select>
+        <input id="svcUrl" type="url" placeholder="URL du service WMS" aria-label="URL WMS">
+        <input id="lyrName" list="lyrNames" placeholder="Nom de la couche" aria-label="Nom de la couche">
+        <datalist id="lyrNames"></datalist>
+        <div class="btns"><button id="diag" type="button">Tester les services</button><button id="addWms" type="button">Ajouter la couche</button></div>
+        <div id="diagOut" class="muted small"></div>
+        <ul id="wmsList" class="mini"></ul>
+        <p class="muted small">Le test lit GetCapabilities et propose les noms de couches trouvés.</p>
+      </div>
+    </details>
+
+    <p class="muted small foot">Un milieu favorable n’est pas une trouvaille, et la carte n’identifie aucun champignon : doute = on ne mange pas (<a href="avant-de-manger.html">Avant de manger</a>). Forêts privées et communales restent affichées : touche un point pour savoir à qui demander. <a href="droit.html">Le droit de cueillir</a>.</p>
+    <p class="muted small">Potentiel calculé à partir de : Carte Numérique des Sols de Wallonie, WALOUS 2023, Réseau hydrographique wallon © SPW (CC-BY 4.0) ; Ancienneté des forêts actuelles © SPW ; Copernicus DEM GLO-30 © DLR e.V. 2010-2014 et © Airbus Defence and Space GmbH 2014-2018, programme Copernicus. Battues : territoires de chasse anonymisés © SPW (CC-BY 4.0), mis à jour chaque jour.</p>
+  </div>
+</aside>
+
+<!-- debut:onglets -->
+<nav class="onglets" aria-label="Raccourcis">
+  <a href="bulletin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 9a3 3 0 0 1 0 6z"/><path d="M8 19l1-2M12 20l1-2M16 19l1-2"/></svg>Bulletin</a>
+  <a href="carte.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
+  <a class="ici" href="carte.html?ici=1"><span class="rond"><svg viewBox="0 0 24 24" fill="none" stroke="#2b241c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="m9 10 2 2 4-4"/></svg></span>Ici ?</a>
+  <a href="battues.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 9v5M12 17h.01"/></svg>Battues</a>
+  <a href="carnet.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6z"/><path d="M6 3v18M9 8h6M9 12h6"/></svg>Carnet</a>
+</nav>
+<!-- fin:onglets -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/site-config.js"></script>
+<script src="js/config.js"></script>
+<script src="js/geo.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/model.js"></script>
+<script src="js/render.js"></script>
+<script src="js/tuiles.js"></script>
+<script src="js/droit.js"></script>
+<script src="js/pourquoi.js"></script>
+<script src="js/main.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

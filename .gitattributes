@@ -1,0 +1,2 @@
+# Aucune conversion de fins de ligne : les .bat restent en CRLF (cmd les lit mal en LF).
+* -text
