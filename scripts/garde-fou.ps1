@@ -54,15 +54,27 @@ try {
   if ($it -notmatch "anciennete: $($anc.ToString().ToLower())\b") { $pb.Add('js/interrupteurs.js ne correspond pas à ANCIENNETE_PUBLIQUE : relancer scripts\entete.ps1') }
   if ($it -notmatch "plantes: $($pla.ToString().ToLower())\b") { $pb.Add('js/interrupteurs.js ne correspond pas à MODE_PLANTES_ACTIF : relancer scripts\entete.ps1') }
 
-  # 5. Ancienneté publique : autorisation présente et attribution jamais masquée
+  # 5. Ancienneté publique : autorisation présente (ou risque accepté par écrit pour le prototype) et attribution jamais masquée
+  $proto = [string]$(if ($cfg) { $cfg.PROTOTYPE_RISQUE_ACCEPTE } else { '' })
   if ($anc) {
     $dir = Join-Path $root 'docs-prive\autorisations'
     $aut = @(Get-ChildItem $dir -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -notmatch '^LISEZ-MOI' })
-    if (-not $aut.Count -or -not [string]$cfg.ANCIENNETE_REFERENCE) { $pb.Add('ANCIENNETE_PUBLIQUE est vrai sans autorisation dans docs-prive/autorisations/ ni ANCIENNETE_REFERENCE') }
+    $autorise = $aut.Count -and [string]$cfg.ANCIENNETE_REFERENCE
+    if (-not $autorise -and -not $proto) { $pb.Add('ANCIENNETE_PUBLIQUE est vrai sans autorisation dans docs-prive/autorisations/ ni ANCIENNETE_REFERENCE (ni PROTOTYPE_RISQUE_ACCEPTE)') }
+    if (-not $autorise -and $proto) { Write-Host 'ATTENTION : ancienneté des forêts publiée SANS autorisation du SPW (prototype, risque accepté : voir docs-prive\autorisations-et-interrupteurs.md, section E).' -ForegroundColor Yellow }
     $men = [IO.File]::ReadAllText((Join-Path $root 'mentions.html'), $utf8)
     if ($men -notmatch 'id="attribution-anciennete"') { $pb.Add('attribution de l''ancienneté absente de mentions.html') }
     $src = [IO.File]::ReadAllText((Join-Path $root 'data\SOURCES.md'), $utf8)
     if ($src -notmatch '(?s)debut:anciennete -->.*Attribution :.*<!-- fin:anciennete') { $pb.Add('attribution de l''ancienneté absente de data/SOURCES.md') }
+  }
+  # 6. Plantes et fruits publiés : relecture botanique faite, ou risque accepté pour le prototype
+  if ($pla) {
+    $nonRelues = @(Get-ChildItem (Join-Path $root 'data\plantes') -Filter *.json -ErrorAction SilentlyContinue | Where-Object { [IO.File]::ReadAllText($_.FullName, $utf8) -match '"relu_botaniste"\s*:\s*false' })
+    if ($nonRelues.Count -and -not $proto) { $pb.Add("MODE_PLANTES_ACTIF est vrai mais $($nonRelues.Count) fichier(s) de data/plantes ne sont pas relus par un botaniste (ni PROTOTYPE_RISQUE_ACCEPTE)") }
+    if ($nonRelues.Count -and $proto) { Write-Host "ATTENTION : $($nonRelues.Count) fichier(s) plantes et fruits publiés SANS relecture botanique (prototype, bandeau « test » affiché)." -ForegroundColor Yellow }
+    foreach ($f in Get-ChildItem (Join-Path $root 'data\plantes') -Filter *.json -ErrorAction SilentlyContinue) {
+      if ([IO.File]::ReadAllText($f.FullName, $utf8) -match '(?i)apiac|ombellif') { $pb.Add("plante de la famille de la carotte : data/plantes/$($f.Name) (interdit, même en prototype)") }
+    }
   }
 } finally { Pop-Location }
 $pb

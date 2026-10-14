@@ -5,7 +5,7 @@
    - tuiles de potentiel, de facteurs et fond de carte déjà vus : cache d'abord (plafonné)
    - services publics (chasse, propriétés, météo, recherche) : JAMAIS en cache ici (une battue périmée serait dangereuse)
    Changer VERSION à chaque mise en ligne d'une nouvelle version. */
-const VERSION = 'sb-20261014-1009';
+const VERSION = 'sb-20261014-1114';
 const COQUILLE = [
   './', 'index.html', 'bulletin.html', 'carte.html', 'droit.html', 'battues.html', 'carnet.html', 'guide.html', 'especes.html',
   'avant-de-manger.html', 'glossaire.html', 'materiel.html', 'pros.html', 'approche.html', 'recettes.html', 'conservation.html',
@@ -17,8 +17,8 @@ const COQUILLE = [
   'data/recettes/index.json',  // fiches de recette : mises en cache à la première lecture
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/favicon.svg'
 ];
-// sb-tuiles-2 : tuiles recalculées sans l'ancienneté des forêts (13/10/2026) ; l'ancien cache sb-tuiles est supprimé à l'activation
-const MAX = { 'sb-tuiles-2': 4000, 'sb-fond': 2000, 'sb-ext': 60 };
+// sb-tuiles-3 : tuiles recalculées avec l'ancienneté des forêts (prototype, 14/10/2026) ; les anciens caches de tuiles sont supprimés à l'activation
+const MAX = { 'sb-tuiles-3': 4000, 'sb-fond': 2000, 'sb-ext': 60 };
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(COQUILLE)).then(() => self.skipWaiting()));
@@ -69,7 +69,7 @@ self.addEventListener('fetch', (e) => {
   const u = new URL(req.url);
   if (u.origin === location.origin) {
     if (req.mode === 'navigate') return e.respondWith(pageReseauDabord(req));
-    if (/\/data\/(plantes\/)?(tuiles|facteurs)\//.test(u.pathname)) return e.respondWith(cacheDabord(req, 'sb-tuiles-2'));
+    if (/\/data\/(plantes\/)?(tuiles|facteurs)\//.test(u.pathname)) return e.respondWith(cacheDabord(req, 'sb-tuiles-3'));
     if (/\.(css|js|json|webmanifest)$/.test(u.pathname)) return e.respondWith(reseauVite(req, VERSION, 3000));
     if (/\.(png|svg)$/.test(u.pathname)) return e.respondWith(vieuxPuisNeuf(req, VERSION));
     return;

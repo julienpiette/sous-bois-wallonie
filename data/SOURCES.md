@@ -31,7 +31,9 @@ Chaque donnée utilisée par le site, avec sa source, sa date de consultation et
 ## Ancienneté des forêts actuelles (SPW)
 
 <!-- debut:anciennete -->
-Source : SPW, https://geoportail.wallonie.be, consultée le 12/10/2026. Licence : usage libre, redistribution et publication web interdites sans autorisation du SPW. Usage sur le site : **aucun**. La carte des milieux publiée et « Pourquoi ici ? » sont calculés sans cette couche.
+Source : SPW, https://geoportail.wallonie.be, consultée le 12/10/2026. Licence : usage libre ; publication web soumise à l’accord du SPW, à obtenir avant le lancement public (prototype) ; la donnée brute n’est pas redistribuée. Usage sur le site : carte des milieux, « Pourquoi ici ? ».
+
+Attribution : Ancienneté des forêts actuelles : © Service public de Wallonie (SPW), Géoportail de la Wallonie (geoportail.wallonie.be), version téléchargée le 12/10/2026.
 <!-- fin:anciennete -->
 
 Les textes, recettes, logo et la carte de potentiel sont l’œuvre de l’éditeur du site ; les sources des informations citées figurent au bas de chaque page.

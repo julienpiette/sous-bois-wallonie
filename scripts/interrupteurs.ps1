@@ -16,7 +16,9 @@ function JsTexte([string]$s) { "'" + $s.Replace('\', '\\').Replace("'", "\'") + 
 function Html([string]$s) { $s.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;').Replace('"', '&quot;') }
 
 $attribution = ''
-if ($anc) { $attribution = ([string]$cfg.ANCIENNETE_ATTRIBUTION).Replace('{ref}', [string]$cfg.ANCIENNETE_REFERENCE) }
+$ref = [string]$(if ($cfg) { $cfg.ANCIENNETE_REFERENCE } else { '' })
+# sans référence d'autorisation (prototype, risque accepté par Julien) : attribution sans mention d'autorisation
+if ($anc) { $attribution = [string]$(if ($ref) { ([string]$cfg.ANCIENNETE_ATTRIBUTION).Replace('{ref}', $ref) } else { $cfg.ANCIENNETE_ATTRIBUTION_PROTOTYPE }) }
 
 # js/interrupteurs.js
 $js = "/* Généré par scripts\interrupteurs.ps1 à partir des réglages privés : ne pas modifier à la main. */`n" +
@@ -39,8 +41,8 @@ function Bloc([string]$fichier, [string]$contenu) {
   if ($t2 -ne $t) { [IO.File]::WriteAllText($p, $t2, $utf8) }
 }
 if ($anc) {
-  Bloc 'mentions.html' ("`n      <li id=""attribution-anciennete""><b>Ancienneté des forêts</b> (carte des milieux, « Pourquoi ici ? ») : " + (Html $attribution) + " Conditions : usage selon l’autorisation du SPW ; la donnée brute n’est ni redistribuée ni téléchargeable depuis Musette.</li>`n      ")
-  Bloc 'data\SOURCES.md' ("`nSource : SPW, https://geoportail.wallonie.be, consultée le 12/10/2026. Licence : usage avec l’autorisation écrite du SPW (réf. $([string]$cfg.ANCIENNETE_REFERENCE)) ; la donnée brute n’est pas redistribuée. Usage sur le site : carte des milieux, « Pourquoi ici ? ».`n`nAttribution : $attribution`n")
+  Bloc 'mentions.html' ("`n      <li id=""attribution-anciennete""><b>Ancienneté des forêts</b> (carte des milieux, « Pourquoi ici ? ») : " + (Html $attribution) + " Conditions : " + $(if ($ref) { "usage selon l’autorisation du SPW (réf. $ref)" } else { "publication web soumise à l’accord du SPW, à obtenir avant le lancement public du site" }) + " ; la donnée brute n’est ni redistribuée ni téléchargeable depuis Musette.</li>`n      ")
+  Bloc 'data\SOURCES.md' ("`nSource : SPW, https://geoportail.wallonie.be, consultée le 12/10/2026. Licence : $(if ($ref) { "usage avec l’autorisation écrite du SPW (réf. $ref)" } else { "usage libre ; publication web soumise à l’accord du SPW, à obtenir avant le lancement public (prototype)" }) ; la donnée brute n’est pas redistribuée. Usage sur le site : carte des milieux, « Pourquoi ici ? ».`n`nAttribution : $attribution`n")
 } else {
   Bloc 'mentions.html' ''
   Bloc 'data\SOURCES.md' "`nSource : SPW, https://geoportail.wallonie.be, consultée le 12/10/2026. Licence : usage libre, redistribution et publication web interdites sans autorisation du SPW. Usage sur le site : **aucun**. La carte des milieux publiée et « Pourquoi ici ? » sont calculés sans cette couche.`n"
