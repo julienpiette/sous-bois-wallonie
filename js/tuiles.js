@@ -1,11 +1,11 @@
-/* Potentiel de site en tuiles XYZ : data/tuiles/<id>/{z}/{x}/{y}.png (gris = rang parmi les forêts,
+/* Potentiel de site en tuiles XYZ : <base>/<id>/{z}/{x}/{y}.png (base : data/tuiles/, ou data/plantes/tuiles/ en mode plantes) (gris = rang parmi les forêts,
    alpha = forêt), produites par scripts/potentiel.py. Recoloration dans le navigateur (classes, opacité
    par espèce, modes Dominante / Superposé). Au-delà du zoom max des tuiles, la tuile parente est agrandie
    avec lissage puis reclassée : contours lisses au lieu de gros pixels. */
 (function () {
   const MW = window.MW;
   const T = 256, cache = new Map();
-  const url = (id, z, x, y) => 'data/tuiles/' + id + '/' + z + '/' + x + '/' + y + '.png';
+  const url = (index, id, z, x, y) => (index.base || 'data/tuiles/') + id + '/' + z + '/' + x + '/' + y + '.png';
 
   // image d'une tuile (null si absente : tuile sans forêt, exclue à la génération)
   function image(u) {
@@ -16,10 +16,13 @@
     return cache.get(u);
   }
 
-  async function charger() {
+  async function charger(base) {
+    base = base || 'data/tuiles/';
     try {
-      const r = await fetch('data/tuiles/index.json', { cache: 'no-store' });
-      return r.ok ? await r.json() : null;
+      const r = await fetch(base + 'index.json', { cache: 'no-store' });
+      if (!r.ok) return null;
+      const j = await r.json(); j.base = base;
+      return j;
     } catch (e) { return null; }
   }
 
@@ -45,7 +48,7 @@
         const nz = Math.min(coords.z, index.maxZoom), f = 2 ** (coords.z - nz), span = T / f;
         const sx = Math.floor(coords.x / f), sy = Math.floor(coords.y / f);
         const ox = (coords.x - sx * f) * span, oy = (coords.y - sy * f) * span;
-        Promise.all(layers.map((l) => image(url(l.id, nz, sx, sy)))).then((ims) => {
+        Promise.all(layers.map((l) => image(url(index, l.id, nz, sx, sy)))).then((ims) => {
           if (ims.some(Boolean)) {
             const work = document.createElement('canvas');
             work.width = work.height = T;
@@ -72,7 +75,7 @@
     const z = index.maxZoom, n = 2 ** z, s = Math.sin((lat * Math.PI) / 180);
     const xf = ((lng + 180) / 360) * n, yf = (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * n;
     const x = Math.floor(xf), y = Math.floor(yf);
-    const im = await image(url(id, z, x, y));
+    const im = await image(url(index, id, z, x, y));
     if (!im) return 0;
     const c = document.createElement('canvas');
     c.width = c.height = 1;

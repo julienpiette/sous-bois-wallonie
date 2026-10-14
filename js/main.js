@@ -140,8 +140,8 @@
     requestAnimationFrame(() => { drawPending = false; draw(); });
   }
 
-  // espèces cochées qui ont des tuiles (mode potentiel)
-  const tileLayers = () => MW.SPECIES.filter((sp) => S.checked.has(sp.id) && S.available.has(sp.id))
+  // espèces cochées qui ont des tuiles (mode potentiel) ; rien en mode « Plantes et fruits »
+  const tileLayers = () => S.modeCarte === 'plantes' ? [] : MW.SPECIES.filter((sp) => S.checked.has(sp.id) && S.available.has(sp.id))
     .map((sp) => ({ id: sp.id, color: sp.color, opacity: opacityOf(sp) }));
 
   function draw() {
@@ -259,6 +259,7 @@
 
   /* ---------- lecture du potentiel en un point ---------- */
   async function lignesPotentiel(lat, lng) {
+    if (S.modeCarte === 'plantes') return MW.plantes.lignes(lat, lng);
     if (WX) {
       if (!S.series) return '<p class="muted">Météo en cours de chargement…</p>';
       const rows = MW.SPECIES.map((sp) => {
@@ -326,6 +327,30 @@
     }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
   }
   $('#ici').onclick = ici;
+
+  /* ---------- double mode : Champignons / Plantes et fruits (dernier choix mémorisé, ?mode=plantes) ---------- */
+  MW.plantes.init({
+    map, getMode: () => S.mode,
+    panneau(html) { S.ficheTok++; if (S.ficheMarker) { map.removeLayer(S.ficheMarker); S.ficheMarker = null; } corps.innerHTML = html; montrerFiche(true); fiche.scrollTop = 0; }
+  });
+  function appliquerMode(m, memoriser) {
+    S.modeCarte = m === 'plantes' ? 'plantes' : 'champignons';
+    if (memoriser) store.set('mw-mode-carte', S.modeCarte);
+    document.body.classList.toggle('mode-plantes', S.modeCarte === 'plantes');
+    document.querySelectorAll('.bascule-mode button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === S.modeCarte)));
+    $('#sectionChampi').hidden = S.modeCarte === 'plantes';
+    $('#plantesSection').hidden = S.modeCarte !== 'plantes';
+    $('#panel h1').innerHTML = S.modeCarte === 'plantes' ? 'Carte <span>plantes et fruits</span>' : 'Carte <span>des milieux</span>';
+    map.closePopup();
+    if (S.tileLayer) S.tileLayer.redraw();
+    MW.plantes.activer(S.modeCarte === 'plantes');
+  }
+  document.querySelectorAll('.bascule-mode button').forEach((b) => b.addEventListener('click', () => {
+    appliquerMode(b.dataset.mode, true);
+    if (mobile.matches && S.modeCarte === 'plantes') replier(false);
+  }));
+  const modeUrl = new URLSearchParams(location.search).get('mode');
+  appliquerMode(modeUrl || store.get('mw-mode-carte', 'champignons'), !!modeUrl);
   // sur la carte, l'onglet « Ici ? » agit sans recharger la page
   const ongletIci = document.querySelector('.onglets a.ici');
   if (ongletIci) ongletIci.addEventListener('click', (e) => { e.preventDefault(); ici(); });

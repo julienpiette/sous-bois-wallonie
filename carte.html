@@ -38,6 +38,12 @@
 </header>
 <!-- fin:entete -->
 
+<div id="barre" class="barre-carte">
+  <div class="bascule-mode" role="group" aria-label="Que cherches-tu ?">
+    <button type="button" data-mode="champignons" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 7 0 0 1 16 0z"/><path d="M10 12v5a2 2 0 0 0 4 0v-5"/></svg><span>Champignons</span></button>
+    <button type="button" data-mode="plantes" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11"/><path d="M12 15c-4 0-6-3-6-7 4 0 6 3 6 7zM12 12c0-4 2-7 6-7 0 4-2 7-6 7z"/></svg><span>Plantes et fruits</span></button>
+  </div>
+</div>
 <div id="map" role="application" aria-label="Carte des milieux favorables et des zones fermées pour la chasse"></div>
 <div id="mapMsg" class="map-msg" hidden>Aucune donnée de potentiel dans data/tuiles/ : carte vide pour l’instant</div>
 <div id="alerteChasse" class="alerte-battue alerte-carte" role="status" hidden></div>
@@ -75,7 +81,9 @@
       <div class="ticks mono"><span>−14 j</span><span>aujourd’hui</span><span>+15 j</span></div>
     </section>
 
-    <section>
+    <section id="plantesSection" class="plantes-section" hidden aria-live="polite"></section>
+
+    <section id="sectionChampi">
       <div class="row"><span class="k" id="speciesTitle">Milieux favorables</span>
         <span class="btns"><button id="all" type="button">Tout</button><button id="none" type="button">Aucune</button></span></div>
       <ul id="species"></ul>
@@ -83,10 +91,10 @@
         <label><input type="radio" name="mode" value="dominant" checked> Dominante</label>
         <label><input type="radio" name="mode" value="overlay"> Superposé</label>
       </div>
-      <label class="check"><input type="checkbox" id="dessus"> Routes, cours d’eau et noms par-dessus (IGN)</label>
       <div id="legend" class="legend"></div>
-      <div class="lg-hachure"><i aria-hidden="true"></i><span>Fermé pour la chasse le jour choisi : on n’y entre pas.</span></div>
     </section>
+    <label class="check"><input type="checkbox" id="dessus"> Routes, cours d’eau et noms par-dessus (IGN)</label>
+    <div class="lg-hachure"><i aria-hidden="true"></i><span>Fermé pour la chasse le jour choisi : on n’y entre pas.</span></div>
 
     <p id="status" class="mono muted">Initialisation…</p>
 
@@ -142,6 +150,7 @@
 <script src="js/tuiles.js"></script>
 <script src="js/droit.js"></script>
 <script src="js/pourquoi.js"></script>
+<script src="js/plantes.js"></script>
 <script src="js/main.js"></script>
 <script src="js/site.js"></script>
 </body>

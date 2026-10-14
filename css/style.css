@@ -2,9 +2,34 @@
    fiche « Puis-je cueillir ici ? ». Toujours en thème clair (html.clair) ; jetons de couleur de css/site.css.
    Règles limitées à #panel, #fiche et aux éléments propres à la carte : l'en-tête et les onglets restent ceux du site. */
 html.clair, body.carte-page { height: 100%; }
-body.carte-page { margin: 0; overflow: hidden; background: var(--brume); color: var(--humus); font: 14px/1.45 var(--texte); }
+body.carte-page { --barre: 70px; --haut: calc(var(--head) + var(--barre)); margin: 0; overflow: hidden; background: var(--brume); color: var(--humus); font: 14px/1.45 var(--texte); }
 body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
-#map { position: absolute; inset: var(--head) 0 0 0; background: #e9ebe4; font-family: var(--texte); }
+#map { position: absolute; inset: var(--haut) 0 0 0; background: #e9ebe4; font-family: var(--texte); }
+
+/* ---------- barre au-dessus de la carte : mode, recherche, position, vue (ne recouvre jamais la carte) ---------- */
+.barre-carte { position: absolute; z-index: 1002; top: var(--head); left: 0; right: 0; height: var(--barre); box-sizing: border-box;
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--papier); border-bottom: 1px solid var(--trait); }
+.bascule-mode { display: inline-flex; flex: none; padding: 3px; gap: 3px; border-radius: 99px; background: var(--brume); border: 1px solid var(--trait); }
+.bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; min-width: 48px; padding: 0 16px; border: 0;
+  border-radius: 99px; background: transparent; color: var(--humus-2); font: 600 14px var(--texte); cursor: pointer; }
+.bascule-mode button svg { width: 20px; height: 20px; flex: none; }
+.bascule-mode button[aria-pressed=true] { background: var(--mousse); color: var(--brume); box-shadow: 0 1px 4px rgba(43, 36, 28, .25); }
+.bascule-mode button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 860px) { .bascule-mode { flex: 1; } .bascule-mode button { flex: 1; padding: 0 10px; } }
+
+/* mode « Plantes et fruits » */
+#panel .vide-plantes { display: grid; gap: 6px; justify-items: start; background: var(--mousse-2); border-radius: 12px; padding: 14px; margin-top: 8px; }
+#panel .vide-plantes svg { width: 28px; height: 28px; color: var(--mousse); }
+#panel .vide-plantes p { margin: 0; font-size: 14px; }
+#panel .bandeau-test, .fiche-ici .bandeau-test { margin: 8px 0 0; padding: 8px 12px; border-radius: 10px; border: 1.5px dashed var(--avec); background: var(--avec-2); color: var(--humus); font: 600 13px var(--texte); }
+#panel .plantes-liste { display: flex; flex-direction: column; gap: 3px; }
+#panel .plantes-liste li { padding: 7px 9px; border-radius: 10px; background: var(--brume); }
+#panel .plantes-liste label { display: flex; align-items: center; gap: 8px; cursor: pointer; min-height: 30px; }
+#panel .plantes-liste input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--mousse); }
+#panel .plantes-liste .fam { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--humus-2); border: 1px solid var(--trait); border-radius: 99px; padding: 1px 7px; }
+#panel .plantes-liste .fiche-plante { margin: 6px 0 0 26px; min-height: 44px; font-size: 13px; }
+.fiche-ici .bandeau-test { margin: 0 52px 10px 0; }
+.fiche-ici .fiche-titre { font: 700 24px var(--titre); margin: 0; }
 #map.adding { cursor: crosshair; }
 @media (max-width: 860px) {
   #map { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); }
@@ -14,7 +39,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 
 /* ---------- panneau ---------- */
 #panel {
-  position: absolute; z-index: 1001; top: calc(var(--head) + 12px); left: 12px; width: 340px; max-height: calc(100% - var(--head) - 24px);
+  position: absolute; z-index: 1001; top: calc(var(--haut) + 12px); left: 12px; width: 340px; max-height: calc(100% - var(--haut) - 24px);
   background: var(--papier); border: 1px solid var(--trait); border-radius: 16px; box-shadow: 0 8px 30px rgba(43, 36, 28, .18);
   display: flex; flex-direction: column; overflow: hidden;
 }
@@ -109,7 +134,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 #panel .results button { width: 100%; justify-content: flex-start; text-align: left; font-weight: 400; }
 
 .map-msg {
-  position: absolute; z-index: 900; top: calc(var(--head) + 12px); left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px);
+  position: absolute; z-index: 900; top: calc(var(--haut) + 12px); left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px);
   padding: 8px 14px; border-radius: 99px; background: var(--non-2); color: var(--non); font: 500 12px var(--texte); box-shadow: var(--ombre); pointer-events: none;
 }
 @media (min-width: 861px) { .map-msg { left: calc(50% + 176px); } }
@@ -119,12 +144,12 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 .leaflet-heat-pane img { image-rendering: pixelated; }
 
 /* ---------- alerte battue sur la carte ---------- */
-.alerte-carte { position: absolute; z-index: 1050; top: calc(var(--head) + 12px); left: 364px; right: 60px; max-width: 680px;
+.alerte-carte { position: absolute; z-index: 1050; top: calc(var(--haut) + 12px); left: 364px; right: 60px; max-width: 680px;
   font-size: 14px; padding: 10px 14px; box-shadow: 0 6px 20px rgba(165, 48, 29, .35); }
 .alerte-carte svg { width: 22px; height: 22px; }
 .alerte-carte.inconnu { background: var(--humus); box-shadow: var(--ombre); }
 @media (min-width: 861px) { body.fiche-ouverte .alerte-carte { right: 424px; } body.fiche-ouverte .fab-ici { display: none; } }
-@media (max-width: 860px) { .alerte-carte { left: 8px; right: 58px; top: calc(var(--head) + 8px); font-size: 13px; padding: 9px 12px; } }
+@media (max-width: 860px) { .alerte-carte { left: 8px; right: 58px; top: calc(var(--haut) + 8px); font-size: 13px; padding: 9px 12px; } }
 
 /* ---------- bouton « Puis-je cueillir ici ? » (ordinateur ; sur mobile : onglet « Ici ? ») ---------- */
 .fab-ici { position: absolute; z-index: 1040; bottom: 28px; left: calc(50% + 176px); transform: translateX(-50%);
@@ -135,7 +160,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 @media (max-width: 860px) { .fab-ici { display: none; } }
 
 /* ---------- fiche « Ici ? » ---------- */
-.fiche-ici { position: absolute; z-index: 1200; top: calc(var(--head) + 12px); right: 12px; width: 400px; max-height: calc(100% - var(--head) - 24px);
+.fiche-ici { position: absolute; z-index: 1200; top: calc(var(--haut) + 12px); right: 12px; width: 400px; max-height: calc(100% - var(--haut) - 24px);
   overflow-y: auto; overscroll-behavior: contain; background: var(--papier); border: 1px solid var(--trait); border-radius: 18px;
   box-shadow: 0 12px 40px rgba(43, 36, 28, .28); padding: 18px 20px 20px; font-size: 15px; }
 .fiche-ici .fermer { position: sticky; top: 0; float: right; margin: -6px -8px 0 8px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--trait);
