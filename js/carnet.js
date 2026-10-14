@@ -47,7 +47,10 @@
   // ---------- liste et chiffres ----------
   function afficher() {
     const ul = $('#c-liste');
+    // carnet vide : pas de chiffres à zéro ni de vérification sans objet, seulement l'invitation à noter un premier coin
     $('#c-vide').hidden = coins.length > 0;
+    $('#c-chiffres').hidden = !coins.length;
+    $('#c-battues').closest('.btns').hidden = !coins.length;
     ul.innerHTML = coins.slice().sort((a, b) => (b.date || '').localeCompare(a.date || '')).map((c) => {
       const sp = espece(c.species);
       return '<div class="coin" data-id="' + c.id + '"><span class="point" style="background:' + sp.color + '"></span>' +

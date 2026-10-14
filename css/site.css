@@ -314,7 +314,7 @@ dl.pourquoi dd { margin: 0; }
 
 /* formulaires */
 .page label.champ { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
-.page input[type=text], .page input[type=search], .page input[type=password], .page input[type=email], .page select, .page textarea {
+.page input[type=text], .page input[type=search], .page input[type=password], .page input[type=email], .page input[type=date], .page input[type=number], .page select, .page textarea {
   width: 100%; min-height: 48px; padding: var(--e3) var(--e4); border-radius: var(--r-moyen); border: 0; background: var(--creux); color: var(--humus); font: 16px var(--texte); }
 .page input::placeholder, .page textarea::placeholder { color: var(--humus-3); }
 .page textarea { min-height: 120px; resize: vertical; }
@@ -356,7 +356,7 @@ dl.pourquoi dd { margin: 0; }
 .page .coin .actions { display: flex; gap: 6px; }
 .page .coin button { min-height: 40px; }
 .page .chiffres { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
-.page .chiffres div { background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; padding: 14px; }
+.page .chiffres div { background: var(--papier); border-radius: var(--r-carte); padding: var(--e4); }
 .page .chiffres b { display: block; font: 600 28px var(--titre); font-variant-numeric: tabular-nums; }
 .page .chiffres span { font-size: 13px; color: var(--humus-2); }
 
