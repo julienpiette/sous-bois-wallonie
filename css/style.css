@@ -8,60 +8,63 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 
 /* ---------- barre au-dessus de la carte : mode, recherche, position, vue (ne recouvre jamais la carte) ---------- */
 .barre-carte { position: absolute; z-index: 1100; top: var(--head); left: 0; right: 0; height: var(--barre); box-sizing: border-box;
-  display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--papier); border-bottom: 1px solid var(--trait); }
-.bascule-mode { display: inline-flex; flex: none; padding: 3px; gap: 3px; border-radius: 99px; background: var(--brume); border: 1px solid var(--trait); }
-.bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; min-width: 48px; padding: 0 16px; border: 0;
-  border-radius: 99px; background: transparent; color: var(--humus-2); font: 600 14px var(--texte); cursor: pointer; }
+  display: flex; align-items: center; gap: var(--e2); padding: var(--e2) var(--e3); background: var(--papier); border-bottom: 1px solid var(--trait); }
+/* même bascule que le bulletin : fond en creux, choix posé en papier */
+.bascule-mode { display: inline-flex; flex: none; padding: var(--e1); gap: var(--e1); border-radius: var(--r-pilule); background: var(--creux); }
+.bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: var(--e2); min-height: 44px; min-width: 48px; padding: 0 var(--e4); border: 0;
+  border-radius: var(--r-pilule); background: transparent; color: var(--humus-2); font: 600 15px var(--texte); cursor: pointer; white-space: nowrap;
+  transition: background-color var(--moyen) ease, color var(--moyen) ease; }
 .bascule-mode button svg { width: 20px; height: 20px; flex: none; }
-.bascule-mode button[aria-pressed=true] { background: var(--mousse); color: var(--brume); box-shadow: 0 1px 4px rgba(43, 36, 28, .25); }
-.bascule-mode button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bascule-mode button[aria-pressed=true] { background: var(--papier); color: var(--humus); box-shadow: 0 0 0 1px var(--trait); }
 .barre-carte .recherche { display: flex; flex: 1 1 auto; max-width: 560px; min-width: 0; margin: 0; position: relative; }
-.barre-carte .recherche input { flex: 1; min-width: 0; min-height: 48px; padding: 10px 52px 10px 16px; border-radius: 99px; border: 1px solid var(--trait);
-  background: var(--brume); color: var(--humus); font: 16px var(--texte); }
-.barre-carte .recherche input:focus { outline: 3px solid var(--accent); outline-offset: 1px; background: var(--papier); }
-.barre-carte .recherche button { position: absolute; right: 2px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 50%;
-  background: var(--mousse); color: var(--brume); display: grid; place-items: center; cursor: pointer; }
+.barre-carte .recherche input { flex: 1; min-width: 0; min-height: 48px; padding: 0 52px 0 var(--e4); border-radius: var(--r-pilule); border: 0;
+  background: var(--creux); color: var(--humus); font: 16px var(--texte); }
+.barre-carte .recherche input::placeholder { color: var(--humus-3); }
+.barre-carte .recherche input:focus { outline: 3px solid var(--focus); outline-offset: 1px; }
+.barre-carte .recherche button { position: absolute; right: var(--e1); top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%;
+  background: var(--foret); color: var(--creme); display: grid; place-items: center; cursor: pointer; }
 .barre-carte .recherche button svg, .btn-geo svg, .btn-vue svg { width: 20px; height: 20px; }
-.btn-geo, .btn-vue { flex: none; min-width: 48px; min-height: 48px; border-radius: 99px; border: 1px solid var(--trait); background: var(--papier); color: var(--humus);
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px; font: 600 14px var(--texte); cursor: pointer; padding: 0 12px; }
-.btn-geo:hover, .btn-vue:hover { border-color: var(--mousse); }
-.btn-geo:focus-visible, .btn-vue:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.btn-geo.cherche { color: var(--mousse); border-color: var(--mousse); }
-.barre-carte .results { position: absolute; z-index: 1300; top: calc(100% + 6px); left: 0; right: 0; margin: 0; padding: 6px; list-style: none;
-  background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; box-shadow: 0 10px 30px rgba(43, 36, 28, .25); display: grid; gap: 2px; }
-.barre-carte .results button { width: 100%; min-height: 44px; text-align: left; border: 0; border-radius: 10px; background: none; padding: 8px 10px; font: 14px var(--texte); color: var(--humus); cursor: pointer; }
+.btn-geo, .btn-vue { flex: none; min-width: 48px; min-height: 48px; border-radius: var(--r-pilule); border: 0; background: var(--creux); color: var(--humus);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--e2); font: 600 15px var(--texte); cursor: pointer; padding: 0 var(--e4);
+  transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
+.btn-geo:hover, .btn-vue:hover { background: var(--mousse-2); }
+.btn-geo:active, .btn-vue:active, .bascule-mode button:active { transform: scale(.97); }
+.btn-geo.cherche { color: var(--mousse); }
+.barre-carte .results { position: absolute; z-index: 1300; top: calc(100% + var(--e2)); left: 0; right: 0; margin: 0; padding: var(--e2); list-style: none;
+  background: var(--papier); border-radius: var(--r-carte); box-shadow: var(--ombre-flottant); display: grid; gap: 2px; }
+.barre-carte .results button { width: 100%; min-height: 44px; text-align: left; border: 0; border-radius: var(--r-moyen); background: none; padding: var(--e2) var(--e3); font: 15px var(--texte); color: var(--humus); cursor: pointer; }
 .barre-carte .results button:hover, .barre-carte .results button:focus-visible { background: var(--brume); }
-.barre-carte .results .muted { padding: 8px 10px; color: var(--humus-2); font-size: 14px; }
+.barre-carte .results .muted { padding: var(--e2) var(--e3); color: var(--humus-2); font-size: 14px; }
 /* mobile : recherche pleine largeur en haut, mode (et vue) en dessous */
 @media (max-width: 860px) {
   body.carte-page { --barre: 126px; }
-  .barre-carte { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "rech geo" "mode vue"; gap: 6px 8px; padding: 8px 10px; align-content: center; }
+  .barre-carte { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "rech geo" "mode vue"; gap: var(--e2); padding: var(--e2) var(--e3); align-content: center; }
   .barre-carte .recherche { grid-area: rech; max-width: none; }
   .btn-geo { grid-area: geo; }
   .btn-vue { grid-area: vue; }
   .bascule-mode { grid-area: mode; display: flex; }
-  .bascule-mode button { flex: 1; padding: 0 8px; }
+  .bascule-mode button { flex: 1; padding: 0 var(--e2); }
 }
-@media (max-width: 860px) { .bascule-mode button { font-size: 14px; } }
+@media (max-width: 480px) { .bascule-mode button svg { display: none; } }
 
 /* vue réelle (photo aérienne) : halo clair autour des routes, noms et zones fermées, pour qu'ils restent lisibles */
-.btn-vue[aria-pressed=true] { background: var(--humus); color: var(--brume); border-color: var(--humus); }
+.btn-vue[aria-pressed=true] { background: var(--foret); color: var(--creme); }
 body.vue-reelle .leaflet-dessus-pane { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 0 1px rgba(255, 255, 255, .9)); }
 body.vue-reelle .leaflet-fermetures-pane { filter: drop-shadow(0 0 2px #fff); }
 body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes pâles laissent voir la photo, les fortes la teintent */
-#panel .ortho-box { display: grid; gap: 4px; background: var(--brume); border-radius: 12px; padding: 10px 12px; margin-top: 8px; }
+#panel .ortho-box { display: grid; gap: var(--e1); background: var(--brume); border-radius: var(--r-moyen); padding: var(--e3); margin-top: var(--e2); }
 #panel .ortho-box p { margin: 0; }
 
 /* mode « Plantes et fruits » */
 #panel .vide-plantes { display: grid; gap: 6px; justify-items: start; background: var(--mousse-2); border-radius: 12px; padding: 14px; margin-top: 8px; }
 #panel .vide-plantes svg { width: 28px; height: 28px; color: var(--mousse); }
 #panel .vide-plantes p { margin: 0; font-size: 14px; }
-#panel .bandeau-test, .fiche-ici .bandeau-test { margin: 8px 0 0; padding: 8px 12px; border-radius: 10px; border: 1.5px dashed var(--avec); background: var(--avec-2); color: var(--humus); font: 600 13px var(--texte); }
+#panel .bandeau-test, .fiche-ici .bandeau-test { margin: var(--e2) 0 0; padding: var(--e2) var(--e3); border-radius: var(--r-moyen); border: 1.5px dashed var(--avec); background: var(--avec-2); color: var(--humus); font: 600 13px var(--texte); }
 #panel .plantes-liste { display: flex; flex-direction: column; gap: 3px; }
 #panel .plantes-liste li { padding: 7px 9px; border-radius: 10px; background: var(--brume); }
 #panel .plantes-liste label { display: flex; align-items: center; gap: 8px; cursor: pointer; min-height: 30px; }
 #panel .plantes-liste input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--mousse); }
-#panel .plantes-liste .fam { font: 500 10px var(--mono); color: var(--humus-2); border: 1px solid var(--trait); border-radius: 99px; padding: 1px 7px; }
+#panel .plantes-liste .fam { font: 600 12px var(--texte); color: var(--humus-2); background: var(--papier); border-radius: var(--r-pilule); padding: 1px var(--e2); }
 #panel .plantes-liste .fiche-plante { margin: 6px 0 0 26px; min-height: 44px; font-size: 13px; }
 .fiche-ici .bandeau-test { margin: 0 52px 10px 0; }
 .fiche-ici .fiche-titre { font: 600 24px var(--titre); margin: 0; }
@@ -75,13 +78,13 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 /* ---------- panneau ---------- */
 #panel {
   position: absolute; z-index: 1001; top: calc(var(--haut) + 12px); left: 12px; width: 340px; max-height: calc(100% - var(--haut) - 24px);
-  background: var(--papier); border: 1px solid var(--trait); border-radius: 16px; box-shadow: 0 8px 30px rgba(43, 36, 28, .18);
+  background: var(--papier); border-radius: var(--r-carte); box-shadow: var(--ombre-flottant);
   display: flex; flex-direction: column; overflow: hidden;
 }
 #panel > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px 6px 14px; border-bottom: 1px solid var(--trait); min-height: 52px; }
-#panel h1 { font: 600 18px var(--titre); margin: 0; letter-spacing: -.01em; }
-#panel h1 span { color: var(--mousse); }
-#toggle { background: none; border: 0; color: var(--humus-2); font: 600 13px var(--texte); min-height: 44px; padding: 0 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+#panel h1 { font: 600 18px var(--titre); margin: 0; letter-spacing: -.01em; color: var(--humus); }
+#panel h1 span { color: inherit; }
+#toggle { background: none; border: 0; color: var(--humus-2); font: 600 14px var(--texte); min-height: 44px; padding: 0 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 #toggle svg { width: 18px; height: 18px; transition: transform .2s; }
 #panel.collapsed #toggle svg { transform: rotate(180deg); }
 #panel.collapsed .body { display: none; }
@@ -89,60 +92,60 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 #panel .body { overflow-y: auto; padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 12px; overscroll-behavior: contain; }
 #panel section { display: flex; flex-direction: column; gap: 6px; padding-top: 10px; }
 #panel .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-#panel .k { font: 500 11px var(--mono); color: var(--humus-2); }
-#panel .mono { font-family: var(--mono); font-size: 12px; }
+#panel .k { font: 600 13px var(--texte); color: var(--humus-2); }
+#panel .mono { font-size: 13px; font-variant-numeric: tabular-nums; }
 #panel .muted { color: var(--humus-2); }
-#panel .small { font-size: 12px; }
+#panel .small { font-size: 13px; }
 #panel a { color: var(--mousse); }
 #panel ul { list-style: none; margin: 0; padding: 0; }
 #panel input[type=range] { width: 100%; accent-color: var(--mousse); }
-#panel .ticks { display: flex; justify-content: space-between; color: var(--humus-2); font-size: 10px; }
+#panel .ticks { display: flex; justify-content: space-between; color: var(--humus-2); font-size: 12px; }
 #dayLabel { text-align: right; text-transform: capitalize; }
 
 #panel button, #panel select, #panel input[type=text], #panel input[type=url], #panel input[type=search], #panel input:not([type]), #panel .filebtn {
-  font: 500 13px var(--texte); color: var(--humus); background: var(--brume); border: 1px solid var(--trait); border-radius: 10px; padding: 8px 10px; min-height: 40px;
+  font: 600 14px var(--texte); color: var(--humus); background: var(--creux); border: 0; border-radius: var(--r-moyen); padding: var(--e2) var(--e3); min-height: 44px;
 }
 #panel button, #panel .filebtn { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-#panel button:hover, #panel .filebtn:hover { border-color: var(--mousse); }
+#panel button:hover, #panel .filebtn:hover { background: var(--mousse-2); }
 #panel .btns { display: flex; gap: 6px; flex-wrap: wrap; }
-#panel .btns button { min-height: 34px; padding: 4px 10px; font-size: 12px; }
+#panel .btns button { min-height: 40px; padding: var(--e1) var(--e3); font-size: 13px; }
 #panel .stack { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
 #panel .stack input, #panel .stack select { width: 100%; }
 #panel details { border-top: 1px solid var(--trait); padding-top: 10px; }
-#panel summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; font: 500 11px var(--mono); color: var(--mousse); }
-#panel .mini li { display: flex; align-items: center; gap: 6px; font-size: 12px; padding: 3px 0; }
+#panel summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font: 600 14px var(--texte); color: var(--mousse); }
+#panel .mini li { display: flex; align-items: center; gap: var(--e2); font-size: 13px; padding: var(--e1) 0; }
 #panel .mini li span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 #panel .mini li input[type=range] { width: 70px; }
-#panel .mini button { min-height: 30px; padding: 0 9px; }
+#panel .mini button { min-height: 36px; padding: 0 var(--e2); }
 
 /* battues : choix du jour */
-#panel .chasse { background: var(--non-2); border-radius: 12px; padding: 10px 12px; margin-top: 8px; }
+#panel .chasse { background: var(--non-2); border-radius: var(--r-moyen); padding: var(--e3); margin-top: var(--e2); }
 #panel .chasse .k { color: var(--non); font-weight: 600; }
 #panel .jours { display: flex; flex-wrap: wrap; gap: 6px; }
-#panel .jours button { min-height: 36px; padding: 4px 12px; border-radius: 99px; background: var(--papier); font-size: 13px; }
-#panel .jours button[aria-pressed=true] { background: var(--non); border-color: var(--non); color: #fff; font-weight: 600; }
+#panel .jours button { min-height: 40px; padding: var(--e1) var(--e3); border-radius: var(--r-pilule); background: var(--papier); font-size: 14px; }
+#panel .jours button[aria-pressed=true] { background: var(--non); color: var(--papier); font-weight: 600; }
 #chasseEtat { margin: 2px 0 0; font-size: 13px; }
 
 /* espèces */
 #species { display: flex; flex-direction: column; gap: 3px; }
-#species li { padding: 7px 9px; border-radius: 10px; background: var(--brume); }
+#species li { padding: var(--e2) var(--e3); border-radius: var(--r-moyen); background: var(--brume); }
 #species label { display: flex; align-items: center; gap: 8px; cursor: pointer; min-height: 30px; }
 #species input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--mousse); }
 #panel .dot, .pop .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
 #panel .nm { flex: 1; font-weight: 600; }
-#panel .chip { font: 500 10px var(--mono); padding: 2px 7px; border-radius: 99px; background: var(--trait); color: var(--humus-2); white-space: nowrap; }
+#panel .chip { font: 600 12px var(--texte); padding: 2px var(--e2); border-radius: var(--r-pilule); background: var(--mousse-2); color: var(--humus-2); white-space: nowrap; }
 #panel .chip.pousse { background: var(--oui-2); color: var(--oui); }
 #panel .chip.prepare, #panel .chip.moyen { background: var(--avec-2); color: var(--avec); }
 #panel .chip.sec, #panel .chip.chaud, #panel .chip.defav, #panel .chip.hors { background: var(--non-2); color: var(--non); }
-#panel .chip.froid, #panel .chip.gel { background: #e3eef8; color: #2f6fa8; }
+#panel .chip.froid, #panel .chip.gel { background: var(--mousse-2); color: var(--humus-2); }
 #panel .strip { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; margin: 5px 0 2px 26px; }
 #panel .strip i { height: 4px; border-radius: 2px; }
-#panel .sub { margin-left: 26px; font-size: 11px; color: var(--humus-2); }
+#panel .sub { margin-left: 26px; font-size: 12px; color: var(--humus-2); }
 #panel .modes { justify-content: flex-start; gap: 16px; padding-top: 4px; }
 #panel .modes label, #panel .check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; min-height: 32px; }
 #panel .op { display: flex; align-items: center; gap: 8px; margin: 4px 0 0 26px; }
 #panel .op input[type=range] { flex: 1; }
-#panel .op .mono { width: 38px; text-align: right; font-size: 11px; color: var(--humus-2); }
+#panel .op .mono { width: 40px; text-align: right; font-size: 12px; color: var(--humus-2); }
 
 /* légende */
 #panel .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; }
@@ -150,22 +153,22 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 #panel .lg { display: flex; flex-direction: column; gap: 3px; width: 100%; }
 #panel .lg-row { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(5, 1fr); gap: 2px; align-items: center; }
 #panel .lg-row i { height: 12px; margin: 0; width: auto; border-radius: 2px; }
-#panel .lg-head span { font: 9px var(--mono); color: var(--humus-2); text-align: center; line-height: 1.1; }
-#panel .lg-nm { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px; }
-#panel .lg-miss { grid-column: 2 / -1; font: 10px var(--mono); color: var(--non); }
+#panel .lg-head span { font: 11px var(--texte); color: var(--humus-2); text-align: center; line-height: 1.15; }
+#panel .lg-nm { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px; }
+#panel .lg-miss { grid-column: 2 / -1; font: 12px var(--texte); color: var(--non); }
 #panel .lg-note { margin: 4px 0 0; }
 #panel .lg-hachure { display: flex; align-items: center; gap: 8px; font-size: 12px; margin-top: 6px; }
 #panel .lg-hachure i { width: 26px; height: 14px; border: 1.5px solid var(--non); border-radius: 3px; flex: none;
   background: repeating-linear-gradient(45deg, var(--non) 0 3px, rgba(255, 255, 255, .6) 3px 8px); }
 
-#panel .notice { margin: 10px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--avec-2); color: var(--avec); font-size: 12px; }
+#panel .notice { margin: var(--e3) 0 0; padding: var(--e2) var(--e3); border-radius: var(--r-moyen); background: var(--avec-2); color: var(--avec); font-size: 13px; }
 #panel .notice.empty { background: var(--non-2); color: var(--non); font-size: 13px; }
-#panel .notice code { font: 11px var(--mono); }
+#panel .notice code { font-size: 12px; }
 #panel .foot { border-top: 1px solid var(--trait); padding-top: 10px; margin: 0; }
 
 .map-msg {
   position: absolute; z-index: 900; top: calc(var(--haut) + 12px); left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px);
-  padding: 8px 14px; border-radius: 99px; background: var(--non-2); color: var(--non); font: 500 12px var(--texte); box-shadow: var(--ombre); pointer-events: none;
+  padding: var(--e2) var(--e4); border-radius: var(--r-pilule); background: var(--non-2); color: var(--non); font: 600 13px var(--texte); box-shadow: var(--ombre); pointer-events: none;
 }
 @media (min-width: 861px) { .map-msg { left: calc(50% + 176px); } }
 
@@ -183,34 +186,34 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 
 /* ---------- bouton « Puis-je cueillir ici ? » (ordinateur ; sur mobile : onglet « Ici ? ») ---------- */
 .fab-ici { position: absolute; z-index: 1040; bottom: 28px; left: calc(50% + 176px); transform: translateX(-50%);
-  display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 12px 22px; border: 0; border-radius: 99px;
-  background: var(--accent); color: var(--sur-accent); font: 600 16px var(--texte); box-shadow: 0 8px 24px rgba(43, 36, 28, .3); cursor: pointer; }
+  display: inline-flex; align-items: center; gap: var(--e2); min-height: 52px; padding: 0 var(--e6); border: 0; border-radius: var(--r-pilule);
+  background: var(--accent); color: var(--sur-accent); font: 600 16px var(--texte); box-shadow: var(--ombre-flottant); cursor: pointer; transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
 .fab-ici:hover { background: var(--accent-vif); }
 .fab-ici svg { width: 22px; height: 22px; }
 @media (max-width: 860px) { .fab-ici { display: none; } }
 
 /* ---------- fiche « Ici ? » ---------- */
 .fiche-ici { position: absolute; z-index: 1200; top: calc(var(--haut) + 12px); right: 12px; width: 400px; max-height: calc(100% - var(--haut) - 24px);
-  overflow-y: auto; overscroll-behavior: contain; background: var(--papier); border: 1px solid var(--trait); border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(43, 36, 28, .28); padding: 18px 20px 20px; font-size: 15px; }
-.fiche-ici .fermer { position: sticky; top: 0; float: right; margin: -6px -8px 0 8px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--trait);
-  background: var(--papier); color: var(--humus); font: 400 24px/1 var(--texte); cursor: pointer; }
+  overflow-y: auto; overscroll-behavior: contain; background: var(--papier); border-radius: var(--r-feuille);
+  box-shadow: var(--ombre-flottant); padding: var(--e5); font-size: 15px; }
+.fiche-ici .fermer { position: sticky; top: 0; float: right; margin: calc(var(--e1) * -1) calc(var(--e1) * -1) 0 var(--e2); width: 44px; height: 44px; border-radius: 50%; border: 0;
+  background: var(--creux); color: var(--humus); font: 400 24px/1 var(--texte); cursor: pointer; }
 .fiche-ici .surtitre { margin-bottom: 2px; }
-.fiche-ici h3.sous { font-size: 16px; margin: 20px 0 6px; padding-top: 14px; border-top: 1px solid var(--trait); }
+.fiche-ici h3.sous { font-size: 17px; margin: var(--e5) 0 var(--e2); padding-top: var(--e4); border-top: 1px solid var(--trait); }
 .fiche-ici .btns { margin-top: 12px; }
-.fiche-ici .btn { min-height: 44px; padding: 9px 16px; font-size: 14px; }
+.fiche-ici .btn { min-height: 44px; padding: 0 var(--e4); font-size: 15px; }
 .fiche-ici .alerte-battue { margin-top: 12px; }
 .fiche-ici table.pop { font-size: 14px; }
 @media (max-width: 860px) {
   .fiche-ici { top: auto; left: 0; right: 0; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); width: auto; max-height: 60%;
-    border-radius: 18px 18px 0 0; border-bottom: 0; }
+    border-radius: var(--r-feuille) var(--r-feuille) 0 0; }
 }
 
 /* ---------- popups ---------- */
 .leaflet-container { font: 13px/1.45 var(--texte); }
 .leaflet-popup-content { margin: 12px 14px; }
 .pop { border-collapse: collapse; margin: 6px 0; } .pop td { padding: 2px 8px 2px 0; vertical-align: top; } .pop .dot { margin-right: 6px; }
-.pop-alerte { display: flex; gap: 8px; align-items: flex-start; background: var(--non); color: #fff; border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; }
+.pop-alerte { display: flex; gap: var(--e2); align-items: flex-start; background: #a5301d; color: #fff; border-radius: var(--r-moyen); padding: var(--e2) var(--e3); margin-bottom: var(--e2); }
 .pop-alerte svg { width: 18px; height: 18px; flex: none; }
 .pop-btn { display: flex; width: 100%; align-items: center; justify-content: center; gap: 6px; min-height: 44px; margin-top: 8px; border: 0; border-radius: 99px;
   background: var(--accent); color: var(--sur-accent); font: 600 14px var(--texte); cursor: pointer; }
@@ -220,5 +223,5 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 /* ---------- mobile : panneau en tiroir au-dessus des onglets ---------- */
 @media (max-width: 860px) {
   #panel { top: auto; left: 0; right: 0; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); width: 100%; max-height: 62%;
-    border-radius: 16px 16px 0 0; border-bottom: 0; box-shadow: 0 -6px 24px rgba(43, 36, 28, .16); }
+    border-radius: var(--r-carte) var(--r-carte) 0 0; box-shadow: var(--ombre-flottant); }
 }

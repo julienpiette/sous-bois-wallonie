@@ -10,6 +10,7 @@
   --sur-accent: #18231a; --accent-vif: #d9ec84; --focus: #1e3b26; --foret: #1e3b26; --creme: #f3f6ea;
   --oui: #2c6a37; --oui-2: #dff0e2; --avec: #855800; --avec-2: #fbefd4; --non: #a5301d; --non-2: #fbe4df;
   --ombre: 0 1px 2px rgba(24, 35, 26, .06), 0 10px 30px rgba(24, 35, 26, .08);
+  --ombre-flottant: 0 1px 2px rgba(24, 35, 26, .08), 0 12px 32px rgba(24, 35, 26, .18);
   --affiche: 'Lilita One', 'Arial Rounded MT Bold', system-ui, sans-serif;
   --titre: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
   --texte: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
@@ -28,6 +29,7 @@
   --focus: #cde46a; --foret: #17301e; --humus-3: #8b9886; --creux: #1e2e22;
   --oui: #8fd39b; --oui-2: #1b3020; --avec: #f0c564; --avec-2: #362b12; --non: #ff917b; --non-2: #3a1d17;
   --ombre: 0 1px 2px rgba(0, 0, 0, .4);
+  --ombre-flottant: 0 0 0 1px rgba(255, 255, 255, .08), 0 12px 32px rgba(0, 0, 0, .5);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -188,7 +190,9 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .alerte-battue svg { width: 26px; height: 26px; flex: none; margin-top: 1px; }
 .alerte-battue b { font-weight: 600; }
 .alerte-battue a { color: #fff; }
-.alerte-battue:not([data-fixe]) { position: relative; padding-right: var(--e12); }
+/* :where() : sans priorité, pour ne pas écraser le placement absolu de l'alerte sur la carte */
+:where(.alerte-battue) { position: relative; }
+.alerte-battue:not([data-fixe]) { padding-right: var(--e12); }
 .alerte-fermer { position: absolute; top: var(--e1); right: var(--e1); width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: var(--r-pilule); background: transparent; color: #fff; cursor: pointer; transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
 .alerte-fermer svg { width: 20px; height: 20px; margin: 0; }
 .alerte-fermer:hover { background: rgba(255, 255, 255, .16); }
