@@ -1,6 +1,9 @@
 # Dossier privé : étude, brief, notes, scripts du modèle (docs-prive/modele), données locales
 # (docs-prive/donnees-locales, ≈ 6 Go, dont la couche « ancienneté des forêts » non republiable). Jamais publié.
 docs-prive/
+# Fiches et couches plantes et fruits : publiées seulement quand MODE_PLANTES_ACTIF est vrai
+# (docs-prive/config-privee.json ; publier.ps1 les ajoute alors avec git add -f)
+data/plantes/
 # Anciens emplacements, au cas où ils réapparaîtraient
 sources/
 sous-bois-wallonie/
