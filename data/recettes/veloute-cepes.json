@@ -1,0 +1,37 @@
+{
+  "id": "veloute-cepes",
+  "titre": "Velouté de cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Une pomme de terre pour le corps, un peu de crème pour la douceur, et tout le goût du sous-bois.",
+  "ingredients": [
+    { "nom": "cèpes, en morceaux", "g": 400.0, "base": true },
+    { "nom": "oignon émincé", "g": 100.0 },
+    { "nom": "pomme de terre farineuse, en cubes", "g": 200.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 900.0 },
+    { "nom": "crème liquide", "g": 100.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Garde quelques belles tranches de cèpe pour la finition. Coupe le reste en morceaux.",
+    "Fais fondre le beurre dans une casserole et laisse suer l’oignon 5 minutes sans coloration.",
+    "Ajoute les morceaux de cèpe et cuis 8 minutes en remuant, jusqu’à ce que leur eau soit évaporée.",
+    "Verse le bouillon, ajoute la pomme de terre et laisse frémir 25 minutes à couvert.",
+    "Mixe longuement avec la crème jusqu’à obtenir une texture lisse. Sale et poivre.",
+    "Poêle les tranches réservées 4 minutes à feu vif et pose-les sur chaque bol."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle jusqu’à 3 mois : mixe-le sans la crème si tu veux le congeler, et ajoute-la au réchauffage."
+}

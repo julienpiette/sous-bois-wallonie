@@ -1,0 +1,39 @@
+{
+  "id": "risotto-cepes",
+  "titre": "Risotto aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "moyen",
+  "preparation_min": 15,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 350.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une partie des cèpes fond dans le riz, l’autre est poêlée à part et posée au dernier moment.",
+  "ingredients": [
+    { "nom": "cèpes, en dés", "g": 350.0, "base": true },
+    { "nom": "riz à risotto (arborio ou carnaroli)", "g": 320.0 },
+    { "nom": "échalote ciselée", "g": 60.0 },
+    { "nom": "vin blanc sec", "g": 100.0 },
+    { "nom": "bouillon de légumes chaud (sans gluten)", "g": 1100.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "huile d’olive", "g": 15.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 60.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Fais dorer la moitié des dés de cèpe dans 20 g de beurre, 8 minutes à feu vif. Réserve-les.",
+    "Dans une sauteuse, chauffe l’huile et 10 g de beurre, fais suer l’échalote 3 minutes, puis ajoute l’autre moitié des cèpes 3 minutes.",
+    "Verse le riz et remue 2 minutes, jusqu’à ce que les grains deviennent translucides sur les bords.",
+    "Mouille avec le vin blanc et laisse-le s’évaporer en remuant.",
+    "Ajoute le bouillon chaud louche par louche, en attendant qu’il soit presque absorbé avant la suivante, pendant 17 à 19 minutes. Le riz doit rester un peu ferme au cœur.",
+    "Hors du feu, incorpore le reste du beurre et le fromage, couvre 2 minutes. Ajoute les cèpes dorés, sale, poivre et sers."
+  ],
+  "conservation": "Meilleur tout de suite. Les restes se gardent 1 jour au frigo et se réchauffent à la poêle, en galettes dorées des deux côtés."
+}

@@ -2,17 +2,22 @@
   "id": "omelette-cepes",
   "titre": "Omelette aux cèpes",
   "statut": "brouillon",
-  "espece": "cepe",
+  "especes": ["cepe"],
   "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
   "niveau": "facile",
   "preparation_min": 10,
   "cuisson_min": 12,
   "portions": 2,
   "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
   "chapeau": "La recette qui laisse parler le cèpe : peu d’ingrédients, une poêle bien chaude.",
   "ingredients": [
     { "nom": "cèpes nettoyés, en tranches", "g": 250.0, "base": true },
-    { "nom": "œufs (environ 55 g pièce)", "g": 220.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 220.0 },
     { "nom": "beurre", "g": 20.0 },
     { "nom": "échalote ciselée", "g": 30.0 },
     { "nom": "persil plat haché", "g": 5.0 },
@@ -25,5 +30,6 @@
     "Bats les œufs avec le sel, le poivre et le persil.",
     "Ajoute le reste du beurre, verse les œufs sur les cèpes et cuis 3 à 4 minutes à feu moyen, en ramenant les bords vers le centre.",
     "Plie l’omelette et sers aussitôt. Les cèpes doivent être bien cuits."
-  ]
+  ],
+  "conservation": "À manger tout de suite : une omelette réchauffée devient caoutchouteuse. Si tu as trop de cèpes, poêle-les et congèle-les cuits (jusqu’à 6 mois)."
 }

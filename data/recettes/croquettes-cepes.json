@@ -1,0 +1,43 @@
+{
+  "id": "croquettes-cepes",
+  "titre": "Croquettes aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "belge",
+  "niveau": "exigeant",
+  "preparation_min": 45,
+  "cuisson_min": 25,
+  "repos_min": 180,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": true,
+  "chapeau": "Le principe de la croquette belge, une béchamel très ferme, avec des cèpes à la place des crevettes ou du fromage.",
+  "ingredients": [
+    { "nom": "cèpes, hachés finement", "g": 300.0, "base": true },
+    { "nom": "beurre", "g": 60.0 },
+    { "nom": "farine de blé (béchamel)", "g": 70.0 },
+    { "nom": "lait entier", "g": 400.0 },
+    { "nom": "jaunes d’œufs", "g": 40.0 },
+    { "nom": "gruyère râpé", "g": 50.0 },
+    { "nom": "noix de muscade râpée", "g": 0.3 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 },
+    { "nom": "farine de blé (panure)", "g": 50.0 },
+    { "nom": "œufs entiers battus (panure)", "g": 110.0 },
+    { "nom": "chapelure fine", "g": 120.0 },
+    { "nom": "huile de friture", "g": 1000.0 }
+  ],
+  "etapes": [
+    "Cuis les cèpes hachés dans 10 g de beurre, 10 minutes à feu moyen, jusqu’à ce qu’ils soient bien secs.",
+    "Fais fondre le reste du beurre, ajoute la farine et remue 2 minutes. Verse le lait froid en fouettant et cuis 5 minutes à feu doux : la béchamel doit être très épaisse.",
+    "Hors du feu, ajoute les jaunes, le gruyère, la muscade, le sel, le poivre et les cèpes. Mélange.",
+    "Étale dans un plat sur 2 cm d’épaisseur, couvre au contact d’un film et laisse prendre 3 heures au frigo.",
+    "Coupe 8 bâtonnets, roule-les dans la farine, puis dans l’œuf battu, puis dans la chapelure. Repasse-les dans l’œuf et la chapelure pour une panure solide.",
+    "Fais-les frire 3 à 4 minutes dans l’huile à 175 °C, en petites quantités, jusqu’à ce qu’ils soient bien dorés. Égoutte sur du papier et sers aussitôt."
+  ],
+  "conservation": "Les croquettes panées et non frites se congèlent à plat, puis en sachet, jusqu’à 3 mois. Frire directement sans décongeler, 5 minutes à 170 °C."
+}

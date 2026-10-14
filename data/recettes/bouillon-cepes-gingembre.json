@@ -1,0 +1,39 @@
+{
+  "id": "bouillon-cepes-gingembre",
+  "titre": "Bouillon de cèpes au gingembre et tofu",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["ete", "automne"],
+  "cuisine": "japonaise",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un bouillon clair et parfumé : les pieds et les parures font le fond, les tranches poêlées font la garniture.",
+  "ingredients": [
+    { "nom": "cèpes (tranches et parures)", "g": 300.0, "base": true },
+    { "nom": "eau", "g": 1200.0 },
+    { "nom": "gingembre frais, en tranches", "g": 15.0 },
+    { "nom": "vert de poireau", "g": 100.0 },
+    { "nom": "tamari (sauce soja sans gluten)", "g": 40.0 },
+    { "nom": "mirin", "g": 20.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "tofu soyeux, en cubes", "g": 200.0 },
+    { "nom": "oignon nouveau émincé", "g": 20.0 },
+    { "nom": "huile de sésame grillé", "g": 5.0 }
+  ],
+  "etapes": [
+    "Coupe les plus beaux cèpes en tranches. Mets les pieds, les parures, le gingembre et le vert de poireau dans l’eau froide.",
+    "Porte à frémissement et laisse infuser 20 minutes sans bouillir fort. Filtre.",
+    "Poêle les tranches de cèpe dans l’huile neutre 5 minutes, jusqu’à ce qu’elles soient dorées.",
+    "Ajoute-les au bouillon filtré avec le tamari et le mirin. Laisse frémir 8 minutes.",
+    "Ajoute le tofu et chauffe 2 minutes sans remuer pour ne pas l’écraser.",
+    "Sers dans des bols, avec l’oignon nouveau et quelques gouttes d’huile de sésame."
+  ],
+  "conservation": "Le bouillon (sans le tofu) se garde 3 jours au frigo et se congèle jusqu’à 3 mois."
+}

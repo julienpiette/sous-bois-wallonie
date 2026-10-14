@@ -1,0 +1,36 @@
+{
+  "id": "cepes-rotis-noisettes",
+  "titre": "Cèpes rôtis au four, thym et noisettes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 22,
+  "portions": 4,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Coupés en deux et rôtis à four chaud, les cèpes prennent un goût presque grillé ; les noisettes en rajoutent.",
+  "ingredients": [
+    { "nom": "cèpes moyens, coupés en deux", "g": 500.0, "base": true },
+    { "nom": "huile d’olive", "g": 35.0 },
+    { "nom": "noisettes concassées", "g": 40.0 },
+    { "nom": "thym frais", "g": 3.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "beurre", "g": 15.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 210 °C.",
+    "Mélange les cèpes avec l’huile, le thym, le sel et le poivre. Étale-les face coupée vers le bas sur une plaque, sans les serrer.",
+    "Enfourne 15 minutes, retourne-les, ajoute les noisettes et remets 7 minutes.",
+    "À la sortie du four, ajoute le beurre et l’ail et mélange : la chaleur suffit à les parfumer.",
+    "Sers aussitôt, avec une volaille, un gibier ou simplement du pain."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe quelques minutes au four chaud plutôt qu’au micro-ondes."
+}

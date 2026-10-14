@@ -1,0 +1,39 @@
+{
+  "id": "tagliatelles-cepes-creme",
+  "titre": "Tagliatelles aux cèpes et à la crème",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Un plat du soir rapide : la sauce se fait pendant que l’eau des pâtes chauffe.",
+  "ingredients": [
+    { "nom": "cèpes, en lamelles", "g": 400.0, "base": true },
+    { "nom": "tagliatelles sèches", "g": 350.0 },
+    { "nom": "crème liquide", "g": 200.0 },
+    { "nom": "échalote ciselée", "g": 40.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "persil plat haché", "g": 8.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 40.0 },
+    { "nom": "sel (dont l’eau des pâtes)", "g": 14.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Porte à ébullition une grande casserole d’eau salée.",
+    "Pendant ce temps, poêle les lamelles de cèpe à sec 4 minutes, puis ajoute le beurre et l’échalote et laisse dorer 5 minutes.",
+    "Ajoute l’ail 1 minute, puis la crème. Laisse réduire doucement 4 minutes.",
+    "Cuis les tagliatelles en suivant le temps du paquet, moins une minute. Garde une louche d’eau de cuisson.",
+    "Égoutte les pâtes, verse-les dans la sauce avec un peu d’eau de cuisson, mélange 1 minute sur le feu.",
+    "Sers avec le persil et le fromage, et un tour de poivre."
+  ],
+  "conservation": "À manger tout de suite. La sauce seule (sans les pâtes) se garde 2 jours au frigo."
+}

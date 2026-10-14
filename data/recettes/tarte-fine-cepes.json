@@ -1,0 +1,38 @@
+{
+  "id": "tarte-fine-cepes",
+  "titre": "Tarte fine aux cèpes et oignons",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Une pâte feuilletée, des oignons fondants, des cèpes déjà dorés : le four ne fait que les réunir.",
+  "ingredients": [
+    { "nom": "cèpes, en tranches fines", "g": 300.0, "base": true },
+    { "nom": "pâte feuilletée", "g": 230.0 },
+    { "nom": "oignon émincé", "g": 120.0 },
+    { "nom": "crème épaisse", "g": 80.0 },
+    { "nom": "huile d’olive", "g": 15.0 },
+    { "nom": "thym frais effeuillé", "g": 1.0 },
+    { "nom": "œuf battu (dorure)", "g": 25.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 200 °C.",
+    "Fais fondre l’oignon dans la moitié de l’huile, 10 minutes à feu doux, sans coloration.",
+    "Poêle les tranches de cèpe dans le reste de l’huile, 6 minutes à feu vif, pour chasser leur eau. Sale et poivre.",
+    "Déroule la pâte sur une plaque. Étale la crème en laissant 2 cm de bord, puis l’oignon, puis les cèpes. Parsème de thym.",
+    "Badigeonne les bords d’œuf battu et enfourne 20 à 25 minutes, jusqu’à ce que la pâte soit bien dorée dessous.",
+    "Sers tiède, avec une salade."
+  ],
+  "conservation": "Au frigo 1 jour. Réchauffe 8 minutes au four à 180 °C pour que la pâte redevienne croustillante."
+}

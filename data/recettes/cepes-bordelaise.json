@@ -1,0 +1,36 @@
+{
+  "id": "cepes-bordelaise",
+  "titre": "Cèpes à la bordelaise",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 16,
+  "portions": 4,
+  "base_g": 600.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Les chapeaux dorés d’un côté, les pieds hachés fondus avec l’échalote de l’autre : deux textures dans le même plat.",
+  "ingredients": [
+    { "nom": "cèpes fermes", "g": 600.0, "base": true },
+    { "nom": "huile d’olive", "g": 30.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "échalote ciselée", "g": 40.0 },
+    { "nom": "ail haché", "g": 8.0 },
+    { "nom": "persil plat haché", "g": 10.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Sépare les chapeaux des pieds. Coupe les chapeaux en tranches épaisses d’un centimètre, hache finement les pieds.",
+    "Chauffe l’huile dans une grande poêle. Saisis les tranches de chapeau en une seule couche, 4 minutes de chaque côté, jusqu’à ce qu’elles soient bien dorées. Réserve-les.",
+    "Dans la même poêle, fais fondre le beurre et cuis les pieds hachés avec l’échalote 5 minutes à feu moyen, en remuant.",
+    "Remets les chapeaux, ajoute l’ail et le persil, mélange 2 minutes sans laisser brûler l’ail.",
+    "Sale, poivre et sers bien chaud, par exemple avec une viande grillée ou des pommes de terre."
+  ],
+  "conservation": "Au frigo 2 jours en boîte fermée ; réchauffe à la poêle jusqu’à ce que ce soit bien chaud. Se congèle cuit, jusqu’à 6 mois."
+}

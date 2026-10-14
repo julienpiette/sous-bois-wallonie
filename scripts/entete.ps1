@@ -5,6 +5,7 @@
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 & (Join-Path $PSScriptRoot 'marque.ps1')   # nom du site (marque.json) d'abord
 & (Join-Path $PSScriptRoot 'interrupteurs.ps1')   # réglages privés -> js/interrupteurs.js, attributions
+& (Join-Path $PSScriptRoot 'recettes-index.ps1')   # index du catalogue de recettes (et vérification)
 $utf8 = New-Object Text.UTF8Encoding $false
 $parts = @{}
 foreach ($n in 'entete', 'onglets', 'pied') { $parts[$n] = [IO.File]::ReadAllText((Join-Path $root "partials\$n.html"), $utf8).TrimEnd() }

@@ -1,0 +1,37 @@
+{
+  "id": "sauce-cepes",
+  "titre": "Sauce crémée aux cèpes pour une viande",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 25,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "La sauce qui transforme un steak ou un filet de porc : vin blanc réduit, bouillon, crème.",
+  "ingredients": [
+    { "nom": "cèpes, en petits dés", "g": 250.0, "base": true },
+    { "nom": "échalote ciselée", "g": 40.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "vin blanc sec", "g": 80.0 },
+    { "nom": "bouillon de volaille (sans gluten)", "g": 200.0 },
+    { "nom": "crème liquide", "g": 150.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Poêle les dés de cèpe dans le beurre, 8 minutes à feu vif.",
+    "Ajoute l’échalote et cuis 2 minutes à feu moyen.",
+    "Verse le vin blanc et laisse réduire de moitié.",
+    "Ajoute le bouillon et laisse réduire encore 5 minutes.",
+    "Verse la crème et laisse frémir 5 minutes, jusqu’à ce que la sauce nappe le dos d’une cuillère. Sale et poivre.",
+    "Si tu cuis la viande dans une poêle, verse la sauce dedans à la fin pour récupérer les sucs."
+  ],
+  "conservation": "Au frigo 2 jours, réchauffée doucement jusqu’à frémissement. Se congèle mal (la crème tranche)."
+}

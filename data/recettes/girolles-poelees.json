@@ -2,13 +2,18 @@
   "id": "girolles-poelees",
   "titre": "Girolles poêlées à l’ail et au persil",
   "statut": "brouillon",
-  "espece": "girolle",
+  "especes": ["girolle"],
   "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
   "niveau": "facile",
   "preparation_min": 15,
   "cuisson_min": 10,
   "portions": 2,
   "base_g": 300.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
   "chapeau": "Saisies d’abord à sec, puis au beurre : les girolles gardent leur tenue et leur parfum d’abricot.",
   "ingredients": [
     { "nom": "girolles nettoyées", "g": 300.0, "base": true },
@@ -25,5 +30,6 @@
     "Ajoute l’huile et le beurre, fais dorer 4 minutes à feu vif en remuant.",
     "Hors du feu, ajoute l’ail, le persil, le sel et le poivre ; mélange une minute.",
     "Sers aussitôt, par exemple avec une viande blanche ou sur une tartine grillée."
-  ]
+  ],
+  "conservation": "Au frigo 2 jours. Les girolles poêlées (sans l’ail ni le persil) se congèlent bien, jusqu’à 6 mois : réchauffe-les directement à la poêle."
 }
