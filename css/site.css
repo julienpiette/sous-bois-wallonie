@@ -277,7 +277,7 @@ dl.pourquoi dd { margin: 0; }
 .feu.rouge { background: var(--non-2); color: var(--non); }
 
 /* tableaux */
-.page .tableau { overflow-x: auto; border: 1px solid var(--trait); border-radius: 14px; background: var(--papier); }
+.page .tableau { overflow-x: auto; border-radius: var(--r-carte); background: var(--papier); }
 .page table { border-collapse: collapse; width: 100%; font-size: 15px; }
 .page th, .page td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--trait); vertical-align: top; }
 .page th { font: 500 12px var(--mono); color: var(--humus-2); }
@@ -299,23 +299,24 @@ dl.pourquoi dd { margin: 0; }
 @media (max-width: 520px) { .page .fiche dl { grid-template-columns: 1fr; gap: 2px; } .page .fiche dd { margin-bottom: 8px; } }
 
 /* accordéons */
-.page details.acc { background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; padding: 2px 18px; margin-bottom: 10px; }
-.page details.acc summary { cursor: pointer; min-height: 48px; padding: 12px 0; font: 600 17px var(--titre); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.page details.acc { background: var(--papier); border-radius: var(--r-carte); padding: 0 var(--e5); margin-bottom: var(--e2); }
+.page details.acc summary { cursor: pointer; min-height: 56px; padding: var(--e3) 0; font: 600 17px var(--titre); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .page details.acc summary::-webkit-details-marker { display: none; }
 .page details.acc summary::after { content: '+'; color: var(--mousse); font-weight: 600; font-size: 20px; }
 .page details.acc[open] summary::after { content: '–'; }
-.page details.acc > div { padding-bottom: 14px; }
+.page details.acc > div { padding-bottom: var(--e4); }
 .page ul.liste, .page ol.liste { margin: 0 0 12px; padding-left: 22px; display: grid; gap: 6px; }
 
-.page .sommaire { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
-.page .sommaire a { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--trait); background: var(--papier); text-decoration: none; color: var(--humus); font-size: 14px; }
-.page .sommaire a:hover { border-color: var(--mousse); }
+.page .sommaire { display: flex; flex-wrap: wrap; gap: var(--e2); margin: var(--e5) 0 0; padding: 0; list-style: none; }
+.page .sommaire a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--e4); border-radius: var(--r-pilule); background: var(--papier); text-decoration: none; color: var(--humus); font-size: 15px; font-weight: 600; transition: background-color var(--vite) ease; }
+.page .sommaire a:hover { background: var(--accent-2); }
 .page [id] { scroll-margin-top: calc(var(--head) + 16px); }
 
 /* formulaires */
 .page label.champ { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
 .page input[type=text], .page input[type=search], .page input[type=password], .page input[type=email], .page select, .page textarea {
-  width: 100%; min-height: 48px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--trait); background: var(--papier); color: var(--humus); font: 16px var(--texte); }
+  width: 100%; min-height: 48px; padding: var(--e3) var(--e4); border-radius: var(--r-moyen); border: 0; background: var(--creux); color: var(--humus); font: 16px var(--texte); }
+.page input::placeholder, .page textarea::placeholder { color: var(--humus-3); }
 .page textarea { min-height: 120px; resize: vertical; }
 .page .rangee { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
 .page .rangee > * { flex: 1 1 180px; }
@@ -370,14 +371,13 @@ dl.pourquoi dd { margin: 0; }
 .hors-reseau { position: fixed; top: calc(var(--head) + 8px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 2150; background: var(--humus); color: var(--brume); border-radius: 99px; padding: 6px 14px; font: 600 13px var(--texte); }
 
 /* pied de page */
-.page .site-foot { border-top: 1px solid var(--trait); margin-top: 48px; padding-block: 32px 40px; font-size: 14px; color: var(--humus-2); }
-.page .site-foot .cols { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
-.page .site-foot h4 { font: 600 14px var(--titre); color: var(--humus); margin: 0 0 8px; }
-.page .site-foot a { color: var(--humus-2); }
-.page .site-foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.page .site-foot p { margin: 0 0 6px; }
-.page .site-foot button { background: none; border: 1px solid var(--trait); border-radius: 99px; color: var(--humus); padding: 8px 14px; min-height: 40px; font: 600 13px var(--texte); cursor: pointer; }
-
+.page .site-foot { border-top: 1px solid var(--trait); margin-top: var(--e12); padding-block: var(--e8) var(--e12); font-size: 14px; color: var(--humus-2); }
+.page .pied-in { display: grid; gap: var(--e3); max-width: 760px; }
+.page .site-foot p { margin: 0; }
+.page .pied-marque b { color: var(--humus); }
+.page .pied-liens { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--e5); }
+.page .pied-liens a { color: var(--humus); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
+.page .site-foot button { background: var(--creux); border: 0; border-radius: var(--r-pilule); color: var(--humus); padding: 0 var(--e4); min-height: 44px; font: 600 14px var(--texte); cursor: pointer; }
 /* ---------- fiches espèces en cinq étapes, recettes, conservation, garde-manger ---------- */
 .page .reperes { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; padding: 0; list-style: none; counter-reset: rep; }
 .page .reperes a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--trait); background: var(--brume); color: var(--humus); text-decoration: none; font: 600 14px var(--texte); }
