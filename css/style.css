@@ -44,6 +44,14 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 }
 @media (max-width: 860px) { .bascule-mode button { font-size: 14px; } }
 
+/* vue réelle (photo aérienne) : halo clair autour des routes, noms et zones fermées, pour qu'ils restent lisibles */
+.btn-vue[aria-pressed=true] { background: var(--humus); color: var(--brume); border-color: var(--humus); }
+body.vue-reelle .leaflet-dessus-pane { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 0 1px rgba(255, 255, 255, .9)); }
+body.vue-reelle .leaflet-fermetures-pane { filter: drop-shadow(0 0 2px #fff); }
+body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes pâles laissent voir la photo, les fortes la teintent */
+#panel .ortho-box { display: grid; gap: 4px; background: var(--brume); border-radius: 12px; padding: 10px 12px; margin-top: 8px; }
+#panel .ortho-box p { margin: 0; }
+
 /* mode « Plantes et fruits » */
 #panel .vide-plantes { display: grid; gap: 6px; justify-items: start; background: var(--mousse-2); border-radius: 12px; padding: 14px; margin-top: 8px; }
 #panel .vide-plantes svg { width: 28px; height: 28px; color: var(--mousse); }

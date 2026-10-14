@@ -5,7 +5,7 @@
    - tuiles de potentiel, de facteurs et fond de carte déjà vus : cache d'abord (plafonné)
    - services publics (chasse, propriétés, météo, recherche) : JAMAIS en cache ici (une battue périmée serait dangereuse)
    Changer VERSION à chaque mise en ligne d'une nouvelle version. */
-const VERSION = 'sb-20261014-1000';
+const VERSION = 'sb-20261014-1008';
 const COQUILLE = [
   './', 'index.html', 'bulletin.html', 'carte.html', 'droit.html', 'battues.html', 'carnet.html', 'guide.html', 'especes.html',
   'avant-de-manger.html', 'glossaire.html', 'materiel.html', 'pros.html', 'approche.html', 'recettes.html', 'conservation.html',
@@ -76,5 +76,5 @@ self.addEventListener('fetch', (e) => {
   }
   if (/tile\.openstreetmap\.org|cartoweb\.wmts\.ngi\.be|tile\.opentopomap\.org/.test(u.host)) return e.respondWith(cacheDabord(req, 'sb-fond'));
   if (/cdnjs\.cloudflare\.com|fonts\.googleapis\.com|fonts\.gstatic\.com/.test(u.host)) return e.respondWith(cacheDabord(req, 'sb-ext'));
-  // services publics (geoservices.wallonie.be, open-meteo, nominatim) : réseau uniquement
+  // services publics (geoservices.wallonie.be, dont les photos aériennes de la vue « Réel », open-meteo, nominatim) : réseau uniquement
 });

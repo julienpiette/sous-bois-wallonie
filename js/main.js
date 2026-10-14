@@ -51,6 +51,31 @@
   $('#dessus').addEventListener('change', (e) => setDessus(e.target.checked));
   setDessus(S.dessus);
 
+  // vue réelle : orthophotos les plus récentes du SPW (WMS, CC-BY 4.0), posées sur le fond choisi (hors Wallonie, le plan reste
+  // visible). Jamais mises en cache par le service worker (service public). Pas de Google Maps (conditions d'utilisation).
+  const ortho = L.tileLayer.wms('https://geoservices.wallonie.be/arcgis/services/IMAGERIE/ORTHO_LAST/MapServer/WMSServer', {
+    layers: '0', format: 'image/jpeg', transparent: false, version: '1.3.0', maxZoom: 19, zIndex: 10, bounds: [[49.45, 2.80], [50.90, 6.50]],
+    attribution: 'Orthophotos : Source : Service public de Wallonie (<a href="https://geodata.wallonie.be/id/dfc9f3a2-adff-4b7f-ab77-8a890c4cabbb" target="_blank" rel="noopener">SPW</a>, CC-BY 4.0)'
+  });
+  const setVue = (reel) => {
+    S.reel = reel; store.set('mw-vue', reel ? 'reel' : 'plan');
+    reel ? ortho.addTo(map) : map.removeLayer(ortho);
+    if (reel) ortho.bringToFront();
+    const bt = $('#vue');
+    bt.setAttribute('aria-pressed', String(reel));
+    bt.querySelector('span').textContent = reel ? 'Plan' : 'Réel';
+    bt.title = reel ? 'Revenir au plan' : 'Voir la photo aérienne';
+    document.body.classList.toggle('vue-reelle', reel);
+    $('#orthoBox').hidden = !reel;
+  };
+  ortho.setOpacity(store.get('mw-ortho-op', 1));
+  $('#vue').addEventListener('click', () => setVue(!S.reel));
+  $('#orthoOp').value = store.get('mw-ortho-op', 1);
+  $('#orthoOp').addEventListener('input', (e) => { ortho.setOpacity(+e.target.value); store.set('mw-ortho-op', +e.target.value); });
+  setVue(store.get('mw-vue', 'plan') === 'reel');
+  // ancienneté des forêts publiée seulement avec l'autorisation du SPW : attribution sur la carte, jamais masquée
+  if (MW.INTERRUPTEURS && MW.INTERRUPTEURS.anciennete && MW.INTERRUPTEURS.ancienneteAttribution) map.attributionControl.addAttribution(esc(MW.INTERRUPTEURS.ancienneteAttribution));
+
   // rendu SVG des zones fermées, avec un motif de hachures rouges sur voile clair
   const rendF = L.svg({ pane: 'fermetures', padding: 0.5 });
   map.addLayer(rendF);

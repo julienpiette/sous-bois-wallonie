@@ -13,6 +13,7 @@ Chaque donnée utilisée par le site, avec sa source, sa date de consultation et
 | Réserves naturelles et forestières | SPW, service FAUNE_FLORE/CONSNAT | 13/10/2026 | à confirmer | interrogation directe seulement, rien n’est republié |
 | Règlements communaux de cueillette | presse régionale et sites communaux, source et date dans `data/communes.json` | 13/10/2026 | citation avec source | « Puis-je cueillir ici ? », page Le droit |
 | Météo observée et prévue | Open-Meteo, https://open-meteo.com | 13/10/2026 | données CC-BY 4.0 ; API gratuite en usage non commercial | bulletin des pousses |
+| Orthophotos, dernière campagne disponible (service ORTHO_LAST) | SPW, https://geodata.wallonie.be/id/dfc9f3a2-adff-4b7f-ab77-8a890c4cabbb | 14/10/2026 | CC-BY 4.0, mention « Source : Service public de Wallonie (SPW) » ; service soumis aux conditions des services web du SPW | vue « Réel » de la carte, interrogation directe, jamais mise en cache |
 | Fond de carte et surcouche routes, eaux, noms | IGN Belgique, CartoWeb | 12/10/2026 | réutilisation libre avec attribution | carte |
 | Fond de carte | contributeurs OpenStreetMap | 12/10/2026 | ODbL | carte |
 | Relief (fond) | OpenTopoMap | 12/10/2026 | CC-BY-SA | carte |
