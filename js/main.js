@@ -342,12 +342,12 @@
     $('#plantesSection').hidden = S.modeCarte !== 'plantes';
     $('#panel h1').innerHTML = S.modeCarte === 'plantes' ? 'Carte <span>plantes et fruits</span>' : 'Carte <span>des milieux</span>';
     map.closePopup();
+    if (S.modeCarte === 'plantes' && mobile.matches) replier(false); // sur téléphone : montrer tout de suite le contenu du mode
     if (S.tileLayer) S.tileLayer.redraw();
     MW.plantes.activer(S.modeCarte === 'plantes');
   }
   document.querySelectorAll('.bascule-mode button').forEach((b) => b.addEventListener('click', () => {
     appliquerMode(b.dataset.mode, true);
-    if (mobile.matches && S.modeCarte === 'plantes') replier(false);
   }));
   const modeUrl = new URLSearchParams(location.search).get('mode');
   appliquerMode(modeUrl || store.get('mw-mode-carte', 'champignons'), !!modeUrl);
@@ -427,6 +427,24 @@
     results.hidden = true;
     if (mobile.matches) replier(true);
   }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !results.hidden) { results.hidden = true; $('#q').focus(); } });
+  document.addEventListener('click', (e) => { if (!results.hidden && !e.target.closest('#results, #search')) results.hidden = true; });
+
+  // géolocalisation à côté de la recherche : centre la carte sur ta position (sans ouvrir la fiche)
+  $('#geoloc').addEventListener('click', () => {
+    const bt = $('#geoloc');
+    if (!navigator.geolocation) { bt.title = 'Position indisponible sur ce navigateur'; return; }
+    bt.classList.add('cherche'); bt.setAttribute('aria-busy', 'true');
+    navigator.geolocation.getCurrentPosition((p) => {
+      bt.classList.remove('cherche'); bt.removeAttribute('aria-busy');
+      const ll = [p.coords.latitude, p.coords.longitude];
+      map.setView(ll, Math.max(map.getZoom(), 14));
+      if (S.moi) map.removeLayer(S.moi);
+      S.moi = L.circleMarker(ll, { radius: 7, color: '#ffffff', weight: 3, fillColor: '#2f6fa8', fillOpacity: 1, interactive: false }).addTo(map);
+    }, () => { bt.classList.remove('cherche'); bt.removeAttribute('aria-busy'); bt.title = 'Position indisponible (accès refusé ou pas de signal)'; },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
+  });
+
   $('#search').addEventListener('submit', async (e) => {
     e.preventDefault();
     const q = $('#q').value.trim();

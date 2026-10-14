@@ -7,7 +7,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 #map { position: absolute; inset: var(--haut) 0 0 0; background: #e9ebe4; font-family: var(--texte); }
 
 /* ---------- barre au-dessus de la carte : mode, recherche, position, vue (ne recouvre jamais la carte) ---------- */
-.barre-carte { position: absolute; z-index: 1002; top: var(--head); left: 0; right: 0; height: var(--barre); box-sizing: border-box;
+.barre-carte { position: absolute; z-index: 1100; top: var(--head); left: 0; right: 0; height: var(--barre); box-sizing: border-box;
   display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--papier); border-bottom: 1px solid var(--trait); }
 .bascule-mode { display: inline-flex; flex: none; padding: 3px; gap: 3px; border-radius: 99px; background: var(--brume); border: 1px solid var(--trait); }
 .bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; min-width: 48px; padding: 0 16px; border: 0;
@@ -15,7 +15,34 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 .bascule-mode button svg { width: 20px; height: 20px; flex: none; }
 .bascule-mode button[aria-pressed=true] { background: var(--mousse); color: var(--brume); box-shadow: 0 1px 4px rgba(43, 36, 28, .25); }
 .bascule-mode button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-@media (max-width: 860px) { .bascule-mode { flex: 1; } .bascule-mode button { flex: 1; padding: 0 10px; } }
+.barre-carte .recherche { display: flex; flex: 1 1 auto; max-width: 560px; min-width: 0; margin: 0; position: relative; }
+.barre-carte .recherche input { flex: 1; min-width: 0; min-height: 48px; padding: 10px 52px 10px 16px; border-radius: 99px; border: 1px solid var(--trait);
+  background: var(--brume); color: var(--humus); font: 16px var(--texte); }
+.barre-carte .recherche input:focus { outline: 3px solid var(--accent); outline-offset: 1px; background: var(--papier); }
+.barre-carte .recherche button { position: absolute; right: 2px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: var(--mousse); color: var(--brume); display: grid; place-items: center; cursor: pointer; }
+.barre-carte .recherche button svg, .btn-geo svg, .btn-vue svg { width: 20px; height: 20px; }
+.btn-geo, .btn-vue { flex: none; min-width: 48px; min-height: 48px; border-radius: 99px; border: 1px solid var(--trait); background: var(--papier); color: var(--humus);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; font: 600 14px var(--texte); cursor: pointer; padding: 0 12px; }
+.btn-geo:hover, .btn-vue:hover { border-color: var(--mousse); }
+.btn-geo:focus-visible, .btn-vue:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn-geo.cherche { color: var(--mousse); border-color: var(--mousse); }
+.barre-carte .results { position: absolute; z-index: 1300; top: calc(100% + 6px); left: 0; right: 0; margin: 0; padding: 6px; list-style: none;
+  background: var(--papier); border: 1px solid var(--trait); border-radius: 14px; box-shadow: 0 10px 30px rgba(43, 36, 28, .25); display: grid; gap: 2px; }
+.barre-carte .results button { width: 100%; min-height: 44px; text-align: left; border: 0; border-radius: 10px; background: none; padding: 8px 10px; font: 14px var(--texte); color: var(--humus); cursor: pointer; }
+.barre-carte .results button:hover, .barre-carte .results button:focus-visible { background: var(--brume); }
+.barre-carte .results .muted { padding: 8px 10px; color: var(--humus-2); font-size: 14px; }
+/* mobile : recherche pleine largeur en haut, mode (et vue) en dessous */
+@media (max-width: 860px) {
+  body.carte-page { --barre: 126px; }
+  .barre-carte { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "rech geo" "mode vue"; gap: 6px 8px; padding: 8px 10px; align-content: center; }
+  .barre-carte .recherche { grid-area: rech; max-width: none; }
+  .btn-geo { grid-area: geo; }
+  .btn-vue { grid-area: vue; }
+  .bascule-mode { grid-area: mode; display: flex; }
+  .bascule-mode button { flex: 1; padding: 0 8px; }
+}
+@media (max-width: 860px) { .bascule-mode button { font-size: 14px; } }
 
 /* mode « Plantes et fruits » */
 #panel .vide-plantes { display: grid; gap: 6px; justify-items: start; background: var(--mousse-2); border-radius: 12px; padding: 14px; margin-top: 8px; }
@@ -127,11 +154,6 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 #panel .notice.empty { background: var(--non-2); color: var(--non); font-size: 13px; }
 #panel .notice code { font: 11px var(--mono); }
 #panel .foot { border-top: 1px solid var(--trait); padding-top: 10px; margin: 0; }
-#panel .search { display: flex; gap: 6px; padding-top: 10px; margin: 0; }
-#panel .search input { flex: 1; min-width: 0; }
-#panel .search button { background: var(--mousse); color: var(--brume); border-color: var(--mousse); font-weight: 600; }
-#panel .results { display: flex; flex-direction: column; gap: 2px; font-size: 12px; }
-#panel .results button { width: 100%; justify-content: flex-start; text-align: left; font-weight: 400; }
 
 .map-msg {
   position: absolute; z-index: 900; top: calc(var(--haut) + 12px); left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px);
