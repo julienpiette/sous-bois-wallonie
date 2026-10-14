@@ -15,7 +15,7 @@
   "regimes": [],
   "congelable": false,
   "chapeau": "Les grosses morilles garnies d’une farce fine de volaille, puis cuites longuement dans un jus crémé.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "grosses morilles fraîches (environ 16)", "g": 160.0, "base": true },
     { "nom": "blanc de volaille, mixé finement", "g": 150.0 },

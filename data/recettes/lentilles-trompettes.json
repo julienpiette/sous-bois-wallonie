@@ -18,8 +18,8 @@
   "ingredients": [
     { "nom": "trompettes de la mort", "g": 200.0, "base": true },
     { "nom": "lentilles corail", "g": 250.0 },
-    { "nom": "eau", "g": 800.0 },
-    { "nom": "lait de coco", "g": 200.0 },
+    { "nom": "eau", "g": 500.0 },
+    { "nom": "lait de coco", "g": 400.0 },
     { "nom": "oignon émincé", "g": 100.0 },
     { "nom": "gingembre frais râpé", "g": 10.0 },
     { "nom": "ail haché", "g": 6.0 },
@@ -31,7 +31,7 @@
     { "nom": "sel", "g": 6.0 }
   ],
   "etapes": [
-    "Rince les lentilles. Cuis-les avec l’eau et le curcuma 15 à 20 minutes, jusqu’à ce qu’elles se défassent.",
+    "Rince les lentilles. Cuis-les avec l’eau et le curcuma 15 à 20 minutes, jusqu’à ce qu’elles se défassent ; ajoute un peu d’eau si le dal épaissit trop.",
     "Fais revenir l’oignon dans 15 g d’huile 6 minutes, ajoute le gingembre et l’ail 1 minute, puis verse dans les lentilles avec le lait de coco. Laisse mijoter 5 minutes, sale.",
     "Nettoie les trompettes, cuis-les à sec 3 minutes. Ajoute le reste de l’huile et le cumin, fais sauter 5 minutes.",
     "Ajoute le citron au dal, sers avec les trompettes et la coriandre, et du riz."

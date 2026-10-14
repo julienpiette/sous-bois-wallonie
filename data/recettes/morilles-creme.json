@@ -15,7 +15,7 @@
   "regimes": ["vegetarien", "sans-gluten"],
   "congelable": false,
   "chapeau": "La préparation de base : des morilles longuement cuites, une crème réduite. Sur un toast, des pâtes ou une volaille.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches", "g": 200.0, "base": true },
     { "nom": "échalote ciselée", "g": 40.0 },

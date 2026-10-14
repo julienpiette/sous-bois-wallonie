@@ -21,7 +21,7 @@
     { "nom": "beurre", "g": 10.0 },
     { "nom": "sucre", "g": 15.0 },
     { "nom": "chocolat noir à 70 %", "g": 200.0 },
-    { "nom": "crème entière liquide", "g": 150.0 },
+    { "nom": "crème entière liquide", "g": 120.0 },
     { "nom": "cacao en poudre non sucré", "g": 30.0 },
     { "nom": "fleur de sel", "g": 0.5 }
   ],

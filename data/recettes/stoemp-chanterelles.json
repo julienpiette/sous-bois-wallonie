@@ -18,8 +18,8 @@
   "ingredients": [
     { "nom": "chanterelles en tube nettoyées", "g": 300.0, "base": true },
     { "nom": "pommes de terre farineuses, en morceaux", "g": 1000.0 },
-    { "nom": "poireaux émincés", "g": 300.0 },
-    { "nom": "beurre", "g": 60.0 },
+    { "nom": "poireaux émincés", "g": 500.0 },
+    { "nom": "beurre", "g": 80.0 },
     { "nom": "lait entier chaud", "g": 100.0 },
     { "nom": "noix de muscade râpée", "g": 0.3 },
     { "nom": "sel", "g": 8.0 },
@@ -27,8 +27,8 @@
   ],
   "etapes": [
     "Cuis les pommes de terre 20 minutes dans l’eau salée.",
-    "Pendant ce temps, fais fondre les poireaux dans 20 g de beurre, 15 minutes à feu doux, à couvert.",
-    "Égoutte les pommes de terre et écrase-les grossièrement à la fourchette avec 25 g de beurre et le lait chaud. Mélange avec les poireaux, la muscade, le sel et le poivre.",
+    "Pendant ce temps, fais fondre les poireaux dans 25 g de beurre, 15 minutes à feu doux, à couvert.",
+    "Égoutte les pommes de terre et écrase-les grossièrement à la fourchette avec 35 g de beurre et le lait chaud. Mélange avec les poireaux, la muscade, le sel et le poivre.",
     "Poêle les chanterelles à sec 4 minutes, puis dans le reste du beurre 5 minutes.",
     "Sers le stoemp avec les chanterelles et, si tu veux, une saucisse ou un œuf au plat."
   ],

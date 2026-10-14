@@ -9,7 +9,7 @@
   "cuisine": "traditionnelle",
   "niveau": "facile",
   "preparation_min": 15,
-  "cuisson_min": 330,
+  "cuisson_min": 510,
   "portions": 20,
   "base_g": 300.0,
   "regimes": ["vegetarien", "vegan", "sans-gluten"],

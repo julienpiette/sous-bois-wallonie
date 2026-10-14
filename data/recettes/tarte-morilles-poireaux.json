@@ -15,7 +15,7 @@
   "regimes": ["vegetarien"],
   "congelable": false,
   "chapeau": "Des poireaux nouveaux fondus, des morilles déjà cuites à la crème, une pâte feuilletée bien dorée.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches", "g": 150.0, "base": true },
     { "nom": "pâte feuilletée", "g": 230.0 },

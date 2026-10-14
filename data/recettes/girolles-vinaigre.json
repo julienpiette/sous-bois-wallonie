@@ -18,8 +18,8 @@
   "chapeau": "Les toutes petites girolles, cuites dans une saumure bien acide : pour l’apéritif ou une assiette de charcuterie.",
   "ingredients": [
     { "nom": "petites girolles fermes", "g": 500.0, "base": true },
-    { "nom": "vinaigre de vin blanc (6 % d’acidité)", "g": 300.0 },
-    { "nom": "eau", "g": 200.0 },
+    { "nom": "vinaigre de vin blanc (6 % d’acidité au moins)", "g": 450.0 },
+    { "nom": "eau", "g": 50.0 },
     { "nom": "sel", "g": 15.0 },
     { "nom": "sucre", "g": 10.0 },
     { "nom": "échalote en fines rondelles", "g": 30.0 },
@@ -35,5 +35,5 @@
     "Reporte la saumure à ébullition et verse-la bouillante jusqu’à recouvrir entièrement les girolles. Ferme aussitôt.",
     "Laisse refroidir, puis range au frigo. Attends 2 jours avant de goûter."
   ],
-  "conservation": "Toujours au frigo, 3 semaines maximum, girolles bien recouvertes de saumure ; sers-toi avec une fourchette propre. Ne réduis pas la part de vinaigre : c’est elle qui protège. Ce n’est pas une conserve de garde à température ambiante."
+  "conservation": "Toujours au frigo, 3 semaines maximum (15 jours une fois le bocal entamé), girolles bien recouvertes de saumure ; sers-toi avec une fourchette propre. Ne réduis pas la part de vinaigre : c’est elle qui protège. Ce n’est pas une conserve de garde à température ambiante."
 }

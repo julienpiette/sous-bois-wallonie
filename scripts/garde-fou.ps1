@@ -71,7 +71,7 @@ try {
   if ($pla) {
     $nonRelues = @(Get-ChildItem (Join-Path $root 'data\plantes') -Filter *.json -ErrorAction SilentlyContinue | Where-Object { [IO.File]::ReadAllText($_.FullName, $utf8) -match '"relu_botaniste"\s*:\s*false' })
     if ($nonRelues.Count -and -not $proto) { $pb.Add("MODE_PLANTES_ACTIF est vrai mais $($nonRelues.Count) fichier(s) de data/plantes ne sont pas relus par un botaniste (ni PROTOTYPE_RISQUE_ACCEPTE)") }
-    if ($nonRelues.Count -and $proto) { Write-Host "ATTENTION : $($nonRelues.Count) fichier(s) plantes et fruits publiés SANS relecture botanique (prototype, bandeau « test » affiché)." -ForegroundColor Yellow }
+    if ($nonRelues.Count -and $proto) { Write-Host "ATTENTION : $($nonRelues.Count) fichier(s) plantes et fruits publiés SANS relecture botanique (prototype, mention « À relire par un botaniste » affichée)." -ForegroundColor Yellow }
     foreach ($f in Get-ChildItem (Join-Path $root 'data\plantes') -Filter *.json -ErrorAction SilentlyContinue) {
       if ([IO.File]::ReadAllText($f.FullName, $utf8) -match '(?i)apiac|ombellif') { $pb.Add("plante de la famille de la carotte : data/plantes/$($f.Name) (interdit, même en prototype)") }
     }

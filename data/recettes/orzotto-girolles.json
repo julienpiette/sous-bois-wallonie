@@ -9,7 +9,7 @@
   "cuisine": "italienne",
   "niveau": "moyen",
   "preparation_min": 10,
-  "cuisson_min": 40,
+  "cuisson_min": 50,
   "portions": 4,
   "base_g": 350.0,
   "regimes": ["vegetarien"],
@@ -30,7 +30,7 @@
   "etapes": [
     "Rince l’orge à l’eau froide et égoutte-le.",
     "Fais suer l’oignon dans l’huile 4 minutes, ajoute l’orge et remue 2 minutes.",
-    "Mouille avec le vin blanc, laisse évaporer, puis ajoute le bouillon chaud louche par louche pendant 30 à 35 minutes, en remuant de temps en temps. L’orge doit être tendre mais encore ferme.",
+    "Mouille avec le vin blanc, laisse évaporer, puis ajoute le bouillon chaud louche par louche pendant 35 à 45 minutes (le temps varie selon l'orge : goûte), en remuant de temps en temps. L’orge doit être tendre mais encore ferme.",
     "Pendant ce temps, poêle les girolles à sec 4 minutes, puis dans 15 g de beurre 4 minutes.",
     "Hors du feu, incorpore le reste du beurre, le fromage et les deux tiers des girolles. Sale, poivre.",
     "Sers avec le reste des girolles par-dessus."

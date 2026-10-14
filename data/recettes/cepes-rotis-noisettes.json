@@ -9,7 +9,7 @@
   "cuisine": "française",
   "niveau": "facile",
   "preparation_min": 10,
-  "cuisson_min": 22,
+  "cuisson_min": 18,
   "portions": 4,
   "base_g": 500.0,
   "regimes": ["vegetarien", "sans-gluten"],
@@ -26,9 +26,9 @@
     { "nom": "poivre moulu", "g": 0.5 }
   ],
   "etapes": [
-    "Préchauffe le four à 210 °C.",
+    "Préchauffe le four à 200 °C.",
     "Mélange les cèpes avec l’huile, le thym, le sel et le poivre. Étale-les face coupée vers le bas sur une plaque, sans les serrer.",
-    "Enfourne 15 minutes, retourne-les, ajoute les noisettes et remets 7 minutes.",
+    "Enfourne 12 minutes, retourne-les, ajoute les noisettes et remets 6 minutes : ils doivent être dorés et tendres.",
     "À la sortie du four, ajoute le beurre et l’ail et mélange : la chaleur suffit à les parfumer.",
     "Sers aussitôt, avec une volaille, un gibier ou simplement du pain."
   ],

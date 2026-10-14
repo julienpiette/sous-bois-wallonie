@@ -18,8 +18,8 @@
   "chapeau": "Leur chair ferme reste croquante dans le vinaigre : à servir avec une assiette de fromages ou de charcuterie.",
   "ingredients": [
     { "nom": "jeunes pieds de mouton fermes, en morceaux", "g": 500.0, "base": true },
-    { "nom": "vinaigre de cidre (5 % d’acidité minimum)", "g": 350.0 },
-    { "nom": "eau", "g": 150.0 },
+    { "nom": "vinaigre de vin blanc ou de cidre (6 % d’acidité au moins)", "g": 450.0 },
+    { "nom": "eau", "g": 50.0 },
     { "nom": "sel", "g": 15.0 },
     { "nom": "sucre", "g": 15.0 },
     { "nom": "graines de moutarde", "g": 3.0 },
@@ -34,5 +34,5 @@
     "Reporte la saumure à ébullition et verse-la bouillante jusqu’à recouvrir entièrement. Ferme aussitôt.",
     "Laisse refroidir, range au frigo et attends 2 jours avant de goûter."
   ],
-  "conservation": "Toujours au frigo, 3 semaines maximum, champignons bien recouverts ; sers-toi avec une fourchette propre. Ne diminue pas la part de vinaigre. Ce n’est pas une conserve de garde à température ambiante."
+  "conservation": "Toujours au frigo, 3 semaines maximum (15 jours une fois le bocal entamé), champignons bien recouverts ; sers-toi avec une fourchette propre. Ne diminue pas la part de vinaigre. Ce n’est pas une conserve de garde à température ambiante."
 }

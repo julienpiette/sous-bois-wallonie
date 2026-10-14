@@ -15,7 +15,7 @@
   "regimes": ["vegetarien", "sans-gluten"],
   "congelable": true,
   "chapeau": "Les épluchures d’asperges font le bouillon, les morilles mijotées le parfument : rien ne se perd.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches", "g": 100.0, "base": true },
     { "nom": "asperges blanches", "g": 700.0 },

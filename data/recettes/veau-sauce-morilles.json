@@ -15,7 +15,7 @@
   "regimes": ["sans-gluten"],
   "congelable": false,
   "chapeau": "La sauce mijote d’abord, la viande se saisit à la fin : un plat de fête qui se prépare sans stress.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches", "g": 150.0, "base": true },
     { "nom": "médaillons de filet de veau", "g": 600.0 },

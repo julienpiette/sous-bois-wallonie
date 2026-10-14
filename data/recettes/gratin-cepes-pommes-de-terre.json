@@ -9,7 +9,7 @@
   "cuisine": "française",
   "niveau": "moyen",
   "preparation_min": 25,
-  "cuisson_min": 70,
+  "cuisson_min": 98,
   "portions": 4,
   "base_g": 400.0,
   "regimes": ["vegetarien", "sans-gluten"],
@@ -28,11 +28,11 @@
     { "nom": "poivre moulu", "g": 0.6 }
   ],
   "etapes": [
-    "Préchauffe le four à 180 °C. Beurre un plat à gratin.",
+    "Préchauffe le four à 170 °C. Beurre un plat à gratin.",
     "Poêle les tranches de cèpe à sec 5 minutes pour chasser leur eau, puis 3 minutes avec le reste du beurre.",
     "Chauffe la crème, le lait, l’ail, la muscade, le sel et le poivre jusqu’au premier frémissement.",
     "Alterne dans le plat des couches de pommes de terre et de cèpes, en finissant par des pommes de terre. Verse la crème chaude.",
-    "Enfourne 50 minutes, parsème de gruyère et prolonge 10 à 15 minutes : la pointe d’un couteau doit traverser sans résistance.",
+    "Enfourne 1 heure 15, parsème de gruyère et prolonge 15 minutes : la pointe d’un couteau doit traverser sans résistance.",
     "Laisse reposer 10 minutes avant de servir."
   ],
   "conservation": "Au frigo 2 jours, couvert. Réchauffe 20 minutes au four à 160 °C."

@@ -15,7 +15,7 @@
   "regimes": ["vegetarien", "sans-gluten"],
   "congelable": false,
   "chapeau": "Un risotto vert et doux de printemps, avec des morilles cuites à part dans un peu de crème.",
-  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches", "g": 150.0, "base": true },
     { "nom": "riz à risotto", "g": 320.0 },

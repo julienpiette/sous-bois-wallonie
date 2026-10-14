@@ -9,7 +9,7 @@
   "cuisine": "traditionnelle",
   "niveau": "facile",
   "preparation_min": 20,
-  "cuisson_min": 300,
+  "cuisson_min": 480,
   "portions": 10,
   "base_g": 500.0,
   "regimes": ["vegetarien", "vegan", "sans-gluten"],
@@ -21,7 +21,7 @@
   "etapes": [
     "Fends les trompettes en deux, retire les débris à sec avec un pinceau. Si tu dois les rincer, essore-les très bien.",
     "Étale-les sur les grilles d’un déshydrateur ou du four, sans les tasser.",
-    "Sèche à 40-45 °C, 3 à 5 heures, jusqu’à ce qu’elles soient cassantes. Elles peuvent aussi sécher à l’air, sur un fil, dans une pièce sèche et chaude.",
+    "Sèche à 40-45 °C, 6 à 10 heures, jusqu’à ce qu’elles soient cassantes. Elles peuvent aussi sécher à l’air, sur un fil, dans une pièce sèche et chaude.",
     "Laisse refroidir et mets en bocal hermétique.",
     "Pour les utiliser : 15 minutes dans l’eau tiède, filtre l’eau, puis cuis-les au moins 10 minutes dans ton plat."
   ],

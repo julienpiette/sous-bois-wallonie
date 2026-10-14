@@ -17,7 +17,7 @@
   "chapeau": "Un plat du soir rapide : la sauce se fait pendant que l’eau des pâtes chauffe.",
   "ingredients": [
     { "nom": "cèpes, en lamelles", "g": 400.0, "base": true },
-    { "nom": "tagliatelles sèches", "g": 350.0 },
+    { "nom": "tagliatelles sèches", "g": 400.0 },
     { "nom": "crème liquide", "g": 200.0 },
     { "nom": "échalote ciselée", "g": 40.0 },
     { "nom": "ail haché", "g": 6.0 },

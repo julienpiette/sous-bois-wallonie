@@ -15,7 +15,7 @@
   "regimes": ["vegetarien", "vegan", "sans-gluten"],
   "congelable": false,
   "chapeau": "Séchées, les morilles gardent tout leur parfum jusqu’à l’hiver. Le séchage ne remplace pas la cuisson.",
-  "securite": "Morille : cuisson complète obligatoire, même séchée. Après réhydratation, au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "securite": "Morille : cuisson complète obligatoire, même séchée. Après réhydratation, au moins 20 minutes de cuisson, jamais crue ni simplement saisie. Pas plus de 100 g de morilles fraîches (ou 10 g séchées) par personne et par repas, comme le recommandent les centres antipoison.",
   "ingredients": [
     { "nom": "morilles fraîches, propres et sèches", "g": 300.0, "base": true }
   ],
