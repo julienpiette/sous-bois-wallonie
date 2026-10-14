@@ -10,9 +10,19 @@
   };
   window.SB = { esc, store };
 
-  // ---------- menu mobile ----------
-  const btn = $('.menu-btn'), nav = $('.nav');
-  if (btn && nav) btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+  // ---------- méga menu (tout le site, rangé par moment de la sortie) ----------
+  const btn = $('.menu-btn'), mega = $('#mega');
+  if (btn && mega) {
+    const ouvrir = (o) => {
+      mega.hidden = !o; btn.setAttribute('aria-expanded', o);
+      document.documentElement.classList.toggle('mega-ouvert', o);
+    };
+    btn.addEventListener('click', () => ouvrir(mega.hidden));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mega.hidden) { ouvrir(false); btn.focus(); } });
+    document.addEventListener('click', (e) => { if (!mega.hidden && !mega.contains(e.target) && !btn.contains(e.target)) ouvrir(false); });
+    // un lien vers une ancre de la page courante ferme le menu
+    mega.addEventListener('click', (e) => { if (e.target.closest('a')) ouvrir(false); });
+  }
 
   // ---------- appli installable ----------
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {

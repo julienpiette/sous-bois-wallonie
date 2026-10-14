@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Partenaires : gîtes, offices, communes, cercles · Musette</title>
 <meta name="description" content="Gîtes, offices du tourisme, communes, cantonnements, cercles de mycologie, presse : comment travailler avec Musette pour des cueilleurs mieux informés.">
-<meta name="theme-color" content="#3f5b3c">
+<meta name="theme-color" content="#1e3b26">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="Musette">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="page">
@@ -21,17 +21,67 @@
 <header class="site-head">
   <div class="in">
     <a class="logo" href="index.html" aria-label="Musette, accueil">
-      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M32 51V19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M32 40c-7.5-.5-11.5-5.5-11-11 6 .6 10.4 4.8 11 11zM32 31c7.5-.5 11.5-5.5 11-11-6 .6-10.4 4.8-11 11zM32 22c-3.2-3-3.4-7.6 0-11 3.4 3.4 3.2 8 0 11z" fill="currentColor"/><circle cx="44.5" cy="44" r="4.5" fill="#e3801b"/></svg>
-      <span><b>Musette</b><small>Cueillette</small></span>
+      <svg class="tampon" viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="logo-trou" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><path d="M12 33.6c-.3-6.8 3.3-11.2 8.2-11.3 4.7-.1 8.1 4.1 7.8 11-2.8-1.5-13-1.6-16 .3z"/><path d="M17.9 32c.3 8.1-.3 15.6-1.1 23.5h6.4c-.9-7.9-1.3-15.4-1-23.5z"/><path d="M42 31.5c.2 8.2-.2 16.6-.9 24h6c-.9-7.4-1.2-15.8-.8-24z"/><path d="M44.4 36.4c-5.4.3-9.7-3-10.3-8.7 5.6-.4 9.9 3 10.3 8.7z"/><path d="M44.2 33.4c-.2-5.6 3.3-9.2 8-9.4.3 5.3-3.1 9-8 9.4z"/></mask></defs><path mask="url(#logo-trou)" fill="currentColor" d="M7 51V30.5a12.5 12.5 0 0 1 25 0 12.5 12.5 0 0 1 25 0V51c0 1.9-1.4 3.2-3.2 3.2H10.2C8.4 54.2 7 52.9 7 51z" transform="translate(0 -4)"/></svg>
+      <b>Musette</b>
     </a>
-    <a class="cta-mobile" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-    <nav class="nav" id="nav" aria-label="Navigation principale">
+    <nav class="nav" aria-label="Navigation principale">
       <a href="bulletin.html">Bulletin</a>
+      <a href="carte.html">Carte</a>
       <a href="carnet.html">Carnet</a>
       <a href="guide.html">Guide</a>
-      <a class="cta" href="carte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Carte</a>
     </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mega"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span>Menu</span></button>
+  </div>
+  <div class="mega" id="mega" hidden>
+    <div class="mega-in">
+      <div class="mega-cols">
+        <div>
+          <h2>Avant de partir</h2>
+          <ul>
+            <li><a href="bulletin.html"><b>Bulletin des pousses</b><small>Où ça pousse cette semaine</small></a></li>
+            <li><a href="carte.html"><b>Carte des milieux</b><small>Les forêts favorables</small></a></li>
+            <li><a href="battues.html"><b>Battues</b><small>Les bois fermés pour la chasse</small></a></li>
+            <li><a href="guide.html#calendrier"><b>Calendrier de saison</b><small>Ce qui pousse, mois par mois</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>En forêt</h2>
+          <ul>
+            <li><a href="carte.html?ici=1"><b>Puis-je cueillir ici ?</b><small>Domanial, communal ou privé</small></a></li>
+            <li><a href="droit.html"><b>Le droit de cueillir</b><small>Les règles wallonnes</small></a></li>
+            <li><a href="especes.html"><b>Fiches espèces</b><small>Reconnaître, et les sosies</small></a></li>
+            <li><a href="materiel.html"><b>Matériel</b><small>Panier, couteau, loupe</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>De retour</h2>
+          <ul>
+            <li><a href="avant-de-manger.html"><b>Avant de manger</b><small>La vérification de sécurité</small></a></li>
+            <li><a href="recettes.html"><b>Recettes</b><small>Selon le poids récolté</small></a></li>
+            <li><a href="conservation.html"><b>Conserver</b><small>Six méthodes sûres</small></a></li>
+            <li><a href="carnet.html#garde-manger"><b>Garde-manger</b><small>Tes bocaux et leurs dates</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Mon carnet</h2>
+          <ul>
+            <li><a href="carnet.html"><b>Mes coins</b><small>Sur ton téléphone seulement</small></a></li>
+            <li><a href="carnet.html#sauvegarde"><b>Sauvegarde et transmission</b><small>Pour ne rien perdre</small></a></li>
+            <li><a href="carnet.html#bilan"><b>Bilan de saison</b><small>Sans aucun lieu</small></a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Le projet</h2>
+          <ul>
+            <li><a href="approche.html"><b>Notre approche</b><small>Ce qu’on fait, ce qu’on refuse</small></a></li>
+            <li><a href="glossaire.html"><b>Glossaire</b><small>Les mots des cueilleurs</small></a></li>
+            <li><a href="pros.html" aria-current="page"><b>Partenaires</b><small>Gîtes, communes, cercles</small></a></li>
+            <li><a href="mentions.html"><b>Mentions et sources</b><small>Données et licences</small></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mega-pied">Intoxication : Centre Antipoisons <b>070 245 245</b>, 24 h sur 24.</p>
+    </div>
   </div>
 </header>
 <!-- fin:entete -->

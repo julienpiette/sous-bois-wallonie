@@ -39,7 +39,7 @@
   const ign = L.tileLayer(CW + 'topo/default/3857/{z}/{y}/{x}.png', cwOpts);
   osm.addTo(map);
   L.control.layers({ 'Carte OSM': osm, 'Carte IGN (CartoWeb)': ign, 'Relief (OpenTopoMap)': topo }, null, { position: 'topright' }).addTo(map);
-  L.polygon(MW.WALLONIA.map((p) => [p[1], p[0]]), { color: '#3f5b3c', weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(map);
+  L.polygon(MW.WALLONIA.map((p) => [p[1], p[0]]), { color: '#1e3b26', weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(map);
   map.createPane('heat'); map.getPane('heat').style.zIndex = 450; map.getPane('heat').style.pointerEvents = 'none';
   // zones fermées pour la chasse : au-dessus du potentiel, qu'elles masquent en partie
   map.createPane('fermetures'); map.getPane('fermetures').style.zIndex = 455; map.getPane('fermetures').style.pointerEvents = 'none';
@@ -322,7 +322,7 @@
   function ouvrirFiche(lat, lng, titre) {
     const tok = ++S.ficheTok;
     if (S.ficheMarker) map.removeLayer(S.ficheMarker);
-    S.ficheMarker = L.circleMarker([lat, lng], { radius: 9, color: '#2b241c', weight: 3, fillColor: '#e3801b', fillOpacity: 1, interactive: false }).addTo(map);
+    S.ficheMarker = L.circleMarker([lat, lng], { radius: 9, color: '#18231a', weight: 3, fillColor: '#cde46a', fillOpacity: 1, interactive: false }).addTo(map);
     corps.innerHTML = '<p class="surtitre">' + esc(titre) + ' · ' + esc(D.formatDate(S.jour)) + '</p>' +
       '<p class="mono petit discret" style="margin:0">' + lat.toFixed(5) + ', ' + lng.toFixed(5) + '</p>' +
       '<div data-part="verdict"><p class="discret">Vérification auprès des services publics…</p></div>' +
@@ -447,7 +447,7 @@
     const b = p.boundingbox.map(Number); // [sud, nord, ouest, est]
     map.fitBounds([[b[0], b[2]], [b[1], b[3]]], { maxZoom: 14 });
     if (S.placeMarker) map.removeLayer(S.placeMarker);
-    S.placeMarker = L.circleMarker([+p.lat, +p.lon], { radius: 7, color: '#2b241c', weight: 2, fillColor: '#e3801b', fillOpacity: 1, interactive: false })
+    S.placeMarker = L.circleMarker([+p.lat, +p.lon], { radius: 7, color: '#18231a', weight: 2, fillColor: '#cde46a', fillOpacity: 1, interactive: false })
       .bindTooltip(esc(p.display_name.split(',')[0]), { permanent: true, direction: 'right', offset: [8, 0] }).addTo(map);
     results.hidden = true;
     if (mobile.matches) replier(true);
@@ -576,7 +576,7 @@
     const ul = $('#coinList'); ul.innerHTML = '';
     S.coins.forEach((c, i) => {
       const sp = MW.SPECIES.find((x) => x.id === c.species) || { name: c.species };
-      const m = L.circleMarker([c.lat, c.lon], { radius: 7, color: '#2b241c', weight: 2, fillColor: RES[c.result] || '#fff', fillOpacity: 1 }).addTo(map);
+      const m = L.circleMarker([c.lat, c.lon], { radius: 7, color: '#18231a', weight: 2, fillColor: RES[c.result] || '#fff', fillOpacity: 1 }).addTo(map);
       m.bindPopup('<b>' + esc(sp.name) + '</b> · ' + esc(c.result) + '<br>' + esc(c.date) + (c.modelIndex != null ? ' · indice modèle ' + Math.round(c.modelIndex * 100) + ' %' : '') + (c.sitePotential != null ? ' · potentiel ' + Math.round(c.sitePotential * 100) + ' %' : '') + (c.note ? '<br>' + esc(c.note) : ''));
       S.coinMarkers.push(m);
       const li = document.createElement('li');

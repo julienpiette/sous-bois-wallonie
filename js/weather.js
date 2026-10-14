@@ -35,7 +35,13 @@
       '&longitude=' + batch.map((p) => p.lon).join(',') +
       '&daily=precipitation_sum,temperature_2m_mean,temperature_2m_min' +
       '&past_days=' + G.pastDays + '&forecast_days=' + G.forecastDays + '&timezone=Europe%2FBrussels';
-    const r = await fetch(url);
+    // délai maximum : sans réponse en 25 s, la page affiche son état d'erreur (avec « Réessayer ») au lieu d'attendre sans fin
+    const ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const minuteur = ctl ? setTimeout(() => ctl.abort(), 90000) : null;
+    let r;
+    try { r = await fetch(url, ctl ? { signal: ctl.signal } : undefined); }
+    catch (e) { throw new Error(e.name === 'AbortError' ? 'Open-Meteo ne répond pas' : 'réseau indisponible'); }
+    finally { if (minuteur) clearTimeout(minuteur); }
     if (r.status === 429 && tries < 3) {
       await new Promise((ok) => setTimeout(ok, 1500 * (tries + 1)));
       return fetchBatch(batch, tries + 1);
@@ -45,20 +51,35 @@
     return (Array.isArray(j) ? j : [j]).map(parse);
   }
 
-  // → { series:[…par point], todayIdx, fetchedAt, fromCache } ; cle = cache localStorage (carte ou bulletin)
-  async function load(grid, onProgress, cle) {
-    const G = MW.GRID, key = cle || 'mw-weather-v2';
-    try {
-      const c = JSON.parse(localStorage.getItem(key));
-      if (c && c.n === grid.length && c.day === todayBrussels() && Date.now() - c.t < G.cacheHours * 3600e3)
-        return { series: c.series, todayIdx: c.todayIdx, fetchedAt: c.t, fromCache: true };
-    } catch (e) { /* cache absent */ }
-    const series = [];
-    for (let i = 0; i < grid.length; i += G.batchSize) {
-      const part = await fetchBatch(grid.slice(i, i + G.batchSize), 0);
-      series.push(...part);
-      if (onProgress) onProgress(Math.min(1, series.length / grid.length));
+  // → { series:[…par point], todayIdx, fetchedAt, fromCache, ancien } ; cle = cache localStorage (carte ou bulletin)
+  // taille = points par requête (Open-Meteo répond en un temps proportionnel au nombre de points : pour quelques points,
+  // deux requêtes moyennes à la fois vont plus vite qu'une seule grosse ; au-delà, Open-Meteo refuse : 429)
+  async function load(grid, onProgress, cle, taille) {
+    const G = MW.GRID, key = cle || 'mw-weather-v2', lot = taille || G.batchSize;
+    let c = null;
+    try { c = JSON.parse(localStorage.getItem(key)); } catch (e) { /* cache absent */ }
+    if (c && c.n === grid.length && c.day === todayBrussels() && Date.now() - c.t < G.cacheHours * 3600e3)
+      return { series: c.series, todayIdx: c.todayIdx, fetchedAt: c.t, fromCache: true };
+    const lots = [];
+    for (let i = 0; i < grid.length; i += lot) lots.push(grid.slice(i, i + lot));
+    const parts = new Array(lots.length);
+    let faits = 0, prochain = 0;
+    async function ouvrier() {
+      while (prochain < lots.length) {
+        const k = prochain++;
+        parts[k] = await fetchBatch(lots[k], 0);
+        faits += lots[k].length;
+        if (onProgress) onProgress(Math.min(1, faits / grid.length));
+      }
     }
+    try {
+      await Promise.all(Array.from({ length: Math.min(2, lots.length) }, ouvrier));
+    } catch (e) {
+      // météo injoignable : le dernier bulletin enregistré, s'il existe, signalé comme ancien
+      if (c && c.n === grid.length) return { series: c.series, todayIdx: c.todayIdx, fetchedAt: c.t, fromCache: true, ancien: true };
+      throw e;
+    }
+    const series = [].concat(...parts);
     let idx = series[0].time.indexOf(todayBrussels());
     if (idx < 0) idx = G.pastDays;
     const out = { series, todayIdx: idx, fetchedAt: Date.now(), fromCache: false };

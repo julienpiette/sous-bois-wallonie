@@ -138,23 +138,23 @@
     const an = MW.droit.todayISO().slice(0, 4), cs = coins.filter((c) => (c.date || '').startsWith(an));
     const W = 1080, H = 1350, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
     const g = cv.getContext('2d');
-    g.fillStyle = '#2b241c'; g.fillRect(0, 0, W, H);
-    g.fillStyle = '#e3801b'; g.fillRect(80, 120, 120, 12);
-    g.fillStyle = '#eef0eb'; g.font = '700 84px "Bricolage Grotesque", sans-serif'; g.fillText('Ma saison ' + an, 80, 250);
-    g.font = '500 34px "IBM Plex Mono", monospace'; g.fillStyle = '#c9cfc2'; g.fillText((document.querySelector('meta[name=apple-mobile-web-app-title]') || { content: '' }).content.toUpperCase() + ' · CARNET', 80, 320);
+    g.fillStyle = '#1e3b26'; g.fillRect(0, 0, W, H);
+    g.fillStyle = '#cde46a'; g.fillRect(80, 120, 120, 12);
+    g.fillStyle = '#f3f6ea'; g.font = '400 96px "Lilita One", sans-serif'; g.fillText('Ma saison ' + an, 80, 250);
+    g.font = '600 34px "Instrument Sans", sans-serif'; g.fillStyle = '#c4d0b8'; g.fillText((document.querySelector('meta[name=apple-mobile-web-app-title]') || { content: '' }).content + ' · carnet', 80, 320);
     const dates = new Set(cs.map((c) => c.date)), parEsp = {};
     cs.forEach((c) => { parEsp[c.species] = (parEsp[c.species] || 0) + 1; });
     const lignes = [['Sorties', dates.size], ['Coins notés', cs.length], ['Litres', Math.round(cs.reduce((s, c) => s + (c.litres || 0), 0)) || '–']];
     lignes.forEach(([k, v], i) => {
-      g.fillStyle = '#eef0eb'; g.font = '700 120px "Bricolage Grotesque", sans-serif'; g.fillText(String(v), 80, 520 + i * 200);
-      g.fillStyle = '#c9cfc2'; g.font = '500 36px "Instrument Sans", sans-serif'; g.fillText(k, 80, 570 + i * 200);
+      g.fillStyle = '#f3f6ea'; g.font = '600 120px "Instrument Sans", sans-serif'; g.fillText(String(v), 80, 520 + i * 200);
+      g.fillStyle = '#c4d0b8'; g.font = '400 36px "Instrument Sans", sans-serif'; g.fillText(k, 80, 570 + i * 200);
     });
     let y = 1060;
     Object.keys(parEsp).sort((a, b) => parEsp[b] - parEsp[a]).slice(0, 3).forEach((id) => {
       const sp = espece(id); g.fillStyle = sp.color; g.beginPath(); g.arc(98, y - 12, 16, 0, 7); g.fill();
-      g.fillStyle = '#eef0eb'; g.font = '500 40px "Instrument Sans", sans-serif'; g.fillText(sp.name + ' · ' + parEsp[id], 134, y); y += 64;
+      g.fillStyle = '#f3f6ea'; g.font = '400 40px "Instrument Sans", sans-serif'; g.fillText(sp.name + ' · ' + parEsp[id], 134, y); y += 64;
     });
-    g.fillStyle = '#c9cfc2'; g.font = '500 28px "Instrument Sans", sans-serif'; g.fillText('Aucun lieu sur cette image : les coins restent secrets.', 80, H - 80);
+    g.fillStyle = '#c4d0b8'; g.font = '400 28px "Instrument Sans", sans-serif'; g.fillText('Aucun lieu sur cette image : les coins restent secrets.', 80, H - 80);
     cv.toBlob((blob) => { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ma-saison-' + an + '.png'; document.body.appendChild(a); a.click(); a.remove(); });
   };
 
