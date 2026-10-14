@@ -26,8 +26,8 @@ Aussi : `docs-prive/decisions.md` (décisions les plus récentes) et `docs-prive
 - Ne jamais présenter un milieu favorable comme une identification ; garder les avertissements de sécurité et le Centre Antipoisons (070 245 245).
 - Ne jamais masquer les forêts privées ou communales ; seules les battues du jour sont hachurées avec une alerte. Jamais de nom de propriétaire ni d'agent.
 - Dépôt public : pas de méthode de calcul détaillée, de pondérations, de scores, de prix ni de projets non lancés dans les fichiers suivis.
-- Ne jamais publier de donnée dérivée de l'ancienneté des forêts sans l'autorisation écrite du SPW ; ne pas inventer d'URL ou de couche SPW.
-- Aucune fiche ni zone de plante ou de fruit en ligne avant la relecture par un botaniste ; jamais de plante de la famille de la carotte.
+- Prototype (décision de Julien, 14/10/2026) : l'ancienneté des forêts et les fiches plantes et fruits sont en ligne sans autorisation ni relecture, avec attribution et mentions « à relire ». Avant tout lancement public : section E de `docs-prive/autorisations-et-interrupteurs.md`. Ne pas inventer d'URL ou de couche SPW.
+- Plantes et fruits : chaque fiche porte « À relire par un botaniste » tant qu'elle n'est pas relue ; jamais de plante de la famille de la carotte.
 - Recettes : écrites avec nos mots, jamais copiées ; aucune recette avec des champignons crus.
 - Pas de Google Maps ni de ses tuiles : photos aériennes du SPW (CC-BY 4.0, attribution affichée).
 - Ne jamais contourner le garde-fou de publication.

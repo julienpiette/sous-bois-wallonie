@@ -7,7 +7,7 @@ Cueillette sauvage en Wallonie : quand ça pousse, où tu as le droit de cueilli
 ## Ce que Musette fait
 - **Bulletin des pousses** : un feu par massif et par espèce, selon la pluie, la douceur et la saison.
 - **Carte des milieux** : les forêts favorables à chaque espèce, avec routes et cours d’eau par-dessus ; recherche de lieux et « Me localiser » au-dessus de la carte ; bouton **Plan / Réel** pour passer à la photo aérienne du SPW.
-- **Deux modes** sur la carte : **Champignons** et **Plantes et fruits** (ce second mode est en préparation : les fiches attendent la relecture d’un botaniste).
+- **Deux modes** sur la carte : **Champignons** et **Plantes et fruits** (8 plantes et fruits pour l’instant, fiches en cinq étapes et milieux sur la carte ; elles attendent la relecture d’un botaniste et le disent).
 - **Puis-je cueillir ici ?** : forêt domaniale, communale ou privée, réserve, règlement communal connu, et le contact du cantonnement. Les forêts privées restent visibles : on informe, on ne cache pas.
 - **Battues** : les zones fermées pour la chasse le jour choisi, hachurées sur la carte avec une alerte ; calendrier sur trois semaines et export vers l’agenda.
 - **Carnet** : tes coins restent sur ton téléphone ; sauvegarde chiffrée, transmission, bilan de saison sans aucun lieu.
