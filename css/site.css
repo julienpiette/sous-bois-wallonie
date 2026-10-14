@@ -440,3 +440,22 @@ details.securite a { color: inherit; font-weight: 600; }
 .page .gm { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 12px 0; border-top: 1px solid var(--trait); }
 .page .gm .avant { font: 500 13px var(--mono); }
 .page .gm .avant.depasse { color: var(--non); font-weight: 600; }
+
+/* ---------- accueil : la Semois vue du ciel (SPW, orthophotos 2023 été, CC-BY 4.0), le seul endroit audacieux ---------- */
+.page .accueil-heros { padding-block: var(--e5) var(--e4); }
+.page .heros { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-feuille); min-height: 520px; display: grid; align-content: end; background: #1e3b26; }
+.page .heros-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.page .heros::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15, 26, 18, 0) 25%, rgba(15, 26, 18, .55) 60%, rgba(15, 26, 18, .9)); }
+.page .heros-source { position: absolute; top: var(--e3); right: var(--e4); margin: 0; font-size: 12px; color: rgba(243, 246, 234, .85); }
+.page .heros-texte { padding: var(--e8) var(--e6) var(--e6); max-width: 720px; }
+.page .heros h1 { color: #f3f6ea; font-size: clamp(42px, 8vw, 76px); margin-bottom: var(--e3); }
+.page .heros-texte > p { color: rgba(243, 246, 234, .88); font-size: 18px; max-width: 52ch; margin: 0; }
+.page .heros .btns { margin-top: var(--e6); gap: var(--e2) var(--e5); }
+.page .heros .btn.signal { background: #cde46a; color: #18231a; }
+.page .heros-lien { color: #f3f6ea; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .page .accueil-heros { padding-inline: var(--e3); }
+  .page .heros { min-height: 560px; border-radius: var(--r-carte); }
+  .page .heros-texte { padding: var(--e6) var(--e5) var(--e5); }
+  .page .heros-texte > p { font-size: 17px; }
+}

@@ -92,16 +92,17 @@
 <!-- fin:entete -->
 
 <main>
-  <section class="hero wrap">
-    <p class="surtitre">Cueillette sauvage · Wallonie · gratuit</p>
-    <h1>Quand ça pousse, où tu as le droit, <em>et tes coins pour toi.</em></h1>
-    <p class="chapeau">Musette croise la météo, les milieux des forêts wallonnes et les règles locales. Tu sais quand y aller, où la cueillette est permise et si une battue ferme le bois. Tes coins ne quittent jamais ton téléphone, et ta récolte trouve sa place en cuisine et au garde-manger.</p>
-    <div class="btns">
-      <a class="btn signal" href="carte.html?ici=1">Puis-je cueillir ici ?</a>
-      <a class="btn plein" href="bulletin.html">Le bulletin des pousses</a>
-      <a class="btn ligne" href="carte.html">Ouvrir la carte</a>
+  <section class="wrap accueil-heros">
+    <div class="heros">
+      <img class="heros-photo" src="img/semois-1000.jpg" srcset="img/semois-1000.jpg 1000w, img/semois-2000.jpg 2000w" sizes="(max-width: 1100px) 100vw, 1060px" alt="La Semois et ses méandres entre les forêts d’Ardenne, vus du ciel en été" width="1000" height="625" fetchpriority="high">
+      <p class="heros-source">Photo : SPW, orthophotos 2023 été</p>
+      <div class="heros-texte">
+        <h1>Quand ça pousse, et où tu as le droit.</h1>
+        <p>Le bulletin des pousses, la carte des forêts favorables, les battues du jour et ton carnet privé. Champignons d’abord, plantes et fruits ensuite.</p>
+        <div class="btns"><a class="btn signal" href="bulletin.html">Voir ce qui pousse</a><a class="heros-lien" href="carte.html">Ouvrir la carte</a></div>
+      </div>
     </div>
-    <div id="alerte-weekend" style="margin-top:22px" aria-live="polite"></div>
+    <div id="alerte-weekend" style="margin-top:var(--e4)" aria-live="polite"></div>
   </section>
 
   <section class="bloc wrap">
