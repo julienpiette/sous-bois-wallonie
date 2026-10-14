@@ -414,10 +414,20 @@ details.securite a { color: inherit; font-weight: 600; }
 .page .bilan-score .points i.ok { background: var(--mousse); }
 
 /* catalogue de recettes : filtres visibles en haut, mobile d'abord */
-.page .r-filtres { display: grid; gap: 10px 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 4px 0 12px; }
+.page .r-filtres { display: grid; gap: var(--e3); grid-template-columns: repeat(2, minmax(0, 1fr)); margin: var(--e1) 0 var(--e3); }
 .page .r-filtres .r-q { grid-column: 1 / -1; }
 .page .r-filtres select { padding-right: 8px; }
-@media (min-width: 700px) { .page .r-filtres { grid-template-columns: repeat(4, minmax(0, 1fr)); } .page .r-filtres .r-q { grid-column: span 2; } }
+.page .r-plus-filtres { grid-column: 1 / -1; }
+.page .r-plus-filtres summary { cursor: pointer; list-style: none; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--e2); font-weight: 600; color: var(--mousse); }
+.page .r-plus-filtres summary::-webkit-details-marker { display: none; }
+.page .r-plus-filtres summary::before { content: '+'; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--mousse-2); color: var(--humus); font-weight: 600; }
+.page .r-plus-filtres[open] summary::before { content: '–'; }
+.page .r-plus-filtres summary span { font-weight: 400; font-size: 14px; color: var(--humus-2); }
+.page .r-filtres-suite { display: grid; gap: var(--e3); grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: var(--e2); }
+@media (min-width: 700px) {
+  .page .r-filtres { grid-template-columns: repeat(4, minmax(0, 1fr)); } .page .r-filtres .r-q { grid-column: span 2; }
+  .page .r-filtres-suite { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
 .page .r-compte { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 14px; }
 .page .r-compte p { margin: 0; font: 600 15px var(--mono); }
 .page .r-compte .btn, .page .r-plus .btn { min-height: 48px; }

@@ -51,11 +51,16 @@
     const idx = (await (await fetch('data/recettes/index.json')).json()).recettes;
     idx.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
     const poids = params.get('poids');
+    const champ = ([k, lib, opts, tous]) => '<label class="champ">' + lib + '<select id="r-' + k + '" data-f="' + k + '"><option value="">' + tous + '</option>' +
+      Object.entries(opts()).map(([v, l]) => '<option value="' + esc(v) + '">' + esc(l) + '</option>').join('') + '</select></label>';
+    // la recherche, l'espèce et la saison d'abord ; les cinq autres filtres repliés (ouverts si l'un d'eux est dans l'adresse)
+    const autres = FILTRES.slice(2), autresActifs = autres.some(([k]) => params.get(k));
     zone.innerHTML =
       '<form id="r-filtres" class="r-filtres" role="search" aria-label="Filtrer les recettes" onsubmit="return false">' +
       '<label class="champ r-q">Rechercher<input type="search" id="r-q" placeholder="Ex. crème, risotto, noisette" autocomplete="off" enterkeyhint="search"></label>' +
-      FILTRES.map(([k, lib, opts, tous]) => '<label class="champ">' + lib + '<select id="r-' + k + '" data-f="' + k + '"><option value="">' + tous + '</option>' +
-        Object.entries(opts()).map(([v, l]) => '<option value="' + esc(v) + '">' + esc(l) + '</option>').join('') + '</select></label>').join('') +
+      FILTRES.slice(0, 2).map(champ).join('') +
+      '<details class="r-plus-filtres"' + (autresActifs ? ' open' : '') + '><summary>Plus de filtres <span>type de plat, durée, niveau, régime, conservation</span></summary>' +
+        '<div class="r-filtres-suite">' + autres.map(champ).join('') + '</div></details>' +
       '</form>' +
       '<div class="r-compte"><p id="r-compte" aria-live="polite"></p><button type="button" class="btn ligne" id="r-effacer" hidden>Effacer les filtres</button></div>' +
       '<div id="r-liste" class="grille deux"></div><p class="r-plus"><button type="button" class="btn ligne" id="r-plus" hidden>Voir plus de recettes</button></p>';
