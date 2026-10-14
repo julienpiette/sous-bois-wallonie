@@ -1,0 +1,39 @@
+{
+  "id": "risotto-chanterelles-courge",
+  "titre": "Risotto aux chanterelles et à la courge",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "italienne",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "La courge fond dans le riz et le rend orangé, les chanterelles dorées apportent le croquant.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 250.0, "base": true },
+    { "nom": "riz à risotto", "g": 320.0 },
+    { "nom": "courge butternut en petits dés", "g": 300.0 },
+    { "nom": "oignon ciselé", "g": 80.0 },
+    { "nom": "vin blanc sec", "g": 100.0 },
+    { "nom": "bouillon de légumes chaud (sans gluten)", "g": 1100.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 50.0 },
+    { "nom": "sauge hachée", "g": 2.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Fais suer l’oignon dans 15 g de beurre, ajoute la courge et cuis 5 minutes.",
+    "Ajoute le riz, remue 2 minutes, mouille au vin blanc et laisse évaporer.",
+    "Ajoute le bouillon chaud louche par louche pendant 18 minutes environ, en remuant souvent.",
+    "Pendant ce temps, poêle les chanterelles à sec 4 minutes, puis dans 15 g de beurre et la sauge 5 minutes.",
+    "Hors du feu, incorpore le reste du beurre et le fromage, couvre 2 minutes. Sers avec les chanterelles par-dessus."
+  ],
+  "conservation": "Meilleur tout de suite ; les restes se gardent 1 jour au frigo et se poêlent en galettes."
+}

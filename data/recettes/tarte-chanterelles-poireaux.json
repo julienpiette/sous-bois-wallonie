@@ -1,0 +1,37 @@
+{
+  "id": "tarte-chanterelles-poireaux",
+  "titre": "Tarte aux poireaux et chanterelles",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 50,
+  "portions": 6,
+  "base_g": 250.0,
+  "regimes": ["vegetarien"],
+  "congelable": true,
+  "chapeau": "La flamiche aux poireaux du nord, avec des chanterelles mêlées à la fondue de poireaux.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 250.0, "base": true },
+    { "nom": "pâte brisée", "g": 250.0 },
+    { "nom": "poireaux émincés (blanc et vert tendre)", "g": 500.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 165.0 },
+    { "nom": "crème liquide", "g": 200.0 },
+    { "nom": "gruyère râpé", "g": 60.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 190 °C. Fonce un moule de 26 cm et cuis la pâte à blanc 12 minutes.",
+    "Fais fondre les poireaux dans le beurre à couvert, 15 minutes à feu doux, sans coloration.",
+    "Ajoute les chanterelles et cuis 6 minutes à découvert, jusqu’à ce qu’il ne reste plus de liquide.",
+    "Bats les œufs avec la crème, le gruyère, le sel et le poivre.",
+    "Étale les poireaux et les chanterelles sur la pâte, verse l’appareil et enfourne 30 minutes."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle cuite jusqu’à 3 mois."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "pates-chanterelles-noix",
+  "titre": "Pâtes aux chanterelles et aux noix",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "vegan"],
+  "congelable": false,
+  "chapeau": "Des pâtes courtes, des chanterelles, des noix grillées et une huile à l’ail : tout se fait en un quart d’heure.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 300.0, "base": true },
+    { "nom": "pâtes courtes (orecchiette, penne)", "g": 350.0 },
+    { "nom": "cerneaux de noix concassés", "g": 50.0 },
+    { "nom": "huile d’olive", "g": 50.0 },
+    { "nom": "ail émincé", "g": 8.0 },
+    { "nom": "piment séché émietté", "g": 0.5 },
+    { "nom": "persil plat haché", "g": 8.0 },
+    { "nom": "sel (dont l’eau des pâtes)", "g": 14.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Cuis les pâtes dans une grande quantité d’eau salée. Garde une louche d’eau de cuisson.",
+    "Torréfie les noix à sec 3 minutes, réserve.",
+    "Poêle les chanterelles à sec 4 minutes, puis avec 30 g d’huile 5 minutes.",
+    "Ajoute le reste de l’huile, l’ail et le piment 1 minute à feu doux.",
+    "Verse les pâtes égouttées et un peu d’eau de cuisson, mélange 1 minute. Ajoute les noix et le persil, poivre et sers."
+  ],
+  "conservation": "À manger tout de suite."
+}

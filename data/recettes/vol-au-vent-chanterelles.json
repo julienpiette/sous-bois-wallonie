@@ -1,0 +1,42 @@
+{
+  "id": "vol-au-vent-chanterelles",
+  "titre": "Vol-au-vent aux chanterelles",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "exigeant",
+  "preparation_min": 30,
+  "cuisson_min": 60,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": [],
+  "congelable": true,
+  "chapeau": "Le classique des brasseries belges, poulet et boulettes en sauce blanche, où les chanterelles remplacent les champignons de Paris.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 300.0, "base": true },
+    { "nom": "blancs de poulet", "g": 500.0 },
+    { "nom": "hachis de veau ou de porc (boulettes)", "g": 200.0 },
+    { "nom": "bouillon de volaille", "g": 1000.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "farine de blé", "g": 50.0 },
+    { "nom": "crème liquide", "g": 100.0 },
+    { "nom": "jaune d’œuf", "g": 20.0 },
+    { "nom": "jus de citron", "g": 10.0 },
+    { "nom": "noix de muscade râpée", "g": 0.2 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 },
+    { "nom": "bouchées en pâte feuilletée (achetées)", "g": 200.0 }
+  ],
+  "etapes": [
+    "Porte le bouillon à frémissement. Poche les blancs de poulet dedans 15 minutes : ils doivent être cuits à cœur. Retire-les et coupe-les en dés.",
+    "Roule le hachis en petites boulettes et poche-les 6 minutes dans le même bouillon. Garde 600 g de bouillon.",
+    "Poêle les chanterelles à sec 4 minutes, puis dans 10 g de beurre 5 minutes.",
+    "Fais fondre le reste du beurre, ajoute la farine et remue 2 minutes. Verse le bouillon réservé en fouettant et cuis 8 minutes.",
+    "Hors du feu, ajoute la crème mélangée au jaune, le jus de citron, la muscade, le sel et le poivre. Ajoute poulet, boulettes et chanterelles et réchauffe sans bouillir.",
+    "Chauffe les bouchées 8 minutes au four à 180 °C et garnis-les. Sers avec des frites ou de la purée."
+  ],
+  "conservation": "La garniture se garde 2 jours au frigo et se congèle 3 mois. Les bouchées se réchauffent à part pour rester croustillantes."
+}

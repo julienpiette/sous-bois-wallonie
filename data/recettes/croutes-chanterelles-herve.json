@@ -1,0 +1,34 @@
+{
+  "id": "croutes-chanterelles-herve",
+  "titre": "Croûtes aux chanterelles et au fromage de Herve",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Le fromage de Herve fondu sur du pain gris, adouci par des chanterelles et un peu de sirop de Liège.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 250.0, "base": true },
+    { "nom": "pain gris ou pain de seigle, en tranches", "g": 200.0 },
+    { "nom": "fromage de Herve, en lamelles", "g": 120.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "sirop de Liège (ou de pomme)", "g": 20.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le gril du four.",
+    "Poêle les chanterelles à sec 4 minutes, puis dans le beurre 5 minutes. Poivre.",
+    "Tartine les tranches de pain d’un peu de sirop, répartis les chanterelles et couvre de lamelles de fromage.",
+    "Passe sous le gril 3 à 4 minutes, jusqu’à ce que le fromage coule.",
+    "Sers aussitôt avec une salade amère."
+  ],
+  "conservation": "À manger aussitôt."
+}

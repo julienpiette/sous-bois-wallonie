@@ -1,0 +1,35 @@
+{
+  "id": "chanterelles-poelees-lard",
+  "titre": "Chanterelles en tube poêlées au lard",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "Le lard fumé ardennais donne le gras et le sel, les chanterelles le parfum de sous-bois.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 400.0, "base": true },
+    { "nom": "lard fumé, en lardons", "g": 120.0 },
+    { "nom": "oignon émincé", "g": 80.0 },
+    { "nom": "beurre", "g": 15.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 1.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie les chanterelles : coupe le bas du pied terreux, brosse ou rince très rapidement si elles sont pleines d’aiguilles, puis sèche-les dans un torchon.",
+    "Fais rissoler les lardons à sec 5 minutes. Ajoute l’oignon et cuis 4 minutes.",
+    "Ajoute les chanterelles et le beurre, fais sauter 8 minutes à feu vif, jusqu’à ce que leur eau soit évaporée.",
+    "Goûte avant de saler (le lard l’est déjà), poivre, ajoute le persil.",
+    "Sers avec une viande rôtie, une omelette ou des pommes de terre."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe à la poêle."
+}

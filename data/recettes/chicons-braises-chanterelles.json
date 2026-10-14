@@ -1,0 +1,37 @@
+{
+  "id": "chicons-braises-chanterelles",
+  "titre": "Chicons braisés aux chanterelles",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Les chicons fondus au beurre, à peine sucrés pour l’amertume, et des chanterelles ajoutées en fin de cuisson.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 250.0, "base": true },
+    { "nom": "chicons (endives), coupés en deux dans la longueur", "g": 800.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "sucre", "g": 5.0 },
+    { "nom": "jus de citron", "g": 10.0 },
+    { "nom": "eau", "g": 50.0 },
+    { "nom": "noix de muscade râpée", "g": 0.2 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Retire le petit cône amer à la base des chicons.",
+    "Fais fondre 25 g de beurre dans une sauteuse, pose les chicons face coupée vers le bas, saupoudre de sucre et laisse dorer 5 minutes.",
+    "Ajoute le jus de citron, l’eau, le sel, couvre et laisse braiser 25 minutes à feu doux, en retournant à mi-cuisson.",
+    "Pendant ce temps, poêle les chanterelles à sec 4 minutes, puis dans le reste du beurre 5 minutes.",
+    "Ajoute-les aux chicons, découvre et laisse réduire le jus 3 minutes. Poivre, râpe un peu de muscade."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe à couvert, à feu doux."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "chanterelles-sautees-congeler",
+  "titre": "Chanterelles en tube sautées à congeler",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 15,
+  "portions": 8,
+  "base_g": 1000.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Pour les grosses cueillettes de novembre : sautées, refroidies, congelées à plat, prêtes à jeter dans la poêle.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 1000.0, "base": true },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "sel", "g": 3.0 }
+  ],
+  "etapes": [
+    "Nettoie les chanterelles et sèche-les bien si tu as dû les rincer.",
+    "Cuis-les à sec par petites quantités, 4 à 5 minutes à feu vif, jusqu’à évaporation de leur eau.",
+    "Ajoute un peu de beurre et fais sauter encore 3 minutes. Sale légèrement.",
+    "Étale-les sur une plaque, laisse refroidir, puis congèle 2 heures à plat.",
+    "Mets-les en sachets portionnés, avec la date."
+  ],
+  "conservation": "Congélateur, jusqu’à 6 mois. À utiliser sans décongeler."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "chanterelles-sechees",
+  "titre": "Chanterelles en tube séchées",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 360,
+  "portions": 10,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Leur chair fine sèche vite et bien : la réserve idéale pour les soupes et les sauces d’hiver.",
+  "ingredients": [
+    { "nom": "chanterelles en tube, sèches au toucher", "g": 500.0, "base": true }
+  ],
+  "etapes": [
+    "Nettoie les chanterelles à sec : coupe le pied terreux et retire les aiguilles. Ne les rince pas.",
+    "Coupe les plus grosses en deux dans la longueur, laisse les autres entières.",
+    "Étale-les sur les grilles d’un déshydrateur ou du four, sans qu’elles se chevauchent.",
+    "Sèche à 45-50 °C, 4 à 6 heures, jusqu’à ce qu’elles soient cassantes.",
+    "Laisse refroidir et mets en bocal hermétique.",
+    "Pour les utiliser : 15 minutes dans l’eau tiède, puis au moins 10 minutes de cuisson dans le plat."
+  ],
+  "conservation": "Bocal hermétique, à l’abri de la lumière et de l’humidité, jusqu’à 1 an. Toujours cuire après réhydratation."
+}

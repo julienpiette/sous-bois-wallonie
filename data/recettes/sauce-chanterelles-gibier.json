@@ -1,0 +1,37 @@
+{
+  "id": "sauce-chanterelles-gibier",
+  "titre": "Sauce aux chanterelles pour le gibier",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "moyen",
+  "preparation_min": 10,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": [],
+  "congelable": true,
+  "chapeau": "Une sauce brune au vin rouge et aux baies de genièvre, pour un civet, un filet de chevreuil ou un sanglier.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 200.0, "base": true },
+    { "nom": "échalote ciselée", "g": 50.0 },
+    { "nom": "vin rouge corsé", "g": 200.0 },
+    { "nom": "fond brun de gibier ou de veau", "g": 300.0 },
+    { "nom": "baies de genièvre écrasées", "g": 1.0 },
+    { "nom": "gelée de groseilles", "g": 20.0 },
+    { "nom": "beurre froid", "g": 30.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Fais revenir l’échalote dans 10 g de beurre 3 minutes.",
+    "Ajoute le vin rouge et le genièvre, laisse réduire des deux tiers.",
+    "Verse le fond et laisse réduire encore 10 minutes, jusqu’à ce que la sauce nappe la cuillère. Passe-la au chinois.",
+    "Poêle les chanterelles à sec 4 minutes, puis dans 10 g de beurre 5 minutes.",
+    "Ajoute à la sauce les chanterelles et la gelée, puis, hors du feu, le reste du beurre froid en fouettant. Sale et poivre."
+  ],
+  "conservation": "La sauce (sans les chanterelles) se garde 3 jours au frigo et se congèle 3 mois."
+}

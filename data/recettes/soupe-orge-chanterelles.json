@@ -1,0 +1,41 @@
+{
+  "id": "soupe-orge-chanterelles",
+  "titre": "Soupe d’orge aux chanterelles, à la polonaise",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "polonaise",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 50,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien"],
+  "congelable": true,
+  "chapeau": "Une soupe épaisse d’orge, de légumes racines et de champignons, finie à l’aneth et à la crème aigre.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 250.0, "base": true },
+    { "nom": "orge perlé", "g": 80.0 },
+    { "nom": "carotte en dés", "g": 120.0 },
+    { "nom": "céleri-rave en dés", "g": 100.0 },
+    { "nom": "pomme de terre en dés", "g": 200.0 },
+    { "nom": "oignon émincé", "g": 100.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "bouillon de légumes", "g": 1500.0 },
+    { "nom": "feuilles de laurier", "g": 0.3 },
+    { "nom": "crème aigre", "g": 100.0 },
+    { "nom": "aneth haché", "g": 5.0 },
+    { "nom": "sel", "g": 5.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Rince l’orge. Fais revenir l’oignon dans le beurre 5 minutes, puis ajoute les chanterelles 5 minutes.",
+    "Ajoute l’orge, la carotte, le céleri, le bouillon et le laurier. Laisse frémir 30 minutes.",
+    "Ajoute la pomme de terre et prolonge 15 minutes, jusqu’à ce que tout soit tendre.",
+    "Sale, poivre, retire le laurier.",
+    "Sers avec une cuillerée de crème aigre et l’aneth."
+  ],
+  "conservation": "Au frigo 3 jours (elle épaissit : rallonge d’eau). Se congèle 3 mois, sans la crème aigre."
+}

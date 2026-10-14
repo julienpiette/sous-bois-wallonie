@@ -1,0 +1,36 @@
+{
+  "id": "stoemp-chanterelles",
+  "titre": "Stoemp aux poireaux et chanterelles",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "La purée bruxelloise écrasée grossièrement avec des poireaux fondus, des chanterelles poêlées par-dessus.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 300.0, "base": true },
+    { "nom": "pommes de terre farineuses, en morceaux", "g": 1000.0 },
+    { "nom": "poireaux émincés", "g": 300.0 },
+    { "nom": "beurre", "g": 60.0 },
+    { "nom": "lait entier chaud", "g": 100.0 },
+    { "nom": "noix de muscade râpée", "g": 0.3 },
+    { "nom": "sel", "g": 8.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Cuis les pommes de terre 20 minutes dans l’eau salée.",
+    "Pendant ce temps, fais fondre les poireaux dans 20 g de beurre, 15 minutes à feu doux, à couvert.",
+    "Égoutte les pommes de terre et écrase-les grossièrement à la fourchette avec 25 g de beurre et le lait chaud. Mélange avec les poireaux, la muscade, le sel et le poivre.",
+    "Poêle les chanterelles à sec 4 minutes, puis dans le reste du beurre 5 minutes.",
+    "Sers le stoemp avec les chanterelles et, si tu veux, une saucisse ou un œuf au plat."
+  ],
+  "conservation": "Au frigo 2 jours. Le stoemp (sans les chanterelles) se congèle 3 mois."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "omelette-chanterelles-herbes",
+  "titre": "Omelette aux chanterelles et aux fines herbes",
+  "statut": "brouillon",
+  "especes": ["chanterelle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne", "hiver"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 12,
+  "portions": 2,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Persil, ciboulette, cerfeuil et chanterelles : l’omelette du retour de balade.",
+  "ingredients": [
+    { "nom": "chanterelles en tube nettoyées", "g": 200.0, "base": true },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 275.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "fines herbes hachées (persil, ciboulette, cerfeuil du commerce)", "g": 8.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Poêle les chanterelles à sec 4 minutes, puis avec 10 g de beurre 5 minutes. Sale et réserve.",
+    "Bats les œufs avec les herbes, le sel et le poivre.",
+    "Fais mousser le reste du beurre dans la poêle, verse les œufs et remue 1 minute, puis laisse prendre 2 minutes.",
+    "Ajoute les chanterelles sur une moitié, plie l’omelette et sers."
+  ],
+  "conservation": "À manger tout de suite."
+}
