@@ -1,0 +1,39 @@
+{
+  "id": "quiche-girolles",
+  "titre": "Quiche aux girolles et au lard",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 45,
+  "portions": 6,
+  "base_g": 300.0,
+  "regimes": [],
+  "congelable": true,
+  "chapeau": "L’appareil classique œufs et crème, des lardons fumés et des girolles : une quiche pour le pique-nique.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 300.0, "base": true },
+    { "nom": "pâte brisée", "g": 250.0 },
+    { "nom": "lardons fumés", "g": 150.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 220.0 },
+    { "nom": "crème liquide", "g": 250.0 },
+    { "nom": "lait entier", "g": 100.0 },
+    { "nom": "gruyère râpé", "g": 60.0 },
+    { "nom": "noix de muscade râpée", "g": 0.2 },
+    { "nom": "sel", "g": 1.5 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 190 °C. Fonce un moule de 26 cm et fais cuire la pâte à blanc 12 minutes.",
+    "Fais rissoler les lardons 5 minutes à sec, égoutte-les. Dans la même poêle, cuis les girolles 6 minutes à feu vif.",
+    "Bats les œufs avec la crème, le lait, la muscade, peu de sel (les lardons sont salés) et le poivre.",
+    "Répartis lardons, girolles et gruyère sur la pâte, verse l’appareil.",
+    "Enfourne 30 à 35 minutes, jusqu’à ce que le centre soit pris.",
+    "Laisse tiédir avant de couper."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle cuite, en parts, jusqu’à 3 mois ; réchauffe au four à 170 °C."
+}

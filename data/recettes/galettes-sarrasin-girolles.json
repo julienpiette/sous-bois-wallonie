@@ -1,0 +1,37 @@
+{
+  "id": "galettes-sarrasin-girolles",
+  "titre": "Galettes de sarrasin aux girolles et à l’œuf",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "bretonne",
+  "niveau": "moyen",
+  "preparation_min": 15,
+  "cuisson_min": 30,
+  "repos_min": 60,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une galette de pur sarrasin, un œuf au plat au milieu, des girolles autour : le repas complet des soirs de cueillette.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 300.0, "base": true },
+    { "nom": "farine de sarrasin pure (sans gluten)", "g": 250.0 },
+    { "nom": "eau froide", "g": 550.0 },
+    { "nom": "sel (pâte)", "g": 5.0 },
+    { "nom": "œufs entiers (environ 55 g pièce, garniture)", "g": 220.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "comté râpé", "g": 80.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Fouette la farine, le sel et la moitié de l’eau jusqu’à une pâte lisse, puis ajoute le reste de l’eau. Laisse reposer 1 heure.",
+    "Poêle les girolles à sec 4 minutes, puis dans 15 g de beurre 4 minutes. Réserve au chaud.",
+    "Chauffe une grande poêle ou une crêpière bien beurrée. Verse une louche de pâte et étale-la finement.",
+    "Quand la galette se détache (2 minutes), parsème de fromage, casse un œuf au centre et laisse cuire jusqu’à ce que le blanc soit pris.",
+    "Ajoute des girolles autour du jaune, replie les bords en carré, poivre et sers."
+  ],
+  "conservation": "Les galettes nature se gardent 2 jours au frigo, séparées par du papier. Garnis-les au moment de servir. Vérifie l’étiquette du sarrasin si tu cuisines pour une personne intolérante au gluten."
+}

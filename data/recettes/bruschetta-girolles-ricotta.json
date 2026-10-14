@@ -1,0 +1,36 @@
+{
+  "id": "bruschetta-girolles-ricotta",
+  "titre": "Bruschetta aux girolles et à la ricotta",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 12,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Du pain grillé, une couche de ricotta citronnée, des girolles brûlantes : le chaud et le froid ensemble.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 250.0, "base": true },
+    { "nom": "pain au levain, en tranches", "g": 200.0 },
+    { "nom": "ricotta", "g": 150.0 },
+    { "nom": "zeste de citron non traité", "g": 2.0 },
+    { "nom": "huile d’olive", "g": 30.0 },
+    { "nom": "ail", "g": 4.0 },
+    { "nom": "basilic ou persil", "g": 4.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Mélange la ricotta avec le zeste, une pincée de sel et du poivre.",
+    "Grille le pain, frotte-le avec l’ail et arrose d’un peu d’huile.",
+    "Poêle les girolles à sec 4 minutes, puis avec le reste de l’huile 4 minutes à feu vif. Sale.",
+    "Tartine la ricotta sur le pain, ajoute les girolles chaudes et les herbes."
+  ],
+  "conservation": "À servir aussitôt."
+}

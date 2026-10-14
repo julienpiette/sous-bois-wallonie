@@ -1,0 +1,31 @@
+{
+  "id": "girolles-sautees-congeler",
+  "titre": "Girolles sautées à congeler",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 15,
+  "portions": 8,
+  "base_g": 1000.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Crues, les girolles deviennent amères et caoutchouteuses au congélateur. Sautées d’abord, elles gardent leur goût.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 1000.0, "base": true },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "sel", "g": 4.0 }
+  ],
+  "etapes": [
+    "Nettoie les girolles au pinceau, coupe les grosses.",
+    "Cuis-les à sec, par petites quantités, 5 minutes à feu vif. Jette l’eau rendue.",
+    "Ajoute un peu de beurre et fais-les sauter encore 4 minutes. Sale légèrement.",
+    "Étale-les sur une plaque pour qu’elles refroidissent vite.",
+    "Congèle-les à plat 2 heures sur la plaque, puis mets-les en sachets portionnés avec la date."
+  ],
+  "conservation": "Congélateur, jusqu’à 6 mois (note-les dans le garde-manger). À utiliser sans décongeler, directement dans la poêle ou une sauce."
+}

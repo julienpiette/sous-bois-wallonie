@@ -1,0 +1,36 @@
+{
+  "id": "toast-girolles-creme",
+  "titre": "Toasts de girolles à la crème",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Des girolles nappées d’une crème courte, sur un pain de mie doré au beurre.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 300.0, "base": true },
+    { "nom": "pain de mie épais ou brioche non sucrée", "g": 160.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "crème épaisse", "g": 100.0 },
+    { "nom": "ciboulette ciselée", "g": 5.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Poêle les girolles à sec 4 minutes ; jette l’eau rendue si elle est abondante.",
+    "Ajoute 15 g de beurre et l’échalote, cuis 4 minutes à feu vif.",
+    "Ajoute la crème et laisse réduire 2 à 3 minutes, jusqu’à ce qu’elle enrobe les girolles. Sale et poivre.",
+    "Pendant ce temps, dore les tranches de pain dans le reste du beurre, 2 minutes par face.",
+    "Répartis les girolles sur les toasts et parsème de ciboulette."
+  ],
+  "conservation": "À servir aussitôt. Les girolles à la crème se gardent 1 jour au frigo."
+}

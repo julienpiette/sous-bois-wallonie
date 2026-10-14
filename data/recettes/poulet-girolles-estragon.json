@@ -1,0 +1,40 @@
+{
+  "id": "poulet-girolles-estragon",
+  "titre": "Poulet aux girolles et à l’estragon",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 45,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["sans-gluten"],
+  "congelable": true,
+  "chapeau": "Des cuisses de poulet dorées puis mijotées, une sauce au vin blanc et à l’estragon, les girolles ajoutées à la fin.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 400.0, "base": true },
+    { "nom": "cuisses de poulet", "g": 1000.0 },
+    { "nom": "échalote ciselée", "g": 60.0 },
+    { "nom": "vin blanc sec", "g": 150.0 },
+    { "nom": "bouillon de volaille (sans gluten)", "g": 200.0 },
+    { "nom": "crème épaisse", "g": 150.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "huile neutre", "g": 15.0 },
+    { "nom": "estragon frais haché", "g": 5.0 },
+    { "nom": "sel", "g": 6.0 },
+    { "nom": "poivre moulu", "g": 0.6 }
+  ],
+  "etapes": [
+    "Sale et poivre les cuisses. Fais-les dorer côté peau dans l’huile, 8 minutes, puis 4 minutes de l’autre côté, dans une cocotte.",
+    "Retire l’excès de graisse, ajoute l’échalote 2 minutes, puis le vin blanc. Laisse réduire de moitié.",
+    "Ajoute le bouillon, couvre et laisse mijoter 25 minutes à feu doux. Le jus doit être clair quand on pique la chair près de l’os.",
+    "Pendant ce temps, poêle les girolles à sec 4 minutes, puis dans le beurre 4 minutes.",
+    "Retire le poulet, ajoute la crème au jus et laisse réduire 5 minutes. Remets le poulet et les girolles, ajoute l’estragon et chauffe 2 minutes.",
+    "Sers avec du riz ou des pommes de terre vapeur."
+  ],
+  "conservation": "Au frigo 2 jours. Se congèle 3 mois ; réchauffe à couvert jusqu’à ce que la sauce frémisse."
+}

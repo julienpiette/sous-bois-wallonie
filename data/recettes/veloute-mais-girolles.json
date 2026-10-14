@@ -1,0 +1,36 @@
+{
+  "id": "veloute-mais-girolles",
+  "titre": "Velouté de maïs aux girolles",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le maïs de fin d’été et la girolle ont la même couleur et s’entendent bien : doux, un peu fruité.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 250.0, "base": true },
+    { "nom": "grains de maïs (frais ou surgelés)", "g": 500.0 },
+    { "nom": "oignon émincé", "g": 100.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 800.0 },
+    { "nom": "crème liquide", "g": 80.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "piment d’Espelette ou paprika doux", "g": 0.5 }
+  ],
+  "etapes": [
+    "Fais suer l’oignon dans 15 g de beurre, 5 minutes.",
+    "Ajoute le maïs et le bouillon, laisse frémir 20 minutes.",
+    "Mixe longuement avec la crème, puis passe au chinois si tu veux un velouté très lisse. Sale.",
+    "Poêle les girolles à sec 4 minutes, puis dans le reste du beurre 4 minutes.",
+    "Sers le velouté chaud, les girolles au centre et une pincée de piment par-dessus."
+  ],
+  "conservation": "Le velouté se garde 3 jours au frigo et se congèle 3 mois. Les girolles se poêlent au moment de servir."
+}

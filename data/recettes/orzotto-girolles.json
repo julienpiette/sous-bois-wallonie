@@ -1,0 +1,39 @@
+{
+  "id": "orzotto-girolles",
+  "titre": "Orzotto aux girolles",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "moyen",
+  "preparation_min": 10,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 350.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Comme un risotto, mais avec de l’orge perlé : plus de mâche, un petit goût de noisette.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 350.0, "base": true },
+    { "nom": "orge perlé", "g": 280.0 },
+    { "nom": "oignon ciselé", "g": 80.0 },
+    { "nom": "vin blanc sec", "g": 100.0 },
+    { "nom": "bouillon de légumes chaud", "g": 1100.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "huile d’olive", "g": 15.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 50.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Rince l’orge à l’eau froide et égoutte-le.",
+    "Fais suer l’oignon dans l’huile 4 minutes, ajoute l’orge et remue 2 minutes.",
+    "Mouille avec le vin blanc, laisse évaporer, puis ajoute le bouillon chaud louche par louche pendant 30 à 35 minutes, en remuant de temps en temps. L’orge doit être tendre mais encore ferme.",
+    "Pendant ce temps, poêle les girolles à sec 4 minutes, puis dans 15 g de beurre 4 minutes.",
+    "Hors du feu, incorpore le reste du beurre, le fromage et les deux tiers des girolles. Sale, poivre.",
+    "Sers avec le reste des girolles par-dessus."
+  ],
+  "conservation": "Au frigo 2 jours ; l’orge supporte mieux le réchauffage que le riz. Ajoute un peu de bouillon en réchauffant."
+}

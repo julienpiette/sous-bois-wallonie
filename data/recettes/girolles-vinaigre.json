@@ -1,0 +1,39 @@
+{
+  "id": "girolles-vinaigre",
+  "titre": "Petites girolles au vinaigre",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 10,
+  "repos_min": 2880,
+  "portions": 8,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Les toutes petites girolles, cuites dans une saumure bien acide : pour l’apéritif ou une assiette de charcuterie.",
+  "ingredients": [
+    { "nom": "petites girolles fermes", "g": 500.0, "base": true },
+    { "nom": "vinaigre de vin blanc (6 % d’acidité)", "g": 300.0 },
+    { "nom": "eau", "g": 200.0 },
+    { "nom": "sel", "g": 15.0 },
+    { "nom": "sucre", "g": 10.0 },
+    { "nom": "échalote en fines rondelles", "g": 30.0 },
+    { "nom": "poivre en grains", "g": 2.0 },
+    { "nom": "feuilles de laurier", "g": 0.4 },
+    { "nom": "thym frais", "g": 1.0 }
+  ],
+  "etapes": [
+    "Lave et ébouillante des bocaux et leurs couvercles ; laisse-les sécher à l’envers sur un linge propre.",
+    "Nettoie les girolles au pinceau. Garde les plus petites entières ; coupe les autres en deux.",
+    "Porte à ébullition le vinaigre, l’eau, le sel et le sucre. Plonge les girolles et laisse frémir 5 minutes : elles doivent être cuites à cœur.",
+    "Répartis les girolles, l’échalote, le poivre, le laurier et le thym dans les bocaux, sans tasser.",
+    "Reporte la saumure à ébullition et verse-la bouillante jusqu’à recouvrir entièrement les girolles. Ferme aussitôt.",
+    "Laisse refroidir, puis range au frigo. Attends 2 jours avant de goûter."
+  ],
+  "conservation": "Toujours au frigo, 3 semaines maximum, girolles bien recouvertes de saumure ; sers-toi avec une fourchette propre. Ne réduis pas la part de vinaigre : c’est elle qui protège. Ce n’est pas une conserve de garde à température ambiante."
+}

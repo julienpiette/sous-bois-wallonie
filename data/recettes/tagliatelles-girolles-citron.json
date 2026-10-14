@@ -1,0 +1,38 @@
+{
+  "id": "tagliatelles-girolles-citron",
+  "titre": "Tagliatelles aux girolles, citron et parmesan",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Sans crème : du beurre, un zeste de citron et l’eau des pâtes pour lier, la girolle reste vive.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 400.0, "base": true },
+    { "nom": "tagliatelles sèches", "g": 350.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "ail haché", "g": 5.0 },
+    { "nom": "zeste de citron non traité", "g": 3.0 },
+    { "nom": "jus de citron", "g": 15.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 50.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel (dont l’eau des pâtes)", "g": 14.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Porte à ébullition une grande casserole d’eau salée.",
+    "Poêle les girolles à sec 4 minutes, puis avec 20 g de beurre 4 minutes à feu vif. Ajoute l’ail 1 minute.",
+    "Cuis les pâtes une minute de moins que le temps du paquet. Garde deux louches d’eau de cuisson.",
+    "Verse les pâtes dans la poêle avec le reste du beurre, le zeste, le jus de citron et une louche d’eau de cuisson. Mélange vivement 1 minute pour obtenir une sauce brillante.",
+    "Ajoute le fromage et le persil hors du feu, rallonge d’eau si besoin, poivre et sers."
+  ],
+  "conservation": "À manger tout de suite."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "sauce-girolles-poisson",
+  "titre": "Sauce aux girolles pour un poisson blanc",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 10,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Un beurre blanc léger, monté hors du feu, avec des girolles poêlées : pour un cabillaud ou une truite.",
+  "ingredients": [
+    { "nom": "petites girolles nettoyées", "g": 200.0, "base": true },
+    { "nom": "échalote très finement ciselée", "g": 40.0 },
+    { "nom": "vin blanc sec", "g": 100.0 },
+    { "nom": "vinaigre de vin blanc", "g": 20.0 },
+    { "nom": "crème liquide", "g": 30.0 },
+    { "nom": "beurre froid, en dés", "g": 120.0 },
+    { "nom": "ciboulette ciselée", "g": 4.0 },
+    { "nom": "sel", "g": 1.5 },
+    { "nom": "poivre blanc moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Poêle les girolles à sec 4 minutes, puis avec 10 g de beurre 4 minutes. Réserve au chaud.",
+    "Dans une petite casserole, fais réduire l’échalote avec le vin et le vinaigre jusqu’à ce qu’il ne reste presque plus de liquide.",
+    "Ajoute la crème et porte à ébullition.",
+    "À feu très doux, incorpore le beurre froid petit à petit en fouettant : la sauce doit épaissir sans jamais bouillir.",
+    "Sale, poivre, ajoute les girolles et la ciboulette. Sers aussitôt sur le poisson."
+  ],
+  "conservation": "Le beurre blanc ne se garde pas : prépare-le au dernier moment."
+}

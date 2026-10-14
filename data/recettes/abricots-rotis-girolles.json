@@ -1,0 +1,35 @@
+{
+  "id": "abricots-rotis-girolles",
+  "titre": "Abricots rôtis au miel et girolles caramélisées",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "douceur",
+  "saisons": ["ete"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 120.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "La girolle sent l’abricot : ce dessert de fin d’été pousse l’idée jusqu’au bout, avec une boule de glace vanille.",
+  "ingredients": [
+    { "nom": "petites girolles nettoyées", "g": 120.0, "base": true },
+    { "nom": "abricots coupés en deux, dénoyautés", "g": 500.0 },
+    { "nom": "miel", "g": 40.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "sucre", "g": 20.0 },
+    { "nom": "jus de citron", "g": 10.0 },
+    { "nom": "thym citron ou thym frais", "g": 1.0 },
+    { "nom": "glace à la vanille (pour servir)", "g": 240.0 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 200 °C. Dispose les abricots face coupée vers le haut dans un plat, arrose de miel, de jus de citron et de 15 g de beurre fondu.",
+    "Enfourne 15 à 20 minutes, jusqu’à ce qu’ils soient tendres et légèrement caramélisés.",
+    "Pendant ce temps, poêle les girolles à sec 4 minutes, puis ajoute le reste du beurre et le sucre. Laisse caraméliser 4 à 5 minutes en remuant : elles doivent être bien cuites et brillantes.",
+    "Sers les abricots tièdes avec leur jus, les girolles et le thym par-dessus, et une boule de glace."
+  ],
+  "conservation": "À servir tiède, le jour même."
+}

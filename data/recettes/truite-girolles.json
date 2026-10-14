@@ -1,0 +1,37 @@
+{
+  "id": "truite-girolles",
+  "titre": "Truite poêlée aux girolles et aux amandes",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "belge",
+  "niveau": "moyen",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "La truite des rivières ardennaises, cuite côté peau, avec des girolles et des amandes dorées au beurre.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 300.0, "base": true },
+    { "nom": "filets de truite avec la peau", "g": 600.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "huile neutre", "g": 15.0 },
+    { "nom": "amandes effilées", "g": 30.0 },
+    { "nom": "jus de citron", "g": 15.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Poêle les girolles à sec 4 minutes, puis dans 15 g de beurre 4 minutes. Réserve au chaud.",
+    "Dore les amandes à sec dans une petite poêle, 2 à 3 minutes en surveillant.",
+    "Sèche les filets de truite, sale-les. Chauffe l’huile et 10 g de beurre, pose les filets côté peau et cuis 4 minutes sans les bouger, puis 1 minute de l’autre côté.",
+    "Retire le poisson. Dans la poêle, fais mousser le reste du beurre, ajoute le jus de citron, les girolles, les amandes et le persil.",
+    "Nappe les filets de ce beurre aux girolles, poivre et sers."
+  ],
+  "conservation": "À manger tout de suite."
+}

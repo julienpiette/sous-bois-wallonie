@@ -1,0 +1,35 @@
+{
+  "id": "omelette-roulee-girolles",
+  "titre": "Omelette roulée aux girolles et à la ciboulette",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 10,
+  "cuisson_min": 12,
+  "portions": 2,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une omelette fine, encore baveuse, roulée autour des girolles poêlées.",
+  "ingredients": [
+    { "nom": "girolles nettoyées, les grosses coupées", "g": 200.0, "base": true },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 275.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "ciboulette ciselée", "g": 5.0 },
+    { "nom": "crème liquide", "g": 20.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Poêle les girolles à sec 4 minutes, puis avec 10 g de beurre 4 minutes. Sale, réserve au chaud.",
+    "Bats les œufs avec la crème, le sel, le poivre et la moitié de la ciboulette, sans trop faire mousser.",
+    "Chauffe le reste du beurre dans une poêle antiadhésive à feu moyen. Verse les œufs et remue avec une spatule 1 minute, puis laisse prendre sans toucher 1 à 2 minutes : le dessus doit rester crémeux.",
+    "Dispose les girolles sur une moitié, roule l’omelette en l’inclinant vers l’assiette.",
+    "Parsème du reste de ciboulette et sers aussitôt."
+  ],
+  "conservation": "À manger tout de suite."
+}

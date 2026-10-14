@@ -1,0 +1,39 @@
+{
+  "id": "soupe-coco-girolles",
+  "titre": "Soupe coco et citronnelle aux girolles",
+  "statut": "brouillon",
+  "especes": ["girolle"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["ete", "automne"],
+  "cuisine": "thaïlandaise",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 25,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "Un bouillon au lait de coco parfumé à la citronnelle et au gingembre, acidulé au citron vert.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 250.0, "base": true },
+    { "nom": "lait de coco", "g": 400.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 500.0 },
+    { "nom": "citronnelle, tiges écrasées", "g": 30.0 },
+    { "nom": "gingembre frais, en tranches", "g": 15.0 },
+    { "nom": "sauce de poisson (sans gluten)", "g": 20.0 },
+    { "nom": "jus de citron vert", "g": 30.0 },
+    { "nom": "sucre", "g": 5.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "coriandre fraîche", "g": 6.0 },
+    { "nom": "piment frais émincé (facultatif)", "g": 2.0 }
+  ],
+  "etapes": [
+    "Porte le bouillon à frémissement avec la citronnelle et le gingembre, laisse infuser 10 minutes.",
+    "Pendant ce temps, poêle les girolles dans l’huile 6 minutes à feu vif.",
+    "Ajoute le lait de coco, la sauce de poisson et le sucre au bouillon, puis les girolles. Laisse frémir 5 minutes sans bouillir fort.",
+    "Hors du feu, ajoute le jus de citron vert. Goûte : salé, acide et doux doivent s’équilibrer.",
+    "Retire la citronnelle et le gingembre, sers avec la coriandre et le piment."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe sans faire bouillir pour que le lait de coco ne tranche pas."
+}
