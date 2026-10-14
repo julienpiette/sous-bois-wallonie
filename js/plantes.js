@@ -30,6 +30,7 @@
         const r = await fetch(BASE + 'index.json', { cache: 'no-store' });
         if (!r.ok) return;
         E.especes = ((await r.json()).especes || []).filter(admise);
+        if (!E.especes.some((e) => E.coches.has(e.id)) && E.especes.length) E.coches.add(E.especes[0].id); // une espèce affichée d'emblée
         if (E.especes.some((e) => e.tuiles)) E.tuiles = await MW.tuiles.charger(BASE + 'tuiles/');
       } catch (e) { E.especes = []; }
     })();

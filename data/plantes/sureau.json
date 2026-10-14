@@ -1,0 +1,17 @@
+{
+  "id": "sureau",
+  "famille": "fruit",
+  "famille_botanique": "Adoxaceae",
+  "nom": "Sureau noir (fleurs et baies)",
+  "latin": "Sambucus nigra",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Sureau yèble (toxique) : une grande plante herbacée, pas un arbuste, aux baies noires dressées vers le ciel et à l’odeur désagréable. Sureau rouge (baies rouges, graines toxiques crues). Le sureau noir est un arbuste ou petit arbre à écorce liégeuse, aux baies noires pendantes.",
+  "etapes": {
+    "trouver": "Lisières, ripisylves, coupes, haies et abords de bâtiments, sur sols frais et riches. Fleurs en mai-juin, baies en août-septembre.",
+    "reconnaitre": "Arbuste de 3 à 7 m, tiges à moelle blanche, feuilles opposées à 5 ou 7 folioles dentées qui sentent fort quand on les froisse. Larges bouquets plats de petites fleurs blanc crème très parfumées, puis grappes pendantes de baies noir violacé.",
+    "cueillir": "Les bouquets de fleurs bien ouverts, par temps sec, sans les secouer (le pollen fait le parfum). Les grappes de baies quand toutes sont noires. Laisse les bouquets en hauteur aux oiseaux. Mêmes règles que pour les champignons : voir Le droit de cueillir.",
+    "cuisiner": "Fleurs : sirop, beignets, infusion. Baies : TOUJOURS cuites (crues, elles causent nausées et vomissements), en gelée, sirop ou compote, sans les tiges vertes ni les feuilles.",
+    "conserver": "Fleurs : à utiliser le jour même, ou séchées à l’ombre. Baies : égrappées et congelées, ou cuites en gelée (recette éprouvée, bocaux ébouillantés)."
+  }
+}

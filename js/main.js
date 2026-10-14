@@ -74,7 +74,7 @@
   $('#orthoOp').addEventListener('input', (e) => { ortho.setOpacity(+e.target.value); store.set('mw-ortho-op', +e.target.value); });
   setVue(store.get('mw-vue', 'plan') === 'reel');
   // ancienneté des forêts publiée seulement avec l'autorisation du SPW : attribution sur la carte, jamais masquée
-  if (MW.INTERRUPTEURS && MW.INTERRUPTEURS.anciennete && MW.INTERRUPTEURS.ancienneteAttribution) map.attributionControl.addAttribution(esc(MW.INTERRUPTEURS.ancienneteAttribution));
+  if (MW.INTERRUPTEURS && MW.INTERRUPTEURS.anciennete && MW.INTERRUPTEURS.ancienneteAttribution) map.attributionControl.addAttribution('Ancienneté des forêts : © <a href="mentions.html#attribution-anciennete">SPW</a>');
 
   // rendu SVG des zones fermées, avec un motif de hachures rouges sur voile clair
   const rendF = L.svg({ pane: 'fermetures', padding: 0.5 });

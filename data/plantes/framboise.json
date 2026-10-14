@@ -1,0 +1,17 @@
+{
+  "id": "framboise",
+  "famille": "fruit",
+  "famille_botanique": "Rosaceae",
+  "nom": "Framboise sauvage",
+  "latin": "Rubus idaeus",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Pas de sosie toxique courant chez nous. Les autres ronces (mûres) ont des fruits pleins qui ne se détachent pas en dé à coudre.",
+  "etapes": {
+    "trouver": "Coupes forestières de quelques années, clairières, lisières et talus de chemins forestiers, sur sols frais. Fruits de juillet à août.",
+    "reconnaitre": "Tiges dressées de 1 à 2 m, couvertes de petits aiguillons fins ; feuilles composées de 3 à 7 folioles, blanchâtres dessous. Le fruit rouge se détache de son support en laissant un creux : il a la forme d’un dé à coudre.",
+    "cueillir": "Uniquement les fruits mûrs, qui se détachent tout seuls. Mêmes règles que pour les champignons : voir Le droit de cueillir. Préfère les fruits en hauteur et lave-les (échinococcose).",
+    "cuisiner": "Nature bien lavées, en coulis, en confiture, sur une tarte. Très fragiles : à utiliser le jour même.",
+    "conserver": "Un jour au frigo. Congélation à plat sur une plaque, puis en sachet. Confiture : recette éprouvée, bocaux ébouillantés."
+  }
+}

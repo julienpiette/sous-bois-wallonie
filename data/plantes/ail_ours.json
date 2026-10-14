@@ -1,0 +1,17 @@
+{
+  "id": "ail_ours",
+  "famille": "plante",
+  "famille_botanique": "Amaryllidaceae",
+  "nom": "Ail des ours",
+  "latin": "Allium ursinum",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "DANGER, confusions mortelles chaque printemps : muguet (feuilles par deux, enroulées l’une dans l’autre à la base, sans odeur), colchique (feuilles groupées en touffe dressée, sans pétiole, sans odeur), arum (feuilles en fer de flèche, nervures en réseau). Ces plantes poussent parfois au milieu des tapis d’ail des ours. Une feuille d’ail des ours froissée sent fortement l’ail ; mais l’odeur reste sur les doigts : sens chaque feuille avec des mains propres, et cueille feuille par feuille, jamais à la poignée.",
+  "etapes": {
+    "trouver": "Tapis denses dans les hêtraies et frênaies fraîches, fonds de vallons et bords de ruisseaux, sur sols limoneux riches, souvent calcaires (Condroz, Famenne, vallées de l’Ardenne). De mars à mai, avant la floraison pour les feuilles.",
+    "reconnaitre": "Feuilles larges et souples, vert vif, chacune portée par son propre pétiole fin qui sort du sol. Odeur d’ail nette quand on froisse la feuille. Fleurs blanches en étoile, en boule au sommet d’une tige à trois angles, en avril-mai. En cas de doute sur une seule feuille : on ne la mange pas.",
+    "cueillir": "Une ou deux feuilles par pied, au couteau ou aux ciseaux, sans arracher le bulbe. Contrôle chaque feuille (pétiole, odeur) avant de la mettre dans le panier, et à nouveau à la cuisine. Mêmes règles que pour les champignons : voir Le droit de cueillir. Évite les sous-bois fréquentés par les chiens et les renards (échinococcose) et lave les feuilles.",
+    "cuisiner": "Cru en pesto ou haché dans un fromage frais (bien lavé), ou cuit dans une soupe, une omelette, une purée. La cuisson enlève le risque d’échinococcose.",
+    "conserver": "Quelques jours au frigo, dans un torchon humide. Pesto : au frigo sous une couche d’huile, 1 semaine au plus, ou au congélateur (jamais à température ambiante : règle de l’huile). Les feuilles hachées se congèlent en bac à glaçons."
+  }
+}

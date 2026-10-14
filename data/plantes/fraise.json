@@ -1,0 +1,17 @@
+{
+  "id": "fraise",
+  "famille": "fruit",
+  "famille_botanique": "Rosaceae",
+  "nom": "Fraise des bois",
+  "latin": "Fragaria vesca",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Potentille faux-fraisier (fleur blanche semblable, mais pas de fruit charnu) et fraisier des Indes (fruit rouge sec et fade, fleurs jaunes) : pas dangereux, mais décevants. Pas de sosie toxique courant.",
+  "etapes": {
+    "trouver": "Lisières ensoleillées, clairières, talus de chemins forestiers, coupes récentes, sur sols plutôt neutres à calcaires. Fruits de juin à août.",
+    "reconnaitre": "Petite plante basse à stolons, feuilles à trois folioles dentées, fleurs blanches à cinq pétales et cœur jaune. Fruit rouge conique de 1 à 2 cm, les petites graines en surface, très parfumé.",
+    "cueillir": "Les fruits bien rouges, à la main, en laissant le pédoncule. Mêmes règles que pour les champignons : voir Le droit de cueillir. Fruits au ras du sol : risque d’échinococcose, lave-les soigneusement ou fais-les cuire.",
+    "cuisiner": "Nature bien lavées, sur une tarte, dans un yaourt, en coulis ou en confiture.",
+    "conserver": "Très fragiles : à manger le jour même. Se congèlent étalées sur une plaque, puis en sachet (la congélation ne tue pas les œufs de parasites : cuis-les ensuite)."
+  }
+}

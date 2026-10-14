@@ -1,0 +1,17 @@
+{
+  "id": "mure",
+  "famille": "fruit",
+  "famille_botanique": "Rosaceae",
+  "nom": "Mûre",
+  "latin": "Rubus fruticosus (groupe)",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Pas de sosie toxique courant. Évite les ronciers le long des routes passantes et des champs traités.",
+  "etapes": {
+    "trouver": "Lisières, ronciers des coupes et des bois clairs, haies, talus, sur sols plutôt riches. Fruits d’août à septembre.",
+    "reconnaitre": "Ronce à tiges arquées et épineuses, feuilles à 3 ou 5 folioles dentées. Fruit fait de petites boules, rouge puis noir brillant à maturité, qui reste attaché à son cœur blanc quand on le cueille.",
+    "cueillir": "Les mûres bien noires et brillantes, qui se détachent facilement. Mêmes règles que pour les champignons : voir Le droit de cueillir. Évite les fruits les plus bas (échinococcose) et lave-les.",
+    "cuisiner": "Confitures, gelées, tartes, crumbles, coulis. Cuites, elles ne présentent plus de risque d’échinococcose.",
+    "conserver": "Un à deux jours au frigo. Congélation à plat puis en sachet. Gelée ou confiture : recette éprouvée, bocaux ébouillantés."
+  }
+}

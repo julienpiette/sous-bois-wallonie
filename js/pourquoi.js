@@ -67,7 +67,7 @@
     if (w != null) li.push(['Forêt', FORET[w] || 'occupation ' + w]);
     if (a != null && ANC[a]) li.push(['Ancienneté', ANC[a]]);
     return '<dl class="pourquoi">' + li.map(([k, v]) => '<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>').join('') + '</dl>' +
-      '<p class="petit discret">Sources : Carte des sols (SPW), WALOUS 2023, relief Copernicus' + (a != null ? ', ancienneté des forêts (SPW, avec autorisation)' : '') + '.</p>';
+      '<p class="petit discret">Sources : Carte des sols (SPW), WALOUS 2023, relief Copernicus' + (a != null ? ', ancienneté des forêts (SPW)' : '') + '.</p>';
   }
 
   MW.pourquoi = { expliquer };

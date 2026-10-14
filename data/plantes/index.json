@@ -1,0 +1,12 @@
+{
+  "especes": [
+    { "id": "ail_ours", "famille": "plante", "famille_botanique": "Amaryllidaceae", "nom": "Ail des ours", "latin": "Allium ursinum", "couleur": "#2f9e6e", "mois": [3, 4, 5], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "ortie", "famille": "plante", "famille_botanique": "Urticaceae", "nom": "Ortie", "latin": "Urtica dioica", "couleur": "#6b8e23", "mois": [3, 4, 5, 9], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "fraise", "famille": "fruit", "famille_botanique": "Rosaceae", "nom": "Fraise des bois", "latin": "Fragaria vesca", "couleur": "#e0483f", "mois": [6, 7, 8], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "framboise", "famille": "fruit", "famille_botanique": "Rosaceae", "nom": "Framboise sauvage", "latin": "Rubus idaeus", "couleur": "#d6456b", "mois": [7, 8], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "myrtille", "famille": "fruit", "famille_botanique": "Ericaceae", "nom": "Myrtille", "latin": "Vaccinium myrtillus", "couleur": "#5b6fd6", "mois": [7, 8], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "mure", "famille": "fruit", "famille_botanique": "Rosaceae", "nom": "Mûre", "latin": "Rubus fruticosus (groupe)", "couleur": "#7a3b8f", "mois": [8, 9], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "sureau", "famille": "fruit", "famille_botanique": "Adoxaceae", "nom": "Sureau noir (fleurs et baies)", "latin": "Sambucus nigra", "couleur": "#4a4a6a", "mois": [5, 6, 8, 9], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" },
+    { "id": "noisette", "famille": "fruit", "famille_botanique": "Betulaceae", "nom": "Noisette", "latin": "Corylus avellana", "couleur": "#a0703a", "mois": [8, 9], "tuiles": true, "relu_botaniste": false, "bandeau": "À relire par un botaniste" }
+  ]
+}

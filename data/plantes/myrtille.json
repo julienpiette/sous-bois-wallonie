@@ -1,0 +1,17 @@
+{
+  "id": "myrtille",
+  "famille": "fruit",
+  "famille_botanique": "Ericaceae",
+  "nom": "Myrtille",
+  "latin": "Vaccinium myrtillus",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Belladone (baies noires luisantes, isolées, posées sur une collerette verte en étoile, sur une grande plante d’un mètre et plus : très toxique). Bourdaine (baies noires groupées sur un arbuste). La myrtille, elle, pousse sur un petit buisson de 20 à 50 cm aux tiges vertes anguleuses.",
+  "etapes": {
+    "trouver": "Sols acides et pauvres : sous-bois clairs de pins, d’épicéas et de hêtres, landes et bords de chemins forestiers en Ardenne. Elle forme des tapis étendus. Fruits de juillet à août.",
+    "reconnaitre": "Petit buisson de 20 à 50 cm, tiges vertes à arêtes, feuilles ovales finement dentées qui tombent en hiver. Baies bleu-noir couvertes d’une fine pruine, avec une petite couronne plate au sommet, la chair colorée de violet jusqu’au cœur. En cas de doute sur une seule baie : on ne mange pas.",
+    "cueillir": "À la main ou au peigne à myrtilles, sans arracher les tiges. Mêmes règles que pour les champignons : voir Le droit de cueillir. Les baies poussent près du sol : risque d’œufs du ténia du renard (échinococcose) ; lave-les bien et, au moindre doute, cuis-les.",
+    "cuisiner": "Tartes, crumbles, compotes, confitures. Cuites, elles ne présentent plus de risque d’échinococcose. Crues, uniquement bien lavées.",
+    "conserver": "Quelques jours au frigo, non lavées. Congélation à plat puis en sachet (la congélation domestique ne tue pas les œufs de parasites : cuis-les ensuite). Confiture : recette éprouvée, bocaux ébouillantés."
+  }
+}

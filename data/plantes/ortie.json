@@ -1,0 +1,17 @@
+{
+  "id": "ortie",
+  "famille": "plante",
+  "famille_botanique": "Urticaceae",
+  "nom": "Ortie",
+  "latin": "Urtica dioica",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Pas de sosie toxique courant : les lamiers (« orties blanches ») lui ressemblent mais ne piquent pas et sont comestibles. Évite les orties des bords de champs traités, des décharges et des routes passantes : elles accumulent les nitrates et les polluants.",
+  "etapes": {
+    "trouver": "Sols riches et humides : bords de ruisseaux, coupes forestières, lisières, abords d’anciennes fermes. Jeunes pousses de mars à mai, repousses tendres en septembre après une fauche.",
+    "reconnaitre": "Tige carrée et feuilles opposées dentées, couvertes de poils qui piquent. Fleurs vertes en grappes pendantes en été. Les jeunes pousses de 10 à 20 cm sont les meilleures.",
+    "cueillir": "Avec des gants : les quatre à six feuilles du sommet, avant la floraison. Après la floraison, les feuilles deviennent dures et riches en cristaux : passe ton tour. Mêmes règles que pour les champignons : voir Le droit de cueillir.",
+    "cuisiner": "Toujours cuite ou blanchie (la cuisson supprime la piqûre) : soupe, purée, omelette, gratin, comme des épinards. Lave-la bien avant.",
+    "conserver": "Un jour au frigo. Blanchie 1 minute, refroidie, essorée et congelée en boules, jusqu’à 6 mois. Séchée à l’ombre pour les tisanes."
+  }
+}

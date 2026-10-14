@@ -1,0 +1,17 @@
+{
+  "id": "noisette",
+  "famille": "fruit",
+  "famille_botanique": "Betulaceae",
+  "nom": "Noisette",
+  "latin": "Corylus avellana",
+  "relu_botaniste": false,
+  "bandeau": "À relire par un botaniste",
+  "sosies": "Pas de sosie toxique courant chez nous. Attention aux allergies aux fruits à coque.",
+  "etapes": {
+    "trouver": "Lisières, taillis, sous-bois clairs de chênes et de frênes, haies, sur sols frais et riches. Mûres de fin août à fin septembre.",
+    "reconnaitre": "Arbuste à plusieurs tiges, écorce lisse brun-gris, feuilles rondes doublement dentées et un peu velues. Noisettes groupées par deux à quatre dans une enveloppe verte frangée, qui brunit à maturité.",
+    "cueillir": "Ramasse les noisettes tombées ou celles qui se détachent toutes seules de leur enveloppe brunie. Une noisette légère ou percée d’un petit trou est vide ou habitée : jette-la. Mêmes règles que pour les champignons : voir Le droit de cueillir.",
+    "cuisiner": "Crues, grillées 10 minutes au four à 160 °C pour retirer la peau, en pâte, en farine, dans les gâteaux, les salades et avec les champignons.",
+    "conserver": "Sèche-les quelques semaines dans leur coque, à l’abri des souris, puis garde-les au sec et au frais jusqu’à un an. Décortiquées, elles rancissent vite : au frigo ou au congélateur."
+  }
+}
