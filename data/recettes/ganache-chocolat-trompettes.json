@@ -1,0 +1,35 @@
+{
+  "id": "ganache-chocolat-trompettes",
+  "titre": "Truffes au chocolat et aux trompettes caramélisées",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "douceur",
+  "saisons": ["automne"],
+  "cuisine": "belge",
+  "niveau": "moyen",
+  "preparation_min": 30,
+  "cuisson_min": 15,
+  "repos_min": 180,
+  "portions": 8,
+  "base_g": 40.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le chocolat noir aime les goûts terreux : des trompettes poêlées et caramélisées lui donnent une note fumée inattendue.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 40.0, "base": true },
+    { "nom": "beurre", "g": 10.0 },
+    { "nom": "sucre", "g": 15.0 },
+    { "nom": "chocolat noir à 70 %", "g": 200.0 },
+    { "nom": "crème entière liquide", "g": 150.0 },
+    { "nom": "cacao en poudre non sucré", "g": 30.0 },
+    { "nom": "fleur de sel", "g": 0.5 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes, cuis-les à sec 3 minutes, puis dans le beurre 5 minutes. Ajoute le sucre et laisse caraméliser 3 minutes en remuant. Étale sur du papier cuisson et laisse refroidir, puis hache très finement.",
+    "Hache le chocolat. Porte la crème à ébullition et verse-la sur le chocolat en trois fois, en mélangeant du centre vers les bords.",
+    "Ajoute les trompettes caramélisées et la fleur de sel. Laisse prendre 3 heures au frais.",
+    "Forme des billes à la cuillère, roule-les dans le cacao."
+  ],
+  "conservation": "Au frigo 1 semaine dans une boîte fermée. Se congèlent 2 mois."
+}

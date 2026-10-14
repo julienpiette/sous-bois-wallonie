@@ -1,0 +1,29 @@
+{
+  "id": "trompettes-sechees",
+  "titre": "Trompettes séchées",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 300,
+  "portions": 10,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "La trompette est le champignon qui sèche le mieux : fine, peu d’eau, et un parfum qui se concentre.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 500.0, "base": true }
+  ],
+  "etapes": [
+    "Fends les trompettes en deux, retire les débris à sec avec un pinceau. Si tu dois les rincer, essore-les très bien.",
+    "Étale-les sur les grilles d’un déshydrateur ou du four, sans les tasser.",
+    "Sèche à 40-45 °C, 3 à 5 heures, jusqu’à ce qu’elles soient cassantes. Elles peuvent aussi sécher à l’air, sur un fil, dans une pièce sèche et chaude.",
+    "Laisse refroidir et mets en bocal hermétique.",
+    "Pour les utiliser : 15 minutes dans l’eau tiède, filtre l’eau, puis cuis-les au moins 10 minutes dans ton plat."
+  ],
+  "conservation": "Bocal hermétique, au sec et à l’abri de la lumière, jusqu’à 1 an. Toujours cuire après réhydratation."
+}

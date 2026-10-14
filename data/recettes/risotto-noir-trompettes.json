@@ -1,0 +1,38 @@
+{
+  "id": "risotto-noir-trompettes",
+  "titre": "Risotto noir aux trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une partie des trompettes est mixée dans le bouillon : le riz devient gris anthracite et prend tout leur goût.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 300.0, "base": true },
+    { "nom": "riz à risotto", "g": 320.0 },
+    { "nom": "échalote ciselée", "g": 60.0 },
+    { "nom": "vin blanc sec", "g": 100.0 },
+    { "nom": "bouillon de légumes chaud (sans gluten)", "g": 1100.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "mascarpone", "g": 50.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 40.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes. Cuis-en 100 g dans 10 g de beurre 6 minutes, mixe-les avec 300 g de bouillon chaud et remets ce mélange dans le reste du bouillon.",
+    "Poêle les 200 g restants à sec 4 minutes, puis dans 15 g de beurre 5 minutes. Réserve.",
+    "Fais suer l’échalote dans 10 g de beurre, ajoute le riz 2 minutes, mouille au vin blanc.",
+    "Ajoute le bouillon noir louche par louche pendant 18 minutes en remuant.",
+    "Hors du feu, incorpore le reste du beurre, le mascarpone et le fromage. Sers avec les trompettes poêlées par-dessus."
+  ],
+  "conservation": "Meilleur tout de suite ; les restes se gardent 1 jour au frigo."
+}

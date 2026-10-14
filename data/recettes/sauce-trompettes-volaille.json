@@ -1,0 +1,36 @@
+{
+  "id": "sauce-trompettes-volaille",
+  "titre": "Sauce aux trompettes pour une volaille",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une sauce au vin blanc et à la crème, assombrie par les trompettes, pour une pintade ou un poulet rôti.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "vin blanc sec", "g": 80.0 },
+    { "nom": "bouillon de volaille (sans gluten)", "g": 150.0 },
+    { "nom": "crème liquide", "g": 150.0 },
+    { "nom": "sel", "g": 1.5 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes, hache-les grossièrement. Cuis-les à sec 3 minutes, puis dans le beurre avec l’échalote 5 minutes.",
+    "Verse le vin et laisse réduire de moitié.",
+    "Ajoute le bouillon et laisse réduire 5 minutes.",
+    "Ajoute la crème et laisse frémir 5 minutes, jusqu’à ce que la sauce nappe. Sale et poivre.",
+    "Verse sur la volaille découpée, avec son jus de cuisson."
+  ],
+  "conservation": "Au frigo 2 jours, réchauffée doucement jusqu’à frémissement."
+}

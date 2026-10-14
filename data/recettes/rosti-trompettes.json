@@ -1,0 +1,34 @@
+{
+  "id": "rosti-trompettes",
+  "titre": "Rösti aux trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "suisse",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une grande galette de pommes de terre râpées, croustillante dehors, avec des trompettes mêlées dedans.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "pommes de terre à chair ferme, cuites la veille à l’eau", "g": 800.0 },
+    { "nom": "beurre clarifié ou beurre", "g": 50.0 },
+    { "nom": "oignon finement ciselé", "g": 60.0 },
+    { "nom": "sel", "g": 6.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes, hache-les. Cuis-les à sec 3 minutes, puis avec l’oignon et 10 g de beurre 5 minutes.",
+    "Épluche les pommes de terre froides et râpe-les avec une grosse râpe. Mélange avec les trompettes, le sel et le poivre.",
+    "Chauffe 25 g de beurre dans une poêle de 24 cm, verse la préparation, tasse légèrement et cuis 12 minutes à feu moyen sans y toucher.",
+    "Retourne la galette à l’aide d’une assiette, ajoute le reste du beurre et cuis encore 10 minutes.",
+    "Coupe en parts et sers avec un œuf au plat ou une viande."
+  ],
+  "conservation": "Au frigo 1 jour ; réchauffe à la poêle."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "beurre-trompettes",
+  "titre": "Beurre aux trompettes à congeler",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 10,
+  "portions": 12,
+  "base_g": 150.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un rouleau de beurre noir au congélateur : une rondelle sur une viande, des pâtes, une pomme de terre au four.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "beurre mou (dont 10 g pour la cuisson)", "g": 210.0 },
+    { "nom": "échalote très finement ciselée", "g": 20.0 },
+    { "nom": "persil plat haché", "g": 5.0 },
+    { "nom": "fleur de sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes, cuis-les à sec 4 minutes, puis avec 10 g de beurre et l’échalote 5 minutes. Elles doivent être bien cuites et sèches.",
+    "Laisse refroidir complètement, puis hache-les très finement au couteau.",
+    "Mélange avec le beurre mou, le persil, la fleur de sel et le poivre.",
+    "Roule en boudin dans du papier cuisson, serre les extrémités et mets au frais 1 heure.",
+    "Coupe en rondelles et congèle-les à plat, puis en sachet avec la date."
+  ],
+  "conservation": "Au frigo 5 jours, au congélateur jusqu’à 3 mois. Les trompettes étant cuites avant, le beurre peut fondre directement sur un plat chaud."
+}

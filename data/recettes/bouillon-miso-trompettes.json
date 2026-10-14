@@ -1,0 +1,38 @@
+{
+  "id": "bouillon-miso-trompettes",
+  "titre": "Soupe miso aux trompettes et nouilles",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["automne"],
+  "cuisine": "japonaise",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["vegetarien", "vegan"],
+  "congelable": false,
+  "chapeau": "Un bouillon au miso, des nouilles de sarrasin, des trompettes sautées et des légumes verts : un bol chaud et rapide.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "nouilles soba", "g": 200.0 },
+    { "nom": "eau", "g": 1200.0 },
+    { "nom": "pâte miso", "g": 70.0 },
+    { "nom": "algue kombu (facultatif)", "g": 5.0 },
+    { "nom": "épinards ou pak-choï", "g": 150.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "sauce soja", "g": 15.0 },
+    { "nom": "oignon nouveau émincé", "g": 20.0 },
+    { "nom": "graines de sésame", "g": 5.0 }
+  ],
+  "etapes": [
+    "Fais infuser le kombu dans l’eau chauffée sans bouillir 10 minutes, puis retire-le.",
+    "Nettoie les trompettes, cuis-les à sec 3 minutes, puis dans l’huile 5 minutes. Ajoute la sauce soja.",
+    "Cuis les nouilles à part selon le paquet, rince-les.",
+    "Ajoute les épinards au bouillon 2 minutes. Hors du feu, délaye le miso dans une louche de bouillon et reverse-le : le miso ne doit pas bouillir.",
+    "Répartis nouilles, bouillon, trompettes, oignon et sésame dans les bols."
+  ],
+  "conservation": "Le bouillon se garde 2 jours au frigo ; ajoute nouilles et trompettes au moment."
+}

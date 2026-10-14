@@ -1,0 +1,37 @@
+{
+  "id": "veloute-celeri-trompettes",
+  "titre": "Velouté de céleri-rave aux trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le céleri-rave, doux et un peu noisette, et des trompettes croustillantes posées dessus.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "céleri-rave en cubes", "g": 600.0 },
+    { "nom": "pomme de terre en cubes", "g": 150.0 },
+    { "nom": "oignon émincé", "g": 80.0 },
+    { "nom": "beurre", "g": 35.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 900.0 },
+    { "nom": "crème liquide", "g": 80.0 },
+    { "nom": "sel", "g": 5.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fais suer l’oignon dans 15 g de beurre 5 minutes, ajoute le céleri et la pomme de terre 3 minutes.",
+    "Verse le bouillon et laisse cuire 25 minutes.",
+    "Mixe avec la crème, sale et poivre.",
+    "Nettoie les trompettes, cuis-les à sec 4 minutes puis dans le reste du beurre 6 minutes, jusqu’à ce que les bords croustillent.",
+    "Sers le velouté avec les trompettes par-dessus."
+  ],
+  "conservation": "Le velouté se garde 3 jours au frigo et se congèle 3 mois. Les trompettes se poêlent au moment."
+}

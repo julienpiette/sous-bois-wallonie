@@ -1,0 +1,35 @@
+{
+  "id": "oeufs-brouilles-trompettes",
+  "titre": "Œufs brouillés aux trompettes sur pain grillé",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 15,
+  "portions": 2,
+  "base_g": 120.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Le noir des trompettes dans le jaune des œufs crémeux : un brunch d’automne.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 120.0, "base": true },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 220.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "crème épaisse", "g": 20.0 },
+    { "nom": "pain de campagne, en tranches", "g": 100.0 },
+    { "nom": "ciboulette ciselée", "g": 3.0 },
+    { "nom": "sel", "g": 1.5 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes et cuis-les à sec 3 minutes, puis dans 10 g de beurre 5 minutes. Réserve.",
+    "Bats les œufs avec le sel et le poivre. Fais-les cuire à feu très doux dans le reste du beurre en remuant sans cesse, 5 à 6 minutes, jusqu’à ce qu’ils soient pris et crémeux.",
+    "Hors du feu, ajoute la crème et les trompettes.",
+    "Sers sur le pain grillé avec la ciboulette."
+  ],
+  "conservation": "À manger tout de suite."
+}

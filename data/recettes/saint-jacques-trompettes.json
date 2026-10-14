@@ -1,0 +1,36 @@
+{
+  "id": "saint-jacques-trompettes",
+  "titre": "Noix de Saint-Jacques et trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "Le blanc nacré des Saint-Jacques à peine saisies, le noir des trompettes, un beurre noisette.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 150.0, "base": true },
+    { "nom": "noix de Saint-Jacques", "g": 360.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "échalote ciselée", "g": 20.0 },
+    { "nom": "jus de citron", "g": 10.0 },
+    { "nom": "fleur de sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Nettoie les trompettes, cuis-les à sec 3 minutes, puis avec 15 g de beurre et l’échalote 5 minutes. Réserve au chaud.",
+    "Sèche les noix de Saint-Jacques sur du papier absorbant.",
+    "Chauffe l’huile dans une poêle très chaude, saisis les noix 1 minute 30 par face, sans les bouger, pour qu’elles dorent.",
+    "Retire-les, ajoute le reste du beurre et laisse-le mousser jusqu’à la couleur noisette. Ajoute le citron.",
+    "Dresse les trompettes, pose les noix dessus, arrose de beurre noisette, fleur de sel et poivre."
+  ],
+  "conservation": "À servir aussitôt."
+}

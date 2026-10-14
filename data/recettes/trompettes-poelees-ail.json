@@ -1,0 +1,34 @@
+{
+  "id": "trompettes-poelees-ail",
+  "titre": "Trompettes poêlées à l’ail",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 12,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Noires, fines, un goût presque fumé : quelques minutes de poêle et un peu d’ail suffisent.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 400.0, "base": true },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "huile d’olive", "g": 10.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 2.5 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fends les trompettes en deux dans la longueur pour vider les débris coincés dans le cornet. Rince-les rapidement et essore-les bien dans un torchon.",
+    "Mets-les dans une poêle chaude sans matière grasse 4 minutes : elles rendent beaucoup d’eau. Égoutte-la.",
+    "Ajoute l’huile et le beurre et fais-les sauter 5 minutes à feu vif.",
+    "Ajoute l’ail et le persil 1 minute, sale et poivre."
+  ],
+  "conservation": "Au frigo 2 jours. Sans ail ni persil, elles se congèlent cuites jusqu’à 6 mois."
+}

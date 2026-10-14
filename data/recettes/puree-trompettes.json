@@ -1,0 +1,35 @@
+{
+  "id": "puree-trompettes",
+  "titre": "Purée de pommes de terre aux trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une purée au beurre, piquetée de trompettes hachées : noire et blanche, et beaucoup de goût.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 200.0, "base": true },
+    { "nom": "pommes de terre farineuses", "g": 1000.0 },
+    { "nom": "lait entier", "g": 250.0 },
+    { "nom": "beurre", "g": 80.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "noix de muscade râpée", "g": 0.3 },
+    { "nom": "sel", "g": 9.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Épluche les pommes de terre et cuis-les 20 minutes dans l’eau salée.",
+    "Nettoie les trompettes (fendues, rincées, essorées), hache-les grossièrement. Cuis-les à sec 4 minutes, puis avec 20 g de beurre et l’échalote 5 minutes.",
+    "Égoutte les pommes de terre, écrase-les au presse-purée. Ajoute le lait chaud et le reste du beurre en remuant.",
+    "Mélange les trompettes dans la purée, ajoute la muscade, sale et poivre."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe à feu doux avec un peu de lait."
+}

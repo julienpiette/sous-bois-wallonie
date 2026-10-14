@@ -1,0 +1,36 @@
+{
+  "id": "pates-trompettes-noisettes",
+  "titre": "Pâtes aux trompettes, noisettes et pecorino",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Un fromage de brebis salé et des noisettes grillées pour répondre au goût profond des trompettes.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 300.0, "base": true },
+    { "nom": "linguine ou spaghetti", "g": 350.0 },
+    { "nom": "noisettes concassées", "g": 40.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "ail haché", "g": 5.0 },
+    { "nom": "pecorino râpé (ou fromage à pâte dure à présure végétale)", "g": 50.0 },
+    { "nom": "sel (dont l’eau des pâtes)", "g": 14.0 },
+    { "nom": "poivre noir concassé", "g": 1.0 }
+  ],
+  "etapes": [
+    "Cuis les pâtes dans une grande quantité d’eau salée. Garde une louche d’eau de cuisson.",
+    "Torréfie les noisettes à sec 3 minutes.",
+    "Nettoie les trompettes, cuis-les à sec 4 minutes, puis dans 20 g de beurre 5 minutes. Ajoute l’ail 1 minute.",
+    "Verse les pâtes égouttées dans la poêle avec le reste du beurre et un peu d’eau de cuisson, mélange vivement.",
+    "Hors du feu, ajoute le fromage, les noisettes et le poivre."
+  ],
+  "conservation": "À manger tout de suite."
+}

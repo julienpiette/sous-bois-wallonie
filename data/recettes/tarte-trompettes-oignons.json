@@ -1,0 +1,38 @@
+{
+  "id": "tarte-trompettes-oignons",
+  "titre": "Tartelettes aux trompettes et oignons confits",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 55,
+  "portions": 6,
+  "base_g": 200.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Des oignons cuits longtemps jusqu’à devenir confits, des trompettes et un peu de fromage de chèvre affiné.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 200.0, "base": true },
+    { "nom": "pâte brisée", "g": 300.0 },
+    { "nom": "oignons émincés finement", "g": 500.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "sucre", "g": 8.0 },
+    { "nom": "vinaigre balsamique", "g": 15.0 },
+    { "nom": "fromage de chèvre affiné, en dés", "g": 80.0 },
+    { "nom": "thym frais", "g": 1.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Fais cuire les oignons dans 25 g de beurre à feu doux, 30 minutes, en remuant de temps en temps. Ajoute le sucre et le vinaigre les 5 dernières minutes. Sale.",
+    "Préchauffe le four à 190 °C. Fonce 6 moules à tartelette avec la pâte et cuis-les à blanc 12 minutes.",
+    "Nettoie les trompettes, cuis-les à sec 3 minutes, puis dans le reste du beurre 5 minutes.",
+    "Garnis les fonds d’oignons confits, de trompettes et de chèvre. Enfourne 10 minutes.",
+    "Parsème de thym, poivre et sers tiède."
+  ],
+  "conservation": "Au frigo 2 jours ; réchauffe au four à 170 °C. Les oignons confits se gardent seuls 5 jours au frigo."
+}

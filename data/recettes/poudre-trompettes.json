@@ -1,0 +1,27 @@
+{
+  "id": "poudre-trompettes",
+  "titre": "Poudre de trompettes",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 330,
+  "portions": 20,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une poudre noire au goût de sous-bois, pour assaisonner une sauce, une purée ou une pâte à tarte.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 300.0, "base": true }
+  ],
+  "etapes": [
+    "Sèche les trompettes jusqu’à ce qu’elles cassent net (voir la recette des trompettes séchées), puis prolonge 30 minutes à 50 °C.",
+    "Mixe-les par petites quantités en poudre fine, passe au tamis.",
+    "Utilise 2 à 4 g par plat, toujours dans une préparation qui cuit encore au moins 5 minutes : le séchage ne remplace pas la cuisson."
+  ],
+  "conservation": "Petit bocal hermétique, au sec, jusqu’à 6 mois."
+}

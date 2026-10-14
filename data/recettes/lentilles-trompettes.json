@@ -1,0 +1,40 @@
+{
+  "id": "lentilles-trompettes",
+  "titre": "Lentilles corail et trompettes, façon dal",
+  "statut": "brouillon",
+  "especes": ["trompette"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne"],
+  "cuisine": "indienne",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un dal doux au curcuma et au cumin, avec des trompettes sautées à l’huile épicée par-dessus.",
+  "ingredients": [
+    { "nom": "trompettes de la mort", "g": 200.0, "base": true },
+    { "nom": "lentilles corail", "g": 250.0 },
+    { "nom": "eau", "g": 800.0 },
+    { "nom": "lait de coco", "g": 200.0 },
+    { "nom": "oignon émincé", "g": 100.0 },
+    { "nom": "gingembre frais râpé", "g": 10.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "curcuma en poudre", "g": 2.0 },
+    { "nom": "graines de cumin", "g": 2.0 },
+    { "nom": "huile neutre", "g": 30.0 },
+    { "nom": "jus de citron", "g": 15.0 },
+    { "nom": "coriandre fraîche", "g": 6.0 },
+    { "nom": "sel", "g": 6.0 }
+  ],
+  "etapes": [
+    "Rince les lentilles. Cuis-les avec l’eau et le curcuma 15 à 20 minutes, jusqu’à ce qu’elles se défassent.",
+    "Fais revenir l’oignon dans 15 g d’huile 6 minutes, ajoute le gingembre et l’ail 1 minute, puis verse dans les lentilles avec le lait de coco. Laisse mijoter 5 minutes, sale.",
+    "Nettoie les trompettes, cuis-les à sec 3 minutes. Ajoute le reste de l’huile et le cumin, fais sauter 5 minutes.",
+    "Ajoute le citron au dal, sers avec les trompettes et la coriandre, et du riz."
+  ],
+  "conservation": "Le dal se garde 3 jours au frigo et se congèle 3 mois. Les trompettes se poêlent au moment."
+}
