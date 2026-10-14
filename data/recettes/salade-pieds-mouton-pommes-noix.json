@@ -1,0 +1,37 @@
+{
+  "id": "salade-pieds-mouton-pommes-noix",
+  "titre": "Salade tiède de pieds de mouton, pomme et noix",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["automne"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 12,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Des champignons chauds sur une salade amère, une pomme acidulée, des noix : l’entrée de saison.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 250.0, "base": true },
+    { "nom": "salade amère (scarole, frisée ou chicons)", "g": 200.0 },
+    { "nom": "pomme acidulée (type Jonagold ou Boskoop), en lamelles", "g": 150.0 },
+    { "nom": "cerneaux de noix", "g": 40.0 },
+    { "nom": "huile de noix", "g": 30.0 },
+    { "nom": "huile neutre (cuisson)", "g": 15.0 },
+    { "nom": "vinaigre de cidre", "g": 15.0 },
+    { "nom": "moutarde (sans gluten)", "g": 6.0 },
+    { "nom": "sel", "g": 2.5 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Fouette la moutarde, le vinaigre, le sel, le poivre et l’huile de noix.",
+    "Mélange la salade, la pomme et les noix avec la moitié de la vinaigrette.",
+    "Fais sauter les pieds de mouton dans l’huile neutre 10 minutes à feu vif.",
+    "Pose-les chauds sur la salade et arrose du reste de vinaigrette."
+  ],
+  "conservation": "À servir aussitôt."
+}

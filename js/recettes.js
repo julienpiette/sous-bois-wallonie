@@ -25,7 +25,7 @@
   const NIVEAUX = { facile: 'Facile', moyen: 'Moyen', exigeant: 'Exigeant' };
   const REGIMES = { vegetarien: 'Végétarien', vegan: 'Vegan', 'sans-gluten': 'Sans gluten' };
   const DUREES = { 20: '20 min ou moins', 45: '45 min ou moins', 90: '1 h 30 ou moins', 999: 'Plus long' };
-  const CONSERV = { prep: 'Préparations de conservation', congelable: 'Se congèle' };
+  const CONSERV = { prep: 'Pour conserver', congelable: 'Se congèle' };
   const duree = (m) => (m < 60 ? m + ' min' : Math.floor(m / 60) + ' h' + (m % 60 ? ' ' + String(m % 60).padStart(2, '0') : ''));
 
   const bandeau = (esps) => '<details class="securite"><summary>Sécurité : sosies et Centre Antipoisons</summary><div>' +

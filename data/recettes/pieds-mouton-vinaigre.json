@@ -1,0 +1,38 @@
+{
+  "id": "pieds-mouton-vinaigre",
+  "titre": "Pieds de mouton au vinaigre et aux aromates",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 12,
+  "repos_min": 2880,
+  "portions": 8,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Leur chair ferme reste croquante dans le vinaigre : à servir avec une assiette de fromages ou de charcuterie.",
+  "ingredients": [
+    { "nom": "jeunes pieds de mouton fermes, en morceaux", "g": 500.0, "base": true },
+    { "nom": "vinaigre de cidre (5 % d’acidité minimum)", "g": 350.0 },
+    { "nom": "eau", "g": 150.0 },
+    { "nom": "sel", "g": 15.0 },
+    { "nom": "sucre", "g": 15.0 },
+    { "nom": "graines de moutarde", "g": 3.0 },
+    { "nom": "poivre en grains", "g": 2.0 },
+    { "nom": "feuilles de laurier", "g": 0.4 },
+    { "nom": "ail émincé", "g": 6.0 }
+  ],
+  "etapes": [
+    "Lave et ébouillante des bocaux et leurs couvercles ; laisse-les sécher à l’envers sur un linge propre.",
+    "Porte à ébullition le vinaigre, l’eau, le sel et le sucre. Plonge les pieds de mouton et laisse frémir 8 minutes : ils doivent être cuits à cœur.",
+    "Répartis les champignons, la moutarde, le poivre, le laurier et l’ail dans les bocaux.",
+    "Reporte la saumure à ébullition et verse-la bouillante jusqu’à recouvrir entièrement. Ferme aussitôt.",
+    "Laisse refroidir, range au frigo et attends 2 jours avant de goûter."
+  ],
+  "conservation": "Toujours au frigo, 3 semaines maximum, champignons bien recouverts ; sers-toi avec une fourchette propre. Ne diminue pas la part de vinaigre. Ce n’est pas une conserve de garde à température ambiante."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "veloute-forestier",
+  "titre": "Velouté forestier",
+  "statut": "brouillon",
+  "especes": ["cepe", "chanterelle", "pied"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 450.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le meilleur usage des fonds de panier, des morceaux abîmés coupés au propre et des champignons trop gros.",
+  "ingredients": [
+    { "nom": "cèpes, en morceaux", "g": 150.0, "base": true },
+    { "nom": "chanterelles en tube", "g": 150.0, "base": true },
+    { "nom": "pieds de mouton, en morceaux", "g": 150.0, "base": true },
+    { "nom": "oignon émincé", "g": 100.0 },
+    { "nom": "pomme de terre en cubes", "g": 200.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 1000.0 },
+    { "nom": "crème liquide", "g": 100.0 },
+    { "nom": "thym frais", "g": 1.0 },
+    { "nom": "sel", "g": 5.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fais suer l’oignon dans le beurre 5 minutes.",
+    "Ajoute tous les champignons et le thym, cuis 10 minutes à feu moyen.",
+    "Ajoute la pomme de terre et le bouillon, laisse cuire 20 minutes.",
+    "Mixe avec la crème, sale et poivre."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle 3 mois."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tempura-pieds-mouton",
+  "titre": "Tempura de pieds de mouton",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "japonaise",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "vegan"],
+  "congelable": false,
+  "chapeau": "Des morceaux de champignon dans une pâte glacée et légère, frits très vite : le croustillant fait ressortir leur douceur.",
+  "ingredients": [
+    { "nom": "jeunes pieds de mouton, en gros morceaux", "g": 300.0, "base": true },
+    { "nom": "farine de blé", "g": 100.0 },
+    { "nom": "fécule de maïs", "g": 30.0 },
+    { "nom": "eau gazeuse glacée", "g": 180.0 },
+    { "nom": "huile de friture", "g": 1000.0 },
+    { "nom": "sauce soja", "g": 40.0 },
+    { "nom": "jus de citron", "g": 15.0 },
+    { "nom": "gingembre frais râpé", "g": 5.0 },
+    { "nom": "sel fin", "g": 2.0 }
+  ],
+  "etapes": [
+    "Blanchis les morceaux de pied de mouton 3 minutes à l’eau bouillante salée, égoutte et sèche-les très bien.",
+    "Mélange la sauce soja, le citron et le gingembre pour la sauce.",
+    "Chauffe l’huile à 175 °C. Mélange rapidement la farine, la fécule et l’eau glacée : la pâte doit rester grumeleuse.",
+    "Trempe les morceaux dans la pâte et fais-les frire par petites quantités 3 minutes, jusqu’à ce qu’ils soient croustillants et dorés. Le champignon, blanchi puis frit, est cuit à cœur.",
+    "Égoutte sur du papier, sale et sers aussitôt avec la sauce."
+  ],
+  "conservation": "À manger tout de suite."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "gratin-pieds-mouton",
+  "titre": "Gratin de pieds de mouton au comté",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Les champignons poêlés, nappés de crème, couverts de comté et passés au four : un accompagnement de rôti.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 500.0, "base": true },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "ail haché", "g": 5.0 },
+    { "nom": "crème liquide", "g": 200.0 },
+    { "nom": "jaune d’œuf", "g": 20.0 },
+    { "nom": "comté râpé", "g": 80.0 },
+    { "nom": "noix de muscade râpée", "g": 0.2 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 200 °C.",
+    "Fais sauter les pieds de mouton dans le beurre 10 minutes, ajoute l’ail 1 minute. Sale et poivre.",
+    "Mets-les dans un plat à gratin. Mélange la crème, le jaune, la muscade et la moitié du comté, verse sur les champignons.",
+    "Couvre du reste de comté et enfourne 20 minutes, jusqu’à ce que le dessus soit doré."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe au four."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "crepes-pieds-mouton",
+  "titre": "Crêpes roulées aux pieds de mouton et au jambon",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 30,
+  "cuisson_min": 40,
+  "repos_min": 30,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": [],
+  "congelable": true,
+  "chapeau": "Des crêpes garnies d’une sauce blanche aux champignons et d’une tranche de jambon, gratinées au four.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en petits morceaux", "g": 300.0, "base": true },
+    { "nom": "farine de blé (crêpes)", "g": 125.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 110.0 },
+    { "nom": "lait entier (crêpes)", "g": 250.0 },
+    { "nom": "beurre (crêpes, poêle et sauce)", "g": 60.0 },
+    { "nom": "farine de blé (sauce)", "g": 30.0 },
+    { "nom": "lait entier (sauce)", "g": 350.0 },
+    { "nom": "jambon cuit, en tranches", "g": 160.0 },
+    { "nom": "gruyère râpé", "g": 70.0 },
+    { "nom": "noix de muscade râpée", "g": 0.2 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fouette la farine, les œufs, le lait et une pincée de sel. Laisse reposer 30 minutes, puis cuis 8 crêpes fines dans une poêle beurrée.",
+    "Fais sauter les pieds de mouton dans 15 g de beurre 10 minutes.",
+    "Fais fondre 25 g de beurre, ajoute la farine 2 minutes, verse le lait en fouettant et cuis 5 minutes. Ajoute la muscade, le sel, le poivre et les champignons.",
+    "Préchauffe le four à 200 °C. Pose une demi-tranche de jambon et une part de garniture sur chaque crêpe, roule-la et range-la dans un plat beurré.",
+    "Couvre de gruyère et enfourne 15 minutes."
+  ],
+  "conservation": "Au frigo 2 jours. Les crêpes garnies se congèlent avant gratinage jusqu’à 3 mois."
+}

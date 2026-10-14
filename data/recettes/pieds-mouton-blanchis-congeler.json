@@ -1,0 +1,30 @@
+{
+  "id": "pieds-mouton-blanchis-congeler",
+  "titre": "Pieds de mouton blanchis à congeler",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 10,
+  "portions": 8,
+  "base_g": 1000.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le pied de mouton supporte bien la congélation après un blanchiment : il garde sa fermeté.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 1000.0, "base": true },
+    { "nom": "eau (blanchiment)", "g": 3000.0 },
+    { "nom": "sel", "g": 15.0 }
+  ],
+  "etapes": [
+    "Gratte les aiguillons des gros exemplaires et coupe en morceaux réguliers.",
+    "Porte l’eau salée à ébullition, plonge les champignons et compte 4 minutes à la reprise de l’ébullition.",
+    "Égoutte et refroidis aussitôt dans de l’eau très froide, puis sèche-les soigneusement dans un torchon.",
+    "Congèle-les à plat sur une plaque 2 heures, puis mets-les en sachets avec la date."
+  ],
+  "conservation": "Congélateur, jusqu’à 6 mois. Le blanchiment ne suffit pas comme cuisson : fais-les encore sauter au moins 8 minutes, sans décongeler, avant de les manger."
+}

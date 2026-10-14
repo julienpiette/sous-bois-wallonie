@@ -1,0 +1,35 @@
+{
+  "id": "pieds-mouton-creme",
+  "titre": "Pieds de mouton à la crème et à la moutarde",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 350.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une crème relevée de moutarde à l’ancienne, pour accompagner une côte de porc ou des pâtes.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 350.0, "base": true },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "vin blanc sec", "g": 60.0 },
+    { "nom": "crème épaisse", "g": 200.0 },
+    { "nom": "moutarde à l’ancienne (sans gluten)", "g": 20.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Prépare les pieds de mouton (aiguillons grattés sur les gros, blanchis 2 minutes s’ils sont vieux).",
+    "Fais-les sauter dans le beurre 8 minutes, ajoute l’échalote 2 minutes.",
+    "Déglace au vin blanc et laisse réduire de moitié.",
+    "Ajoute la crème et la moutarde, laisse frémir 5 minutes. Sale et poivre."
+  ],
+  "conservation": "Au frigo 2 jours, réchauffée jusqu’à frémissement."
+}

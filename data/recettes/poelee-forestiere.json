@@ -1,0 +1,38 @@
+{
+  "id": "poelee-forestiere",
+  "titre": "Poêlée forestière",
+  "statut": "brouillon",
+  "especes": ["cepe", "girolle", "trompette"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Quand le panier est mélangé : chaque espèce cuite à son rythme, puis réunies avec une persillade.",
+  "ingredients": [
+    { "nom": "cèpes, en morceaux", "g": 200.0, "base": true },
+    { "nom": "girolles nettoyées", "g": 200.0, "base": true },
+    { "nom": "trompettes de la mort", "g": 100.0, "base": true },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "huile d’olive", "g": 20.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "persil plat haché", "g": 8.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Nettoie chaque espèce selon sa fiche. Garde-les séparées : elles n’ont pas le même temps de cuisson.",
+    "Poêle les cèpes dans l’huile 8 minutes à feu vif, réserve.",
+    "Cuis les girolles et les trompettes à sec 4 minutes, égoutte l’eau rendue.",
+    "Remets tous les champignons avec le beurre et l’échalote, fais sauter 5 minutes.",
+    "Ajoute l’ail et le persil 1 minute, sale et poivre."
+  ],
+  "conservation": "Au frigo 2 jours. Sans ail ni persil, se congèle cuite jusqu’à 6 mois."
+}

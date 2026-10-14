@@ -1,0 +1,35 @@
+{
+  "id": "soupe-pieds-mouton-poireaux",
+  "titre": "Soupe de poireaux aux pieds de mouton",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["automne"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "La soupe poireaux-pommes de terre de tous les jours, avec des champignons en morceaux qu’on ne mixe pas.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en dés", "g": 250.0, "base": true },
+    { "nom": "poireaux émincés", "g": 400.0 },
+    { "nom": "pommes de terre en cubes", "g": 300.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 1200.0 },
+    { "nom": "crème liquide", "g": 60.0 },
+    { "nom": "sel", "g": 5.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fais fondre les poireaux dans 20 g de beurre 8 minutes, ajoute les pommes de terre et le bouillon. Laisse cuire 20 minutes.",
+    "Mixe grossièrement, ajoute la crème. Sale et poivre.",
+    "Fais sauter les dés de pieds de mouton dans le reste du beurre 10 minutes.",
+    "Ajoute-les à la soupe et laisse frémir 3 minutes avant de servir."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle 3 mois."
+}

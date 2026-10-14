@@ -1,0 +1,41 @@
+{
+  "id": "curry-pieds-mouton-pois-chiches",
+  "titre": "Curry doux de pieds de mouton et pois chiches",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne"],
+  "cuisine": "indienne",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un curry tomaté et crémeux au lait de coco, où le pied de mouton joue le rôle de la viande.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en gros morceaux", "g": 400.0, "base": true },
+    { "nom": "pois chiches cuits, égouttés", "g": 400.0 },
+    { "nom": "oignon émincé", "g": 150.0 },
+    { "nom": "tomates concassées en conserve", "g": 400.0 },
+    { "nom": "lait de coco", "g": 200.0 },
+    { "nom": "ail haché", "g": 8.0 },
+    { "nom": "gingembre frais râpé", "g": 10.0 },
+    { "nom": "garam masala", "g": 4.0 },
+    { "nom": "curcuma en poudre", "g": 2.0 },
+    { "nom": "cumin en poudre", "g": 2.0 },
+    { "nom": "huile neutre", "g": 30.0 },
+    { "nom": "coriandre fraîche", "g": 6.0 },
+    { "nom": "sel", "g": 6.0 }
+  ],
+  "etapes": [
+    "Fais sauter les pieds de mouton dans 15 g d’huile 8 minutes, réserve.",
+    "Dans le reste de l’huile, fais revenir l’oignon 8 minutes jusqu’à ce qu’il soit doré. Ajoute l’ail, le gingembre et les épices 1 minute.",
+    "Ajoute les tomates et laisse mijoter 10 minutes.",
+    "Ajoute le lait de coco, les pois chiches et les champignons, laisse mijoter 10 minutes. Sale.",
+    "Sers avec la coriandre et du riz basmati."
+  ],
+  "conservation": "Au frigo 3 jours (il est encore meilleur le lendemain). Se congèle 3 mois."
+}

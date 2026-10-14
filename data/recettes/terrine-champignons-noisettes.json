@@ -1,0 +1,41 @@
+{
+  "id": "terrine-champignons-noisettes",
+  "titre": "Terrine végétale aux champignons des bois et noisettes",
+  "statut": "brouillon",
+  "especes": ["cepe", "girolle", "pied"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 30,
+  "cuisson_min": 60,
+  "repos_min": 240,
+  "portions": 8,
+  "base_g": 600.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un pâté sans viande, liée aux œufs, qui se tranche froid avec des cornichons et du pain grillé.",
+  "ingredients": [
+    { "nom": "cèpes, hachés", "g": 200.0, "base": true },
+    { "nom": "girolles, hachées", "g": 200.0, "base": true },
+    { "nom": "pieds de mouton, hachés", "g": 200.0, "base": true },
+    { "nom": "oignon ciselé", "g": 100.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "noisettes torréfiées, concassées", "g": 80.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 165.0 },
+    { "nom": "fromage frais", "g": 100.0 },
+    { "nom": "flocons de sarrasin ou de quinoa (sans gluten)", "g": 50.0 },
+    { "nom": "thym frais", "g": 2.0 },
+    { "nom": "sel", "g": 7.0 },
+    { "nom": "poivre moulu", "g": 0.6 }
+  ],
+  "etapes": [
+    "Fais revenir l’oignon dans le beurre 5 minutes, ajoute les champignons hachés et cuis 15 minutes, jusqu’à ce que toute l’eau soit évaporée.",
+    "Laisse tiédir, puis mélange avec les noisettes, les œufs, le fromage frais, les flocons, le thym, le sel et le poivre.",
+    "Préchauffe le four à 170 °C. Verse dans un moule à cake chemisé de papier cuisson et lisse.",
+    "Cuis au bain-marie 45 minutes : la pointe d’un couteau doit ressortir sèche.",
+    "Laisse refroidir, puis au moins 4 heures au frigo avant de démouler et de trancher."
+  ],
+  "conservation": "Au frigo 4 jours, filmée. Se congèle en tranches jusqu’à 3 mois."
+}

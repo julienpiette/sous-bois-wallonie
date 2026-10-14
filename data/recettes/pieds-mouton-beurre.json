@@ -1,0 +1,33 @@
+{
+  "id": "pieds-mouton-beurre",
+  "titre": "Pieds de mouton sautés au beurre",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 15,
+  "portions": 4,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Une chair ferme qui tient à la cuisson, un goût doux de noisette : le champignon des débutants en cuisine.",
+  "ingredients": [
+    { "nom": "pieds de mouton", "g": 500.0, "base": true },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Brosse les pieds de mouton. Sur les gros exemplaires, gratte les aiguillons sous le chapeau avec le dos d’un couteau : ils peuvent donner de l’amertume.",
+    "Coupe-les en morceaux réguliers. Si ce sont de vieux sujets, blanchis-les 2 minutes à l’eau bouillante et égoutte-les bien.",
+    "Fais-les sauter dans le beurre à feu vif 8 minutes, ajoute l’échalote et poursuis 4 minutes.",
+    "Ajoute le persil, sale et poivre."
+  ],
+  "conservation": "Au frigo 2 jours. Se congèlent cuits jusqu’à 6 mois."
+}

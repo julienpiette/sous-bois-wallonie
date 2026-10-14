@@ -1,0 +1,41 @@
+{
+  "id": "lasagnes-forestieres",
+  "titre": "Lasagnes forestières",
+  "statut": "brouillon",
+  "especes": ["cepe", "pied", "trompette"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["automne"],
+  "cuisine": "italienne",
+  "niveau": "exigeant",
+  "preparation_min": 40,
+  "cuisson_min": 60,
+  "portions": 6,
+  "base_g": 600.0,
+  "regimes": ["vegetarien"],
+  "congelable": true,
+  "chapeau": "Une béchamel, des champignons poêlés, des feuilles de pâte : des lasagnes sans viande et sans tomate, pleines de goût.",
+  "ingredients": [
+    { "nom": "cèpes, en tranches", "g": 250.0, "base": true },
+    { "nom": "pieds de mouton, en morceaux", "g": 250.0, "base": true },
+    { "nom": "trompettes de la mort", "g": 100.0, "base": true },
+    { "nom": "feuilles de lasagne sèches", "g": 250.0 },
+    { "nom": "beurre (champignons et béchamel)", "g": 90.0 },
+    { "nom": "farine de blé", "g": 60.0 },
+    { "nom": "lait entier", "g": 900.0 },
+    { "nom": "échalote ciselée", "g": 50.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 80.0 },
+    { "nom": "noix de muscade râpée", "g": 0.3 },
+    { "nom": "sel", "g": 7.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Fais sauter les champignons dans 30 g de beurre avec l’échalote 12 minutes, ajoute l’ail 1 minute, sale.",
+    "Fais fondre 60 g de beurre, ajoute la farine 2 minutes, verse le lait en fouettant et cuis 8 minutes. Ajoute la muscade, le sel et le poivre : la béchamel doit rester assez fluide.",
+    "Préchauffe le four à 180 °C. Dans un plat, alterne béchamel, feuilles de lasagne, champignons et parmesan, sur quatre couches, en finissant par la béchamel et le fromage.",
+    "Couvre d’aluminium et enfourne 30 minutes, puis découvre et prolonge 15 minutes : la pointe d’un couteau doit traverser la pâte sans résistance.",
+    "Laisse reposer 10 minutes avant de couper."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle cuite, en parts, jusqu’à 3 mois ; réchauffe au four à 170 °C."
+}

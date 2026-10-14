@@ -1,0 +1,37 @@
+{
+  "id": "fricassee-pieds-mouton-pommes-de-terre",
+  "titre": "Fricassée de pieds de mouton et pommes de terre",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "Un plat de ferme ardennaise : pommes de terre, lard fumé, oignons et champignons dans la même poêle.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 400.0, "base": true },
+    { "nom": "pommes de terre à chair ferme, en cubes", "g": 800.0 },
+    { "nom": "lard fumé, en lardons", "g": 150.0 },
+    { "nom": "oignon émincé", "g": 120.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "thym frais", "g": 1.5 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Précuis les cubes de pommes de terre 6 minutes dans l’eau salée, égoutte-les.",
+    "Fais rissoler les lardons à sec 5 minutes, ajoute l’oignon 4 minutes.",
+    "Ajoute le beurre et les pommes de terre, laisse dorer 15 minutes en remuant de temps en temps.",
+    "Ajoute les pieds de mouton et le thym, cuis encore 10 minutes à feu vif.",
+    "Goûte avant de saler, poivre, parsème de persil."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe à la poêle."
+}

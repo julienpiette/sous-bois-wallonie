@@ -1,0 +1,38 @@
+{
+  "id": "tarte-forestiere",
+  "titre": "Tarte forestière aux trois champignons",
+  "statut": "brouillon",
+  "especes": ["girolle", "trompette", "pied"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 50,
+  "portions": 6,
+  "base_g": 400.0,
+  "regimes": ["vegetarien"],
+  "congelable": true,
+  "chapeau": "Orange, noir et crème : trois champignons, trois couleurs, dans une tarte au fromage frais.",
+  "ingredients": [
+    { "nom": "girolles nettoyées", "g": 150.0, "base": true },
+    { "nom": "trompettes de la mort", "g": 100.0, "base": true },
+    { "nom": "pieds de mouton, en morceaux", "g": 150.0, "base": true },
+    { "nom": "pâte brisée", "g": 250.0 },
+    { "nom": "fromage frais (type ricotta ou fromage blanc épais)", "g": 200.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 165.0 },
+    { "nom": "crème liquide", "g": 100.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "ciboulette ciselée", "g": 5.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 190 °C. Fonce un moule de 26 cm et cuis la pâte à blanc 12 minutes.",
+    "Cuis girolles et trompettes à sec 4 minutes, puis ajoute les pieds de mouton et le beurre et fais sauter 8 minutes.",
+    "Mélange le fromage frais, les œufs, la crème, la ciboulette, le sel et le poivre.",
+    "Étale les champignons sur la pâte, verse l’appareil et enfourne 30 minutes."
+  ],
+  "conservation": "Au frigo 3 jours. Se congèle cuite jusqu’à 3 mois."
+}

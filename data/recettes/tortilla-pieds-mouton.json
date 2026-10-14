@@ -1,0 +1,36 @@
+{
+  "id": "tortilla-pieds-mouton",
+  "titre": "Tortilla aux pieds de mouton",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "espagnole",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 250.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "L’omelette épaisse espagnole aux pommes de terre et oignons, avec des champignons sautés dedans.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en petits morceaux", "g": 250.0, "base": true },
+    { "nom": "pommes de terre en fines lamelles", "g": 500.0 },
+    { "nom": "oignon émincé", "g": 150.0 },
+    { "nom": "huile d’olive", "g": 120.0 },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 330.0 },
+    { "nom": "sel", "g": 6.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Fais confire les pommes de terre et l’oignon dans l’huile à feu doux, 20 minutes, sans les colorer. Égoutte en gardant l’huile.",
+    "Fais sauter les pieds de mouton dans 15 g de cette huile, 8 minutes.",
+    "Bats les œufs avec le sel et le poivre, ajoute pommes de terre, oignon et champignons. Laisse reposer 5 minutes.",
+    "Chauffe 15 g d’huile dans une poêle de 22 cm, verse le mélange et cuis 5 minutes à feu moyen.",
+    "Retourne la tortilla à l’aide d’une assiette et cuis encore 4 minutes : le centre doit être pris.",
+    "Sers tiède ou froide, en parts."
+  ],
+  "conservation": "Au frigo 2 jours, bien emballée."
+}

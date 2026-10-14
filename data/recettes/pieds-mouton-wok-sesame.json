@@ -1,0 +1,37 @@
+{
+  "id": "pieds-mouton-wok-sesame",
+  "titre": "Pieds de mouton sautés au wok, sésame et gingembre",
+  "statut": "brouillon",
+  "especes": ["pied"],
+  "famille": "champignon",
+  "type": "accompagnement",
+  "saisons": ["ete", "automne"],
+  "cuisine": "chinoise",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 12,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien", "vegan"],
+  "congelable": false,
+  "chapeau": "Saisis très chaud au wok avec du gingembre, de l’ail et de la sauce soja : la chair ferme ne se défait pas.",
+  "ingredients": [
+    { "nom": "pieds de mouton, en morceaux", "g": 400.0, "base": true },
+    { "nom": "huile neutre", "g": 20.0 },
+    { "nom": "gingembre frais en bâtonnets", "g": 10.0 },
+    { "nom": "ail émincé", "g": 6.0 },
+    { "nom": "sauce soja", "g": 25.0 },
+    { "nom": "vinaigre de riz", "g": 10.0 },
+    { "nom": "sucre", "g": 3.0 },
+    { "nom": "oignon nouveau émincé", "g": 30.0 },
+    { "nom": "huile de sésame grillé", "g": 5.0 },
+    { "nom": "graines de sésame", "g": 5.0 }
+  ],
+  "etapes": [
+    "Chauffe le wok à feu très vif, ajoute l’huile puis les pieds de mouton. Fais-les sauter 8 minutes en les laissant colorer.",
+    "Ajoute le gingembre et l’ail, saute 1 minute.",
+    "Verse la sauce soja, le vinaigre et le sucre, mélange 2 minutes jusqu’à ce que la sauce enrobe.",
+    "Hors du feu, ajoute l’oignon nouveau, l’huile et les graines de sésame. Sers avec du riz."
+  ],
+  "conservation": "Au frigo 2 jours. Réchauffe au wok."
+}
