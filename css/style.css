@@ -1,7 +1,7 @@
 /* Page carte (carte.html) : carte plein écran, panneau de réglages, alerte battue, zones fermées hachurées,
-   fiche « Puis-je cueillir ici ? ». Toujours en thème clair (html.clair) ; jetons de couleur de css/site.css.
+   fiche « Puis-je cueillir ici ? ». Thème clair par défaut, sombre si choisi (html.sombre) ; jetons de couleur de css/site.css.
    Règles limitées à #panel, #fiche et aux éléments propres à la carte : l'en-tête et les onglets restent ceux du site. */
-html.clair, body.carte-page { height: 100%; }
+html.plein-ecran, body.carte-page { height: 100%; }
 body.carte-page { --barre: 70px; --haut: calc(var(--head) + var(--barre)); margin: 0; overflow: hidden; background: var(--brume); color: var(--humus); font: 14px/1.45 var(--texte); }
 body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 #map { position: absolute; inset: var(--haut) 0 0 0; background: #e9ebe4; font-family: var(--texte); }

@@ -3,7 +3,7 @@
    Instrument Sans pour tout le reste. Le citron vert ne sert jamais de couleur de texte sur fond clair (fond de
    bouton, pastille, point). Statuts jamais portés par la couleur seule (icône + mot). Cibles ≥ 48 px, texte 16 px.
    Règles de contenu préfixées .page ; en-tête, onglets et composants partagés aussi utilisés sur carte.html
-   (html.clair = toujours clair). */
+   Thème clair par défaut partout ; le bouton lune / soleil de l'en-tête ajoute html.sombre (mémorisé : mw-theme). */
 :root {
   --brume: #edf1e4; --papier: #ffffff; --humus: #18231a; --humus-2: #4e5b4c; --trait: #d3dbc6;
   --mousse: #1e3b26; --mousse-2: #dce6cc; --mousse-3: #12261a; --accent: #cde46a; --accent-2: #eef5cf;
@@ -22,15 +22,13 @@
   --wrap: 1100px; --head: 64px; --onglets: 64px;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not(.clair) {
-    --brume: #0f1a12; --papier: #17241a; --humus: #e4ecda; --humus-2: #a3b19c; --trait: #2a3a2c;
-    --mousse: #cde46a; --mousse-2: #213226; --mousse-3: #e2f09a; --accent: #cde46a; --accent-2: #26331b;
-    --focus: #cde46a; --foret: #17301e; --humus-3: #8b9886; --creux: #1e2e22;
-    --oui: #8fd39b; --oui-2: #1b3020; --avec: #f0c564; --avec-2: #362b12; --non: #ff917b; --non-2: #3a1d17;
-    --ombre: 0 1px 2px rgba(0, 0, 0, .4);
-    color-scheme: dark;
-  }
+:root.sombre {
+  --brume: #0f1a12; --papier: #17241a; --humus: #e4ecda; --humus-2: #a3b19c; --trait: #2a3a2c;
+  --mousse: #cde46a; --mousse-2: #213226; --mousse-3: #e2f09a; --accent: #cde46a; --accent-2: #26331b;
+  --focus: #cde46a; --foret: #17301e; --humus-3: #8b9886; --creux: #1e2e22;
+  --oui: #8fd39b; --oui-2: #1b3020; --avec: #f0c564; --avec-2: #362b12; --non: #ff917b; --non-2: #3a1d17;
+  --ombre: 0 1px 2px rgba(0, 0, 0, .4);
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -62,22 +60,37 @@
 .mega:not([hidden]) { animation: mega-entre var(--moyen) var(--sortie); }
 @keyframes mega-entre { from { opacity: 0; transform: translateY(calc(var(--e2) * -1)); } }
 .mega-in { max-width: var(--wrap); margin: 0 auto; padding: var(--e6) var(--e5) var(--e5); display: grid; gap: var(--e6); }
-.mega-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: var(--e6) var(--e4); }
-.site-head .mega h2 { margin: 0 0 var(--e2); letter-spacing: 0; line-height: 1.3; font: 600 13px var(--texte); color: var(--humus-3); }
+.mega-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 196px), 1fr)); gap: var(--e3); }
+/* une catégorie = un bloc teinté, titre avec son icône ; chaque lien a sa pastille d'icône */
+.ico { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.mega-groupe { background: var(--brume); border-radius: var(--r-carte); padding: var(--e4) var(--e3) var(--e3); }
+.site-head .mega h2 { display: flex; align-items: center; gap: var(--e2); margin: 0 var(--e1) var(--e3); padding-bottom: var(--e3); border-bottom: 1px solid var(--trait); font: 600 16px/1.25 var(--texte); letter-spacing: 0; color: var(--mousse); }
+.site-head .mega h2 .ico { width: 22px; height: 22px; flex: none; }
 .mega ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e1); }
-.mega a { display: block; padding: var(--e2) var(--e3); margin-inline: calc(var(--e3) * -1); border-radius: var(--r-moyen); color: var(--humus); text-decoration: none; }
-.mega a:hover { background: var(--brume); }
+.mega a { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: var(--e3); align-items: center; padding: var(--e2); border-radius: var(--r-moyen); color: var(--humus); text-decoration: none; transition: background-color var(--vite) ease; }
+.mega a:hover { background: var(--papier); }
+.mega .pastille { width: 36px; height: 36px; border-radius: var(--r-moyen); background: var(--papier); color: var(--mousse); display: grid; place-items: center; }
+.mega a:hover .pastille { background: var(--accent-2); }
+.mega .pastille .ico { width: 20px; height: 20px; }
 .mega a[aria-current=page] b { color: var(--mousse); }
-.mega a b { display: block; font-weight: 600; font-size: 15px; line-height: 1.35; }
+.mega a b { display: block; font-weight: 600; font-size: 15px; line-height: 1.3; }
 .mega a small { display: block; font-size: 13px; line-height: 1.35; color: var(--humus-2); }
-.site-head .mega-pied { margin: 0; padding-top: var(--e4); border-top: 1px solid var(--trait); font-size: 14px; color: var(--humus-2); }
-@media (max-width: 860px) {
+.site-head .mega-pied { margin: 0; font-size: 14px; color: var(--humus-2); }
+/* thème : clair par défaut, lune pour passer en sombre, soleil pour revenir */
+.theme-btn { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border: 0; border-radius: var(--r-pilule); background: transparent; color: var(--humus); cursor: pointer; transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
+.theme-btn:hover { background: var(--mousse-2); }
+.theme-btn:active { transform: scale(.94); }
+.theme-btn .ico { width: 22px; height: 22px; }
+.theme-btn .soleil, .sombre .theme-btn .lune { display: none; }
+.sombre .theme-btn .soleil { display: block; }@media (max-width: 860px) {
   .nav { display: none; }
-  .menu-btn { margin-left: auto; }
-  .mega { position: fixed; top: calc(var(--head) + env(safe-area-inset-top, 0px)); bottom: 0; max-height: none; padding-bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); box-shadow: none; }
+  .theme-btn { margin-left: auto; }
+  /* absolu dans l'en-tête : son flou d'arrière-plan en fait le repère des éléments fixes */
+  .mega { position: absolute; top: var(--head); height: calc(100dvh - var(--head) - env(safe-area-inset-top, 0px)); max-height: none; padding-bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); box-shadow: none; }
   .mega-in { padding-inline: var(--e5); }
-  .mega-cols { grid-template-columns: minmax(0, 1fr); gap: var(--e6); }
+  .mega-cols { grid-template-columns: minmax(0, 1fr); gap: var(--e3); }
   html.mega-ouvert, html.mega-ouvert body { overflow: hidden; }
+  html.mega-ouvert .installer { display: none; }
   .site-head .in { gap: var(--e3); }
 }
 

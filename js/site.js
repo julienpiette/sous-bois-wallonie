@@ -10,6 +10,17 @@
   };
   window.SB = { esc, store };
 
+  // ---------- thème : clair par défaut ; le bouton lune / soleil ajoute html.sombre (mémorisé sur ce téléphone) ----------
+  const racine = document.documentElement, metaTheme = $('meta[name=theme-color]');
+  function theme(sombre, memo) {
+    racine.classList.toggle('sombre', sombre);
+    if (metaTheme) metaTheme.content = sombre ? '#0f1a12' : '#1e3b26';
+    $$('.theme-btn').forEach((b) => { const l = sombre ? 'Mode clair' : 'Mode sombre'; b.setAttribute('aria-pressed', sombre); b.setAttribute('aria-label', l); b.title = l; });
+    if (memo) store.set('mw-theme', sombre ? 'sombre' : 'clair');
+  }
+  theme(store.get('mw-theme', 'clair') === 'sombre');
+  $$('.theme-btn').forEach((b) => b.addEventListener('click', () => theme(!racine.classList.contains('sombre'), true)));
+
   // ---------- bandeaux de battue : une croix pour fermer chaque bandeau (il revient à sa prochaine apparition) ----------
   // les encadrés explicatifs fixes (data-fixe) n'en ont pas
   const CROIX = '<button type="button" class="alerte-fermer" aria-label="Fermer ce bandeau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
