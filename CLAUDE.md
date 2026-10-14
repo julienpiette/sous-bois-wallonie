@@ -11,7 +11,9 @@ Musette est un site statique installable (PWA) pour la cueillette sauvage en Wal
 Aussi : `docs-prive/decisions.md` (décisions les plus récentes) et `docs-prive/autorisations-et-interrupteurs.md`. L'étude complète est dans `docs-prive/etude-sous-bois-2026-10.md` : une réflexion, pas un cahier des charges. Le dossier `docs-prive/` est privé : ne jamais le committer ni le publier.
 
 ## Architecture (sans build)
-- Pages HTML à la racine. En-tête, pied et onglets dans `partials/`, recopiés par `scripts\entete.ps1`. Nom du site dans `marque.json` (appliqué par `scripts\marque.ps1`).
+- Pages HTML à la racine. En-tête (avec le méga menu et ses icônes), pied et onglets dans `partials/`, recopiés par `scripts\entete.ps1`. Nom du site dans `marque.json` (appliqué par `scripts\marque.ps1`).
+- Identité (14/10/2026) : monogramme m (champignon + pousse), lettrage Lilita One (jeton `--affiche`, nom et grand titre seulement), Instrument Sans 400/600, un seul accent citron vert. Tout passe par les jetons de `css/site.css` (couleurs, `--e1`…`--e16`, `--r-*`, `--sortie`) : aucune valeur en dur. Détail : `docs-prive/identite-et-design.md` section 8.
+- Thème clair par défaut ; `html.sombre` via le bouton lune / soleil (mémorisé `mw-theme`). Toute nouvelle page copie le petit script de thème placé juste après `css/site.css` dans le `<head>`.
 - `css/site.css` (pages, thèmes clair et sombre), `css/style.css` (carte). `js/` : un fichier par fonction (site, carte, droit, bulletin, carnet, garde-manger, recettes, plantes…). Leaflet 1.9.4 (cdnjs).
 - Données publiques du site dans `data/` ; sources et licences dans `data/SOURCES.md`.
 - Recettes : un JSON par recette dans `data/recettes/` ; l'index `data/recettes/index.json` est construit et vérifié par `scripts\recettes-index.ps1` (grammes avec décimales, jamais de fractions, statut brouillon, rappel de cuisson des morilles).

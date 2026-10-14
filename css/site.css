@@ -380,12 +380,12 @@ dl.pourquoi dd { margin: 0; }
 .page .site-foot button { background: var(--creux); border: 0; border-radius: var(--r-pilule); color: var(--humus); padding: 0 var(--e4); min-height: 44px; font: 600 14px var(--texte); cursor: pointer; }
 /* ---------- fiches espèces en cinq étapes, recettes, conservation, garde-manger ---------- */
 .page .reperes { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; padding: 0; list-style: none; counter-reset: rep; }
-.page .reperes a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 14px; border-radius: 99px; border: 1px solid var(--trait); background: var(--brume); color: var(--humus); text-decoration: none; font: 600 14px var(--texte); }
+.page .reperes a { display: inline-flex; align-items: center; gap: var(--e2); min-height: 44px; padding: 0 var(--e4); border-radius: var(--r-pilule); background: var(--brume); color: var(--humus); text-decoration: none; font: 600 14px var(--texte); transition: background-color var(--vite) ease; }
 .page .reperes a::before { counter-increment: rep; content: counter(rep); font: 500 12px var(--mono); color: var(--mousse); }
-.page .reperes a:hover { border-color: var(--mousse); }
+.page .reperes a:hover { background: var(--accent-2); }
 .page .etape { border-top: 1px solid var(--trait); padding-top: 14px; margin-top: 14px; }
 .page .etape h3 { font-size: 17px; margin-bottom: 6px; }
-.famille { display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--mono); color: var(--humus-2); border: 1px solid var(--trait); border-radius: 99px; padding: 3px 10px 3px 7px; }
+.famille { display: inline-flex; align-items: center; gap: var(--e1); font: 600 13px var(--texte); color: var(--humus-2); background: var(--brume); border-radius: var(--r-pilule); padding: 2px var(--e3) 2px var(--e2); }
 .famille svg { width: 16px; height: 16px; }
 .a-relire { display: inline-block; font: 500 12px var(--mono); color: var(--avec); background: var(--avec-2); border-radius: 99px; padding: 3px 10px; }
 .brouillon { display: inline-block; font: 600 12px var(--mono); color: var(--avec); border: 1px dashed var(--avec); border-radius: 6px; padding: 2px 8px; }
@@ -402,7 +402,7 @@ details.securite a { color: inherit; font-weight: 600; }
 .page .recette .ingr li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--trait); }
 .page .recette .ingr .q { font: 600 17px var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
 .page .recette ol.etapes-r { padding-left: 26px; display: grid; gap: 10px; }
-.page .poids { display: grid; gap: 6px; background: var(--brume); border: 1px solid var(--trait); border-radius: 14px; padding: 14px 16px; margin: 14px 0 18px; }
+.page .poids { display: grid; gap: 6px; background: var(--brume); border-radius: 14px; padding: 14px 16px; margin: 14px 0 18px; }
 .page .poids input[type=range] { width: 100%; min-height: 32px; accent-color: var(--mousse); }
 .page .poids output { font: 600 22px var(--mono); }
 .page .regle { font: 600 20px/1.35 var(--titre); color: var(--non); background: var(--non-2); border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
