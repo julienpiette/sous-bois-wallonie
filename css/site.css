@@ -175,6 +175,12 @@ body.page { margin: 0; background: var(--brume); color: var(--humus); font: 16px
 .alerte-battue svg { width: 26px; height: 26px; flex: none; margin-top: 1px; }
 .alerte-battue b { font-weight: 600; }
 .alerte-battue a { color: #fff; }
+.alerte-battue:not([data-fixe]) { position: relative; padding-right: var(--e12); }
+.alerte-fermer { position: absolute; top: var(--e1); right: var(--e1); width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: var(--r-pilule); background: transparent; color: #fff; cursor: pointer; transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
+.alerte-fermer svg { width: 20px; height: 20px; margin: 0; }
+.alerte-fermer:hover { background: rgba(255, 255, 255, .16); }
+.alerte-fermer:active { transform: scale(.94); }
+.alerte-fermer:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
 
 /* verdict « Puis-je cueillir ici ? » et « Pourquoi ici ? » (pages et carte) */
 .verdict-tete { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 14px 0 8px; }

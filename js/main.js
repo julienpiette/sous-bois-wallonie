@@ -260,10 +260,13 @@
   }
   function majAlerte() {
     const el = $('#alerteChasse'), jour = libelle(S.jour);
+    // bandeau fermé avec sa croix : il reste fermé pour ce jour-là, les zones restent hachurées sur la carte
+    if (!el.dataset.ecoute) { el.dataset.ecoute = '1'; el.addEventListener('alerte-fermee', () => { S.alerteFermee = S.jour; }); }
+    const ferme = S.alerteFermee === S.jour;
     if (S.fermErr) {
       el.classList.add('inconnu');
       el.innerHTML = D.ALERTE + '<div><b>Battues : vérification impossible pour l’instant.</b> Fie-toi aux affiches rouges à l’entrée des chemins.</div>';
-      el.hidden = false;
+      el.hidden = ferme;
       $('#chasseEtat').textContent = 'Fermetures indisponibles (réseau ou service du SPW). Réessaie plus tard.';
       return;
     }
@@ -277,7 +280,7 @@
     if (n) {
       el.innerHTML = D.ALERTE + '<div><b>' + esc(majuscule(jour)) + ' : ' + n + ' territoire' + (n > 1 ? 's' : '') + ' fermé' + (n > 1 ? 's' : '') + ' pour la chasse dans cette zone.</b> ' +
         'Zones hachurées : on n’y entre pas, même pour cueillir. <a href="battues.html">Calendrier</a></div>';
-      el.hidden = false;
+      el.hidden = ferme;
     } else el.hidden = true;
   }
   map.on('moveend', majAlerte);

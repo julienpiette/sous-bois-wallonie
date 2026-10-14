@@ -10,6 +10,20 @@
   };
   window.SB = { esc, store };
 
+  // ---------- bandeaux de battue : une croix pour fermer chaque bandeau (il revient à sa prochaine apparition) ----------
+  // les encadrés explicatifs fixes (data-fixe) n'en ont pas
+  const CROIX = '<button type="button" class="alerte-fermer" aria-label="Fermer ce bandeau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
+  const ajouterCroix = () => $$('.alerte-battue:not([data-fixe])').forEach((a) => { if (!a.querySelector(':scope > .alerte-fermer')) a.insertAdjacentHTML('beforeend', CROIX); });
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.alerte-fermer'); if (!b) return;
+    const a = b.closest('.alerte-battue'); a.hidden = true;
+    a.dispatchEvent(new CustomEvent('alerte-fermee', { bubbles: true }));
+  });
+  let croixPrevue = false;
+  ajouterCroix();
+  new MutationObserver(() => { if (croixPrevue) return; croixPrevue = true; requestAnimationFrame(() => { croixPrevue = false; ajouterCroix(); }); })
+    .observe(document.body, { childList: true, subtree: true });
+
   // ---------- méga menu (tout le site, rangé par moment de la sortie) ----------
   const btn = $('.menu-btn'), mega = $('#mega');
   if (btn && mega) {
