@@ -20,6 +20,13 @@ Chaque donnée utilisée par le site, avec sa source, sa date de consultation et
 | Bibliothèque de carte | Leaflet 1.9.4 | 12/10/2026 | BSD-2 | carte |
 | Polices | Bricolage Grotesque, Instrument Sans, IBM Plex Mono (Google Fonts) | 12/10/2026 | SIL Open Font License | tout le site |
 
+## Données étudiées, non utilisées par le site
+
+| Donnée | Source | Consultée le | Licence | Statut |
+|---|---|---|---|---|
+| Classes de hauteur des peuplements 2025 (Forestimator) | ULiège Gembloux Agro-Bio Tech, https://forestimator.gembloux.ulg.ac.be | 14/10/2026 | aucune licence de réutilisation indiquée | essai local seulement, non publié |
+| Atlas des voiries vicinales de 1841 et modifications | SPW, service PLAN_REGLEMENT/ATLAS_VV_MODIF (WMS) | 14/10/2026 | conditions des services web du SPW ; licence de la donnée non précisée ; pas de téléchargement | non utilisé |
+
 ## Ancienneté des forêts actuelles (SPW)
 
 <!-- debut:anciennete -->
