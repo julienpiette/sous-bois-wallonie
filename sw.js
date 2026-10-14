@@ -11,7 +11,7 @@ const COQUILLE = [
   'avant-de-manger.html', 'glossaire.html', 'materiel.html', 'pros.html', 'approche.html', 'recettes.html', 'conservation.html',
   'mentions.html', 'hors-ligne.html', 'manifest.webmanifest',
   'css/site.css', 'css/style.css',
-  'js/site-config.js', 'js/site.js', 'js/config.js', 'js/geo.js', 'js/weather.js', 'js/model.js', 'js/render.js', 'js/tuiles.js',
+  'js/site-config.js', 'js/interrupteurs.js', 'js/site.js', 'js/config.js', 'js/geo.js', 'js/weather.js', 'js/model.js', 'js/render.js', 'js/tuiles.js',
   'js/main.js', 'js/droit.js', 'js/pourquoi.js', 'js/bulletin.js', 'js/carnet.js', 'js/garde-manger.js', 'js/recettes.js', 'js/produits.js',
   'data/massifs.json', 'data/communes.json', 'data/sigles.json', 'data/tuiles/index.json',
   'data/recettes/index.json', 'data/recettes/omelette-cepes.json', 'data/recettes/girolles-poelees.json',

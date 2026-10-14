@@ -2,7 +2,7 @@
    - Sol, pente, exposition : tuiles data/facteurs/12 (R/G = index du sigle de sol, B = exposition + pente) + data/sigles.json
      (produits par scripts/facteurs.py depuis la Carte Numérique des Sols, CC-BY, et le relief Copernicus)
    - Type de forêt : WALOUS 2023 (service du SPW, en direct)
-   L'ancienneté des forêts n'est PAS affichée : sa licence interdit la publication web. */
+   - Ancienneté des forêts : affichée seulement si MW.INTERRUPTEURS.anciennete (autorisation écrite du SPW), service en direct. */
 (function (root) {
   const MW = (root.MW = root.MW || {});
   const T = 256, Z = 12, AGS = 'https://geoservices.wallonie.be/arcgis/rest/services/';
@@ -37,13 +37,22 @@
       .then((j) => { const a = j && j.results && j.results[0] && j.results[0].attributes; if (!a) return null; const v = a['UniqueValue.Pixel Value'] || a['Pixel Value']; return v == null ? null : +v; });
   }
 
+  function anciennete(lat, lng) {
+    const I = MW.INTERRUPTEURS || {};
+    if (!I.anciennete || !I.ancienneteService) return Promise.resolve(null);
+    return getJSON(I.ancienneteService + '?geometry=' + lng + ',' + lat + '&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=false&f=json')
+      .then((j) => { const a = j && j.features && j.features[0] && j.features[0].attributes; if (!a) return null; const k = Object.keys(a).find((x) => /^class_code$/i.test(x)); return k ? +a[k] : null; });
+  }
+  const ANC = { 0: 'zone déboisée', 1: 'forêt ancienne, feuillue sans interruption depuis le 18e siècle', 2: 'forêt ancienne, passée aux résineux',
+    3: 'forêt ancienne, passée un temps aux résineux puis revenue aux feuillus', 4: 'boisement feuillu récent (après le 18e siècle)', 5: 'plantation résineuse récente (après le 18e siècle)' };
+
   const FORET = { 1: 'surface artificielle', 2: 'bâtiment', 3: 'voie ferrée', 4: 'sol nu', 5: 'eau', 6: 'culture', 7: 'prairie',
     8: 'résineux de plus de 3 m', 9: 'feuillus de plus de 3 m', 80: 'jeunes résineux (moins de 3 m)', 90: 'jeunes feuillus (moins de 3 m)' };
   const CHIMIE = ['acide', 'ni très acide ni calcaire', 'calcaire'];
   const VERSANT = ['', 'nord', 'nord-est', 'est', 'sud-est', 'sud', 'sud-ouest', 'ouest', 'nord-ouest'];
 
   async function expliquer(lat, lng) {
-    const [px, sg, w] = await Promise.all([pixel(lat, lng), sigles(), walous(lat, lng)]);
+    const [px, sg, w, a] = await Promise.all([pixel(lat, lng), sigles(), walous(lat, lng), anciennete(lat, lng)]);
     const li = [];
     if (px && px.idx && sg[px.idx]) {
       const [sigle, texture, drainage, chimie, sup, special] = sg[px.idx];
@@ -56,8 +65,9 @@
     if (px) li.push(['Relief', px.octant ? 'versant ' + VERSANT[px.octant] + ', pente d’environ ' + Math.round(px.pente) + '°' +
       ([1, 2, 8].includes(px.octant) ? ' : reste frais et humide plus longtemps' : [4, 5, 6].includes(px.octant) ? ' : se réchauffe vite' : '') : 'terrain plat ou presque']);
     if (w != null) li.push(['Forêt', FORET[w] || 'occupation ' + w]);
+    if (a != null && ANC[a]) li.push(['Ancienneté', ANC[a]]);
     return '<dl class="pourquoi">' + li.map(([k, v]) => '<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>').join('') + '</dl>' +
-      '<p class="petit discret">Sources : Carte des sols (SPW), WALOUS 2023, relief Copernicus.</p>';
+      '<p class="petit discret">Sources : Carte des sols (SPW), WALOUS 2023, relief Copernicus' + (a != null ? ', ancienneté des forêts (SPW, avec autorisation)' : '') + '.</p>';
   }
 
   MW.pourquoi = { expliquer };

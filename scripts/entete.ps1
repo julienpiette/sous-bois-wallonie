@@ -4,6 +4,7 @@
 # Usage : powershell -ExecutionPolicy Bypass -File scripts\entete.ps1
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 & (Join-Path $PSScriptRoot 'marque.ps1')   # nom du site (marque.json) d'abord
+& (Join-Path $PSScriptRoot 'interrupteurs.ps1')   # réglages privés -> js/interrupteurs.js, attributions
 $utf8 = New-Object Text.UTF8Encoding $false
 $parts = @{}
 foreach ($n in 'entete', 'onglets', 'pied') { $parts[$n] = [IO.File]::ReadAllText((Join-Path $root "partials\$n.html"), $utf8).TrimEnd() }
