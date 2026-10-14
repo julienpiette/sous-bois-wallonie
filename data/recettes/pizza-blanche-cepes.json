@@ -1,0 +1,37 @@
+{
+  "id": "pizza-blanche-cepes",
+  "titre": "Pizza blanche aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Sans tomate, pour que rien ne couvre le cèpe : crème, mozzarella, ail et thym.",
+  "ingredients": [
+    { "nom": "cèpes, en tranches", "g": 300.0, "base": true },
+    { "nom": "pâte à pizza (deux disques)", "g": 500.0 },
+    { "nom": "mozzarella, égouttée et déchirée", "g": 250.0 },
+    { "nom": "crème épaisse", "g": 100.0 },
+    { "nom": "huile d’olive", "g": 30.0 },
+    { "nom": "ail haché", "g": 5.0 },
+    { "nom": "thym frais effeuillé", "g": 1.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Préchauffe le four au plus chaud (250 °C ou plus), avec la plaque à l’intérieur.",
+    "Poêle les cèpes dans la moitié de l’huile, 6 minutes à feu vif. Ajoute l’ail 1 minute, sale et poivre.",
+    "Étale chaque disque de pâte, tartine de crème en laissant le bord libre, répartis la mozzarella puis les cèpes.",
+    "Glisse sur la plaque chaude et cuis 8 à 12 minutes, jusqu’à ce que le bord soit bien doré.",
+    "À la sortie, ajoute le thym et un filet du reste d’huile."
+  ],
+  "conservation": "Les restes se gardent 1 jour au frigo et se réchauffent à la poêle couverte, à feu moyen, pour une pâte croustillante."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "polenta-cepes",
+  "titre": "Polenta crémeuse aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 400.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Une polenta souple au beurre et au fromage, des cèpes poêlés à l’ail et au thym posés dessus.",
+  "ingredients": [
+    { "nom": "cèpes, en morceaux", "g": 400.0, "base": true },
+    { "nom": "semoule de maïs (polenta)", "g": 250.0 },
+    { "nom": "eau", "g": 1000.0 },
+    { "nom": "lait entier", "g": 250.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 50.0 },
+    { "nom": "huile d’olive", "g": 30.0 },
+    { "nom": "ail haché", "g": 6.0 },
+    { "nom": "thym frais effeuillé", "g": 2.0 },
+    { "nom": "sel", "g": 6.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Porte l’eau et le lait à ébullition avec 5 g de sel.",
+    "Verse la semoule en pluie en fouettant, puis cuis à feu doux en remuant souvent, le temps indiqué sur le paquet (souvent 20 à 25 minutes pour une polenta traditionnelle).",
+    "Pendant ce temps, poêle les cèpes dans l’huile, 8 minutes à feu vif. Ajoute l’ail et le thym 1 minute, sale légèrement.",
+    "Hors du feu, incorpore le beurre et le fromage à la polenta. Elle doit rester souple : ajoute un peu d’eau chaude si elle épaissit trop.",
+    "Sers la polenta dans des assiettes creuses, les cèpes par-dessus, un tour de poivre."
+  ],
+  "conservation": "La polenta refroidie prend en bloc : coupe-la en tranches et fais-les griller le lendemain (2 jours au frigo maximum). Les cèpes se gardent 2 jours."
+}

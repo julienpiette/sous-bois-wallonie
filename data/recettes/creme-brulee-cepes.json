@@ -1,0 +1,37 @@
+{
+  "id": "creme-brulee-cepes",
+  "titre": "Crème brûlée aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "douceur",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 30,
+  "cuisson_min": 70,
+  "repos_min": 240,
+  "portions": 6,
+  "base_g": 60.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Un dessert qui surprend : le cèpe, poêlé puis infusé dans la crème, donne une note de noisette sous le caramel.",
+  "ingredients": [
+    { "nom": "cèpes, en petits dés", "g": 60.0, "base": true },
+    { "nom": "beurre", "g": 10.0 },
+    { "nom": "crème entière liquide", "g": 500.0 },
+    { "nom": "lait entier", "g": 100.0 },
+    { "nom": "jaunes d’œufs", "g": 120.0 },
+    { "nom": "sucre", "g": 80.0 },
+    { "nom": "cassonade (pour caraméliser)", "g": 40.0 }
+  ],
+  "etapes": [
+    "Poêle les dés de cèpe dans le beurre, 6 minutes à feu moyen, jusqu’à ce qu’ils soient bien dorés.",
+    "Ajoute la crème et le lait, porte à frémissement, couvre et laisse infuser 20 minutes hors du feu. Filtre en pressant les cèpes (garde-les pour une omelette).",
+    "Préchauffe le four à 100 °C. Mélange les jaunes et le sucre sans faire mousser, puis verse la crème tiède dessus en remuant.",
+    "Répartis dans 6 ramequins peu profonds et enfourne 60 à 70 minutes : la crème doit être prise mais encore tremblotante au centre.",
+    "Laisse refroidir, puis au moins 4 heures au frigo.",
+    "Au moment de servir, saupoudre de cassonade et caramélise au chalumeau ou sous le gril très chaud, en surveillant."
+  ],
+  "conservation": "Les crèmes cuites, non caramélisées, se gardent 2 jours au frigo, filmées. Caramélise juste avant de servir."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "cepes-seches",
+  "titre": "Cèpes séchés",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 30,
+  "cuisson_min": 480,
+  "portions": 10,
+  "base_g": 1000.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "La meilleure façon de garder une grosse récolte : un kilo frais donne une centaine de grammes secs, au goût plus fort encore.",
+  "ingredients": [
+    { "nom": "cèpes jeunes et fermes", "g": 1000.0, "base": true }
+  ],
+  "etapes": [
+    "Choisis des cèpes fermes, sans trace de larves. Brosse-les et essuie-les : pas d’eau.",
+    "Coupe-les en tranches régulières de 5 mm, chapeau et pied ensemble.",
+    "Étale les tranches sans qu’elles se touchent sur les grilles d’un déshydrateur, ou sur une grille de four.",
+    "Sèche à 45-50 °C : 6 à 10 heures au déshydrateur, ou au four porte entrouverte (une cuillère en bois glissée dans la porte). Retourne les tranches à mi-séchage.",
+    "Elles sont prêtes quand elles cassent net, sans plier. Laisse-les refroidir complètement avant de les mettre en bocal.",
+    "Pour les utiliser : réhydrate-les 20 minutes dans de l’eau tiède, filtre l’eau (elle parfume les sauces) et fais-les cuire comme des champignons frais, au moins 10 minutes."
+  ],
+  "conservation": "Bocal en verre hermétique, à l’abri de la lumière et de l’humidité, jusqu’à 1 an. Vérifie de temps en temps : la moindre trace d’humidité ou d’insecte et le bocal part à la poubelle. Toujours cuire après réhydratation."
+}

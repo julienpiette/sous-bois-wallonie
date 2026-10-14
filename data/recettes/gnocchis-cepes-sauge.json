@@ -1,0 +1,36 @@
+{
+  "id": "gnocchis-cepes-sauge",
+  "titre": "Gnocchis poêlés aux cèpes et à la sauge",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["ete", "automne"],
+  "cuisine": "italienne",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 350.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Des gnocchis dorés à la poêle plutôt que bouillis, un beurre noisette à la sauge : croustillant dehors, fondant dedans.",
+  "ingredients": [
+    { "nom": "cèpes, en morceaux", "g": 350.0, "base": true },
+    { "nom": "gnocchis de pommes de terre", "g": 600.0 },
+    { "nom": "beurre", "g": 50.0 },
+    { "nom": "huile neutre", "g": 15.0 },
+    { "nom": "feuilles de sauge", "g": 4.0 },
+    { "nom": "parmesan râpé (ou fromage à pâte dure à présure végétale)", "g": 40.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Poêle les cèpes dans l’huile, 8 minutes à feu vif. Réserve-les.",
+    "Dans la même poêle, mets 20 g de beurre et les gnocchis crus, en une seule couche. Laisse-les dorer 3 à 4 minutes par face, sans les remuer sans cesse.",
+    "Repousse les gnocchis sur le côté, ajoute le reste du beurre et la sauge, laisse mousser jusqu’à ce que le beurre sente la noisette.",
+    "Remets les cèpes, mélange 2 minutes, sale et poivre.",
+    "Sers avec le fromage râpé."
+  ],
+  "conservation": "À manger tout de suite : les gnocchis ramollissent en refroidissant."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "duxelles-cepes",
+  "titre": "Duxelles de cèpes à congeler",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 25,
+  "portions": 8,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Un hachis de cèpes cuit jusqu’à être bien sec, à garder en portions au congélateur pour farcir, napper ou parfumer.",
+  "ingredients": [
+    { "nom": "cèpes, hachés finement", "g": 500.0, "base": true },
+    { "nom": "échalote ciselée", "g": 80.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "persil plat haché", "g": 6.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Hache les cèpes au couteau ou par impulsions au mixeur, sans en faire une purée.",
+    "Fais fondre le beurre, ajoute l’échalote et laisse suer 3 minutes.",
+    "Ajoute les cèpes et cuis 15 à 20 minutes à feu moyen en remuant souvent, jusqu’à ce que toute l’eau soit évaporée et que le hachis se détache de la poêle.",
+    "Ajoute le persil, sale et poivre. Laisse refroidir complètement.",
+    "Répartis en portions de 50 à 100 g dans des sachets ou un bac à glaçons, ferme et note la date."
+  ],
+  "conservation": "Congélateur, jusqu’à 6 mois (note le bocal ou le sachet dans le garde-manger). Au frigo, 3 jours. Utilise-la sans décongeler, dans une préparation qui cuit."
+}

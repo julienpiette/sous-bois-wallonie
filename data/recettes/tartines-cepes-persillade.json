@@ -1,0 +1,35 @@
+{
+  "id": "tartines-cepes-persillade",
+  "titre": "Tartines de cèpes en persillade",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "belge",
+  "niveau": "facile",
+  "preparation_min": 10,
+  "cuisson_min": 12,
+  "portions": 4,
+  "base_g": 300.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Du bon pain grillé frotté à l’ail, des cèpes bien dorés par-dessus : l’entrée la plus simple de la saison.",
+  "ingredients": [
+    { "nom": "cèpes, en tranches", "g": 300.0, "base": true },
+    { "nom": "pain de campagne, en tranches épaisses", "g": 240.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "huile d’olive", "g": 15.0 },
+    { "nom": "ail (pour frotter et hacher)", "g": 8.0 },
+    { "nom": "persil plat haché", "g": 10.0 },
+    { "nom": "fleur de sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Fais griller les tranches de pain. Frotte-les avec un morceau d’ail coupé en deux et arrose-les d’un filet d’huile.",
+    "Poêle les cèpes dans le beurre, 8 minutes à feu vif, jusqu’à ce qu’ils soient bien dorés.",
+    "Hache le reste de l’ail, ajoute-le avec le persil et mélange 1 minute.",
+    "Répartis les cèpes sur les tartines, ajoute la fleur de sel et le poivre, et sers tout de suite."
+  ],
+  "conservation": "Les tartines se mangent aussitôt. Les cèpes en persillade se gardent 2 jours au frigo et se réchauffent à la poêle."
+}

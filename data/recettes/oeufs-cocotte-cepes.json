@@ -1,0 +1,35 @@
+{
+  "id": "oeufs-cocotte-cepes",
+  "titre": "Œufs cocotte aux cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["ete", "automne"],
+  "cuisine": "française",
+  "niveau": "facile",
+  "preparation_min": 15,
+  "cuisson_min": 20,
+  "portions": 4,
+  "base_g": 160.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Un œuf au jaune coulant sur un lit de cèpes à la crème, cuit au bain-marie dans un ramequin.",
+  "ingredients": [
+    { "nom": "cèpes, en petits dés", "g": 160.0, "base": true },
+    { "nom": "œufs entiers (environ 55 g pièce)", "g": 220.0 },
+    { "nom": "crème épaisse", "g": 80.0 },
+    { "nom": "beurre (cuisson et ramequins)", "g": 20.0 },
+    { "nom": "ciboulette ciselée", "g": 5.0 },
+    { "nom": "sel", "g": 1.5 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 180 °C et fais chauffer de l’eau pour le bain-marie.",
+    "Poêle les dés de cèpe dans 10 g de beurre, 6 minutes à feu vif, jusqu’à ce qu’ils soient dorés. Mélange-les avec la moitié de la crème, sale et poivre.",
+    "Beurre 4 ramequins, répartis les cèpes au fond, casse un œuf dans chacun et ajoute le reste de crème autour du jaune.",
+    "Pose les ramequins dans un plat, verse l’eau chaude jusqu’à mi-hauteur et enfourne 10 à 12 minutes : le blanc doit être pris, le jaune encore coulant.",
+    "Parsème de ciboulette et sers avec des mouillettes."
+  ],
+  "conservation": "À servir tout de suite. Les cèpes à la crème préparés à l’avance se gardent 1 jour au frigo."
+}

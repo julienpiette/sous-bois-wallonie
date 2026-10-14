@@ -1,0 +1,28 @@
+{
+  "id": "poudre-cepes",
+  "titre": "Poudre de cèpes",
+  "statut": "brouillon",
+  "especes": ["cepe"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["ete", "automne"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 510,
+  "portions": 20,
+  "base_g": 500.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Les cèpes trop gros ou abîmés deviennent un condiment : quelques grammes relèvent une sauce, un risotto, une soupe.",
+  "ingredients": [
+    { "nom": "cèpes (même les gros, parties saines seulement)", "g": 500.0, "base": true }
+  ],
+  "etapes": [
+    "Retire les parties abîmées et les tubes trop mous. Coupe le reste en tranches fines.",
+    "Sèche à 45-50 °C jusqu’à ce que les tranches cassent net (voir la recette des cèpes séchés), puis prolonge 30 minutes à 50 °C pour qu’elles soient parfaitement sèches.",
+    "Laisse refroidir, puis mixe par petites quantités jusqu’à obtenir une poudre fine. Passe-la au tamis et remixe les morceaux.",
+    "Utilise 2 à 5 g de poudre par plat, toujours dans une préparation qui cuit encore au moins 5 minutes (sauce, soupe, risotto) : le séchage ne remplace pas la cuisson."
+  ],
+  "conservation": "Petit bocal hermétique, au sec et à l’abri de la lumière, jusqu’à 6 mois (le parfum baisse ensuite). Elle reprend vite l’humidité : referme le bocal aussitôt."
+}
