@@ -1,0 +1,39 @@
+{
+  "id": "veau-sauce-morilles",
+  "titre": "Médaillons de veau, sauce aux morilles",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["sans-gluten"],
+  "congelable": false,
+  "chapeau": "La sauce mijote d’abord, la viande se saisit à la fin : un plat de fête qui se prépare sans stress.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 150.0, "base": true },
+    { "nom": "médaillons de filet de veau", "g": 600.0 },
+    { "nom": "échalote ciselée", "g": 40.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "huile neutre", "g": 10.0 },
+    { "nom": "porto blanc ou vin blanc sec", "g": 60.0 },
+    { "nom": "bouillon de volaille (sans gluten)", "g": 150.0 },
+    { "nom": "crème épaisse", "g": 200.0 },
+    { "nom": "sel", "g": 4.0 },
+    { "nom": "poivre moulu", "g": 0.5 }
+  ],
+  "etapes": [
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Cuis les morilles avec l’échalote dans 20 g de beurre 10 minutes. Déglace au porto, ajoute le bouillon et la crème et laisse mijoter 15 à 20 minutes à feu doux : cuisson complète obligatoire, jamais crue.",
+    "Sale les médaillons. Saisis-les dans l’huile et le reste du beurre, 3 à 4 minutes par face selon l’épaisseur. Laisse-les reposer 5 minutes sous une feuille d’aluminium.",
+    "Verse le jus de repos de la viande dans la sauce, poivre.",
+    "Sers les médaillons nappés de sauce aux morilles, avec des pommes de terre ou des asperges."
+  ],
+  "conservation": "La sauce se garde 2 jours au frigo. La viande se cuit au moment."
+}

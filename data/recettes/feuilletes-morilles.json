@@ -1,0 +1,37 @@
+{
+  "id": "feuilletes-morilles",
+  "titre": "Feuilletés aux morilles",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 45,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Des rectangles de pâte feuilletée cuits à part, ouverts et garnis de morilles à la crème bien chaudes.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 150.0, "base": true },
+    { "nom": "pâte feuilletée", "g": 230.0 },
+    { "nom": "jaune d’œuf (dorure)", "g": 20.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "beurre", "g": 20.0 },
+    { "nom": "vin blanc sec", "g": 50.0 },
+    { "nom": "crème épaisse", "g": 150.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Préchauffe le four à 200 °C. Découpe 4 rectangles de pâte, dore-les au jaune et cuis-les 18 à 20 minutes.",
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Cuis-les avec l’échalote dans le beurre 10 minutes, déglace au vin, ajoute la crème et laisse mijoter 15 minutes : cuisson complète, jamais crue. Sale et poivre.",
+    "Ouvre les feuilletés en deux dans l’épaisseur, garnis de morilles et referme. Sers aussitôt."
+  ],
+  "conservation": "Les morilles à la crème se gardent 2 jours au frigo ; les feuilletés se garnissent au moment."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tarte-morilles-poireaux",
+  "titre": "Tarte fine aux morilles et poireaux",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 55,
+  "portions": 6,
+  "base_g": 150.0,
+  "regimes": ["vegetarien"],
+  "congelable": false,
+  "chapeau": "Des poireaux nouveaux fondus, des morilles déjà cuites à la crème, une pâte feuilletée bien dorée.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 150.0, "base": true },
+    { "nom": "pâte feuilletée", "g": 230.0 },
+    { "nom": "jeunes poireaux émincés", "g": 400.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "crème épaisse", "g": 120.0 },
+    { "nom": "œuf entier battu", "g": 55.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.4 }
+  ],
+  "etapes": [
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Cuis les morilles dans 15 g de beurre 10 minutes, ajoute 60 g de crème et laisse mijoter 12 minutes : cuisson complète avant d’aller au four, jamais crue.",
+    "Fais fondre les poireaux dans le reste du beurre, à couvert, 15 minutes. Mélange-les avec le reste de crème et l’œuf, sale et poivre.",
+    "Préchauffe le four à 200 °C. Étale la pâte sur une plaque, garnis de poireaux puis de morilles en laissant 2 cm de bord.",
+    "Enfourne 25 minutes, jusqu’à ce que la pâte soit dorée dessous."
+  ],
+  "conservation": "Au frigo 1 jour. Réchauffe au four à 180 °C."
+}

@@ -5,7 +5,7 @@
    - tuiles de potentiel, de facteurs et fond de carte déjà vus : cache d'abord (plafonné)
    - services publics (chasse, propriétés, météo, recherche) : JAMAIS en cache ici (une battue périmée serait dangereuse)
    Changer VERSION à chaque mise en ligne d'une nouvelle version. */
-const VERSION = 'sb-20261014-0943';
+const VERSION = 'sb-20261014-0945';
 const COQUILLE = [
   './', 'index.html', 'bulletin.html', 'carte.html', 'droit.html', 'battues.html', 'carnet.html', 'guide.html', 'especes.html',
   'avant-de-manger.html', 'glossaire.html', 'materiel.html', 'pros.html', 'approche.html', 'recettes.html', 'conservation.html',

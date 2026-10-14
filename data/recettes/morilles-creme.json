@@ -1,0 +1,37 @@
+{
+  "id": "morilles-creme",
+  "titre": "Morilles à la crème",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "sauce",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "La préparation de base : des morilles longuement cuites, une crème réduite. Sur un toast, des pâtes ou une volaille.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 200.0, "base": true },
+    { "nom": "échalote ciselée", "g": 40.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "vin blanc sec", "g": 80.0 },
+    { "nom": "crème épaisse", "g": 200.0 },
+    { "nom": "sel", "g": 2.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Coupe chaque morille en deux dans la longueur : elle doit être entièrement creuse, d’un seul tenant. Si l’intérieur est cloisonné ou cotonneux, jette-la et ne mange rien en cas de doute.",
+    "Plonge les morilles 2 minutes dans de l’eau froide pour déloger sable et insectes, rince, puis sèche-les bien dans un torchon.",
+    "Fais fondre le beurre, ajoute l’échalote 2 minutes, puis les morilles. Cuis 10 minutes à feu moyen en remuant.",
+    "Verse le vin blanc et laisse réduire de moitié.",
+    "Ajoute la crème et laisse mijoter à feu doux au moins 15 minutes, jusqu’à ce que la sauce nappe. Cuisson complète : la morille ne se mange jamais crue ni à peine saisie.",
+    "Sale, poivre et sers bien chaud."
+  ],
+  "conservation": "Au frigo 2 jours, en boîte fermée. Réchauffe jusqu’à frémissement, quelques minutes."
+}

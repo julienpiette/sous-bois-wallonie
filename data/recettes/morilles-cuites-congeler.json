@@ -1,0 +1,32 @@
+{
+  "id": "morilles-cuites-congeler",
+  "titre": "Morilles cuites à congeler",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["printemps"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 25,
+  "portions": 6,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Une belle cueillette d’avril à garder pour plus tard : on les cuit complètement d’abord, on les congèle ensuite.",
+  "securite": "Morille : cuisson complète obligatoire avant congélation. La congélation ne remplace pas la cuisson : au moins 20 minutes, jamais crue.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 300.0, "base": true },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "eau ou bouillon de légumes (sans gluten)", "g": 100.0 },
+    { "nom": "sel", "g": 2.0 }
+  ],
+  "etapes": [
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Cuis-les dans le beurre 8 minutes, ajoute l’eau ou le bouillon, couvre et laisse étuver 15 minutes. Elles doivent être bien cuites : cuisson complète, jamais crue.",
+    "Laisse refroidir rapidement dans un plat large.",
+    "Répartis avec leur jus en petits sachets ou boîtes, ferme et note la date."
+  ],
+  "conservation": "Congélateur, jusqu’à 6 mois (note-les dans le garde-manger). Réchauffe sans décongeler, dans une sauce ou une poêle, jusqu’à ce que ce soit bien chaud."
+}

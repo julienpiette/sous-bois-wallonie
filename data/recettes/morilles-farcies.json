@@ -1,0 +1,41 @@
+{
+  "id": "morilles-farcies",
+  "titre": "Morilles farcies",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "exigeant",
+  "preparation_min": 40,
+  "cuisson_min": 35,
+  "portions": 4,
+  "base_g": 160.0,
+  "regimes": [],
+  "congelable": false,
+  "chapeau": "Les grosses morilles garnies d’une farce fine de volaille, puis cuites longuement dans un jus crémé.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "grosses morilles fraîches (environ 16)", "g": 160.0, "base": true },
+    { "nom": "blanc de volaille, mixé finement", "g": 150.0 },
+    { "nom": "crème épaisse (farce)", "g": 50.0 },
+    { "nom": "blanc d’œuf", "g": 30.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "beurre", "g": 25.0 },
+    { "nom": "vin blanc sec", "g": 80.0 },
+    { "nom": "bouillon de volaille", "g": 150.0 },
+    { "nom": "crème liquide (sauce)", "g": 100.0 },
+    { "nom": "sel", "g": 3.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Coupe le pied des morilles et regarde l’intérieur par l’ouverture : il doit être entièrement creux. En cas de doute, ouvre-la en deux et ne l’utilise pas pour la farce. Rince et sèche-les.",
+    "Mélange la volaille mixée, la crème épaisse, le blanc d’œuf, 2 g de sel et le poivre jusqu’à une farce lisse. Garde-la au frais.",
+    "Remplis les morilles de farce avec une poche à douille ou une petite cuillère, sans trop forcer.",
+    "Fais suer l’échalote dans le beurre, pose les morilles, verse le vin et le bouillon. Couvre et laisse cuire à feu doux 25 minutes : la farce doit être cuite à cœur et les morilles bien cuites.",
+    "Retire les morilles, ajoute la crème au jus et laisse réduire 5 minutes. Cuisson complète des morilles : jamais crues.",
+    "Sers 4 morilles par personne, nappées de sauce."
+  ],
+  "conservation": "À servir le jour même."
+}

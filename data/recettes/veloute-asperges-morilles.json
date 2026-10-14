@@ -1,0 +1,37 @@
+{
+  "id": "veloute-asperges-morilles",
+  "titre": "Velouté d’asperges blanches aux morilles",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "soupe",
+  "saisons": ["printemps"],
+  "cuisine": "belge",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 40,
+  "portions": 4,
+  "base_g": 100.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": true,
+  "chapeau": "Les épluchures d’asperges font le bouillon, les morilles mijotées le parfument : rien ne se perd.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 100.0, "base": true },
+    { "nom": "asperges blanches", "g": 700.0 },
+    { "nom": "oignon émincé", "g": 80.0 },
+    { "nom": "beurre", "g": 30.0 },
+    { "nom": "eau", "g": 1000.0 },
+    { "nom": "crème liquide", "g": 100.0 },
+    { "nom": "sel", "g": 6.0 },
+    { "nom": "poivre blanc moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Épluche les asperges et coupe le bout dur. Fais cuire épluchures et bouts 15 minutes dans l’eau salée, puis filtre : c’est ton bouillon.",
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Fais suer l’oignon dans 15 g de beurre, ajoute les asperges en tronçons (garde les pointes) et le bouillon. Laisse cuire 20 minutes, en ajoutant les pointes les 6 dernières minutes. Retire les pointes.",
+    "Pendant ce temps, cuis les morilles dans le reste du beurre 10 minutes, puis avec 50 g de crème 12 minutes à feu doux : cuisson complète, jamais crue.",
+    "Mixe la soupe avec le reste de crème, sale et poivre. Sers avec les pointes et les morilles."
+  ],
+  "conservation": "Le velouté se garde 2 jours au frigo et se congèle 3 mois. Les morilles cuites se gardent 2 jours à part."
+}

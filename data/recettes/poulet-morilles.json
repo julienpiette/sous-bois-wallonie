@@ -1,0 +1,39 @@
+{
+  "id": "poulet-morilles",
+  "titre": "Poulet aux morilles et au vin blanc",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "plat",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 25,
+  "cuisson_min": 55,
+  "portions": 4,
+  "base_g": 200.0,
+  "regimes": ["sans-gluten"],
+  "congelable": true,
+  "chapeau": "Le grand classique du Jura, fait avec un vin blanc sec de garde ; un vin jaune le rend plus intense encore.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 200.0, "base": true },
+    { "nom": "poulet fermier découpé en morceaux", "g": 1400.0 },
+    { "nom": "échalote ciselée", "g": 60.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "vin blanc sec (ou vin jaune)", "g": 200.0 },
+    { "nom": "bouillon de volaille (sans gluten)", "g": 200.0 },
+    { "nom": "crème épaisse", "g": 250.0 },
+    { "nom": "sel", "g": 7.0 },
+    { "nom": "poivre moulu", "g": 0.6 }
+  ],
+  "etapes": [
+    "Coupe les morilles en deux dans la longueur et vérifie qu’elles sont entièrement creuses. Rince-les rapidement et sèche-les.",
+    "Sale les morceaux de poulet et fais-les dorer dans 25 g de beurre dans une cocotte, 10 minutes. Retire-les.",
+    "Fais suer l’échalote 2 minutes, verse le vin, gratte les sucs et laisse réduire de moitié. Remets le poulet, ajoute le bouillon, couvre et laisse cuire 25 minutes à feu doux.",
+    "Pendant ce temps, cuis les morilles dans le reste du beurre 10 minutes.",
+    "Retire le poulet. Ajoute la crème et les morilles au jus et laisse réduire 15 minutes à frémissement : les morilles cuisent ainsi 25 minutes au total. Cuisson complète obligatoire, jamais crue.",
+    "Remets le poulet 5 minutes dans la sauce, poivre et sers avec du riz."
+  ],
+  "conservation": "Au frigo 2 jours. Se congèle 3 mois ; réchauffe à couvert jusqu’à ce que la sauce frémisse."
+}

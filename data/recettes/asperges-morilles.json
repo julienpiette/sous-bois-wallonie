@@ -1,0 +1,37 @@
+{
+  "id": "asperges-morilles",
+  "titre": "Asperges vertes et morilles",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "entree",
+  "saisons": ["printemps"],
+  "cuisine": "française",
+  "niveau": "moyen",
+  "preparation_min": 20,
+  "cuisson_min": 30,
+  "portions": 4,
+  "base_g": 150.0,
+  "regimes": ["vegetarien", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Les deux produits d’avril réunis : asperges croquantes, morilles fondantes dans un jus court au beurre.",
+  "securite": "Morille : cuisson complète obligatoire. Elle est toxique crue ou mal cuite : au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches", "g": 150.0, "base": true },
+    { "nom": "asperges vertes", "g": 600.0 },
+    { "nom": "beurre", "g": 40.0 },
+    { "nom": "échalote ciselée", "g": 30.0 },
+    { "nom": "bouillon de légumes (sans gluten)", "g": 150.0 },
+    { "nom": "crème liquide", "g": 50.0 },
+    { "nom": "sel", "g": 5.0 },
+    { "nom": "poivre moulu", "g": 0.3 }
+  ],
+  "etapes": [
+    "Coupe les morilles en deux, vérifie qu’elles sont entièrement creuses, rince-les et sèche-les.",
+    "Cuis les morilles avec l’échalote dans 20 g de beurre, 10 minutes. Ajoute le bouillon et laisse mijoter 15 minutes à couvert, puis la crème 3 minutes : 25 minutes de cuisson, la morille ne se mange jamais crue.",
+    "Pendant ce temps, casse le bout dur des asperges et cuis-les 5 à 7 minutes dans l’eau bouillante salée : elles doivent rester un peu fermes.",
+    "Égoutte les asperges et roule-les dans le reste du beurre.",
+    "Dresse les asperges, nappe de morilles et de leur jus, poivre."
+  ],
+  "conservation": "À servir chaud, le jour même. Les morilles cuites seules se gardent 2 jours au frigo."
+}

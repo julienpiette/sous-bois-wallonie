@@ -1,0 +1,29 @@
+{
+  "id": "morilles-sechees",
+  "titre": "Morilles séchées",
+  "statut": "brouillon",
+  "especes": ["morille"],
+  "famille": "champignon",
+  "type": "conservation",
+  "saisons": ["printemps"],
+  "cuisine": "traditionnelle",
+  "niveau": "facile",
+  "preparation_min": 20,
+  "cuisson_min": 480,
+  "portions": 10,
+  "base_g": 300.0,
+  "regimes": ["vegetarien", "vegan", "sans-gluten"],
+  "congelable": false,
+  "chapeau": "Séchées, les morilles gardent tout leur parfum jusqu’à l’hiver. Le séchage ne remplace pas la cuisson.",
+  "securite": "Morille : cuisson complète obligatoire, même séchée. Après réhydratation, au moins 20 minutes de cuisson, jamais crue ni simplement saisie.",
+  "ingredients": [
+    { "nom": "morilles fraîches, propres et sèches", "g": 300.0, "base": true }
+  ],
+  "etapes": [
+    "Coupe chaque morille en deux dans la longueur, vérifie qu’elle est entièrement creuse et brosse l’intérieur. Évite de les mouiller.",
+    "Enfile-les sur un fil de coton pour les suspendre dans un endroit sec et aéré (une semaine environ), ou étale-les sur les grilles d’un déshydrateur à 45-50 °C, 6 à 10 heures.",
+    "Elles sont prêtes quand elles sont légères et cassantes. Laisse-les refroidir et mets-les en bocal.",
+    "Pour les utiliser : 20 minutes dans l’eau tiède, filtre l’eau (à travers un filtre à café : elle contient souvent du sable), puis cuis-les comme des morilles fraîches. Cuisson complète obligatoire, au moins 20 minutes, jamais crue."
+  ],
+  "conservation": "Bocal hermétique, au sec et à l’abri de la lumière, jusqu’à 1 an. Toujours bien cuites après réhydratation."
+}
