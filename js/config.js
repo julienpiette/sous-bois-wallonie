@@ -27,7 +27,7 @@
     tint: [0.35, 0, -0.45]
   };
 
-  MW.GRID = { latStep: 0.25, lonStep: 0.38, buffer: 0.3, pastDays: 80, forecastDays: 16, batchSize: 25, cacheHours: 3 };
+  MW.GRID = { latStep: 0.25, lonStep: 0.38, buffer: 0.3, pastDays: 92, forecastDays: 16, batchSize: 25, cacheHours: 3 };
 
   // Services WMS du SPW, vérifiés le 12/10/2026 : GetCapabilities + GetMap EPSG:3857, CORS ouvert.
   // layer = nom(s) WMS (ArcGIS : numéros). Plusieurs numéros = une couche par plage d'échelle,

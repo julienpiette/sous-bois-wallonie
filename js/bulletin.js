@@ -110,7 +110,7 @@
     const lent = setTimeout(() => { if (charge && charge.isConnected) charge.textContent = 'La météo met du temps à répondre aujourd’hui. Encore un instant…'; }, 10000);
     try {
       ms = await massifs();
-      w = await MW.weather.load(ms.map((m) => ({ lat: m.lat, lon: m.lon })), progres, 'sb-bulletin-v2', 6);
+      w = await MW.weather.load(ms.map((m) => ({ lat: m.lat, lon: m.lon })), progres, 'sb-bulletin-v3', 6);
     } catch (e) {
       clearTimeout(lent);
       el.innerHTML = '<div class="encadre note b-erreur"><p><b>La météo ne répond pas pour l’instant.</b> Vérifie ta connexion, puis réessaie.</p>' +

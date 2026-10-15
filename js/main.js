@@ -169,8 +169,47 @@
   const tileLayers = () => S.modeCarte === 'plantes' ? [] : MW.SPECIES.filter((sp) => S.checked.has(sp.id) && S.available.has(sp.id))
     .map((sp) => ({ id: sp.id, color: sp.color, opacity: opacityOf(sp) }));
 
+  /* ---------- deux lectures de la carte : « Météo de cette année » (par défaut) ou « Année normale » ---------- */
+  S.meteo = store.get('mw-carte-meteo', 'annee') === 'normale' ? 'normale' : 'annee';
+  const NOM_COURT = { cepe: 'cèpes', girolle: 'girolles', morille: 'morilles', trompette: 'trompettes', chanterelle: 'chanterelles en tube', pied: 'pieds de mouton' };
+  const poidsMeteo = () => (S.meteo === 'annee' && MW.meteoCarte.pret() ? MW.meteoCarte.poids : null);
+  function resumeMeteo() {
+    const el0 = $('#meteoResume'); if (!el0) return;
+    const el = { set textContent(v) { el0.textContent = v; $('#meteoDetail').textContent = v; $('#meteoBtn').title = v; } };
+    if (S.meteo === 'normale') { el.textContent = 'Le terrain seul, sans la météo'; return; }
+    if (S.meteoErreur) { el.textContent = 'Météo indisponible : terrain seul'; return; }
+    if (!MW.meteoCarte.pret()) { el.textContent = 'Chargement de la météo…'; return; }
+    const sp = tileLayers()[0];
+    if (!sp) { el.textContent = 'Choisis une espèce dans les filtres'; return; }
+    const c = map.getCenter(), st = MW.meteoCarte.etatAu(sp.id, c.lat, c.lng), nom = NOM_COURT[sp.id] || sp.id;
+    const P = { pousse: 'Fenêtre favorable ici pour les ', prepare: 'Ça se prépare ici pour les ', moyen: 'Conditions moyennes ici pour les ', sec: 'Trop sec ici pour les ',
+      froid: 'Trop froid ici pour les ', chaud: 'Trop chaud ici pour les ', gel: 'Gel récent ici pour les ', defav: 'Rien d’évident ici pour les ', hors: 'Hors saison pour les ' };
+    el.textContent = (P[st.key] || '') + nom + (st.detail ? ' (' + st.detail + ')' : '');
+  }
+  function choisirMeteo(m) {
+    S.meteo = m === 'normale' ? 'normale' : 'annee'; store.set('mw-carte-meteo', S.meteo);
+    $('#meteoNom').textContent = S.meteo === 'annee' ? 'Météo de cette année' : 'Année normale';
+    document.querySelectorAll('#meteoMenu [data-meteo]').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.meteo === S.meteo)));
+    document.body.classList.toggle('meteo-annee', S.meteo === 'annee');
+    if (S.meteo === 'annee' && !MW.meteoCarte.pret()) chargerMeteo();
+    resumeMeteo(); renderLegend();
+    if (S.tileLayer) S.tileLayer.redraw();
+  }
+  function chargerMeteo() {
+    S.meteoErreur = false; resumeMeteo();
+    MW.meteoCarte.charger().then(() => { resumeMeteo(); renderLegend(); if (S.tileLayer && S.meteo === 'annee') S.tileLayer.redraw(); })
+      .catch(() => { S.meteoErreur = true; resumeMeteo(); });
+  }
+  const menuMeteo = $('#meteoMenu'), btnMeteo = $('#meteoBtn');
+  const ouvrirMenuMeteo = (o) => { menuMeteo.hidden = !o; btnMeteo.setAttribute('aria-expanded', String(o)); if (o) (menuMeteo.querySelector('[aria-checked=true]') || menuMeteo.querySelector('button')).focus(); };
+  btnMeteo.addEventListener('click', () => ouvrirMenuMeteo(menuMeteo.hidden));
+  menuMeteo.querySelectorAll('[data-meteo]').forEach((b) => b.addEventListener('click', () => { choisirMeteo(b.dataset.meteo); ouvrirMenuMeteo(false); btnMeteo.focus(); }));
+  document.addEventListener('click', (e) => { if (!menuMeteo.hidden && !e.target.closest('#choixMeteo')) ouvrirMenuMeteo(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menuMeteo.hidden) { ouvrirMenuMeteo(false); btnMeteo.focus(); } });
+  map.on('moveend', resumeMeteo);
+
   function draw() {
-    renderLegend();
+    renderLegend(); resumeMeteo();
     if (!WX) { if (S.tileLayer) S.tileLayer.redraw(); return; }
     if (S.overlay) { map.removeLayer(S.overlay); S.overlay = null; }
     if (!S.h || !S.series) return;
@@ -198,7 +237,14 @@
       return '<div class="lg-row" ' + cols + '><span class="lg-nm">' + esc(sp.name) + '</span>' +
         MW.render.ramp(sp.color).map((c, i) => '<i title="' + esc(C.labels[i]) + '" style="background:rgb(' + c.join(',') + ')"></i>').join('') + '</div>';
     }).join('');
-    $('#legend').innerHTML = '<div class="lg">' + head + rows + '</div><p class="muted small lg-note">Milieux favorables à chaque espèce, comparés aux autres forêts wallonnes. Ce n’est pas une probabilité de trouvaille. Dézoomé, chaque zone est une moyenne : zoome pour voir les meilleurs secteurs.</p>';
+    const gris = MW.render.ramp('#5d665b').map((c) => '<i style="background:rgb(' + c.join(',') + ')"></i>').join('');
+    const meteo = S.meteo === 'annee'
+      ? '<div class="lg-row" ' + cols + '><span class="lg-nm">Bon milieu, trop sec</span>' + gris + '</div>'
+      : '';
+    const note = S.meteo === 'annee'
+      ? 'Milieux favorables, croisés avec la météo des derniers mois (pluie, température, sécheresse). En gris : un bon milieu où la météo ne suit pas en ce moment. La météo est une tendance régionale (environ 30 km), pas l’état d’un bois précis.'
+      : 'Milieux favorables à chaque espèce, comparés aux autres forêts wallonnes, comme une année normale : la météo n’est pas prise en compte. Ce n’est pas une probabilité de trouvaille.';
+    $('#legend').innerHTML = '<div class="lg">' + head + rows + meteo + '</div><p class="muted small lg-note">' + note + ' Dézoomé, chaque zone est une moyenne : zoome pour voir les meilleurs secteurs.</p>';
   }
 
   /* ---------- battues : jour choisi, zones fermées, alerte ---------- */
@@ -313,9 +359,11 @@
       const k = v == null ? -1 : MW.render.classOf(v);
       const txt = !ok ? '<span class="muted">pas de données</span>' : v == null ? '<span class="muted">hors zone</span>' : !(v > 0) ? 'hors forêt'
         : (k < 0 ? 'en dessous de « ' + MW.CLASSES.labels[0] + ' »' : '<b>' + MW.CLASSES.labels[k] + '</b>') + ' · mieux que ' + Math.round(v * 100) + ' % des forêts';
-      return '<tr><td><i class="dot" style="background:' + sp.color + '"></i>' + esc(sp.name) + '</td><td>' + txt + '</td></tr>';
+      const st = S.meteo === 'annee' && MW.meteoCarte.pret() && v > 0 ? MW.meteoCarte.etatAu(sp.id, lat, lng) : null;
+      const met = st ? '<br><span class="pop-meteo ' + (st.w >= 0.5 ? 'ok' : 'non') + '">Météo : ' + esc(st.label.toLowerCase()) + (st.detail ? ' (' + esc(st.detail) + ')' : '') + '</span>' : '';
+      return '<tr><td><i class="dot" style="background:' + sp.color + '"></i>' + esc(sp.name) + '</td><td>' + txt + met + '</td></tr>';
     }));
-    return '<table class="pop">' + rows.join('') + '</table><small>Milieu seulement, sans la météo. Ceci n’identifie aucun champignon.</small>';
+    return '<table class="pop">' + rows.join('') + '</table><small>' + (S.meteo === 'annee' && MW.meteoCarte.pret() ? 'Milieu, et météo des derniers mois (tendance régionale).' : 'Milieu seulement, sans la météo.') + ' Ceci n’identifie aucun champignon.</small>';
   }
 
   /* ---------- fiche « Puis-je cueillir ici ? » + « Pourquoi ici ? » ---------- */
@@ -426,7 +474,8 @@
         ? '<b>Aucune donnée de potentiel dans data/tuiles/.</b> La carte reste vide : lancer <code>scripts\\potentiel.bat</code> (étape 3 de la feuille de route).'
         : 'Pas de données pour : ' + missing.map((sp) => esc(sp.name)).join(', ') + '. Ces espèces ne sont pas affichées.';
       $('#mapMsg').hidden = !none;
-      if (!none) S.tileLayer = MW.tuiles.create(S.tiles, tileLayers, () => S.mode).addTo(map);
+      if (!none) S.tileLayer = MW.tuiles.create(S.tiles, tileLayers, () => S.mode, poidsMeteo).addTo(map);
+      choisirMeteo(S.meteo);
       $('#status').textContent = 'Milieux seuls (météo dans le bulletin) · ' + S.available.size + '/' + MW.SPECIES.length + ' espèces' + (S.tiles ? ' · calcul du ' + S.tiles.date : '');
       draw(); renderCoins();
       return;

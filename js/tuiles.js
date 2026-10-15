@@ -37,8 +37,24 @@
     return c.getImageData(0, 0, T, T).data;
   }
 
+  // latitude du bord nord d'une rangée de tuiles y au zoom z
+  const latTuile = (y, z) => { const n = Math.PI - (2 * Math.PI * y) / 2 ** z; return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n))); };
+
+  // poids météo (0-1) par espèce et par pixel, interpolé entre les quatre coins de la tuile ; null si mode « Année normale »
+  function poidsTuile(coords, layers, fPoids) {
+    if (!fPoids) return null;
+    const z = coords.z, n = 2 ** z;
+    const lonO = (coords.x / n) * 360 - 180, lonE = ((coords.x + 1) / n) * 360 - 180;
+    const latN = latTuile(coords.y, z), latS = latTuile(coords.y + 1, z);
+    return layers.map((l) => {
+      const a = fPoids(l.id, latN, lonO), b = fPoids(l.id, latN, lonE), c = fPoids(l.id, latS, lonO), d = fPoids(l.id, latS, lonE);
+      return (p) => { const x = (p % T) / T, y = Math.floor(p / T) / T; return (a * (1 - x) + b * x) * (1 - y) + (c * (1 - x) + d * x) * y; };
+    });
+  }
+
   // getLayers() -> [{ id, color, opacity }] ; getMode() -> 'dominant' | 'overlay'
-  function create(index, getLayers, getMode) {
+  // getPoids() -> null (année normale) ou fonction (id, lat, lon) -> 0-1 (météo de cette année)
+  function create(index, getLayers, getMode, getPoids) {
     const B = MW.BBOX;
     const Layer = L.GridLayer.extend({
       createTile(coords, done) {
@@ -57,7 +73,8 @@
             // alpha = part de forêt dans le pixel : dézoomé, un massif boisé à 20 % suffit pour être affiché
             const amin = nz >= index.maxZoom ? 128 : 50;
             const val = (i, p) => { const d = datas[i]; return d && d[p * 4 + 3] >= amin ? d[p * 4] / 255 : -1; };
-            MW.render.paintClasses(out.data, T * T, val, layers, getMode());
+            const pw = poidsTuile(coords, layers, getPoids ? getPoids() : null);
+            MW.render.paintClasses(out.data, T * T, val, layers, getMode(), pw ? (i, p) => pw[i](p) : null);
             ctx.putImageData(out, 0, 0);
           }
           done(null, tile);

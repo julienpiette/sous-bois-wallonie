@@ -108,25 +108,30 @@
   // couleurs [r,g,b] d'une espèce, une par classe, de la plus claire à la plus foncée
   function ramp(color) { return MW.CLASSES.tint.map((t) => tint(hex(color), t)); }
 
+  // gris des bons milieux où la météo ne suit pas (mode « Météo de cette année »)
+  const GRIS = '#5d665b';
   // Colorie n pixels dans out (RGBA). val(i, p) = valeur 0-1 de l'espèce i au pixel p, -1 si hors forêt.
   // layers: [{ color, opacity }] ; mode: 'dominant' | 'overlay'
-  function paintClasses(out, n, val, layers, mode) {
-    const ramps = layers.map((l) => ramp(l.color));
+  // poids(i, p) facultatif = météo 0-1 : en dessous de 0,5 le milieu est grisé et plus transparent
+  function paintClasses(out, n, val, layers, mode, poids) {
+    const ramps = layers.map((l) => ramp(l.color)), gris = ramp(GRIS);
+    const ok = (i, p) => !poids || poids(i, p) >= 0.5;
     for (let p = 0; p < n; p++) {
       const o = p * 4;
       if (mode === 'dominant') {
-        let bv = -1, bi = -1;
-        for (let i = 0; i < layers.length; i++) { const v = val(i, p); if (v > bv) { bv = v; bi = i; } }
+        // une espèce dont la météo suit passe devant une espèce grisée
+        let bs = -1, bv = -1, bi = -1;
+        for (let i = 0; i < layers.length; i++) { const v = val(i, p); if (v < 0) continue; const s = v + (ok(i, p) ? 1 : 0); if (s > bs) { bs = s; bv = v; bi = i; } }
         const k = bi < 0 ? -1 : classOf(bv);
         if (k < 0) continue;
-        const c = ramps[bi][k];
-        out[o] = c[0]; out[o + 1] = c[1]; out[o + 2] = c[2]; out[o + 3] = Math.round(layers[bi].opacity * 255);
+        const bon = ok(bi, p), c = bon ? ramps[bi][k] : gris[k];
+        out[o] = c[0]; out[o + 1] = c[1]; out[o + 2] = c[2]; out[o + 3] = Math.round(layers[bi].opacity * (bon ? 1 : 0.85) * 255);
       } else {
         let r = 0, g = 0, b = 0, A = 0;
         for (let i = 0; i < layers.length; i++) {
           const k = classOf(val(i, p));
           if (k < 0) continue;
-          const c = ramps[i][k], a = layers[i].opacity, na = a + A * (1 - a);
+          const bon = ok(i, p), c = bon ? ramps[i][k] : gris[k], a = layers[i].opacity * (bon ? 1 : 0.85), na = a + A * (1 - a);
           r = (c[0] * a + r * A * (1 - a)) / na; g = (c[1] * a + g * A * (1 - a)) / na; b = (c[2] * a + b * A * (1 - a)) / na; A = na;
         }
         out[o] = r; out[o + 1] = g; out[o + 2] = b; out[o + 3] = Math.round(A * 255);

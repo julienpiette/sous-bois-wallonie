@@ -275,3 +275,43 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
   #panel.collapsed #toggle .chevron { background: transparent; }
   .outils-carte { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte)); }
 }
+
+/* ---------- sélecteur « Météo de cette année » / « Année normale » : le mode en cours et une ligne de résumé ---------- */
+.choix-meteo { position: relative; flex: 0 1 300px; min-width: 0; }
+#meteoBtn { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--e2); min-height: 48px; padding: var(--e1) var(--e3) var(--e1) var(--e3);
+  border: 0; border-radius: var(--r-pilule); background: var(--papier); color: var(--humus); box-shadow: var(--ombre-flottant); text-align: left; cursor: pointer; font: inherit;
+  transition: transform var(--vite) var(--sortie); }
+#meteoBtn:active { transform: scale(.98); }
+#meteoBtn .mm-ico { width: 22px; height: 22px; color: var(--mousse); }
+body.meteo-annee #meteoBtn .mm-ico { color: var(--avec); }
+#meteoBtn .mm-chev { width: 18px; height: 18px; color: var(--humus-2); transition: transform var(--moyen) var(--sortie); }
+#meteoBtn[aria-expanded=true] .mm-chev { transform: rotate(180deg); }
+.mm-txt { min-width: 0; line-height: 1.2; }
+.mm-txt b { display: block; font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mm-txt small { display: block; font-size: 12px; color: var(--humus-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meteo-menu { position: absolute; z-index: 1350; top: calc(100% + var(--e2)); left: 0; width: min(340px, calc(100vw - 2 * var(--e2))); padding: var(--e2);
+  background: var(--papier); border-radius: var(--r-carte); box-shadow: var(--ombre-flottant); display: grid; gap: var(--e1); }
+.meteo-menu:not([hidden]) { animation: menu-entre var(--moyen) var(--sortie); transform-origin: top left; }
+@keyframes menu-entre { from { opacity: 0; transform: scale(.97) translateY(-4px); } }
+.meteo-menu button { display: grid; gap: 2px; text-align: left; border: 0; border-radius: var(--r-moyen); background: none; padding: var(--e3); cursor: pointer; color: var(--humus); font: inherit; }
+.meteo-menu button:hover { background: var(--brume); }
+.meteo-menu button[aria-checked=true] { background: var(--accent-2); }
+.meteo-menu button b { font-weight: 600; font-size: 15px; }
+.meteo-menu button span { font-size: 13px; line-height: 1.4; color: var(--humus-2); }
+body.mode-plantes .choix-meteo { display: none; }
+.pop-meteo { font-size: 12px; font-weight: 600; }
+.pop-meteo.ok { color: var(--oui); }
+.pop-meteo.non { color: var(--humus-3); }
+@media (max-width: 860px) {
+  .barre-carte { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "rech rech" "mode meteo"; }
+  .barre-carte .recherche { grid-area: rech; }
+  .bascule-mode { grid-area: mode; }
+  .choix-meteo { grid-area: meteo; }
+  .bascule-mode button span { display: none; }
+  .bascule-mode button svg { display: block !important; }
+  .bascule-mode button { padding: 0 var(--e3); min-width: 44px; }
+  body.mode-plantes .barre-carte { grid-template-areas: "rech rech" "mode mode"; }
+  .meteo-menu { left: auto; right: 0; transform-origin: top right; }
+}
+.mm-detail { margin: 0; padding: var(--e2) var(--e3) var(--e3); font-size: 14px; font-weight: 600; color: var(--humus); border-bottom: 1px solid var(--trait); }
+.mm-detail:empty { display: none; }

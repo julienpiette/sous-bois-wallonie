@@ -5,14 +5,14 @@
    - tuiles de potentiel, de facteurs et fond de carte déjà vus : cache d'abord (plafonné)
    - services publics (chasse, propriétés, météo, recherche) : JAMAIS en cache ici (une battue périmée serait dangereuse)
    Changer VERSION à chaque mise en ligne d'une nouvelle version. */
-const VERSION = 'sb-20261016-0109';
+const VERSION = 'sb-20261016-0129';
 const COQUILLE = [
   './', 'index.html', 'bulletin.html', 'carte.html', 'droit.html', 'battues.html', 'carnet.html', 'guide.html', 'especes.html',
   'avant-de-manger.html', 'glossaire.html', 'materiel.html', 'pros.html', 'approche.html', 'recettes.html', 'conservation.html',
   'mentions.html', 'hors-ligne.html', 'manifest.webmanifest',
   'css/site.css', 'css/style.css',
   'js/site-config.js', 'js/interrupteurs.js', 'js/site.js', 'js/config.js', 'js/geo.js', 'js/weather.js', 'js/model.js', 'js/render.js', 'js/tuiles.js',
-  'js/main.js', 'js/droit.js', 'js/pourquoi.js', 'js/plantes.js', 'js/fiches-plantes.js', 'js/bulletin.js', 'js/carnet.js', 'js/garde-manger.js', 'js/recettes.js', 'js/produits.js',
+  'js/meteo-carte.js', 'js/main.js', 'js/droit.js', 'js/pourquoi.js', 'js/plantes.js', 'js/fiches-plantes.js', 'js/bulletin.js', 'js/carnet.js', 'js/garde-manger.js', 'js/recettes.js', 'js/produits.js',
   'data/massifs.json', 'data/communes.json', 'data/sigles.json', 'data/tuiles/index.json',
   'data/recettes/index.json',  // fiches de recette : mises en cache à la première lecture
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/favicon.svg'

@@ -50,7 +50,12 @@
     const f = sp.frost;
     const G = tmin >= f.thr + 2 ? 1 : tmin <= f.thr ? f.factor : f.factor + (1 - f.factor) * ((tmin - f.thr) / 2);
     const C = calendar(sp, s.time[Math.min(t, s.time.length - 1)].slice(5));
-    return { I: P * D * T * S * G * C, P, D, T, S, G, C, rain, recent, Tm, tmin, dr };
+    // W réserve d'eau du sol : pluie moins évaporation (ET0) sur 90 jours. Une averse ne compense pas un été sec ;
+    // c'est aussi ce qui sépare l'Ardenne, plus arrosée et plus fraîche, du nord du sillon. Hypothèse : +20 mm ≈ normal
+    // en automne, -80 mm = sol très sec.
+    let bal = null, W = 1;
+    if (s.et0 && s.et0.length) { bal = sum(s.precip, t - 89, t) - sum(s.et0, t - 89, t); W = 0.3 + 0.7 * clamp((bal + 80) / 100, 0, 1); }
+    return { I: P * D * T * S * G * C * W, P, D, T, S, G, C, W, bal, rain, recent, Tm, tmin, dr };
   }
 
   function state(sp, s, t) {
@@ -59,6 +64,7 @@
     if (e.C < 0.25) { key = 'hors'; label = 'Hors saison'; }
     else if (e.G < 0.5) { key = 'gel'; label = 'Gelé'; detail = 'Tmin ' + e.tmin.toFixed(1) + ' °C sur 7 j'; }
     else if (e.I >= 0.6) { key = 'pousse'; label = 'Pousse probable'; }
+    else if (e.W < 0.6) { key = 'sec'; label = 'Trop sec'; detail = 'réserve d’eau basse : il manque ~' + Math.round(20 - e.bal) + ' mm sur 3 mois'; }
     else if (e.P < 0.6 && e.recent >= sp.rain.min && e.T >= 0.5) {
       key = 'prepare'; label = 'En préparation';
       for (let k = 1; t + k < s.time.length; k++) {

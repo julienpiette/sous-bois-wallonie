@@ -26,14 +26,14 @@
 
   function parse(res) {
     const d = res.daily;
-    return { time: d.time, precip: clean(d.precipitation_sum, 0), tmean: clean(d.temperature_2m_mean, 10), tmin: clean(d.temperature_2m_min, 5) };
+    return { time: d.time, precip: clean(d.precipitation_sum, 0), tmean: clean(d.temperature_2m_mean, 10), tmin: clean(d.temperature_2m_min, 5), et0: clean(d.et0_fao_evapotranspiration || [], 1.5) };
   }
 
   async function fetchBatch(batch, tries) {
     const G = MW.GRID;
     const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + batch.map((p) => p.lat).join(',') +
       '&longitude=' + batch.map((p) => p.lon).join(',') +
-      '&daily=precipitation_sum,temperature_2m_mean,temperature_2m_min' +
+      '&daily=precipitation_sum,temperature_2m_mean,temperature_2m_min,et0_fao_evapotranspiration' +
       '&past_days=' + G.pastDays + '&forecast_days=' + G.forecastDays + '&timezone=Europe%2FBrussels';
     // délai maximum : sans réponse en 25 s, la page affiche son état d'erreur (avec « Réessayer ») au lieu d'attendre sans fin
     const ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
