@@ -97,6 +97,22 @@
       .then((j) => (j ? j.especes.filter((e) => e.famille_botanique !== 'Apiaceae') : null)).catch(() => null));
   }
 
+  // « Saison en cours » : réserve d'eau des trois derniers mois (pluie moins évaporation), massif par massif.
+  // C'est l'information que les débutants ne connaissent pas : un bon bois reste vide après un été sec.
+  function saison(res, t) {
+    const b = res.map((r) => ({ nom: r.m.nom, bal: MW.model.evaluate(MW.SPECIES[0], r.s, t).bal })).filter((x) => x.bal != null);
+    if (!b.length) return null;
+    b.sort((x, y) => y.bal - x.bal);
+    const secs = b.filter((x) => x.bal < -30).length, humides = b.filter((x) => x.bal >= 0).map((x) => x.nom);
+    const titre = secs >= b.length * 0.6 ? 'Saison sèche' : secs === 0 ? 'Réserve d’eau correcte' : 'Saison contrastée';
+    const texte = secs >= b.length * 0.6
+      ? 'Sur les trois derniers mois, la forêt a évaporé plus d’eau qu’il n’en est tombé dans ' + secs + ' massifs sur ' + b.length + '. Même un bon bois peut rester vide malgré quelques averses : il faut plusieurs semaines de pluie pour recharger le sol.'
+      : secs === 0 ? 'Les sols ont gardé leur eau ces trois derniers mois : quand la température suit, les poussées peuvent démarrer vite.'
+      : secs + ' massifs sur ' + b.length + ' manquent d’eau après les trois derniers mois ; les autres ont mieux tenu.';
+    const mieux = humides.length ? 'Les mieux arrosés : ' + liste(humides.slice(0, 3)) + '.' : 'Le moins sec : ' + b[0].nom + '.';
+    return { titre, texte, mieux, court: titre + ' : ' + (humides.length ? 'mieux vers ' + liste(humides.slice(0, 2)) : 'le moins sec, ' + b[0].nom) + '.' };
+  }
+
   const SQUELETTE = '<p class="discret b-charge" role="status">Chargement du bulletin…</p>' +
     '<div class="b-liste" aria-hidden="true">' + '<div class="b-squelette"><i></i><i></i></div>'.repeat(4) + '</div>';
 
@@ -123,7 +139,7 @@
     const res = ms.map((m, i) => {
       const s = w.series[i];
       const etats = MW.SPECIES.map((sp) => ({ sp, st: MW.model.state(sp, s, t) }));
-      return { m, s, etats, pluie26: somme(s.precip, t - 25, t), t20: moyenne(s.tmean, t - 19, t), prevu7: somme(s.precip, t + 1, t + 7), phrase: phrase(etats), resume: resume(etats) };
+      return { m, s, etats, bal: MW.model.evaluate(MW.SPECIES[0], s, t).bal, pluie26: somme(s.precip, t - 25, t), t20: moyenne(s.tmean, t - 19, t), prevu7: somme(s.precip, t + 1, t + 7), phrase: phrase(etats), resume: resume(etats) };
     });
     const maj = new Date(w.fetchedAt).toLocaleString('fr-BE', { weekday: 'long', hour: '2-digit', minute: '2-digit' });
 
@@ -135,6 +151,8 @@
         ? '<div class="especes-etat">' + top.slice(0, 6).map(({ r, e }) => '<div><span><span class="point" style="background:' + e.sp.color + '"></span>' + esc(r.m.nom) + ' · ' + esc(e.sp.name) +
             (e.st.detail ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>'
         : '<p>Rien d’évident cette semaine dans les massifs suivis. Une poussée suit une bonne pluie cumulée et une à deux semaines de douceur.</p>';
+      const sa = saison(res, t);
+      if (sa) el.insertAdjacentHTML('afterbegin', '<p class="b-saison-court"><b>' + esc(sa.court) + '</b> <a href="bulletin.html">Pourquoi ?</a></p>');
       el.insertAdjacentHTML('beforeend', '<p class="releve">Mise à jour ' + esc(maj) + ' · Open-Meteo · confiance faible</p>');
       return res;
     }
@@ -143,7 +161,10 @@
     let mode = flore && stock.get('mw-mode-carte', 'champignons') === 'plantes' ? 'plantes' : 'champignons';
     let pos = await position();
 
-    el.innerHTML = (flore ? '<div class="bascule b-mode" role="group" aria-label="Je cueille">' +
+    const sa = saison(res, t);
+    const carteSaison = sa ? '<section class="b-saison-info" aria-label="Saison en cours"><p class="surtitre">Saison en cours</p><h2>' + esc(sa.titre) + '</h2><p>' + esc(sa.texte) + '</p><p>' + esc(sa.mieux) + '</p>' +
+      '<a class="btn ligne" href="carte.html">Voir où la météo suit, sur la carte</a></section>' : '';
+    el.innerHTML = carteSaison + (flore ? '<div class="bascule b-mode" role="group" aria-label="Je cueille">' +
         '<button type="button" data-mode="champignons">Champignons</button><button type="button" data-mode="plantes">Plantes et fruits</button></div>' : '') +
       '<div class="b-tri" id="b-tri" aria-live="polite"></div><div id="b-vue"></div>' +
       '<p class="releve b-maj">Mise à jour ' + esc(maj) + (w.ancien ? ' : la météo ne répond pas, c’est le dernier bulletin enregistré sur ce téléphone' : w.fromCache ? ' (en cache)' : '') + ' · météo Open-Meteo · un point de calcul par massif · confiance faible</p>';
@@ -183,7 +204,7 @@
             '<p class="m-phrase">' + esc(r.phrase) + '</p>' +
             '<div class="especes-etat">' + r.etats.map((e) => '<div><span><span class="point" style="background:' + e.sp.color + '"></span>' + esc(e.sp.name) +
               (e.st.detail ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>' +
-            '<p class="releve">Pluie sur 26 jours <b>' + Math.round(r.pluie26) + ' mm</b> · moyenne sur 20 jours <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
+            '<p class="releve">Réserve d’eau sur 3 mois <b>' + (r.bal == null ? '?' : (r.bal > 0 ? '+' : '') + Math.round(r.bal) + ' mm') + '</b> · pluie sur 26 jours <b>' + Math.round(r.pluie26) + ' mm</b> · moyenne sur 20 jours <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
             '<p class="battues-massif" data-massif="' + esc(r.m.id) + '">Battues ce week-end : recherche…</p>' +
             '<div class="m-liens"><a href="carte.html#12/' + r.m.lat + '/' + r.m.lon + '">Voir sur la carte</a><a href="battues.html?massif=' + esc(r.m.id) + '">Calendrier des battues</a></div>' +
           '</div></details>').join('') + '</div>';

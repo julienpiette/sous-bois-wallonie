@@ -459,3 +459,10 @@ details.securite a { color: inherit; font-weight: 600; }
   .page .heros-texte { padding: var(--e6) var(--e5) var(--e5); }
   .page .heros-texte > p { font-size: 17px; }
 }
+
+/* bulletin : la saison en cours (réserve d'eau des trois derniers mois) */
+.page .b-saison-info { background: var(--avec-2); border-radius: var(--r-carte); padding: var(--e5); margin: 0 0 var(--e5); }
+.page .b-saison-info h2 { font-size: 22px; margin-bottom: var(--e2); }
+.page .b-saison-info p { margin: 0 0 var(--e2); }
+.page .b-saison-info .btn.ligne { padding-inline: 0; min-height: 44px; }
+.page .b-saison-court { margin: 0 0 var(--e3); padding: var(--e3) var(--e4); background: var(--avec-2); border-radius: var(--r-moyen); font-size: 15px; }
