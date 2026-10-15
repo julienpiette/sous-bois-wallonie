@@ -38,3 +38,7 @@ Attribution : Ancienneté des forêts actuelles : © Service public de Wallonie 
 <!-- fin:anciennete -->
 
 Les textes, recettes, logo et la carte de potentiel sont l’œuvre de l’éditeur du site ; les sources des informations citées figurent au bas de chaque page.
+
+## Recherche de lieux
+- Suggestions au fil de la frappe : Photon (komoot), https://photon.komoot.io , données © contributeurs OpenStreetMap (ODbL), usage raisonnable (3 lettres minimum, 300 ms entre deux requêtes). Vérifié le 16/10/2026.
+- Recherche à la validation : Nominatim (OpenStreetMap), une requête à la fois, sans autocomplétion (règle d'usage de Nominatim).

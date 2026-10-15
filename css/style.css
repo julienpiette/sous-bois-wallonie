@@ -38,10 +38,10 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 /* sur ordinateur, au-dessus des boutons de zoom */
 .outils-carte { position: absolute; z-index: 1000; right: var(--e3); bottom: 112px; display: grid; gap: var(--e3); justify-items: center; }
 .outil { display: grid; justify-items: center; gap: 2px; border: 0; background: none; padding: 0; cursor: pointer; color: var(--humus); font: 600 12px var(--texte); }
-.outil .rond { width: 52px; height: 52px; border-radius: 50%; background: var(--papier); box-shadow: var(--ombre-flottant); display: grid; place-items: center;
+.outil .rond { width: 52px; height: 52px; border-radius: 50%; background: var(--papier); box-shadow: 0 1px 3px rgba(24, 35, 26, .22), 0 6px 16px rgba(24, 35, 26, .2); display: grid; place-items: center;
   transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
 .outil .rond svg { width: 24px; height: 24px; }
-.outil > span:last-child { background: var(--papier); border-radius: var(--r-pilule); padding: 0 var(--e2); box-shadow: var(--ombre-flottant); }
+.outil > span:last-child { background: var(--papier); border-radius: var(--r-pilule); padding: 0 var(--e2); box-shadow: 0 1px 3px rgba(24, 35, 26, .2); }
 .outil:hover .rond { background: var(--accent-2); }
 .outil:active .rond { transform: scale(.94); }
 .outil[aria-pressed=true] .rond { background: var(--foret); color: var(--accent); }
@@ -55,7 +55,7 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
   .barre-carte .recherche { max-width: none; }
   .bascule-mode { display: flex; justify-self: start; max-width: 100%; }
   .bascule-mode button { padding: 0 var(--e3); }
-  .outils-carte { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + 76px); right: var(--e2); }
+  .outils-carte { right: var(--e2); }
 }
 @media (max-width: 480px) { .bascule-mode button svg { display: none; } }
 /* vue réelle (photo aérienne) : halo clair autour des routes, noms et zones fermées, pour qu'ils restent lisibles */
@@ -103,6 +103,7 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 #toggle .chevron svg { width: 20px; height: 20px; transition: transform var(--moyen) var(--sortie); }
 #toggle:hover .chevron { background: var(--mousse-2); }
 #panel.collapsed #toggle .chevron svg { transform: rotate(180deg); }
+#panel #toggle, #panel #toggle:hover { display: grid; justify-content: stretch; background: none; border: 0; border-radius: 0; font: inherit; min-height: 60px; padding: var(--e3) var(--e3) var(--e3) var(--e5); }
 #panel.collapsed .body { display: none; }
 #panel.collapsed > header { border-bottom: 0; }#panel .body { overflow-y: auto; padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 12px; overscroll-behavior: contain; }
 #panel section { display: flex; flex-direction: column; gap: 6px; padding-top: 10px; }
@@ -252,4 +253,25 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
   #toggle .chevron { background: var(--foret); color: var(--accent); }
   #toggle .chevron svg { transform: rotate(180deg); }
   #panel.collapsed #toggle .chevron svg { transform: rotate(0deg); }
+}
+
+/* alerte compacte à l'arrivée : une ligne, un geste la déplie */
+.alerte-carte { cursor: pointer; }
+.alerte-carte.replie { right: auto; max-width: min(680px, calc(100% - 364px - 60px)); padding-block: var(--e2); }
+.alerte-carte.replie .detail { display: none; }
+.alerte-carte.replie b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.alerte-carte.replie > div { min-width: 0; }
+@media (max-width: 860px) { .alerte-carte.replie { right: auto; max-width: calc(100% - 16px - 56px); } }
+
+/* filtres : un onglet aligné à gauche ; flèche vers le bas pour ouvrir sur ordinateur, vers le haut sur téléphone (le tiroir monte) */
+#panel.collapsed { width: auto; }
+#panel.collapsed #toggle { min-height: 52px; }
+@media (max-width: 860px) {
+  body.carte-page { --bas-carte: 40px; }
+  #map .leaflet-bottom { bottom: 0; }
+  #panel.collapsed { left: var(--e3); right: auto; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte)); border-radius: var(--r-pilule); background: var(--foret); }
+  #panel.collapsed #toggle { padding: 0 var(--e2) 0 var(--e5); gap: var(--e2); color: var(--creme); border-radius: var(--r-pilule); }
+  #panel.collapsed #toggle .poignee, #panel.collapsed #toggle .titre small { display: none; }
+  #panel.collapsed #toggle .chevron { background: transparent; }
+  .outils-carte { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte)); }
 }

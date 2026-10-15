@@ -33,12 +33,11 @@
   if (h0) map.setView([+h0[2], +h0[3]], +h0[1]);
   map.on('moveend', () => { const c = map.getCenter(); history.replaceState(null, '', '#' + map.getZoom() + '/' + c.lat.toFixed(5) + '/' + c.lng.toFixed(5)); });
   const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' });
-  const topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© OpenTopoMap' });
   // CartoWeb (IGN belge) : zooms 7-17 en Web Mercator, emprise Belgique
   const CW = 'https://cartoweb.wmts.ngi.be/1.0.0/', cwOpts = { minZoom: 7, maxNativeZoom: 17, maxZoom: 19, attribution: '© IGN/NGI CartoWeb', bounds: [[49.45, 2.51], [51.51, 6.41]] };
   const ign = L.tileLayer(CW + 'topo/default/3857/{z}/{y}/{x}.png', cwOpts);
   osm.addTo(map);
-  L.control.layers({ 'Carte OSM': osm, 'Carte IGN (CartoWeb)': ign, 'Relief (OpenTopoMap)': topo }, null, { position: 'topright' }).addTo(map);
+  L.control.layers({ 'Carte OSM': osm, 'Carte IGN (CartoWeb)': ign }, null, { position: 'topright' }).addTo(map);
   L.polygon(MW.WALLONIA.map((p) => [p[1], p[0]]), { color: '#1e3b26', weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(map);
   map.createPane('heat'); map.getPane('heat').style.zIndex = 450; map.getPane('heat').style.pointerEvents = 'none';
   // zones fermées pour la chasse : au-dessus du potentiel, qu'elles masquent en partie
@@ -280,11 +279,20 @@
       ? '<b>' + total + '</b> territoire' + (total > 1 ? 's' : '') + ' fermé' + (total > 1 ? 's' : '') + ' en Wallonie ' + esc(jour) + ', hachuré' + (total > 1 ? 's' : '') + ' en rouge.'
       : 'Aucune fermeture déclarée en Wallonie ' + esc(jour) + '. L’affiche sur place fait foi.';
     if (n) {
-      el.innerHTML = D.ALERTE + '<div><b>' + esc(majuscule(jour)) + ' : ' + n + ' territoire' + (n > 1 ? 's' : '') + ' fermé' + (n > 1 ? 's' : '') + ' pour la chasse dans cette zone.</b> ' +
-        'Zones hachurées : on n’y entre pas, même pour cueillir. <a href="battues.html">Calendrier</a></div>';
+      // alerte compacte à l'arrivée (une ligne) ; un geste la déplie, la croix la ferme pour ce jour
+      el.innerHTML = D.ALERTE + '<div><b>' + esc(majuscule(jour)) + ' : ' + n + ' territoire' + (n > 1 ? 's' : '') + ' fermé' + (n > 1 ? 's' : '') + ' pour la chasse ici</b>' +
+        '<span class="detail"> Zones hachurées : on n’y entre pas, même pour cueillir. <a href="battues.html">Calendrier</a></span></div>';
+      el.classList.toggle('replie', !S.alerteOuverte);
+      el.setAttribute('aria-expanded', String(!!S.alerteOuverte));
       el.hidden = ferme;
     } else el.hidden = true;
   }
+  $('#alerteChasse').addEventListener('click', (e) => {
+    if (e.target.closest('a, .alerte-fermer')) return;
+    S.alerteOuverte = !S.alerteOuverte;
+    e.currentTarget.classList.toggle('replie', !S.alerteOuverte);
+    e.currentTarget.setAttribute('aria-expanded', String(S.alerteOuverte));
+  });
   map.on('moveend', majAlerte);
 
   /* ---------- lecture du potentiel en un point ---------- */
@@ -371,7 +379,6 @@
     $('#sectionChampi').hidden = S.modeCarte === 'plantes';
     $('#plantesSection').hidden = S.modeCarte !== 'plantes';
     map.closePopup();
-    if (S.modeCarte === 'plantes' && mobile.matches) replier(false); // sur téléphone : montrer tout de suite le contenu du mode
     if (S.tileLayer) S.tileLayer.redraw();
     MW.plantes.activer(S.modeCarte === 'plantes');
   }
@@ -459,32 +466,81 @@
       .bindTooltip(esc(p.display_name.split(',')[0]), { permanent: true, direction: 'right', offset: [8, 0] }).addTo(map);
     results.hidden = true;
     if (mobile.matches) replier(true);
-  // bloc des battues repliable dans les réglages (mémorisé)
-  $('#chasseBox').open = store.get('mw-chasse-ouvert', true);
-  $('#chasseBox').addEventListener('toggle', () => store.set('mw-chasse-ouvert', $('#chasseBox').open));
   }
+  // suggestions au fil de la frappe : Photon (komoot, données OpenStreetMap), fait pour ça ; Nominatim l'interdit.
+  // 3 lettres minimum, 300 ms d'attente, la requête précédente est annulée.
+  const libelleLieu = (pr) => [pr.name, pr.street && (pr.housenumber ? pr.street + ' ' + pr.housenumber : pr.street), pr.city || pr.county, pr.state]
+    .filter((x, i, a) => x && a.indexOf(x) === i).join(', ');
+  let sugCtl = null, sugMinut = null, suggestions = [];
+  function choisirLieu(f) {
+    const c = f.geometry.coordinates, pr = f.properties, nom = libelleLieu(pr);
+    $('#q').value = nom;
+    goTo({ lat: c[1], lon: c[0], display_name: nom, boundingbox: pr.extent ? [pr.extent[3], pr.extent[1], pr.extent[0], pr.extent[2]] : [c[1] - 0.01, c[1] + 0.01, c[0] - 0.015, c[0] + 0.015] });
+    $('#q').blur();
+  }
+  async function suggerer(q) {
+    if (sugCtl) sugCtl.abort();
+    sugCtl = new AbortController();
+    try {
+      const r = await fetch('https://photon.komoot.io/api/?lang=fr&limit=6&bbox=2.5,49.4,6.45,51.55&q=' + encodeURIComponent(q), { signal: sugCtl.signal });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      suggestions = (await r.json()).features.filter((f) => f.properties.countrycode === 'BE');
+      results.innerHTML = suggestions.length
+        ? suggestions.map((f, i) => '<li><button type="button" data-i="' + i + '">' + esc(libelleLieu(f.properties)) + '</button></li>').join('')
+        : '<li class="muted">Aucun lieu trouvé en Belgique.</li>';
+      results.querySelectorAll('button').forEach((b) => { b.onclick = () => choisirLieu(suggestions[+b.dataset.i]); });
+      results.hidden = false;
+    } catch (err) {
+      if (err.name !== 'AbortError') { suggestions = []; results.innerHTML = '<li class="muted">Recherche indisponible pour l’instant.</li>'; results.hidden = false; }
+    }
+  }
+  $('#q').addEventListener('input', () => {
+    clearTimeout(sugMinut); suggestions = [];
+    const q = $('#q').value.trim();
+    if (q.length < 3) { results.hidden = true; return; }
+    sugMinut = setTimeout(() => suggerer(q), 300);
+  });
+  // flèches : du champ vers les suggestions, et entre elles
+  $('#search').addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    const bts = [...results.querySelectorAll('button')]; if (results.hidden || !bts.length) return;
+    e.preventDefault();
+    const i = bts.indexOf(document.activeElement);
+    const j = e.key === 'ArrowDown' ? Math.min(bts.length - 1, i + 1) : i - 1;
+    (j < 0 ? $('#q') : bts[j]).focus();
+  });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !results.hidden) { results.hidden = true; $('#q').focus(); } });
   document.addEventListener('click', (e) => { if (!results.hidden && !e.target.closest('#results, #search')) results.hidden = true; });
 
-  // géolocalisation à côté de la recherche : centre la carte sur ta position (sans ouvrir la fiche)
-  $('#geoloc').addEventListener('click', () => {
+  // « Ma position » : centre la carte sur ta position (sans ouvrir la fiche)
+  function localiser(zoom) {
     const bt = $('#geoloc');
     if (!navigator.geolocation) { bt.title = 'Position indisponible sur ce navigateur'; return; }
     bt.classList.add('cherche'); bt.setAttribute('aria-busy', 'true');
     navigator.geolocation.getCurrentPosition((p) => {
       bt.classList.remove('cherche'); bt.removeAttribute('aria-busy');
       const ll = [p.coords.latitude, p.coords.longitude];
-      map.setView(ll, Math.max(map.getZoom(), 14));
+      map.setView(ll, Math.max(map.getZoom(), zoom));
       if (S.moi) map.removeLayer(S.moi);
       S.moi = L.circleMarker(ll, { radius: 7, color: '#ffffff', weight: 3, fillColor: '#2f6fa8', fillOpacity: 1, interactive: false }).addTo(map);
     }, () => { bt.classList.remove('cherche'); bt.removeAttribute('aria-busy'); bt.title = 'Position indisponible (accès refusé ou pas de signal)'; },
     { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
-  });
+  }
+  $('#geoloc').addEventListener('click', () => localiser(14));
+  // à l'ouverture : la carte se centre sur toi, sans rien déplier (sauf si l'adresse donne déjà un lieu ou une action)
+  (async () => {
+    const ps = new URLSearchParams(location.search);
+    if (h0 || ps.has('ici') || ps.has('ajout') || !navigator.geolocation) return;
+    try { if ((await navigator.permissions.query({ name: 'geolocation' })).state === 'denied') return; } catch (e) { /* API absente : on demande */ }
+    localiser(12);
+  })();
 
+  // Entrée : la première suggestion ; sinon une recherche Nominatim (une requête, à la validation seulement)
   $('#search').addEventListener('submit', async (e) => {
     e.preventDefault();
     const q = $('#q').value.trim();
     if (!q) return;
+    if (suggestions.length) return choisirLieu(suggestions[0]);
     results.hidden = false; results.innerHTML = '<li class="muted">Recherche…</li>';
     try {
       const r = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=be&limit=5&accept-language=fr&q=' + encodeURIComponent(q));
