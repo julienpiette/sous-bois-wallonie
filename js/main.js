@@ -63,8 +63,7 @@
     if (reel) ortho.bringToFront();
     const bt = $('#vue');
     bt.setAttribute('aria-pressed', String(reel));
-    bt.querySelector('span').textContent = reel ? 'Plan' : 'Réel';
-    bt.title = reel ? 'Revenir au plan' : 'Voir la photo aérienne';
+    bt.title = reel ? 'Revenir au plan' : 'Afficher la photo satellite';
     document.body.classList.toggle('vue-reelle', reel);
     $('#orthoBox').hidden = !reel;
   };
@@ -96,10 +95,12 @@
   function replier(on) {
     panel.classList.toggle('collapsed', on);
     $('#toggle').setAttribute('aria-expanded', String(!on));
-    $('#toggleTxt').textContent = on ? 'Réglages' : 'Replier';
   }
   $('#toggle').onclick = () => replier(!panel.classList.contains('collapsed'));
   if (mobile.matches) replier(true);
+  // bloc des battues repliable dans les réglages (mémorisé)
+  $('#chasseBox').open = store.get('mw-chasse-ouvert', true);
+  $('#chasseBox').addEventListener('toggle', () => store.set('mw-chasse-ouvert', $('#chasseBox').open));
 
   /* ---------- liste des espèces ---------- */
   const list = $('#species');
@@ -273,6 +274,7 @@
     el.classList.remove('inconnu');
     if (!S.ferm) { el.hidden = true; return; }
     const total = S.ferm.length, v = map.getBounds();
+    $('#chasseResume').textContent = total + ' fermé' + (total > 1 ? 's' : '') + ' ' + jour;
     const n = S.ferm.filter((z) => z.b[2] >= v.getWest() && z.b[0] <= v.getEast() && z.b[3] >= v.getSouth() && z.b[1] <= v.getNorth()).length;
     $('#chasseEtat').innerHTML = total
       ? '<b>' + total + '</b> territoire' + (total > 1 ? 's' : '') + ' fermé' + (total > 1 ? 's' : '') + ' en Wallonie ' + esc(jour) + ', hachuré' + (total > 1 ? 's' : '') + ' en rouge.'
@@ -368,7 +370,6 @@
     document.querySelectorAll('.bascule-mode button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === S.modeCarte)));
     $('#sectionChampi').hidden = S.modeCarte === 'plantes';
     $('#plantesSection').hidden = S.modeCarte !== 'plantes';
-    $('#panel h1').innerHTML = S.modeCarte === 'plantes' ? 'Carte <span>plantes et fruits</span>' : 'Carte <span>des milieux</span>';
     map.closePopup();
     if (S.modeCarte === 'plantes' && mobile.matches) replier(false); // sur téléphone : montrer tout de suite le contenu du mode
     if (S.tileLayer) S.tileLayer.redraw();
@@ -384,8 +385,11 @@
   if (ongletIci) ongletIci.addEventListener('click', (e) => { e.preventDefault(); ici(); });
 
   /* ---------- clic carte : popup (potentiel, fermeture du jour) ou ajout d'un coin ---------- */
+  // toucher la carte à côté d'une bulle ou d'une fiche ouverte la ferme, sans en ouvrir une autre
+  map.on('preclick', () => { S.fermerSeulement = !!(map._popup && map.hasLayer(map._popup)) || !fiche.hidden; });
   map.on('click', (e) => {
     if (S.addMode) return placeCoin(e.latlng);
+    if (S.fermerSeulement) { S.fermerSeulement = false; if (!fiche.hidden) fermerFiche(); return; }
     const lat = e.latlng.lat, lng = e.latlng.lng, ferme = fermeAuPoint(lat, lng);
     const box = document.createElement('div');
     box.className = 'pop-ici';
@@ -393,7 +397,8 @@
       '<b>Milieu favorable à…</b><div class="pop-rows"><span class="muted">Lecture…</span></div>' +
       '<button type="button" class="pop-btn">Puis-je cueillir ici ? Pourquoi ici ?</button>';
     box.querySelector('.pop-btn').onclick = () => { map.closePopup(); ouvrirFiche(lat, lng, 'Point choisi'); };
-    L.popup({ maxWidth: 320 }).setLatLng(e.latlng).setContent(box).openOn(map);
+    // contenu à défilement interne : la croix de fermeture reste toujours visible
+    L.popup({ maxWidth: 320, maxHeight: Math.round(window.innerHeight * 0.38), autoPanPaddingTopLeft: mobile.matches ? [12, 130] : [370, 80] }).setLatLng(e.latlng).setContent(box).openOn(map);
     lignesPotentiel(lat, lng).then((h) => { box.querySelector('.pop-rows').innerHTML = h; });
   });
 
@@ -454,6 +459,9 @@
       .bindTooltip(esc(p.display_name.split(',')[0]), { permanent: true, direction: 'right', offset: [8, 0] }).addTo(map);
     results.hidden = true;
     if (mobile.matches) replier(true);
+  // bloc des battues repliable dans les réglages (mémorisé)
+  $('#chasseBox').open = store.get('mw-chasse-ouvert', true);
+  $('#chasseBox').addEventListener('toggle', () => store.set('mw-chasse-ouvert', $('#chasseBox').open));
   }
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !results.hidden) { results.hidden = true; $('#q').focus(); } });
   document.addEventListener('click', (e) => { if (!results.hidden && !e.target.closest('#results, #search')) results.hidden = true; });

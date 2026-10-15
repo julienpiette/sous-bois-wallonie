@@ -2,53 +2,64 @@
    fiche « Puis-je cueillir ici ? ». Thème clair par défaut, sombre si choisi (html.sombre) ; jetons de couleur de css/site.css.
    Règles limitées à #panel, #fiche et aux éléments propres à la carte : l'en-tête et les onglets restent ceux du site. */
 html.plein-ecran, body.carte-page { height: 100%; }
-body.carte-page { --barre: 70px; --haut: calc(var(--head) + var(--barre)); margin: 0; overflow: hidden; background: var(--brume); color: var(--humus); font: 14px/1.45 var(--texte); }
+body.carte-page { --barre: 64px; --haut: calc(var(--head) + var(--barre)); margin: 0; overflow: hidden; background: var(--brume); color: var(--humus); font: 14px/1.45 var(--texte); }
 body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
-#map { position: absolute; inset: var(--haut) 0 0 0; background: #e9ebe4; font-family: var(--texte); }
+/* la carte occupe tout l'écran sous l'en-tête ; recherche et bascules flottent par-dessus */
+#map { position: absolute; inset: var(--head) 0 0 0; background: #e9ebe4; font-family: var(--texte); }
+#map .leaflet-top { top: var(--barre); }
 
-/* ---------- barre au-dessus de la carte : mode, recherche, position, vue (ne recouvre jamais la carte) ---------- */
-.barre-carte { position: absolute; z-index: 1100; top: var(--head); left: 0; right: 0; height: var(--barre); box-sizing: border-box;
-  display: flex; align-items: center; gap: var(--e2); padding: var(--e2) var(--e3); background: var(--papier); border-bottom: 1px solid var(--trait); }
+/* ---------- barre flottante : mode, recherche, vue satellite ---------- */
+.barre-carte { position: absolute; z-index: 1100; top: calc(var(--head) + var(--e3)); left: calc(340px + var(--e6)); right: var(--e3);
+  display: flex; align-items: center; gap: var(--e2); pointer-events: none; }
+.barre-carte > * { pointer-events: auto; }
 /* même bascule que le bulletin : fond en creux, choix posé en papier */
-.bascule-mode { display: inline-flex; flex: none; padding: var(--e1); gap: var(--e1); border-radius: var(--r-pilule); background: var(--creux); }
-.bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: var(--e2); min-height: 44px; min-width: 48px; padding: 0 var(--e4); border: 0;
+.bascule-mode { display: inline-flex; flex: none; padding: var(--e1); gap: var(--e1); border-radius: var(--r-pilule); background: var(--papier); box-shadow: var(--ombre-flottant); }
+.bascule-mode button { display: inline-flex; align-items: center; justify-content: center; gap: var(--e2); min-height: 40px; min-width: 48px; padding: 0 var(--e4); border: 0;
   border-radius: var(--r-pilule); background: transparent; color: var(--humus-2); font: 600 15px var(--texte); cursor: pointer; white-space: nowrap;
   transition: background-color var(--moyen) ease, color var(--moyen) ease; }
 .bascule-mode button svg { width: 20px; height: 20px; flex: none; }
-.bascule-mode button[aria-pressed=true] { background: var(--papier); color: var(--humus); box-shadow: 0 0 0 1px var(--trait); }
-.barre-carte .recherche { display: flex; flex: 1 1 auto; max-width: 560px; min-width: 0; margin: 0; position: relative; }
-.barre-carte .recherche input { flex: 1; min-width: 0; min-height: 48px; padding: 0 52px 0 var(--e4); border-radius: var(--r-pilule); border: 0;
-  background: var(--creux); color: var(--humus); font: 16px var(--texte); }
+.bascule-mode button[aria-pressed=true] { background: var(--foret); color: var(--creme); }
+.barre-carte .recherche { display: flex; flex: 1 1 auto; max-width: 420px; min-width: 0; margin: 0; position: relative; }
+.barre-carte .recherche input { flex: 1; min-width: 0; min-height: 48px; padding: 0 52px 0 var(--e5); border-radius: var(--r-pilule); border: 0;
+  background: var(--papier); color: var(--humus); font: 16px var(--texte); box-shadow: var(--ombre-flottant); }
 .barre-carte .recherche input::placeholder { color: var(--humus-3); }
 .barre-carte .recherche input:focus { outline: 3px solid var(--focus); outline-offset: 1px; }
 .barre-carte .recherche button { position: absolute; right: var(--e1); top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%;
   background: var(--foret); color: var(--creme); display: grid; place-items: center; cursor: pointer; }
-.barre-carte .recherche button svg, .btn-geo svg, .btn-vue svg { width: 20px; height: 20px; }
-.btn-geo, .btn-vue { flex: none; min-width: 48px; min-height: 48px; border-radius: var(--r-pilule); border: 0; background: var(--creux); color: var(--humus);
-  display: inline-flex; align-items: center; justify-content: center; gap: var(--e2); font: 600 15px var(--texte); cursor: pointer; padding: 0 var(--e4);
-  transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
-.btn-geo:hover, .btn-vue:hover { background: var(--mousse-2); }
-.btn-geo:active, .btn-vue:active, .bascule-mode button:active { transform: scale(.97); }
-.btn-geo.cherche { color: var(--mousse); }
+.barre-carte .recherche button svg { width: 20px; height: 20px; }
+.bascule-mode button:active { transform: scale(.97); }
 .barre-carte .results { position: absolute; z-index: 1300; top: calc(100% + var(--e2)); left: 0; right: 0; margin: 0; padding: var(--e2); list-style: none;
   background: var(--papier); border-radius: var(--r-carte); box-shadow: var(--ombre-flottant); display: grid; gap: 2px; }
 .barre-carte .results button { width: 100%; min-height: 44px; text-align: left; border: 0; border-radius: var(--r-moyen); background: none; padding: var(--e2) var(--e3); font: 15px var(--texte); color: var(--humus); cursor: pointer; }
 .barre-carte .results button:hover, .barre-carte .results button:focus-visible { background: var(--brume); }
 .barre-carte .results .muted { padding: var(--e2) var(--e3); color: var(--humus-2); font-size: 14px; }
-/* mobile : recherche pleine largeur en haut, mode (et vue) en dessous */
+
+/* ---------- outils en bas à droite : Satellite et Ma position, ronds, nommés sous l'icône ---------- */
+/* sur ordinateur, au-dessus des boutons de zoom */
+.outils-carte { position: absolute; z-index: 1000; right: var(--e3); bottom: 112px; display: grid; gap: var(--e3); justify-items: center; }
+.outil { display: grid; justify-items: center; gap: 2px; border: 0; background: none; padding: 0; cursor: pointer; color: var(--humus); font: 600 12px var(--texte); }
+.outil .rond { width: 52px; height: 52px; border-radius: 50%; background: var(--papier); box-shadow: var(--ombre-flottant); display: grid; place-items: center;
+  transition: background-color var(--vite) ease, transform var(--vite) var(--sortie); }
+.outil .rond svg { width: 24px; height: 24px; }
+.outil > span:last-child { background: var(--papier); border-radius: var(--r-pilule); padding: 0 var(--e2); box-shadow: var(--ombre-flottant); }
+.outil:hover .rond { background: var(--accent-2); }
+.outil:active .rond { transform: scale(.94); }
+.outil[aria-pressed=true] .rond { background: var(--foret); color: var(--accent); }
+.outil.cherche .rond { color: var(--mousse); animation: cherche 1s ease-in-out infinite alternate; }
+@keyframes cherche { to { opacity: .55; } }
+
+/* mobile : recherche pleine largeur, puis la bascule de mode, le tout flottant */
 @media (max-width: 860px) {
-  body.carte-page { --barre: 126px; }
-  .barre-carte { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "rech geo" "mode vue"; gap: var(--e2); padding: var(--e2) var(--e3); align-content: center; }
-  .barre-carte .recherche { grid-area: rech; max-width: none; }
-  .btn-geo { grid-area: geo; }
-  .btn-vue { grid-area: vue; }
-  .bascule-mode { grid-area: mode; display: flex; }
-  .bascule-mode button { flex: 1; padding: 0 var(--e2); }
+  body.carte-page { --barre: 112px; }
+  .barre-carte { top: calc(var(--head) + var(--e2)); left: var(--e2); right: var(--e2); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--e2); }
+  .barre-carte .recherche { max-width: none; }
+  .bascule-mode { display: flex; justify-self: start; max-width: 100%; }
+  .bascule-mode button { padding: 0 var(--e3); }
+  .outils-carte { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + 76px); right: var(--e2); }
 }
 @media (max-width: 480px) { .bascule-mode button svg { display: none; } }
-
 /* vue réelle (photo aérienne) : halo clair autour des routes, noms et zones fermées, pour qu'ils restent lisibles */
-.btn-vue[aria-pressed=true] { background: var(--foret); color: var(--creme); }
+
 body.vue-reelle .leaflet-dessus-pane { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 0 1px rgba(255, 255, 255, .9)); }
 body.vue-reelle .leaflet-fermetures-pane { filter: drop-shadow(0 0 2px #fff); }
 body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes pâles laissent voir la photo, les fortes la teintent */
@@ -77,19 +88,23 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 
 /* ---------- panneau ---------- */
 #panel {
-  position: absolute; z-index: 1001; top: calc(var(--haut) + 12px); left: 12px; width: 340px; max-height: calc(100% - var(--haut) - 24px);
+  position: absolute; z-index: 1001; top: calc(var(--head) + var(--e3)); left: var(--e3); width: 340px; max-height: calc(100% - var(--head) - var(--e6));
   background: var(--papier); border-radius: var(--r-carte); box-shadow: var(--ombre-flottant);
   display: flex; flex-direction: column; overflow: hidden;
 }
-#panel > header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px 6px 14px; border-bottom: 1px solid var(--trait); min-height: 52px; }
-#panel h1 { font: 600 18px var(--titre); margin: 0; letter-spacing: -.01em; color: var(--humus); }
-#panel h1 span { color: inherit; }
-#toggle { background: none; border: 0; color: var(--humus-2); font: 600 14px var(--texte); min-height: 44px; padding: 0 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
-#toggle svg { width: 18px; height: 18px; transition: transform .2s; }
-#panel.collapsed #toggle svg { transform: rotate(180deg); }
+/* en-tête du panneau : tout le bandeau est le bouton ; le chevron dit dans quel sens il s'ouvre */
+#panel > header { border-bottom: 1px solid var(--trait); }
+#toggle { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--e3); min-height: 60px; padding: var(--e2) var(--e3) var(--e2) var(--e4);
+  border: 0; background: none; color: var(--humus); text-align: left; cursor: pointer; font: inherit; }
+#toggle .poignee { display: none; }
+#toggle .titre b { display: block; font: 600 16px/1.25 var(--texte); }
+#toggle .titre small { display: block; font-size: 13px; color: var(--humus-2); }
+#toggle .chevron { width: 40px; height: 40px; border-radius: 50%; background: var(--creux); display: grid; place-items: center; transition: background-color var(--vite) ease; }
+#toggle .chevron svg { width: 20px; height: 20px; transition: transform var(--moyen) var(--sortie); }
+#toggle:hover .chevron { background: var(--mousse-2); }
+#panel.collapsed #toggle .chevron svg { transform: rotate(180deg); }
 #panel.collapsed .body { display: none; }
-#panel.collapsed > header { border-bottom: 0; }
-#panel .body { overflow-y: auto; padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 12px; overscroll-behavior: contain; }
+#panel.collapsed > header { border-bottom: 0; }#panel .body { overflow-y: auto; padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 12px; overscroll-behavior: contain; }
 #panel section { display: flex; flex-direction: column; gap: 6px; padding-top: 10px; }
 #panel .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 #panel .k { font: 600 13px var(--texte); color: var(--humus-2); }
@@ -119,7 +134,13 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 #panel .mini button { min-height: 36px; padding: 0 var(--e2); }
 
 /* battues : choix du jour */
-#panel .chasse { background: var(--non-2); border-radius: var(--r-moyen); padding: var(--e3); margin-top: var(--e2); }
+#panel details.chasse { background: var(--non-2); border: 0; border-radius: var(--r-moyen); padding: 0 var(--e3); margin-top: var(--e2); display: flex; flex-direction: column; gap: var(--e2); }
+#panel details.chasse[open] { padding-bottom: var(--e3); }
+#panel details.chasse summary { list-style: none; display: flex; align-items: center; gap: var(--e2); min-height: 48px; color: var(--non); }
+#panel details.chasse summary::-webkit-details-marker { display: none; }
+#panel details.chasse summary::after { content: ''; margin-left: auto; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform var(--moyen) var(--sortie); }
+#panel details.chasse[open] summary::after { transform: translateY(2px) rotate(225deg); }
+#panel .chasse-resume { font-size: 13px; font-weight: 600; color: var(--humus-2); }
 #panel .chasse .k { color: var(--non); font-weight: 600; }
 #panel .jours { display: flex; flex-wrap: wrap; gap: 6px; }
 #panel .jours button { min-height: 40px; padding: var(--e1) var(--e3); border-radius: var(--r-pilule); background: var(--papier); font-size: 14px; }
@@ -222,6 +243,13 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 
 /* ---------- mobile : panneau en tiroir au-dessus des onglets ---------- */
 @media (max-width: 860px) {
-  #panel { top: auto; left: 0; right: 0; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); width: 100%; max-height: 62%;
-    border-radius: var(--r-carte) var(--r-carte) 0 0; box-shadow: var(--ombre-flottant); }
+  /* tiroir plus bas qu'avant (35 % de l'écran) : la carte reste visible quand les réglages sont ouverts */
+  #panel { top: auto; left: 0; right: 0; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px)); width: 100%; max-height: 38%;
+    border-radius: var(--r-feuille) var(--r-feuille) 0 0; box-shadow: var(--ombre-flottant); }
+  #toggle { grid-template-columns: minmax(0, 1fr) auto; padding-top: var(--e4); position: relative; }
+  #toggle .poignee { display: block; position: absolute; top: var(--e2); left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: var(--r-pilule); background: var(--trait); }
+  /* sur téléphone, le tiroir s'ouvre vers le haut : chevron vers le haut quand il est fermé */
+  #toggle .chevron { background: var(--foret); color: var(--accent); }
+  #toggle .chevron svg { transform: rotate(180deg); }
+  #panel.collapsed #toggle .chevron svg { transform: rotate(0deg); }
 }

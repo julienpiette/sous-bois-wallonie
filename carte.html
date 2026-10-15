@@ -100,11 +100,12 @@
     <button type="submit" aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
     <ul id="results" class="results" hidden></ul>
   </form>
-  <button id="geoloc" class="btn-geo" type="button" aria-label="Me localiser" title="Me localiser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
-  <button id="vue" class="btn-vue" type="button" aria-pressed="false" title="Voir la photo aérienne"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.6"/></svg><span>Réel</span></button>
 </div>
 <div id="map" role="application" aria-label="Carte des milieux favorables et des zones fermées pour la chasse"></div>
-<div id="mapMsg" class="map-msg" hidden>Aucune donnée de potentiel dans data/tuiles/ : carte vide pour l’instant</div>
+<div class="outils-carte">
+  <button id="vue" class="outil" type="button" aria-pressed="false" title="Afficher la photo satellite"><span class="rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7 9 3 5 7l4 4M17 11l4 4-4 4-4-4M8 12l4 4M16 8l-4-4"/><path d="M9 21a6 6 0 0 0-6-6"/><path d="M5 21a2 2 0 0 0-2-2"/></svg></span><span>Satellite</span></button>
+  <button id="geoloc" class="outil" type="button" title="Centrer la carte sur ma position"><span class="rond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/></svg></span><span>Ma position</span></button>
+</div><div id="mapMsg" class="map-msg" hidden>Aucune donnée de potentiel dans data/tuiles/ : carte vide pour l’instant</div>
 <div id="alerteChasse" class="alerte-battue alerte-carte" role="status" hidden></div>
 
 <button id="ici" class="fab-ici" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="m9 10 2 2 4-4"/></svg>Puis-je cueillir ici ?</button>
@@ -116,16 +117,20 @@
 
 <aside id="panel" aria-label="Réglages de la carte">
   <header>
-    <h1>Carte <span>des milieux</span></h1>
-    <button id="toggle" type="button" aria-expanded="true" aria-controls="panelBody"><span id="toggleTxt">Replier</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+    <button id="toggle" type="button" aria-expanded="true" aria-controls="panelBody">
+      <span class="poignee" aria-hidden="true"></span>
+      <span class="titre"><b id="panelTitre">Réglages de la carte</b><small>Espèces, légende, battues</small></span>
+      <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></span>
+    </button>
   </header>
   <div class="body" id="panelBody">
 
-    <section class="chasse" aria-labelledby="t-chasse">
-      <div class="row"><span class="k" id="t-chasse">Battues et fermetures</span><a class="small" href="battues.html">Calendrier</a></div>
+    <details class="chasse" id="chasseBox" open>
+      <summary><span class="k" id="t-chasse">Battues et fermetures</span><span id="chasseResume" class="chasse-resume"></span></summary>
       <div id="jours" class="jours" role="group" aria-label="Jour affiché"></div>
       <p id="chasseEtat" class="muted">Chargement des fermetures…</p>
-    </section>
+      <a class="small" href="battues.html">Calendrier des battues</a>
+    </details>
 
     <p id="notice" class="notice" hidden></p>
 
