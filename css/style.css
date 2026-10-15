@@ -315,3 +315,11 @@ body.mode-plantes .choix-meteo { display: none; }
 }
 .mm-detail { margin: 0; padding: var(--e2) var(--e3) var(--e3); font-size: 14px; font-weight: 600; color: var(--humus); border-bottom: 1px solid var(--trait); }
 .mm-detail:empty { display: none; }
+
+/* mini-légende toujours visible au-dessus de l'onglet Filtres (la légende complète est dans les filtres) */
+.mini-legende { position: absolute; z-index: 1000; left: calc(340px + var(--e6)); bottom: var(--e6); margin: 0; display: flex; gap: var(--e2); flex-wrap: wrap; font: 600 12px var(--texte); color: var(--humus); pointer-events: none; }
+.mini-legende span { display: inline-flex; align-items: center; gap: var(--e1); background: var(--papier); border-radius: var(--r-pilule); padding: 2px var(--e2); box-shadow: 0 1px 3px rgba(24, 35, 26, .2); }
+.mini-legende i { width: 12px; height: 12px; border-radius: 3px; background: #c8782a; }
+.mini-legende .ml-sec i { background: #5d665b; }
+body:not(.meteo-annee) .mini-legende .ml-sec, body.mode-plantes .mini-legende { display: none; }
+@media (max-width: 860px) { .mini-legende { flex-direction: column; align-items: flex-start; gap: var(--e1); left: var(--e3); bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte) + 60px); } }

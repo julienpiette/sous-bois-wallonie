@@ -181,6 +181,7 @@
     if (!MW.meteoCarte.pret()) { el.textContent = 'Chargement de la météo…'; return; }
     const sp = tileLayers()[0];
     if (!sp) { el.textContent = 'Choisis une espèce dans les filtres'; return; }
+    const ml = document.querySelector('#miniLegende .ml-bon'); if (ml) ml.style.background = sp.color;
     const c = map.getCenter(), st = MW.meteoCarte.etatAu(sp.id, c.lat, c.lng), nom = NOM_COURT[sp.id] || sp.id;
     const P = { pousse: 'Fenêtre favorable ici pour les ', prepare: 'Ça se prépare ici pour les ', moyen: 'Conditions moyennes ici pour les ', sec: 'Trop sec ici pour les ',
       froid: 'Trop froid ici pour les ', chaud: 'Trop chaud ici pour les ', gel: 'Gel récent ici pour les ', defav: 'Rien d’évident ici pour les ', hors: 'Hors saison pour les ' };
@@ -387,6 +388,7 @@
     corps.innerHTML = '<p class="surtitre">' + esc(titre) + ' · ' + esc(D.formatDate(S.jour)) + '</p>' +
       '<p class="mono petit discret" style="margin:0">' + lat.toFixed(5) + ', ' + lng.toFixed(5) + '</p>' +
       '<div data-part="verdict"><p class="discret">Vérification auprès des services publics…</p></div>' +
+      '<h3 class="sous">La météo des derniers mois, ici</h3><div data-part="meteo"><p class="discret">Lecture de la météo…</p></div>' +
       '<h3 class="sous">Pourquoi ici ?</h3><div data-part="pourquoi"><p class="discret">Lecture du sol, du relief et de la forêt…</p></div>' +
       '<h3 class="sous">Milieu favorable à…</h3><div data-part="potentiel"><p class="discret">Lecture…</p></div>' +
       '<p class="petit discret" style="margin-top:14px">Un milieu favorable n’est pas une trouvaille. Doute = on ne mange pas : <a href="avant-de-manger.html">Avant de manger</a>.</p>';
@@ -398,6 +400,18 @@
       .catch(() => poser('verdict', '<div class="verdict-tete">' + D.statut('inconnu', 'À vérifier') + '<h3>Vérification impossible pour l’instant</h3></div><p>Fie-toi aux panneaux sur place.</p>'));
     MW.pourquoi.expliquer(lat, lng).then((h) => poser('pourquoi', h)).catch(() => poser('pourquoi', '<p class="discret">Explication indisponible pour l’instant.</p>'));
     lignesPotentiel(lat, lng).then((h) => poser('potentiel', h));
+    // météo des derniers mois au point (tendance régionale) : ce que les débutants ne savent pas
+    MW.meteoCarte.charger().then(() => {
+      let reserve = '';
+      const lignes = MW.SPECIES.filter((sp) => MW.model.calendar(sp, new Date().toISOString().slice(5, 10)) >= 0.25).map((sp) => {
+        const st = MW.meteoCarte.etatAu(sp.id, lat, lng), res = /^réserve/.test(st.detail);
+        if (res) reserve = st.detail.charAt(0).toUpperCase() + st.detail.slice(1) + '.';
+        return '<div><span><span class="point" style="background:' + sp.color + '"></span>' + esc(sp.name) + (st.detail && !res ? '<small>' + esc(st.detail) + '</small>' : '') + '</span>' +
+          '<span class="feu ' + (st.w >= 0.5 ? 'vert' : st.key === 'moyen' || st.key === 'prepare' ? 'orange' : 'gris') + '">' + esc(st.label) + '</span></div>';
+      });
+      poser('meteo', lignes.length ? (reserve ? '<p><b>' + esc(reserve) + '</b> Même un bon milieu reste souvent vide tant que le sol n’a pas rechargé.</p>' : '') + '<div class="especes-etat">' + lignes.join('') + '</div><p class="petit discret" style="margin-top:8px">Pluie, températures et réserve d’eau des trois derniers mois, à l’échelle de la région (environ 30 km). <a href="bulletin.html">Le bulletin</a></p>'
+        : '<p>Hors saison pour les champignons suivis.</p>');
+    }).catch(() => poser('meteo', '<p class="discret">Météo indisponible pour l’instant.</p>'));
   }
   function ici() {
     if (!navigator.geolocation) return ficheMessage('Ton navigateur ne donne pas ta position. Touche la carte à l’endroit voulu, puis « Puis-je cueillir ici ? ».');

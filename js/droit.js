@@ -146,7 +146,7 @@
       r.texte = (res[0].nom ? titre(res[0].nom) + ' : ' : '') + 'dans une réserve naturelle ou forestière, la cueillette est en principe interdite. Renseigne-toi auprès du gestionnaire.';
     } else if (cat === 1) {
       r.statut = 'oui'; r.mot = 'Oui';
-      r.titre = 'Oui, sous conditions';
+      r.titre = 'Permis, en respectant trois règles';
       r.texte = (p.PROPRIETE ? titre(p.PROPRIETE) + ' : forêt ' : 'Forêt ') + 'domaniale. Cueillette permise du lever au coucher du soleil, 10 litres maximum par personne, sauf les jours de fermeture pour la chasse.';
     } else if (cat === 3) {
       const nom = norme(p.PROPRIETE), c = (coms.status === 'fulfilled' && coms.value.communes || {})[nom];

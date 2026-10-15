@@ -18,6 +18,7 @@
   const moyenne = (a, i, j) => { let s = 0, n = 0; for (let k = Math.max(0, i); k <= Math.min(a.length - 1, j); k++) { s += a[k]; n++; } return n ? s / n : 0; };
   const liste = (a) => (a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' et ' + a[a.length - 1]);
 
+  const majReserve = (s) => s.charAt(0).toUpperCase() + s.slice(1);
   let massifsP = null;
   const massifs = () => (massifsP = massifsP || fetch('data/massifs.json').then((r) => r.json()).then((j) => j.massifs));
 
@@ -201,9 +202,9 @@
             '<span class="m-km">' + kmTexte(d) + '</span>' +
             '<span class="m-resume"><span class="feu ' + r.resume.feu[0] + '">' + r.resume.feu[1] + '</span>' + esc(r.resume.texte) + '</span></summary>' +
           '<div class="m-dedans">' +
-            '<p class="m-phrase">' + esc(r.phrase) + '</p>' +
+            '<p class="m-phrase">' + esc(r.phrase) + (r.etats.some((e) => /^réserve/.test(e.st.detail)) ? ' ' + esc(majReserve(r.etats.find((e) => /^réserve/.test(e.st.detail)).st.detail)) + '.' : '') + '</p>' +
             '<div class="especes-etat">' + r.etats.map((e) => '<div><span><span class="point" style="background:' + e.sp.color + '"></span>' + esc(e.sp.name) +
-              (e.st.detail ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>' +
+              (e.st.detail && !/^réserve/.test(e.st.detail) ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>' +
             '<p class="releve">Réserve d’eau sur 3 mois <b>' + (r.bal == null ? '?' : (r.bal > 0 ? '+' : '') + Math.round(r.bal) + ' mm') + '</b> · pluie sur 26 jours <b>' + Math.round(r.pluie26) + ' mm</b> · moyenne sur 20 jours <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
             '<p class="battues-massif" data-massif="' + esc(r.m.id) + '">Battues ce week-end : recherche…</p>' +
             '<div class="m-liens"><a href="carte.html#12/' + r.m.lat + '/' + r.m.lon + '">Voir sur la carte</a><a href="battues.html?massif=' + esc(r.m.id) + '">Calendrier des battues</a></div>' +

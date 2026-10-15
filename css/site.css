@@ -466,3 +466,6 @@ details.securite a { color: inherit; font-weight: 600; }
 .page .b-saison-info p { margin: 0 0 var(--e2); }
 .page .b-saison-info .btn.ligne { padding-inline: 0; min-height: 44px; }
 .page .b-saison-court { margin: 0 0 var(--e3); padding: var(--e3) var(--e4); background: var(--avec-2); border-radius: var(--r-moyen); font-size: 15px; }
+
+/* très petits écrans (320 px) : l'icône du menu suffit */
+@media (max-width: 359px) { .menu-btn span { display: none; } .menu-btn { padding: 0 var(--e3); } .site-head .in { padding-inline: var(--e3); } }
