@@ -60,9 +60,11 @@ body.carte-page .site-head { position: fixed; left: 0; right: 0; top: 0; }
 @media (max-width: 480px) { .bascule-mode button svg { display: none; } }
 /* vue réelle (photo aérienne) : halo clair autour des routes, noms et zones fermées, pour qu'ils restent lisibles */
 
-body.vue-reelle .leaflet-dessus-pane { filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, .95)) drop-shadow(0 0 1px rgba(255, 255, 255, .9)); }
+/* satellite : routes et noms sans halo (le halo doublait l'épaisseur des traits), opacité réglée selon le zoom dans main.js */
+body.vue-reelle .leaflet-dessus-pane { filter: saturate(.6); }
 body.vue-reelle .leaflet-fermetures-pane { filter: drop-shadow(0 0 2px #fff); }
-body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes pâles laissent voir la photo, les fortes la teintent */
+/* satellite : milieux en transparence normale (« multiplier » les rendait invisibles sur le vert sombre des bois) */
+
 #panel .ortho-box { display: grid; gap: var(--e1); background: var(--brume); border-radius: var(--r-moyen); padding: var(--e3); margin-top: var(--e2); }
 #panel .ortho-box p { margin: 0; }
 
@@ -99,9 +101,9 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
 #toggle .poignee { display: none; }
 #toggle .titre b { display: block; font: 600 16px/1.25 var(--texte); }
 #toggle .titre small { display: block; font-size: 13px; color: var(--humus-2); }
-#toggle .chevron { width: 40px; height: 40px; border-radius: 50%; background: var(--creux); display: grid; place-items: center; transition: background-color var(--vite) ease; }
+#toggle .chevron { width: 40px; height: 40px; border-radius: 50%; background: var(--fleche-fond); color: var(--fleche); display: grid; place-items: center; transition: transform var(--vite) var(--sortie); }
 #toggle .chevron svg { width: 20px; height: 20px; transition: transform var(--moyen) var(--sortie); }
-#toggle:hover .chevron { background: var(--mousse-2); }
+#toggle:hover .chevron { transform: scale(1.06); }
 #panel.collapsed #toggle .chevron svg { transform: rotate(180deg); }
 #panel #toggle, #panel #toggle:hover { display: grid; justify-content: stretch; background: none; border: 0; border-radius: 0; font: inherit; min-height: 60px; padding: var(--e3) var(--e3) var(--e3) var(--e5); }
 #panel.collapsed .body { display: none; }
@@ -250,7 +252,7 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
   #toggle { grid-template-columns: minmax(0, 1fr) auto; padding-top: var(--e4); position: relative; }
   #toggle .poignee { display: block; position: absolute; top: var(--e2); left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: var(--r-pilule); background: var(--trait); }
   /* sur téléphone, le tiroir s'ouvre vers le haut : chevron vers le haut quand il est fermé */
-  #toggle .chevron { background: var(--foret); color: var(--accent); }
+
   #toggle .chevron svg { transform: rotate(180deg); }
   #panel.collapsed #toggle .chevron svg { transform: rotate(0deg); }
 }
@@ -272,7 +274,8 @@ body.vue-reelle .leaflet-heat-pane { mix-blend-mode: multiply; } /* les classes 
   #panel.collapsed { left: var(--e3); right: auto; bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte)); border-radius: var(--r-pilule); background: var(--foret); }
   #panel.collapsed #toggle { padding: 0 var(--e2) 0 var(--e5); gap: var(--e2); color: var(--creme); border-radius: var(--r-pilule); }
   #panel.collapsed #toggle .poignee, #panel.collapsed #toggle .titre small { display: none; }
-  #panel.collapsed #toggle .chevron { background: transparent; }
+  /* onglet fermé (fond forêt, clair ou sombre) : rond citron vert, flèche foncée */
+  #panel.collapsed #toggle .chevron { background: var(--accent); color: var(--sur-accent); }
   .outils-carte { bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte)); }
 }
 
@@ -321,5 +324,14 @@ body.mode-plantes .choix-meteo { display: none; }
 .mini-legende span { display: inline-flex; align-items: center; gap: var(--e1); background: var(--papier); border-radius: var(--r-pilule); padding: 2px var(--e2); box-shadow: 0 1px 3px rgba(24, 35, 26, .2); }
 .mini-legende i { width: 12px; height: 12px; border-radius: 3px; background: #c8782a; }
 .mini-legende .ml-sec i { background: #5d665b; }
-body:not(.meteo-annee) .mini-legende .ml-sec, body.mode-plantes .mini-legende { display: none; }
+body:not(.meteo-annee) .mini-legende .ml-sec, body.sans-gris .mini-legende .ml-sec, body.mode-plantes .mini-legende { display: none; }
 @media (max-width: 860px) { .mini-legende { flex-direction: column; align-items: flex-start; gap: var(--e1); left: var(--e3); bottom: calc(var(--onglets) + env(safe-area-inset-bottom, 0px) + var(--bas-carte) + 60px); } }
+
+/* itinéraire vers un point : deux liens discrets, faciles à toucher au pouce */
+.itineraire { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e2); margin-top: var(--e2); }
+.itineraire span { font: 600 13px var(--texte); color: var(--humus-2); margin-right: var(--e1); }
+.itineraire a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--e4); border-radius: var(--r-pilule); background: var(--creux);
+  color: var(--humus); font: 600 14px var(--texte); text-decoration: none; transition: background-color var(--vite) ease; }
+.itineraire a:hover { background: var(--mousse-2); }
+.itineraire a:active { transform: scale(.97); }
+.leaflet-popup-content .itineraire a { color: var(--humus); }

@@ -16,6 +16,10 @@
   --texte: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
   --mono: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
   --humus-3: #5c685a; --creux: #e3e9d8;
+  /* manque d'eau : sable terne (jamais vert) ; neutre : gris sans teinte verte (hors saison, froid) */
+  --sable: #6e5230; --sable-2: #efe4d0; --neutre: #4f544d; --neutre-2: #e7e8e4;
+  /* flèche des filtres de la carte : rond plein, toujours contrasté */
+  --fleche-fond: #1e3b26; --fleche: #f3f6ea;
   /* espace (grille de 4 px), coins, mouvement */
   --e1: 4px; --e2: 8px; --e3: 12px; --e4: 16px; --e5: 20px; --e6: 24px; --e8: 32px; --e12: 48px; --e16: 64px;
   --r-petit: 8px; --r-moyen: 12px; --r-carte: 16px; --r-feuille: 28px; --r-pilule: 999px;
@@ -27,6 +31,8 @@
   --brume: #0f1a12; --papier: #17241a; --humus: #e4ecda; --humus-2: #a3b19c; --trait: #2a3a2c;
   --mousse: #cde46a; --mousse-2: #213226; --mousse-3: #e2f09a; --accent: #cde46a; --accent-2: #26331b;
   --focus: #cde46a; --foret: #17301e; --humus-3: #8b9886; --creux: #1e2e22;
+  --sable: #e2c79a; --sable-2: #3a2f1f; --neutre: #c3c8bf; --neutre-2: #262b26;
+  --fleche-fond: #cde46a; --fleche: #18231a;
   --oui: #8fd39b; --oui-2: #1b3020; --avec: #f0c564; --avec-2: #362b12; --non: #ff917b; --non-2: #3a1d17;
   --ombre: 0 1px 2px rgba(0, 0, 0, .4);
   --ombre-flottant: 0 0 0 1px rgba(255, 255, 255, .08), 0 12px 32px rgba(0, 0, 0, .5);
@@ -273,7 +279,8 @@ dl.pourquoi dd { margin: 0; }
 .feu::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
 .feu.vert { background: var(--oui-2); color: var(--oui); }
 .feu.orange { background: var(--avec-2); color: var(--avec); }
-.feu.gris { background: var(--mousse-2); color: var(--humus-2); }
+.feu.gris { background: var(--neutre-2); color: var(--neutre); }
+.feu.sec { background: var(--sable-2); color: var(--sable); }
 .feu.rouge { background: var(--non-2); color: var(--non); }
 
 /* tableaux */
@@ -469,3 +476,15 @@ details.securite a { color: inherit; font-weight: 600; }
 
 /* très petits écrans (320 px) : l'icône du menu suffit */
 @media (max-width: 359px) { .menu-btn span { display: none; } .menu-btn { padding: 0 var(--e3); } .site-head .in { padding-inline: var(--e3); } }
+
+/* recettes : loupe dans le champ, résultat signalé après une recherche validée */
+.page .r-rech { position: relative; display: block; }
+.page .r-rech input { padding-right: 56px; }
+.page .r-loupe { position: absolute; right: var(--e1); top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: var(--foret); color: var(--creme); display: grid; place-items: center; cursor: pointer; }
+.page .r-loupe svg { width: 20px; height: 20px; }
+.page .r-loupe:active { transform: translateY(-50%) scale(.94); }
+.page .r-compte { scroll-margin-top: calc(var(--head) + var(--e4)); border-radius: var(--r-moyen); }
+.page .r-compte p.r-vide { color: var(--humus); background: var(--sable-2); border-radius: var(--r-moyen); padding: var(--e3) var(--e4); font-family: var(--texte); }
+@media (prefers-reduced-motion: no-preference) { .page .r-compte.r-signal { animation: r-signal 900ms var(--sortie); } }
+@keyframes r-signal { 0% { background: var(--accent-2); box-shadow: 0 0 0 6px var(--accent-2); } 100% { background: transparent; box-shadow: 0 0 0 6px transparent; } }

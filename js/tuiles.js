@@ -40,21 +40,37 @@
   // latitude du bord nord d'une rangée de tuiles y au zoom z
   const latTuile = (y, z) => { const n = Math.PI - (2 * Math.PI * y) / 2 ** z; return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n))); };
 
-  // poids météo (0-1) par espèce et par pixel, interpolé entre les quatre coins de la tuile ; null si mode « Année normale »
-  function poidsTuile(coords, layers, fPoids) {
-    if (!fPoids) return null;
-    const z = coords.z, n = 2 ** z;
-    const lonO = (coords.x / n) * 360 - 180, lonE = ((coords.x + 1) / n) * 360 - 180;
-    const latN = latTuile(coords.y, z), latS = latTuile(coords.y + 1, z);
-    return layers.map((l) => {
-      const a = fPoids(l.id, latN, lonO), b = fPoids(l.id, latN, lonE), c = fPoids(l.id, latS, lonO), d = fPoids(l.id, latS, lonE);
-      return (p) => { const x = (p % T) / T, y = Math.floor(p / T) / T; return (a * (1 - x) + b * x) * (1 - y) + (c * (1 - x) + d * x) * y; };
-    });
+  // Sécheresse (0-1) par pixel : échantillonnée sur une grille de 9 x 9 points dans la tuile puis interpolée.
+  // (Avant : 4 coins seulement ; dézoomé, une tuile couvre presque toute la Wallonie et quelques coins secs
+  // grisaient tout.) null si mode « Année normale ».
+  const G = 8;
+  function secTuile(coords, fSec) {
+    if (!fSec) return null;
+    const z = coords.z, n = 2 ** z, ech = new Float32Array((G + 1) * (G + 1));
+    for (let j = 0; j <= G; j++) {
+      const lat = latTuile(coords.y + j / G, z);
+      for (let i = 0; i <= G; i++) ech[j * (G + 1) + i] = fSec(lat, ((coords.x + i / G) / n) * 360 - 180);
+    }
+    return (p) => {
+      const x = ((p % T) / T) * G, y = (Math.floor(p / T) / T) * G, i = Math.min(G - 1, Math.floor(x)), j = Math.min(G - 1, Math.floor(y)), fx = x - i, fy = y - j;
+      const a = ech[j * (G + 1) + i], b = ech[j * (G + 1) + i + 1], c = ech[(j + 1) * (G + 1) + i], d = ech[(j + 1) * (G + 1) + i + 1];
+      return (a * (1 - fx) + b * fx) * (1 - fy) + (c * (1 - fx) + d * fx) * fy;
+    };
+  }
+  // petit bonus de latitude (MW.BONUS_SUD) ajouté au rang du site, par rangée de pixels
+  function bonusSud(lat) {
+    const B = MW.BONUS_SUD; if (!B) return 0;
+    return B.BONUS_MAX * Math.max(0, Math.min(1, (B.LAT_SANS_BONUS - lat) / (B.LAT_SANS_BONUS - B.LAT_BONUS_MAX)));
+  }
+  function bonusTuile(coords) {
+    const z = coords.z, out = new Float32Array(T);
+    for (let r = 0; r < T; r++) out[r] = bonusSud(latTuile(coords.y + (r + 0.5) / T, z));
+    return out;
   }
 
   // getLayers() -> [{ id, color, opacity }] ; getMode() -> 'dominant' | 'overlay'
-  // getPoids() -> null (année normale) ou fonction (id, lat, lon) -> 0-1 (météo de cette année)
-  function create(index, getLayers, getMode, getPoids) {
+  // getSec() -> null (année normale) ou fonction (lat, lon) -> sécheresse 0-1 (météo de cette année)
+  function create(index, getLayers, getMode, getSec) {
     const B = MW.BBOX;
     const Layer = L.GridLayer.extend({
       createTile(coords, done) {
@@ -72,9 +88,12 @@
             const ctx = tile.getContext('2d'), out = ctx.createImageData(T, T);
             // alpha = part de forêt dans le pixel : dézoomé, un massif boisé à 20 % suffit pour être affiché
             const amin = nz >= index.maxZoom ? 128 : 50;
-            const val = (i, p) => { const d = datas[i]; return d && d[p * 4 + 3] >= amin ? d[p * 4] / 255 : -1; };
-            const pw = poidsTuile(coords, layers, getPoids ? getPoids() : null);
-            MW.render.paintClasses(out.data, T * T, val, layers, getMode(), pw ? (i, p) => pw[i](p) : null);
+            const bonus = bonusTuile(coords);
+            // dézoomé, chaque pixel est une moyenne de nombreuses parcelles : les rangs se tassent vers le milieu et
+            // peu de pixels atteignent « Bon ». On compense légèrement ce tassement aux petits zooms seulement.
+            const tasse = nz <= 8 ? 1 / 0.88 : nz <= 10 ? 1 / 0.94 : 1;
+            const val = (i, p) => { const d = datas[i]; return d && d[p * 4 + 3] >= amin ? Math.min(1, (d[p * 4] / 255) * tasse + bonus[Math.floor(p / T)]) : -1; };
+            MW.render.paintClasses(out.data, T * T, val, layers, getMode(), secTuile(coords, getSec ? getSec() : null));
             ctx.putImageData(out, 0, 0);
           }
           done(null, tile);
@@ -99,8 +118,8 @@
     const ctx = c.getContext('2d');
     ctx.drawImage(im, Math.floor((xf - x) * T), Math.floor((yf - y) * T), 1, 1, 0, 0, 1, 1);
     const d = ctx.getImageData(0, 0, 1, 1).data;
-    return d[3] < 128 ? 0 : d[0] / 255;
+    return d[3] < 128 ? 0 : Math.min(1, d[0] / 255 + bonusSud(lat));
   }
 
-  MW.tuiles = { charger, create, valueAt };
+  MW.tuiles = { charger, create, valueAt, bonusSud };
 })();

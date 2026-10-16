@@ -64,12 +64,21 @@
     bt.setAttribute('aria-pressed', String(reel));
     bt.title = reel ? 'Revenir au plan' : 'Afficher la photo satellite';
     document.body.classList.toggle('vue-reelle', reel);
+    opaciteDessus();
     $('#orthoBox').hidden = !reel;
   };
   ortho.setOpacity(store.get('mw-ortho-op', 1));
   $('#vue').addEventListener('click', () => setVue(!S.reel));
   $('#orthoOp').value = store.get('mw-ortho-op', 1);
   $('#orthoOp').addEventListener('input', (e) => { ortho.setOpacity(+e.target.value); store.set('mw-ortho-op', +e.target.value); });
+  // satellite : routes, cours d'eau et noms de plus en plus discrets en zoomant (les traits IGN s'élargissent avec le zoom)
+  function opaciteDessus() {
+    const z = map.getZoom();
+    map.getPane('dessus').style.opacity = !S.reel ? '' : z >= 16 ? '0.35' : z >= 14 ? '0.45' : z >= 12 ? '0.6' : '0.75';
+    // et les milieux plus transparents de près, pour voir les arbres dessous
+    map.getPane('heat').style.opacity = !S.reel ? '' : z >= 16 ? '0.5' : z >= 14 ? '0.65' : '0.8';
+  }
+  map.on('zoomend', opaciteDessus);
   setVue(store.get('mw-vue', 'plan') === 'reel');
   // ancienneté des forêts publiée seulement avec l'autorisation du SPW : attribution sur la carte, jamais masquée
   if (MW.INTERRUPTEURS && MW.INTERRUPTEURS.anciennete && MW.INTERRUPTEURS.ancienneteAttribution) map.attributionControl.addAttribution('Ancienneté des forêts : © <a href="mentions.html#attribution-anciennete">SPW</a>');
@@ -172,7 +181,7 @@
   /* ---------- deux lectures de la carte : « Météo de cette année » (par défaut) ou « Année normale » ---------- */
   S.meteo = store.get('mw-carte-meteo', 'annee') === 'normale' ? 'normale' : 'annee';
   const NOM_COURT = { cepe: 'cèpes', girolle: 'girolles', morille: 'morilles', trompette: 'trompettes', chanterelle: 'chanterelles en tube', pied: 'pieds de mouton' };
-  const poidsMeteo = () => (S.meteo === 'annee' && MW.meteoCarte.pret() ? MW.meteoCarte.poids : null);
+  const poidsMeteo = () => (S.meteo === 'annee' && MW.meteoCarte.pret() ? MW.meteoCarte.sec : null);
   function resumeMeteo() {
     const el0 = $('#meteoResume'); if (!el0) return;
     const el = { set textContent(v) { el0.textContent = v; $('#meteoDetail').textContent = v; $('#meteoBtn').title = v; } };
@@ -182,6 +191,10 @@
     const sp = tileLayers()[0];
     if (!sp) { el.textContent = 'Choisis une espèce dans les filtres'; return; }
     const ml = document.querySelector('#miniLegende .ml-bon'); if (ml) ml.style.background = sp.color;
+    // l'entrée « trop sec » de la mini-légende n'apparaît que s'il y a vraiment du gris dans la vue
+    const bb = map.getBounds(); let gris = false;
+    for (let a = 0; a <= 4 && !gris; a++) for (let b = 0; b <= 4 && !gris; b++) gris = MW.meteoCarte.sec(bb.getSouth() + (bb.getNorth() - bb.getSouth()) * a / 4, bb.getWest() + (bb.getEast() - bb.getWest()) * b / 4) >= MW.SECHERESSE.SEUIL_GRIS;
+    document.body.classList.toggle('sans-gris', !gris);
     const c = map.getCenter(), st = MW.meteoCarte.etatAu(sp.id, c.lat, c.lng), nom = NOM_COURT[sp.id] || sp.id;
     const P = { pousse: 'Fenêtre favorable ici pour les ', prepare: 'Ça se prépare ici pour les ', moyen: 'Conditions moyennes ici pour les ', sec: 'Trop sec ici pour les ',
       froid: 'Trop froid ici pour les ', chaud: 'Trop chaud ici pour les ', gel: 'Gel récent ici pour les ', defav: 'Rien d’évident ici pour les ', hors: 'Hors saison pour les ' };
@@ -243,7 +256,7 @@
       ? '<div class="lg-row" ' + cols + '><span class="lg-nm">Bon milieu, trop sec</span>' + gris + '</div>'
       : '';
     const note = S.meteo === 'annee'
-      ? 'Milieux favorables, croisés avec la météo des derniers mois (pluie, température, sécheresse). En gris : un bon milieu où la météo ne suit pas en ce moment. La météo est une tendance régionale (environ 30 km), pas l’état d’un bois précis.'
+      ? 'Milieux favorables, croisés avec la météo des derniers mois (pluie, température, sécheresse). Un bois qui a manqué d’eau perd un cran ; en gris, seulement là où la sécheresse est vraiment marquée (environ une année sur quinze). La météo est une tendance régionale (environ 30 km), pas l’état d’un bois précis.'
       : 'Milieux favorables à chaque espèce, comparés aux autres forêts wallonnes, comme une année normale : la météo n’est pas prise en compte. Ce n’est pas une probabilité de trouvaille.';
     $('#legend').innerHTML = '<div class="lg">' + head + rows + meteo + '</div><p class="muted small lg-note">' + note + ' Dézoomé, chaque zone est une moyenne : zoome pour voir les meilleurs secteurs.</p>';
   }
@@ -367,6 +380,16 @@
     return '<table class="pop">' + rows.join('') + '</table><small>' + (S.meteo === 'annee' && MW.meteoCarte.pret() ? 'Milieu, et météo des derniers mois (tendance régionale).' : 'Milieu seulement, sans la météo.') + ' Ceci n’identifie aucun champignon.</small>';
   }
 
+  /* ---------- itinéraire vers un point : liens universels (appli si installée, sinon site web, iPhone et Android) ---------- */
+  function itineraire(lat, lng) {
+    const ll = lat.toFixed(5) + ',' + lng.toFixed(5);
+    const g = 'https://www.google.com/maps/dir/?api=1&destination=' + ll + '&travelmode=driving';
+    const w = 'https://waze.com/ul?ll=' + ll + '&navigate=yes';
+    return '<div class="itineraire"><span>Y aller</span>' +
+      '<a href="' + g + '" target="_blank" rel="noopener" data-lien="google">Google Maps</a>' +
+      '<a href="' + w + '" target="_blank" rel="noopener" data-lien="waze">Waze</a></div>';
+  }
+
   /* ---------- fiche « Puis-je cueillir ici ? » + « Pourquoi ici ? » ---------- */
   const fiche = $('#fiche'), corps = $('#ficheCorps');
   const montrerFiche = (on) => { fiche.hidden = !on; document.body.classList.toggle('fiche-ouverte', on); };
@@ -386,7 +409,7 @@
     if (S.ficheMarker) map.removeLayer(S.ficheMarker);
     S.ficheMarker = L.circleMarker([lat, lng], { radius: 9, color: '#18231a', weight: 3, fillColor: '#cde46a', fillOpacity: 1, interactive: false }).addTo(map);
     corps.innerHTML = '<p class="surtitre">' + esc(titre) + ' · ' + esc(D.formatDate(S.jour)) + '</p>' +
-      '<p class="mono petit discret" style="margin:0">' + lat.toFixed(5) + ', ' + lng.toFixed(5) + '</p>' +
+      '<p class="mono petit discret" style="margin:0">' + lat.toFixed(5) + ', ' + lng.toFixed(5) + '</p>' + itineraire(lat, lng) +
       '<div data-part="verdict"><p class="discret">Vérification auprès des services publics…</p></div>' +
       '<h3 class="sous">La météo des derniers mois, ici</h3><div data-part="meteo"><p class="discret">Lecture de la météo…</p></div>' +
       '<h3 class="sous">Pourquoi ici ?</h3><div data-part="pourquoi"><p class="discret">Lecture du sol, du relief et de la forêt…</p></div>' +
@@ -407,7 +430,7 @@
         const st = MW.meteoCarte.etatAu(sp.id, lat, lng), res = /^réserve/.test(st.detail);
         if (res) reserve = st.detail.charAt(0).toUpperCase() + st.detail.slice(1) + '.';
         return '<div><span><span class="point" style="background:' + sp.color + '"></span>' + esc(sp.name) + (st.detail && !res ? '<small>' + esc(st.detail) + '</small>' : '') + '</span>' +
-          '<span class="feu ' + (st.w >= 0.5 ? 'vert' : st.key === 'moyen' || st.key === 'prepare' ? 'orange' : 'gris') + '">' + esc(st.label) + '</span></div>';
+          '<span class="feu ' + (st.key === 'sec' ? 'sec' : st.w >= 0.5 ? 'vert' : st.key === 'moyen' || st.key === 'prepare' ? 'orange' : 'gris') + '">' + esc(st.label) + '</span></div>';
       });
       poser('meteo', lignes.length ? (reserve ? '<p><b>' + esc(reserve) + '</b> Même un bon milieu reste souvent vide tant que le sol n’a pas rechargé.</p>' : '') + '<div class="especes-etat">' + lignes.join('') + '</div><p class="petit discret" style="margin-top:8px">Pluie, températures et réserve d’eau des trois derniers mois, à l’échelle de la région (environ 30 km). <a href="bulletin.html">Le bulletin</a></p>'
         : '<p>Hors saison pour les champignons suivis.</p>');
@@ -464,7 +487,7 @@
     box.className = 'pop-ici';
     box.innerHTML = (ferme ? '<div class="pop-alerte" role="alert">' + D.ALERTE + '<span><b>Fermé pour la chasse ' + esc(libelle(S.jour)) + ' :</b> on n’y entre pas, même pour cueillir.</span></div>' : '') +
       '<b>Milieu favorable à…</b><div class="pop-rows"><span class="muted">Lecture…</span></div>' +
-      '<button type="button" class="pop-btn">Puis-je cueillir ici ? Pourquoi ici ?</button>';
+      '<button type="button" class="pop-btn">Puis-je cueillir ici ? Pourquoi ici ?</button>' + itineraire(lat, lng);
     box.querySelector('.pop-btn').onclick = () => { map.closePopup(); ouvrirFiche(lat, lng, 'Point choisi'); };
     // contenu à défilement interne : la croix de fermeture reste toujours visible
     L.popup({ maxWidth: 320, maxHeight: Math.round(window.innerHeight * 0.38), autoPanPaddingTopLeft: mobile.matches ? [12, 130] : [370, 80] }).setLatLng(e.latlng).setContent(box).openOn(map);
@@ -604,6 +627,7 @@
     const q = $('#q').value.trim();
     if (!q) return;
     if (suggestions.length) return choisirLieu(suggestions[0]);
+    $('#q').blur(); // clavier fermé : la liste des lieux (ou le message) reste visible
     results.hidden = false; results.innerHTML = '<li class="muted">Recherche…</li>';
     try {
       const r = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=be&limit=5&accept-language=fr&q=' + encodeURIComponent(q));

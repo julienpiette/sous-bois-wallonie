@@ -56,10 +56,16 @@
   const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
   let invite = null;
   const installBtns = $$('.installer-btn');
+  try { sessionStorage.setItem('mw-pages-vues', String((+sessionStorage.getItem('mw-pages-vues') || 0) + 1)); } catch (e) { /* ignoré */ }
   function bandeau(texte, action) {
     const vu = store.get('sb-installer-vu', 0);
     // jamais par-dessus la carte : l'invitation attend une page de contenu
     if (standalone || Date.now() - vu < 30 * 864e5 || $('.installer') || document.body.classList.contains('carte-page')) return;
+    // pas pendant une saisie (il cacherait les résultats sous le pouce), et pas avant la deuxième page vue
+    const a = document.activeElement;
+    if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
+    let vues = 0; try { vues = +sessionStorage.getItem('mw-pages-vues') || 0; } catch (e) { /* ignoré */ }
+    if (vues < 2) return;
     const d = document.createElement('div');
     d.className = 'installer'; d.setAttribute('role', 'dialog'); d.setAttribute('aria-label', 'Installer l’appli');
     d.innerHTML = '<p>' + texte + '</p>' + (action ? '<button type="button" class="oui-installer">Installer</button>' : '') + '<button type="button" class="plus-tard">Plus tard</button>';

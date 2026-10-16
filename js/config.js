@@ -27,6 +27,23 @@
     tint: [0.35, 0, -0.45]
   };
 
+  // Sécheresse de fond : bilan pluie moins évaporation (ET0) sur les 90 jours qui précèdent, comparé à la normale du
+  // moment de l'année. Normales mesurées le 16/10/2026 sur ERA5 (Open-Meteo), 2015-2025, 8 points wallons
+  // (Namur, Chimay, Saint-Hubert, Spa, Arlon, Tournai, Bouillon, Marche), au 15 de chaque mois, en mm.
+  MW.NORMALES_BILAN_90J = {
+    moyenne:   [247, 269, 246, 130, 24, -59, -97, -106, -98, -24, 66, 169],
+    ecartType: [100, 95, 90, 83, 91, 96, 111, 115, 123, 88, 75, 87]
+  };
+  // Pénalité progressive : rien jusqu'à 1 écart-type sous la normale (environ 1 année sur 6), pleine à 2 écarts-types
+  // (environ 1 année sur 40). Elle retire au plus PENALITE_MAX du score. Grisé sur la carte et « Trop sec » au bulletin
+  // seulement à partir de SEUIL_GRIS (1,5 écart-type sous la normale : les vrais cas extrêmes).
+  MW.SECHERESSE = { DEBUT_ECARTS: 1.0, PLEIN_ECARTS: 2.0, PENALITE_MAX: 0.25, SEUIL_GRIS: 0.5 };
+
+  // Petit bonus de latitude pour le potentiel de site affiché : les forêts plus au sud (Ardenne) sont en général plus
+  // arrosées et plus productives. Nul au nord de LAT_SANS_BONUS, il croît linéairement jusqu'à BONUS_MAX à LAT_BONUS_MAX.
+  // BONUS_MAX s'ajoute au rang du site (0-1) : 0,04 = 4 points de rang au plus, jamais dominant.
+  MW.BONUS_SUD = { LAT_SANS_BONUS: 50.75, LAT_BONUS_MAX: 49.5, BONUS_MAX: 0.04 };
+
   MW.GRID = { latStep: 0.25, lonStep: 0.38, buffer: 0.3, pastDays: 92, forecastDays: 16, batchSize: 25, cacheHours: 3 };
 
   // Services WMS du SPW, vérifiés le 12/10/2026 : GetCapabilities + GetMap EPSG:3857, CORS ouvert.

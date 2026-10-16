@@ -34,7 +34,21 @@
     return 0;
   }
 
-  // s = { time, precip, tmean, tmin } ; t = indice du jour évalué
+  // normale du bilan 90 jours au jour donné : interpolée entre les valeurs du 15 de chaque mois
+  function normaleBilan(iso) {
+    const N = MW.NORMALES_BILAN_90J, m = +iso.slice(5, 7) - 1, d = +iso.slice(8, 10);
+    const a = d >= 15 ? m : (m + 11) % 12, b = (a + 1) % 12, f = d >= 15 ? (d - 15) / 30 : (d + 15) / 30;
+    return { moyenne: N.moyenne[a] + (N.moyenne[b] - N.moyenne[a]) * f, ecartType: N.ecartType[a] + (N.ecartType[b] - N.ecartType[a]) * f };
+  }
+  // sécheresse de fond (0-1) au jour t, indépendante de l'espèce ; null si l'évaporation n'est pas disponible
+  function secheresse(s, t) {
+    if (!s.et0 || !s.et0.length || !MW.NORMALES_BILAN_90J) return { bal: null, normale: null, z: 0, sec: 0 };
+    const bal = sum(s.precip, t - 89, t) - sum(s.et0, t - 89, t), n = normaleBilan(s.time[Math.min(t, s.time.length - 1)]);
+    const z = (bal - n.moyenne) / n.ecartType, X = MW.SECHERESSE;
+    return { bal, normale: n.moyenne, z, sec: clamp((-z - X.DEBUT_ECARTS) / (X.PLEIN_ECARTS - X.DEBUT_ECARTS), 0, 1) };
+  }
+
+  // s = { time, precip, tmean, tmin, et0 } ; t = indice du jour évalué
   function evaluate(sp, s, t) {
     const r = sp.rain;
     const rain = sum(s.precip, t - r.lag - r.window + 1, t - r.lag);
@@ -50,12 +64,11 @@
     const f = sp.frost;
     const G = tmin >= f.thr + 2 ? 1 : tmin <= f.thr ? f.factor : f.factor + (1 - f.factor) * ((tmin - f.thr) / 2);
     const C = calendar(sp, s.time[Math.min(t, s.time.length - 1)].slice(5));
-    // W réserve d'eau du sol : pluie moins évaporation (ET0) sur 90 jours. Une averse ne compense pas un été sec ;
-    // c'est aussi ce qui sépare l'Ardenne, plus arrosée et plus fraîche, du nord du sillon. Hypothèse : +20 mm ≈ normal
-    // en automne, -80 mm = sol très sec.
-    let bal = null, W = 1;
-    if (s.et0 && s.et0.length) { bal = sum(s.precip, t - 89, t) - sum(s.et0, t - 89, t); W = 0.3 + 0.7 * clamp((bal + 80) / 100, 0, 1); }
-    return { I: P * D * T * S * G * C * W, P, D, T, S, G, C, W, bal, rain, recent, Tm, tmin, dr };
+    // W réserve d'eau : bilan pluie - ET0 sur 90 jours comparé à la normale du moment (MW.NORMALES_BILAN_90J).
+    // sec = 0 tant qu'on reste à moins d'un écart-type sous la normale, puis progressif jusqu'à 1 (voir MW.SECHERESSE).
+    const sh = secheresse(s, t);
+    const W = 1 - MW.SECHERESSE.PENALITE_MAX * sh.sec;
+    return { I: P * D * T * S * G * C * W, P, D, T, S, G, C, W, bal: sh.bal, normale: sh.normale, z: sh.z, sec: sh.sec, rain, recent, Tm, tmin, dr };
   }
 
   function state(sp, s, t) {
@@ -64,7 +77,7 @@
     if (e.C < 0.25) { key = 'hors'; label = 'Hors saison'; }
     else if (e.G < 0.5) { key = 'gel'; label = 'Gelé'; detail = 'Tmin ' + e.tmin.toFixed(1) + ' °C sur 7 j'; }
     else if (e.I >= 0.6) { key = 'pousse'; label = 'Pousse probable'; }
-    else if (e.W < 0.6) { key = 'sec'; label = 'Trop sec'; detail = 'réserve d’eau basse : il manque ~' + Math.round(20 - e.bal) + ' mm sur 3 mois'; }
+    else if (e.sec >= MW.SECHERESSE.SEUIL_GRIS) { key = 'sec'; label = 'Trop sec'; detail = 'réserve d’eau très basse : ~' + Math.round(e.normale - e.bal) + ' mm sous la normale sur 3 mois'; }
     else if (e.P < 0.6 && e.recent >= sp.rain.min && e.T >= 0.5) {
       key = 'prepare'; label = 'En préparation';
       for (let k = 1; t + k < s.time.length; k++) {
@@ -85,5 +98,5 @@
     return out;
   }
 
-  MW.model = { evaluate, state, monthWeights, calendar };
+  MW.model = { evaluate, state, monthWeights, calendar, secheresse };
 })(typeof window !== 'undefined' ? window : globalThis);

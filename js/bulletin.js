@@ -11,7 +11,7 @@
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignoré */ } }
   };
   const FEU = { pousse: ['vert', 'Fenêtre favorable'], prepare: ['orange', 'Ça se prépare'], moyen: ['orange', 'Moyen'],
-    sec: ['gris', 'Trop sec'], froid: ['gris', 'Trop froid'], chaud: ['gris', 'Trop chaud'], gel: ['gris', 'Gelé'], defav: ['gris', 'Défavorable'], hors: ['gris', 'Hors saison'] };
+    sec: ['sec', 'Trop sec'], froid: ['gris', 'Trop froid'], chaud: ['gris', 'Trop chaud'], gel: ['gris', 'Gelé'], defav: ['gris', 'Défavorable'], hors: ['gris', 'Hors saison'] };
   const nomCourt = { cepe: 'cèpes', girolle: 'girolles', morille: 'morilles', trompette: 'trompettes', chanterelle: 'chanterelles en tube', pied: 'pieds de mouton' };
   const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
   const somme = (a, i, j) => { let s = 0; for (let k = Math.max(0, i); k <= Math.min(a.length - 1, j); k++) s += a[k] || 0; return s; };
@@ -100,18 +100,28 @@
 
   // « Saison en cours » : réserve d'eau des trois derniers mois (pluie moins évaporation), massif par massif.
   // C'est l'information que les débutants ne connaissent pas : un bon bois reste vide après un été sec.
+  // Comparée à la normale du moment (MW.NORMALES_BILAN_90J), pas à zéro : en automne, un bilan négatif est normal.
   function saison(res, t) {
-    const b = res.map((r) => ({ nom: r.m.nom, bal: MW.model.evaluate(MW.SPECIES[0], r.s, t).bal })).filter((x) => x.bal != null);
+    const b = res.map((r) => { const e = MW.model.evaluate(MW.SPECIES[0], r.s, t); return { nom: r.m.nom, ecart: e.bal == null ? null : e.bal - e.normale, sec: e.sec }; }).filter((x) => x.ecart != null);
     if (!b.length) return null;
-    b.sort((x, y) => y.bal - x.bal);
-    const secs = b.filter((x) => x.bal < -30).length, humides = b.filter((x) => x.bal >= 0).map((x) => x.nom);
-    const titre = secs >= b.length * 0.6 ? 'Saison sèche' : secs === 0 ? 'Réserve d’eau correcte' : 'Saison contrastée';
-    const texte = secs >= b.length * 0.6
-      ? 'Sur les trois derniers mois, la forêt a évaporé plus d’eau qu’il n’en est tombé dans ' + secs + ' massifs sur ' + b.length + '. Même un bon bois peut rester vide malgré quelques averses : il faut plusieurs semaines de pluie pour recharger le sol.'
-      : secs === 0 ? 'Les sols ont gardé leur eau ces trois derniers mois : quand la température suit, les poussées peuvent démarrer vite.'
-      : secs + ' massifs sur ' + b.length + ' manquent d’eau après les trois derniers mois ; les autres ont mieux tenu.';
-    const mieux = humides.length ? 'Les mieux arrosés : ' + liste(humides.slice(0, 3)) + '.' : 'Le moins sec : ' + b[0].nom + '.';
-    return { titre, texte, mieux, court: titre + ' : ' + (humides.length ? 'mieux vers ' + liste(humides.slice(0, 2)) : 'le moins sec, ' + b[0].nom) + '.' };
+    b.sort((x, y) => y.ecart - x.ecart);
+    const extremes = b.filter((x) => x.sec >= MW.SECHERESSE.SEUIL_GRIS).length, moyen = b.reduce((s, x) => s + x.ecart, 0) / b.length;
+    const mieux = 'Les mieux arrosés : ' + liste(b.slice(0, 3).map((x) => x.nom)) + '.';
+    let titre, texte;
+    if (extremes >= b.length / 2) {
+      titre = 'Saison très sèche';
+      texte = extremes + ' massifs sur ' + b.length + ' ont nettement manqué d’eau ces trois derniers mois. Même un bon bois peut rester vide malgré quelques averses : il faut souvent plusieurs semaines de pluie pour recharger le sol.';
+    } else if (moyen < -25) {
+      titre = 'Un peu plus sec que d’habitude';
+      texte = 'Les trois derniers mois ont été plus secs que la normale (environ ' + Math.round(-moyen) + ' mm d’eau en moins). Les poussées peuvent démarrer, souvent avec un peu de retard, surtout là où il a plu récemment.';
+    } else if (moyen > 25) {
+      titre = 'Sols bien arrosés';
+      texte = 'Les trois derniers mois ont été plus arrosés que la normale : quand la température suit, les poussées démarrent vite.';
+    } else {
+      titre = 'Réserve d’eau normale pour la saison';
+      texte = 'Les trois derniers mois sont dans la normale : c’est la pluie des dernières semaines et la température qui décident.';
+    }
+    return { titre, texte, mieux, court: titre + ' : mieux vers ' + liste(b.slice(0, 2).map((x) => x.nom)) + '.' };
   }
 
   const SQUELETTE = '<p class="discret b-charge" role="status">Chargement du bulletin…</p>' +
@@ -140,7 +150,8 @@
     const res = ms.map((m, i) => {
       const s = w.series[i];
       const etats = MW.SPECIES.map((sp) => ({ sp, st: MW.model.state(sp, s, t) }));
-      return { m, s, etats, bal: MW.model.evaluate(MW.SPECIES[0], s, t).bal, pluie26: somme(s.precip, t - 25, t), t20: moyenne(s.tmean, t - 19, t), prevu7: somme(s.precip, t + 1, t + 7), phrase: phrase(etats), resume: resume(etats) };
+      const ev = MW.model.evaluate(MW.SPECIES[0], s, t);
+      return { m, s, etats, ecart: ev.bal == null ? null : ev.bal - ev.normale, pluie26: somme(s.precip, t - 25, t), t20: moyenne(s.tmean, t - 19, t), prevu7: somme(s.precip, t + 1, t + 7), phrase: phrase(etats), resume: resume(etats) };
     });
     const maj = new Date(w.fetchedAt).toLocaleString('fr-BE', { weekday: 'long', hour: '2-digit', minute: '2-digit' });
 
@@ -205,7 +216,7 @@
             '<p class="m-phrase">' + esc(r.phrase) + (r.etats.some((e) => /^réserve/.test(e.st.detail)) ? ' ' + esc(majReserve(r.etats.find((e) => /^réserve/.test(e.st.detail)).st.detail)) + '.' : '') + '</p>' +
             '<div class="especes-etat">' + r.etats.map((e) => '<div><span><span class="point" style="background:' + e.sp.color + '"></span>' + esc(e.sp.name) +
               (e.st.detail && !/^réserve/.test(e.st.detail) ? '<small>' + esc(e.st.detail) + '</small>' : '') + '</span><span class="feu ' + FEU[e.st.key][0] + '">' + FEU[e.st.key][1] + '</span></div>').join('') + '</div>' +
-            '<p class="releve">Réserve d’eau sur 3 mois <b>' + (r.bal == null ? '?' : (r.bal > 0 ? '+' : '') + Math.round(r.bal) + ' mm') + '</b> · pluie sur 26 jours <b>' + Math.round(r.pluie26) + ' mm</b> · moyenne sur 20 jours <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
+            '<p class="releve">Réserve d’eau sur 3 mois <b>' + (r.ecart == null ? '?' : Math.abs(Math.round(r.ecart)) < 15 ? 'normale' : Math.abs(Math.round(r.ecart)) + ' mm ' + (r.ecart < 0 ? 'sous' : 'au-dessus de') + ' la normale') + '</b> · pluie sur 26 jours <b>' + Math.round(r.pluie26) + ' mm</b> · moyenne sur 20 jours <b>' + r.t20.toFixed(1).replace('.', ',') + ' °C</b> · prévu cette semaine <b>' + Math.round(r.prevu7) + ' mm</b></p>' +
             '<p class="battues-massif" data-massif="' + esc(r.m.id) + '">Battues ce week-end : recherche…</p>' +
             '<div class="m-liens"><a href="carte.html#12/' + r.m.lat + '/' + r.m.lon + '">Voir sur la carte</a><a href="battues.html?massif=' + esc(r.m.id) + '">Calendrier des battues</a></div>' +
           '</div></details>').join('') + '</div>';

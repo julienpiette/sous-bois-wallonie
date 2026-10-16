@@ -56,8 +56,9 @@
     // la recherche, l'espèce et la saison d'abord ; les cinq autres filtres repliés (ouverts si l'un d'eux est dans l'adresse)
     const autres = FILTRES.slice(2), autresActifs = autres.some(([k]) => params.get(k));
     zone.innerHTML =
-      '<form id="r-filtres" class="r-filtres" role="search" aria-label="Filtrer les recettes" onsubmit="return false">' +
-      '<label class="champ r-q">Rechercher<input type="search" id="r-q" placeholder="Ex. crème, risotto, noisette" autocomplete="off" enterkeyhint="search"></label>' +
+      '<form id="r-filtres" class="r-filtres" role="search" aria-label="Filtrer les recettes">' +
+      '<label class="champ r-q"><span>Rechercher</span><span class="r-rech"><input type="search" id="r-q" placeholder="Ex. crème, risotto, noisette" autocomplete="off" enterkeyhint="search">' +
+        '<button type="submit" class="r-loupe" aria-label="Lancer la recherche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button></span></label>' +
       FILTRES.slice(0, 2).map(champ).join('') +
       '<details class="r-plus-filtres"' + (autresActifs ? ' open' : '') + '><summary>Plus de filtres <span>type de plat, durée, niveau, régime, conservation</span></summary>' +
         '<div class="r-filtres-suite">' + autres.map(champ).join('') + '</div></details>' +
@@ -91,10 +92,14 @@
       if (remettre) n = PAR_PAGE;
       const f = { q: norm($('#r-q').value.trim()) };
       FILTRES.forEach(([k]) => { f[k] = $('#r-' + k).value; });
-      const res = idx.filter((r) => garde(r, f));
-      $('#r-compte').textContent = res.length + ' recette' + (res.length > 1 ? 's' : '') + (res.length === idx.length ? '' : ' sur ' + idx.length);
+      const res = idx.filter((r) => garde(r, f)), mot = $('#r-q').value.trim();
+      const pour = mot ? ' pour « ' + mot + ' »' : '';
+      $('#r-compte').textContent = res.length
+        ? res.length + ' recette' + (res.length > 1 ? 's' : '') + pour + (res.length === idx.length ? '' : ' sur ' + idx.length)
+        : 'Aucune recette' + pour + '. Essaie un autre mot, ou retire un filtre.';
+      $('#r-compte').classList.toggle('r-vide', !res.length);
       $('#r-liste').innerHTML = res.slice(0, n).map(carte).join('') ||
-        '<p class="discret">Aucune recette ne correspond. Retire un filtre, ou regarde la <a href="conservation.html">conservation</a> pour garder ta récolte.</p>';
+        '<p class="discret">Pour garder ta récolte en attendant : la <a href="conservation.html">conservation</a>.</p>';
       $('#r-plus').hidden = res.length <= n;
       const actifs = !!$('#r-q').value.trim() || FILTRES.some(([k]) => $('#r-' + k).value);
       $('#r-effacer').hidden = !actifs;
@@ -107,9 +112,20 @@
       history.replaceState(null, '', 'recettes.html' + (s ? '?' + s : ''));
       memo('mw-recettes-filtres', s);
     }
+    // après une recherche validée : fermer le clavier et amener le résultat sous les yeux, avec un bref signal
+    const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function voir(toujours) {
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      const c = $('.r-compte'), r = c.getBoundingClientRect();
+      if (toujours || r.top < 64 || r.bottom > innerHeight * 0.6) c.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+      c.classList.remove('r-signal'); void c.offsetWidth; c.classList.add('r-signal');
+    }
     let minuterie;
     $('#r-q').addEventListener('input', () => { clearTimeout(minuterie); minuterie = setTimeout(() => maj(true), 150); });
-    FILTRES.forEach(([k]) => $('#r-' + k).addEventListener('change', () => maj(true)));
+    // loupe, touche Entrée ou « Rechercher » du clavier : même effet
+    $('#r-filtres').addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(minuterie); maj(true); voir(true); });
+    // un filtre changé : on montre le résultat seulement s'il n'est pas déjà visible
+    FILTRES.forEach(([k]) => $('#r-' + k).addEventListener('change', () => { maj(true); voir(false); }));
     $('#r-plus').addEventListener('click', () => { n += PAR_PAGE; maj(false); });
     $('#r-effacer').addEventListener('click', () => { $('#r-q').value = ''; FILTRES.forEach(([k]) => { $('#r-' + k).value = ''; }); maj(true); $('#r-q').focus(); });
     maj(true);
